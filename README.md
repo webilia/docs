@@ -2,7 +2,7 @@
 
 Welcome! This repository contains the source code for the documentation of Webilia products such as Listdom, Vertex, and more.
 
-If you are an end user looking for guides or reference material, please visit [docs.webilia.com](https://docs.webilia.com). The website hosts the latest documentation for all of our products.
+If you are an end user looking for product documentation or reference material, please visit [docs.webilia.com](https://docs.webilia.com). The website hosts the latest documentation for all of our products.
 
 ## Contributing
 
