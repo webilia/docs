@@ -14,6 +14,14 @@ We appreciate help from the community. If you find an error or have suggestions 
 2. Run `npm run dev` to start a local development server with automatic SCSS compilation.
 3. Use `npm run build` to create a production build.
 
+To enable Algolia-powered search, create a `.env` file with the following variables:
+
+```
+PUBLIC_ALGOLIA_APP_ID=
+PUBLIC_ALGOLIA_API_KEY=
+PUBLIC_ALGOLIA_INDEX_NAME=
+```
+
 Thank you for helping us improve Webilia's documentation!
 
 ## Built With
