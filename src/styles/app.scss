@@ -1,20 +1,28 @@
-starlight-multi-sidebar-tabs [role="tablist"] {
+starlight-multi-sidebar-tabs {
+  gap: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  grid-auto-flow: unset;
-  padding-inline: 0;
-}
 
-starlight-multi-sidebar-tabs .tab > [role="tab"] {
-  text-align: left;
-  border-bottom: none;
-  border-left: 1px solid var(--sl-color-gray-5);
-  padding: 0.25rem 0.5rem;
-}
+  [role="tablist"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    grid-auto-flow: unset;
+    gap: 0.25rem;
+    padding: 0.50rem;
+    border-radius: 0.50rem;
+    border: 1px solid var(--sl-color-hairline-shade);
+  }
 
-starlight-multi-sidebar-tabs .tab > [role="tab"][aria-selected="true"] {
-  border-left-width: 2px;
-  border-color: var(--sl-color-text-accent);
-  color: var(--sl-color-white);
+  .tab > [role="tab"] {
+    text-align: left;
+    border: none;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .tab > [role="tab"][aria-selected="true"] {
+    background-color: var(--sl-color-hairline-shade);
+    color: var(--sl-color-white);
+    border-radius: 0.50rem;
+  }
 }
