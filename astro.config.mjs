@@ -14,8 +14,22 @@ export default defineConfig({
         { icon: 'cloud-download', label: 'Website', href: 'https://webilia.com' },
       ],
       sidebar: [
-        { label: 'Listdom', autogenerate: { directory: 'listdom' } },
-        { label: 'Vertex Addons', autogenerate: { directory: 'vertex' } },
+        {
+          label: 'Listdom',
+          items: [
+            { label: 'Overview', link: '/listdom/' },
+            { label: 'Getting Started', autogenerate: { directory: 'listdom/getting-started' } },
+          ],
+        },
+        {
+          label: 'Vertex Addons',
+          items: [
+            { label: 'Overview', link: '/vertex/' },
+            { label: 'Getting Started', autogenerate: { directory: 'vertex/getting-started' } },
+            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' } },
+            { label: 'Widgets', autogenerate: { directory: 'vertex/widgets' } },
+          ],
+        },
       ],
       plugins: [
         starlightUtils({ multiSidebar: { switcherStyle: 'horizontalList' } }),

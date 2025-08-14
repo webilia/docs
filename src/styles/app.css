@@ -23,3 +23,8 @@ starlight-multi-sidebar-tabs .tab > [role=tab][aria-selected=true] {
   color: var(--sl-color-white);
   border-radius: 0.5rem;
 }
+
+ul.top-level li:first-child a {
+  font-weight: 400;
+  font-size: var(--sl-text-sm);
+}
