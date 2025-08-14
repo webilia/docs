@@ -1,49 +1,18 @@
-# Starlight Starter Kit: Basics
+# Webilia Documentation
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Welcome! This repository contains the source code for the documentation of Webilia products such as Listdom, Vertex, and more.
 
-```
-npm create astro@latest -- --template starlight
-```
+If you are an end user looking for guides or reference material, please visit [docs.webilia.com](https://docs.webilia.com). The website hosts the latest documentation for all of our products.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Contributing
 
-## 🚀 Project Structure
+We appreciate help from the community. If you find an error or have suggestions to improve the documentation, feel free to fork this repository and open a pull request.
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+### Local development
 
-```
-.
-├── public/
-├── src/
-│   ├── assets/
-│   ├── content/
-│   │   └── docs/
-│   └── content.config.ts
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
-```
+1. Install dependencies with `npm install`.
+2. Run `npm run dev` to start a local development server.
+3. Use `npm run build` to create a production build.
 
-Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+Thank you for helping us improve Webilia's documentation!
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
-
-Static assets, like favicons, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
