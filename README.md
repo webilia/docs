@@ -11,7 +11,7 @@ We appreciate help from the community. If you find an error or have suggestions 
 ### Local development
 
 1. Install dependencies with `npm install`.
-2. Run `npm run dev` to start a local development server.
+2. Run `npm run dev` to start a local development server with automatic SCSS compilation.
 3. Use `npm run build` to create a production build.
 
 Thank you for helping us improve Webilia's documentation!
