@@ -1,5 +1,5 @@
 ---
-title: Vertex Addons for Elementor
+title: Vertex Addons
 description: Vertex Addons extends Elementor with advanced widgets and design options.
 ---
 
