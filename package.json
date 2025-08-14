@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prebuild": "sass src/styles/app.scss src/styles/app.css --no-source-map"
   },
   "dependencies": {
     "@astrojs/starlight": "^0.35.2",
@@ -15,6 +16,7 @@
     "sharp": "^0.34.2"
   },
   "devDependencies": {
-    "@lorenzo_lewis/starlight-utils": "^0.3.2"
+    "@lorenzo_lewis/starlight-utils": "^0.3.2",
+    "sass": "^1.90.0"
   }
 }

@@ -20,7 +20,7 @@ export default defineConfig({
       plugins: [
         starlightUtils({ multiSidebar: { switcherStyle: 'horizontalList' } }),
       ],
-      customCss: ['./src/styles/multi-sidebar.css'],
+      customCss: ['./src/styles/app.css'],
       components: {
         SocialIcons: './src/components/SocialIcons.astro',
       },
