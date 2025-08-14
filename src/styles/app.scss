@@ -1,0 +1,28 @@
+starlight-multi-sidebar-tabs {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  [role="tablist"] {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    grid-auto-flow: unset;
+    gap: 0.25rem;
+    padding: 0.50rem;
+    border-radius: 0.50rem;
+    border: 1px solid var(--sl-color-hairline-shade);
+  }
+
+  .tab > [role="tab"] {
+    text-align: left;
+    border: none;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .tab > [role="tab"][aria-selected="true"] {
+    background-color: var(--sl-color-hairline-shade);
+    color: var(--sl-color-white);
+    border-radius: 0.50rem;
+  }
+}

@@ -1,0 +1,6 @@
+---
+title: Listdom
+description: Listdom is a WordPress plugin for building directory and listing websites.
+---
+
+Listdom is a versatile WordPress directory and listing plugin that helps you create and manage modern listings with flexible layouts and search features.
