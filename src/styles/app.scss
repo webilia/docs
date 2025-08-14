@@ -26,3 +26,12 @@ starlight-multi-sidebar-tabs {
     border-radius: 0.50rem;
   }
 }
+
+ul.top-level {
+  li:first-child {
+    a {
+      font-weight: 400;
+      font-size: var(--sl-text-sm);
+    }
+  }
+}
