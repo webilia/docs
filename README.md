@@ -19,4 +19,3 @@ Thank you for helping us improve Webilia's documentation!
 ## Built With
 
 Our documentation website is built with the Astro web framework and hosted on AWS.
-

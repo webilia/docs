@@ -1,0 +1,17 @@
+---
+---
+<div id="docsearch"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
+<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3" defer></script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof docsearch !== 'undefined') {
+      docsearch({
+        container: '#docsearch',
+        appId: import.meta.env.PUBLIC_ALGOLIA_APP_ID,
+        apiKey: import.meta.env.PUBLIC_ALGOLIA_API_KEY,
+        indexName: import.meta.env.PUBLIC_ALGOLIA_INDEX_NAME,
+      });
+    }
+  });
+</script>
