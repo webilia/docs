@@ -53,7 +53,6 @@ export default defineConfig({
       customCss: ['./src/styles/app.css'],
       components: {
         SocialIcons: './src/components/SocialIcons.astro',
-        Search: './src/components/AlgoliaSearch.astro',
       },
     }),
   ],
