@@ -1,4 +1,9 @@
 ---
+const {
+  PUBLIC_ALGOLIA_APP_ID,
+  PUBLIC_ALGOLIA_API_KEY,
+  PUBLIC_ALGOLIA_INDEX_NAME,
+} = import.meta.env;
 ---
 <div id="docsearch"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
@@ -8,10 +13,11 @@
     if (typeof docsearch !== 'undefined') {
       docsearch({
         container: '#docsearch',
-        appId: import.meta.env.PUBLIC_ALGOLIA_APP_ID,
-        apiKey: import.meta.env.PUBLIC_ALGOLIA_API_KEY,
-        indexName: import.meta.env.PUBLIC_ALGOLIA_INDEX_NAME,
+        appId: ${JSON.stringify(PUBLIC_ALGOLIA_APP_ID)},
+        apiKey: ${JSON.stringify(PUBLIC_ALGOLIA_API_KEY)},
+        indexName: ${JSON.stringify(PUBLIC_ALGOLIA_INDEX_NAME)},
       });
     }
   });
 </script>
+
