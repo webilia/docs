@@ -24,6 +24,12 @@ export default defineConfig({
       components: {
         SocialIcons: './src/components/SocialIcons.astro',
       },
+      locales: {
+        root: { label: 'English', lang: 'en' },
+        fr: { label: 'Français', lang: 'fr' },
+        es: { label: 'Español', lang: 'es' },
+        de: { label: 'Deutsch', lang: 'de' },
+      },
     }),
   ],
 });
