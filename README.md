@@ -4,6 +4,8 @@ Welcome! This repository contains the source code for the documentation of Webil
 
 If you are an end user looking for product documentation or reference material, please visit [docs.webilia.com](https://docs.webilia.com). The website hosts the latest documentation for all of our products.
 
+The site now provides multilingual support and can be browsed in English, French, and Spanish.
+
 ## Contributing
 
 We appreciate help from the community. If you find an error or have suggestions to improve the documentation, feel free to fork this repository and open a pull request.
