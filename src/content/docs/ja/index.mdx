@@ -1,0 +1,35 @@
+---
+title: Webilia へようこそ
+description: Webilia の製品について学びましょう。
+template: splash
+hero:
+  tagline: Webilia へようこそ
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Listdom
+      link: /ja/listdom
+      icon: right-arrow
+    - text: Vertex Addons
+      link: /ja/vertex
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## 次のステップ
+
+<CardGrid stagger>
+        <Card title="コンテンツを更新" icon="pencil">
+                `src/content/docs/index.mdx` を編集してこのページを変更します。
+        </Card>
+        <Card title="新しいコンテンツを追加" icon="add-document">
+                `src/content/docs` に Markdown または MDX ファイルを追加して新しいページを作成します。
+        </Card>
+        <Card title="サイトを設定" icon="setting">
+                `astro.config.mjs` で `sidebar` などの設定を編集します。
+        </Card>
+        <Card title="ドキュメントを読む" icon="open-book">
+                [Starlight ドキュメント](https://starlight.astro.build/) でさらに学びます。
+        </Card>
+</CardGrid>

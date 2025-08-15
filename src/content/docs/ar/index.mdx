@@ -1,0 +1,35 @@
+---
+title: مرحبًا بكم في ويبليا
+description: تعرّف على منتجات ويبليا.
+template: splash
+hero:
+  tagline: مرحبًا بكم في ويبليا
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Listdom
+      link: /ar/listdom
+      icon: right-arrow
+    - text: Vertex Addons
+      link: /ar/vertex
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## الخطوات التالية
+
+<CardGrid stagger>
+        <Card title="تحديث المحتوى" icon="pencil">
+                حرّر `src/content/docs/index.mdx` لمشاهدة تغييرات هذه الصفحة.
+        </Card>
+        <Card title="إضافة محتوى جديد" icon="add-document">
+                أضف ملفات Markdown أو MDX إلى `src/content/docs` لإنشاء صفحات جديدة.
+        </Card>
+        <Card title="إعداد موقعك" icon="setting">
+                حرّر `sidebar` والإعدادات الأخرى في `astro.config.mjs`.
+        </Card>
+        <Card title="قراءة التوثيق" icon="open-book">
+                تعرّف على المزيد في [توثيق Starlight](https://starlight.astro.build/).
+        </Card>
+</CardGrid>

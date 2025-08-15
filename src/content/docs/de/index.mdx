@@ -1,0 +1,35 @@
+---
+title: Willkommen bei Webilia
+description: Erfahren Sie mehr über Webilia-Produkte.
+template: splash
+hero:
+  tagline: Willkommen bei Webilia
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Listdom
+      link: /de/listdom
+      icon: right-arrow
+    - text: Vertex Addons
+      link: /de/vertex
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Nächste Schritte
+
+<CardGrid stagger>
+        <Card title="Inhalt aktualisieren" icon="pencil">
+                Bearbeiten Sie `src/content/docs/index.mdx`, um diese Seite zu ändern.
+        </Card>
+        <Card title="Neuen Inhalt hinzufügen" icon="add-document">
+                Fügen Sie Markdown- oder MDX-Dateien zu `src/content/docs` hinzu, um neue Seiten zu erstellen.
+        </Card>
+        <Card title="Konfigurieren Sie Ihre Seite" icon="setting">
+                Bearbeiten Sie Ihre `sidebar` und andere Konfigurationen in `astro.config.mjs`.
+        </Card>
+        <Card title="Dokumentation lesen" icon="open-book">
+                Erfahren Sie mehr in [den Starlight-Dokumenten](https://starlight.astro.build/).
+        </Card>
+</CardGrid>
