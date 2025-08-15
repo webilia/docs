@@ -1,0 +1,35 @@
+---
+title: 欢迎来到 Webilia
+description: 了解 Webilia 产品。
+template: splash
+hero:
+  tagline: 欢迎来到 Webilia
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Listdom
+      link: /zh-cn/listdom
+      icon: right-arrow
+    - text: Vertex Addons
+      link: /zh-cn/vertex
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## 下一步
+
+<CardGrid stagger>
+        <Card title="更新内容" icon="pencil">
+                编辑 `src/content/docs/index.mdx` 以查看此页面的变化。
+        </Card>
+        <Card title="添加新内容" icon="add-document">
+                在 `src/content/docs` 中添加 Markdown 或 MDX 文件以创建新页面。
+        </Card>
+        <Card title="配置您的站点" icon="setting">
+                在 `astro.config.mjs` 中编辑您的 `sidebar` 和其他配置。
+        </Card>
+        <Card title="阅读文档" icon="open-book">
+                在 [Starlight 文档](https://starlight.astro.build/) 中了解更多。
+        </Card>
+</CardGrid>

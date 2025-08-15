@@ -1,0 +1,35 @@
+---
+title: به وبیلیا خوش آمدید
+description: درباره محصولات وبیلیا بیاموزید.
+template: splash
+hero:
+  tagline: به وبیلیا خوش آمدید
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Listdom
+      link: /fa/listdom
+      icon: right-arrow
+    - text: Vertex Addons
+      link: /fa/vertex
+      icon: right-arrow
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## گام‌های بعدی
+
+<CardGrid stagger>
+        <Card title="به‌روزرسانی محتوا" icon="pencil">
+                `src/content/docs/index.mdx` را ویرایش کنید تا تغییر این صفحه را ببینید.
+        </Card>
+        <Card title="افزودن محتوای جدید" icon="add-document">
+                برای ایجاد صفحات جدید، فایل‌های Markdown یا MDX را به `src/content/docs` اضافه کنید.
+        </Card>
+        <Card title="تنظیم سایت" icon="setting">
+                `sidebar` و سایر تنظیمات را در `astro.config.mjs` ویرایش کنید.
+        </Card>
+        <Card title="مطالعه مستندات" icon="open-book">
+                در [مستندات Starlight](https://starlight.astro.build/) بیشتر بیاموزید.
+        </Card>
+</CardGrid>
