@@ -27,7 +27,6 @@ export default defineConfig({
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/webilia/docs' },
         { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/webilia-inc/' },
-        { icon: 'cloud-download', label: 'Website', href: 'https://webilia.com' },
       ],
       sidebar: [
         {
