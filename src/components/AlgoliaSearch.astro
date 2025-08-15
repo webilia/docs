@@ -8,14 +8,21 @@ const {
 <div id="docsearch"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
 <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3" defer></script>
-<script is:inline>
+<script
+  is:inline
+  define:vars={{
+    PUBLIC_ALGOLIA_APP_ID,
+    PUBLIC_ALGOLIA_API_KEY,
+    PUBLIC_ALGOLIA_INDEX_NAME,
+  }}
+>
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof docsearch !== 'undefined') {
       docsearch({
         container: '#docsearch',
-        appId: ${JSON.stringify(PUBLIC_ALGOLIA_APP_ID)},
-        apiKey: ${JSON.stringify(PUBLIC_ALGOLIA_API_KEY)},
-        indexName: ${JSON.stringify(PUBLIC_ALGOLIA_INDEX_NAME)},
+        appId: PUBLIC_ALGOLIA_APP_ID,
+        apiKey: PUBLIC_ALGOLIA_API_KEY,
+        indexName: PUBLIC_ALGOLIA_INDEX_NAME,
       });
     }
   });
