@@ -8,6 +8,12 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Webilia',
+      defaultLocale: 'en',
+      locales: {
+        en: { label: 'English' },
+        fr: { label: 'Français' },
+        es: { label: 'Español' },
+      },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/webilia/docs' },
         { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/webilia-inc/' },
