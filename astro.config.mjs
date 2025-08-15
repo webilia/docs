@@ -8,9 +8,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Webilia',
-      defaultLocale: 'en',
+      defaultLocale: 'root',
       locales: {
-        en: { label: 'English' },
+        root: { label: 'English', lang: 'en' },
         fr: { label: 'Français' },
         es: { label: 'Español' },
       },
