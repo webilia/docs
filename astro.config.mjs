@@ -39,10 +39,11 @@ export default defineConfig({
         {
           label: 'Vertex Addons',
           items: [
-            { label: 'Overview', link: '/vertex/' },
+            { label: 'Overview', autogenerate: { directory: 'vertex/overview' } },
             { label: 'Getting Started', autogenerate: { directory: 'vertex/getting-started' } },
-            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' } },
             { label: 'Widgets', autogenerate: { directory: 'vertex/widgets' } },
+            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' } },
+            { label: 'Advanced Features', autogenerate: { directory: 'vertex/advanced-features' } },
           ],
         },
       ],
