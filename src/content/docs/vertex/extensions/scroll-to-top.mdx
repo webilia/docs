@@ -1,8 +1,45 @@
 ---
 title: Scroll to Top
-description: TODO
+description: Add a smooth scroll-to-top button to improve user experience.
 sidebar:
   order: 3
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Scroll to Top** extension adds a floating button on your site that allows users to instantly scroll back to the top of the page. This is especially helpful on long pages - instead of manually scrolling, visitors can simply tap the button and enjoy a smooth animation back to the top. It improves navigation and user experience by providing a convenient shortcut.
+
+## How to Use Scroll to Top
+
+<Steps>
+1. **Enable the Extension:** Make sure **Scroll to Top** is activated in **Vertex Addons > Extensions** (it should be on by default). 
+
+2. **Open Site Settings in Elementor:** The Scroll to Top feature is configured globally via Elementor's Site Settings. To access it, edit any page with Elementor. Click the menu icon (three horizontal lines) in the top-left corner of the Elementor editor, and choose **Site Settings**. This opens the global settings panel for your website's design. 
+
+3. **Find Scroll to Top Settings:** In Site Settings, look for a section named **Scroll to Top** (with the Vertex Addons icon). Click on it to open the Scroll to Top configuration panel.
+
+4. **Enable the Scroll-to-Top Button:** You'll see an option **Enable Scroll To Top**. Switch this on to activate the feature. As soon as it's enabled, the scroll-to-top button will become active on your site's pages (but only visible on the frontend when you scroll, not necessarily in the editor).
+
+   ![Scroll to Top button icon and title settings in Site Settings](https://cdn.webilia.com/u/d/2025/08/vertex-scroll-to-top.png)
+   *This image shows the Scroll to Top settings: an enable toggle, an icon picker for the button, and a text field for the title (e.g., “Back to Top”) visible next to the icon when enabled.* 
+
+5. **Customize the Button Icon and Label:** 
+   - **Icon:** By default, a chevron-up or arrow icon is selected for the button. You can click the **Icon Picker** field to choose a different icon that matches your site's style.
+   - **Show Title:** There is a toggle **Show Title**. If you turn this on, you can provide a short text label that will appear next to the icon on the button (for example, “Back to Top”). If you prefer just an icon with no text, leave this option off.
+   - **Title Text:** If “Show Title” is enabled, a **Title** field appears for you to input the text (e.g., “Back to Top”). Keep it concise.
+
+6. **Style and Position (Optional):** The Scroll to Top extension includes style settings so you can match the button to your design:
+   - You can typically adjust the **button color**, **background color**, **size**, and **position/alignment** on the screen. For instance, you might align it to the right bottom corner (common default) or the left, and add some bottom margin so it sits above your footer.
+   - You can also set the **hover appearance** (like changing color on hover, adding a hover animation).
+   - These options are available in the normal and hover state tabs within the Scroll to Top settings. Adjust them as needed - for example, give the button a circular shape, a slight shadow, or change its size.
+
+7. **Save Settings:** Once you're happy with the configuration, click the **Update** or **Publish** button in the Site Settings panel to save changes globally.
+
+8. **Test on the Frontend:** Navigate to a page on your site and scroll down. Once you scroll past a certain point (usually a few hundred pixels), the Scroll-to-Top button will appear (typically at the corner of the screen). Clicking the button will smoothly scroll the page back up to the top.
+</Steps>
+
+<Aside type="note">
+**Note:** The Scroll-to-Top button will only appear when the page is long enough that scrolling is necessary. On very short pages that fit entirely in the browser window, you might not see the button at all (because there's no need for it). Also, the scroll animation is smooth by default for a better user experience.
+</Aside>
+
+This extension requires minimal setup and adds a nice usability enhancement. Visitors won't have to manually swipe or drag the scrollbar after reading a lengthy page - one quick click and they're back at the top navigation or menu, ready to continue browsing your site.

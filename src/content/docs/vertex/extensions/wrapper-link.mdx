@@ -1,8 +1,40 @@
 ---
 title: Wrapper Link
-description: TODO
+description: Wrap entire sections or widgets in clickable links.
 sidebar:
   order: 2
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Wrapper Link** extension lets you turn any Elementor section, column, or widget into a single clickable link. This is perfect for creating card-style links or making an entire banner or box area clickable (rather than just a button or text). For example, you might have a featured service box that you want users to click anywhere to learn more—Wrapper Link makes that possible with no extra code.
+
+## How to Use Wrapper Link
+
+<Steps>
+1. **Enable the Extension:** Wrapper Link is enabled by default in Vertex Addons. To verify, go to **Vertex Addons > Extensions** in your WordPress dashboard and ensure **Wrapper Link** is activated.
+
+2. **Apply a Wrapper Link in Elementor:** Edit the page with Elementor and click on the element you want to make clickable. You can choose a **Section**, **Column**, or an individual **Widget** (like an Image box, Heading, etc.).
+   - Go to the element's **Advanced** tab in the Elementor sidebar.
+   - Look for the **Wrapper Link** section. (If you selected a Section or Column, you'll find it after the usual Advanced settings; for a widget, it will be in the Advanced tab as well.)
+   - Toggle **Enable Wrapper Link** to **Yes**. This will reveal a URL field.
+
+   ![Enabling Wrapper Link on a section in the Elementor editor](https://cdn.webilia.com/u/d/2025/08/vertex-wrapper-link.png)
+   *In the Advanced panel, “Enable Wrapper Link” is switched on for a section. A URL field appears so you can enter the link destination.* 
+
+3. **Set the Destination URL:** Once you enable the wrapper link, an **URL** field (link field) appears. Click on this field to enter the link you want:
+   - You can paste an external URL (e.g., `https://example.com`) or start typing to search for an internal page on your site.
+   - Optionally, click the gear icon next to the field (if available) to set options like **open in a new tab** or **add nofollow** to the link. (These are standard Elementor link options.)
+   - After entering the URL, you've effectively made the entire element a clickable link pointing to that destination.
+
+4. **Update and Test:** Click **Update** to save your changes. Now preview the page on the frontend (the live site). The whole element that you enabled as a wrapper link will be clickable:
+   - If it's a section or column, anywhere the user clicks within that area will navigate to the link you set.
+   - If it's a widget (for example, an image), clicking the image (or the widget's entire container) will follow the link.
+</Steps>
+
+<Aside type="note">
+While editing in Elementor, clicking on an element with a wrapper link will not take you to the URL (this behavior is suppressed in the editor so you can continue editing). To test the link, use the **Preview** mode or view the live page. Also, avoid placing other separate links *inside* an element that has a wrapper link enabled. Typically, you'll use one or the other. The Wrapper Link uses an overlay script to handle clicks, so it shouldn't conflict with simple inner links, but it's best practice to treat the whole element as one link for clarity.
+</Aside>
+
+## Use Cases
+Wrapper Link is great for making featured content boxes, images, or service columns clickable. For example, if you design a grid of “feature” boxes (with an icon, title, and description), you can enable Wrapper Link on each box's column so that clicking anywhere in the box leads to a detailed page about that feature. This improves user experience because visitors can click the whole area instead of having to find a small text link or button.
