@@ -28,10 +28,19 @@ starlight-multi-sidebar-tabs {
 }
 
 ul.top-level {
-  li:first-child {
-    a {
-      font-weight: 400;
-      font-size: var(--sl-text-sm);
+  details {
+    ul {
+      li {
+        details {
+          .group-label {
+            span.large {
+              font-weight: 400;
+              font-size: var(--sl-text-sm);
+              color: var(--sl-color-gray-2);
+            }
+          }
+        }
+      }
     }
   }
 }
