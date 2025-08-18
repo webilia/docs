@@ -56,10 +56,10 @@ export default defineConfig({
               collapsed: true
             },
             { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' }, collapsed: false },
-            { 
-              label: 'Advanced Features', 
+            { label: 'Template Builder', autogenerate: { directory: 'vertex/template-builder' }, collapsed: true },
+            {
+              label: 'Advanced Features',
               items: [
-                { label: 'Template Builder', autogenerate: { directory: 'vertex/advanced-features/advanced-template-builder' }, collapsed: true },
                 { label: 'Popup Builder', link: '/vertex/advanced-features/advanced-popup-builder' },
                 { label: 'Dynamic Tags', link: '/vertex/advanced-features/dynamic-tags' },
                 { label: 'Template Kit', link: '/vertex/advanced-features/templates-kit-demo-importer' },

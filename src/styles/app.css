@@ -24,7 +24,8 @@ starlight-multi-sidebar-tabs .tab > [role=tab][aria-selected=true] {
   border-radius: 0.5rem;
 }
 
-ul.top-level li:first-child a {
+ul.top-level details ul li details .group-label span.large {
   font-weight: 400;
   font-size: var(--sl-text-sm);
+  color: var(--sl-color-gray-2);
 }
