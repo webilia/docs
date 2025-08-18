@@ -39,10 +39,33 @@ export default defineConfig({
         {
           label: 'Vertex Addons',
           items: [
-            { label: 'Overview', link: '/vertex/' },
+            { label: 'Overview', autogenerate: { directory: 'vertex/overview' } },
             { label: 'Getting Started', autogenerate: { directory: 'vertex/getting-started' } },
-            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' } },
-            { label: 'Widgets', autogenerate: { directory: 'vertex/widgets' } },
+            {
+              label: 'Widgets',
+              items: [
+                { label: 'Widgets Overview', link: '/vertex/widgets/' },
+                { label: 'Site & Navigation', autogenerate: { directory: 'vertex/widgets/site-navigation' }, collapsed: true },
+                { label: 'Content & Layout', autogenerate: { directory: 'vertex/widgets/content-layout' }, collapsed: true },
+                { label: 'Media & Interactivity', autogenerate: { directory: 'vertex/widgets/media-interactivity' }, collapsed: true },
+                { label: 'Dynamic Posts & Templates', autogenerate: { directory: 'vertex/widgets/dynamic-posts-templates' }, collapsed: true },
+                { label: 'Data & Maps', autogenerate: { directory: 'vertex/widgets/data-maps' }, collapsed: true },
+                { label: 'Forms & Accounts', autogenerate: { directory: 'vertex/widgets/forms-accounts' }, collapsed: true },
+                { label: 'Carousels & Timelines', autogenerate: { directory: 'vertex/widgets/carousels-timelines' }, collapsed: true },
+              ],
+              collapsed: true
+            },
+            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' }, collapsed: false },
+            { 
+              label: 'Advanced Features', 
+              items: [
+                { label: 'Template Builder', autogenerate: { directory: 'vertex/advanced-features/advanced-template-builder' }, collapsed: true },
+                { label: 'Popup Builder', link: '/vertex/advanced-features/advanced-popup-builder' },
+                { label: 'Dynamic Tags', link: '/vertex/advanced-features/dynamic-tags' },
+                { label: 'Template Kit', link: '/vertex/advanced-features/templates-kit-demo-importer' },
+              ],
+              collapsed: true,
+            },
           ],
         },
       ],
