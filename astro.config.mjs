@@ -41,7 +41,19 @@ export default defineConfig({
           items: [
             { label: 'Overview', autogenerate: { directory: 'vertex/overview' } },
             { label: 'Getting Started', autogenerate: { directory: 'vertex/getting-started' } },
-            { label: 'Widgets', autogenerate: { directory: 'vertex/widgets' } },
+            {
+              label: 'Widgets',
+              items: [
+                { label: 'Widgets Overview', link: '/vertex/widgets/' },
+                { label: 'Site & Navigation', autogenerate: { directory: 'vertex/widgets/site-navigation' } },
+                { label: 'Content & Layout', autogenerate: { directory: 'vertex/widgets/content-layout' } },
+                { label: 'Media & Interactivity', autogenerate: { directory: 'vertex/widgets/media-interactivity' } },
+                { label: 'Dynamic Posts & Templates', autogenerate: { directory: 'vertex/widgets/dynamic-posts-templates' } },
+                { label: 'Data & Maps', autogenerate: { directory: 'vertex/widgets/data-maps' } },
+                { label: 'Forms & Accounts', autogenerate: { directory: 'vertex/widgets/forms-accounts' } },
+                { label: 'Carousels & Timelines', autogenerate: { directory: 'vertex/widgets/carousels-timelines' } },
+              ],
+            },
             { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' } },
             { label: 'Advanced Features', autogenerate: { directory: 'vertex/advanced-features' } },
           ],
