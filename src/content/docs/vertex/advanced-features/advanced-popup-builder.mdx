@@ -1,33 +1,33 @@
 ---
 title: Popup Builder
-description: "Create and manage popups in Elementor with Vertex’s Advanced Popup Builder – design modals and set when/where they appear."
+description: "Create and manage popups in Elementor with Vertex's Advanced Popup Builder - design modals and set when/where they appear."
 sidebar:
   order: 2
 ---
-import { Aside, Steps, Badge } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card } from '@astrojs/starlight/components';
 
-Vertex Addons includes an Advanced Popup Builder, enabling you to design popups in Elementor and display them on your site with specific triggers and conditions. This feature lets you create things like newsletter signups, announcements, or any modal content with full control over styling – similar to Elementor Pro’s Popup feature, but available to you in the free plugin.
+Vertex Addons includes an Advanced Popup Builder, enabling you to design popups in Elementor and display them on your site with specific triggers and conditions. This feature lets you create things like newsletter signups, announcements, or any modal content with full control over styling - similar to Elementor Pro's Popup feature, but available to you in the free plugin.
 
 ## Creating a Popup
 <Steps>
-1. **Navigate to Popups:** In WordPress admin, go to Vertex Addons > Popup. (You’ll find “Popup” under the main Vertex Addons menu.)
-2. **Add New Popup:** Click “New Popup” (the Add New button). A dialog will prompt for a popup name. Give it a descriptive name (e.g., “Newsletter Signup Popup” – this is internal, for your reference).
+1. **Navigate to Popups:** In WordPress admin, go to Vertex Addons > Popup. (You'll find "Popup" under the main Vertex Addons menu.)
+2. **Add New Popup:** Click "New Popup" (the Add New button). A dialog will prompt for a popup name. Give it a descriptive name (e.g., "Newsletter Signup Popup" - this is internal, for your reference).
 3. **Create Popup Template:** Submit the dialog. Vertex will create the popup template and open it in the Elementor editor for you.
-4. **Design the Popup Content:** Now you’re in Elementor editing a blank popup canvas. Design the content of your popup just like a section:
+4. **Design the Popup Content:** Now you're in Elementor editing a blank popup canvas. Design the content of your popup just like a section:
    - You might set a background color or image for the popup container (to make it eye-catching or match your branding).
-   - Add your content: for example, a Heading (“Subscribe to Our Newsletter”), some text, an Elementor Form (if you have a form widget/plugin) or an email field, an image, a call-to-action button, etc. You have complete freedom – treat it like designing a mini-page that will appear in a modal.
+   - Add your content: for example, a Heading ("Subscribe to Our Newsletter"), some text, an Elementor Form (if you have a form widget/plugin) or an email field, an image, a call-to-action button, etc. You have complete freedom - treat it like designing a mini-page that will appear in a modal.
    - Keep in mind popups usually should be concise and focused (space is limited).
 5. **Configure Popup Settings:** Vertex adds special settings for the popup:
-   - In the editor’s sidebar, click the gear icon (bottom left) to access Popup Settings (Document settings for the popup). Under Display Settings:
+   - In the editor's sidebar, click the gear icon (bottom left) to access Popup Settings (Document settings for the popup). Under Display Settings:
      - Open Event: Choose how the popup should trigger:
-       - “On Page Load” – the popup will automatically appear when the page loads. If selected, also set Open Delay (Sec) – e.g., enter “5” for a 5-second delay after page load.
-       - “On Exit” – the popup will appear when the user’s mouse leaves the viewport (an attempt to exit).
-       - “Not Selected” – no automatic trigger (you might trigger this popup manually or via custom link).
-     - Show Once: Toggle this on (Yes) if you want the popup to only show once per user (per browser). This uses local storage – if a user has seen it, it won’t show again on subsequent page loads.
+       - "On Page Load" - the popup will automatically appear when the page loads. If selected, also set Open Delay (Sec) - e.g., enter "5" for a 5-second delay after page load.
+       - "On Exit" - the popup will appear when the user's mouse leaves the viewport (an attempt to exit).
+       - "Not Selected" - no automatic trigger (you might trigger this popup manually or via custom link).
+     - Show Once: Toggle this on (Yes) if you want the popup to only show once per user (per browser). This uses local storage - if a user has seen it, it won't show again on subsequent page loads.
      - Close on ESC: Leave this on (Yes) to allow users to press the Escape key to close the popup.
-     - Disable Page Scrolling: If set to Yes, when the popup is open, the page behind it won’t scroll (useful to focus attention on the popup).
-     - Overlay Click – Close: Ensure the overlay click close is enabled (so if user clicks outside the popup, it closes) unless you specifically want them to only use a close button.
-     - You can also find style settings for the overlay and close button in the editor (for example, under Style tab > Overlay, Style tab > Close Button). Here you can adjust the background overlay color/transparency and the appearance/position of the close “X” button.
+     - Disable Page Scrolling: If set to Yes, when the popup is open, the page behind it won't scroll (useful to focus attention on the popup).
+     - Overlay Click - Close: Ensure the overlay click close is enabled (so if user clicks outside the popup, it closes) unless you specifically want them to only use a close button.
+     - You can also find style settings for the overlay and close button in the editor (for example, under Style tab > Overlay, Style tab > Close Button). Here you can adjust the background overlay color/transparency and the appearance/position of the close "X" button.
    - Display Conditions for Popup: Still in Popup Settings, set where this popup should appear:
      - You might want it on the entire site (common for a newsletter or announcement). In Display Conditions (likely under the Advanced tab since popups use similar condition interface), enable conditions and choose Entire Site if so.
      - Or target specific pages: e.g., show on Homepage only, or on Posts only, etc. You have the same condition options as templates (Entire site, singular, archive, etc.). Select what makes sense.
@@ -38,42 +38,45 @@ Vertex Addons includes an Advanced Popup Builder, enabling you to design popups 
 
 Once published, visit a page that meets your display condition:
 
-If you set “Entire Site” and trigger on page load with a delay, then after the specified seconds on any page, the popup should fade in.
+- If you set "Entire Site" and trigger on page load with a delay, then after the specified seconds on any page, the popup should fade in.
+- If set to trigger on exit intent, try moving your mouse toward the top of the browser window - the popup should appear.
+- If no automatic trigger was set (Open Event "Not Selected"), the popup won't appear on its own. In that case, you'd need a manual trigger (for example, a button on your site that on click opens the popup). To do this manually, you can give an element an ID or class and use a bit of script, but Vertex's UI doesn't provide direct "on click" triggers in free version. (Advanced users could trigger by linking to the popup's ID anchor or using custom JS.)
 
-If set to trigger on exit intent, try moving your mouse toward the top of the browser window – the popup should appear.
+Check the popup's appearance:
 
-If no automatic trigger was set (Open Event “Not Selected”), the popup won’t appear on its own. In that case, you’d need a manual trigger (for example, a button on your site that on click opens the popup). To do this manually, you can give an element an ID or class and use a bit of script, but Vertex’s UI doesn’t provide direct “on click” triggers in free version. (Advanced users could trigger by linking to the popup’s ID anchor or using custom JS.)
+- The overlay (dim background behind the popup) should cover the page.
+- Your content should be centered (by default, Vertex centers the popup).
+- The close button (×) is visible (usually top-right of popup).
+- Clicking outside or on the close button should close it smoothly. Also pressing ESC if that option is on.
 
-Check the popup’s appearance:
+If the popup doesn't show:
 
-The overlay (dim background behind the popup) should cover the page.
-
-Your content should be centered (by default, Vertex centers the popup).
-
-The close button (×) is visible (usually top-right of popup).
-
-Try closing: clicking outside or on the close button should close it smoothly. Also pressing ESC if that option is on.
-
-If the popup doesn’t show:
-
-Re-check the trigger settings (Open Event). If on load with delay, did you wait long enough? If on exit, it only triggers when cursor leaves viewport (desktop only).
-
-Ensure the page you’re on matches the Display Condition.
-
-If multiple popups exist with overlapping conditions, note they can all trigger (they would queue or overlap, which is typically not desired). It’s best to have distinct conditions or use the Show Once setting to avoid bombardment.
+- Re-check the trigger settings (Open Event). If on load with delay, did you wait long enough? If on exit, it only triggers when cursor leaves viewport (desktop only).
+- Ensure the page you're on matches the Display Condition.
+- If multiple popups exist with overlapping conditions, note they can all trigger (they would queue or overlap, which is typically not desired). It's best to have distinct conditions or use the Show Once setting to avoid bombardment.
 
 ## Tips for Effective Popups
 
-Size and Position: The popup container width can be adjusted in the Popup settings under Layout (e.g., you can set a specific width or height, or keep it auto). Typically let it be a reasonable width (maybe 400-600px) so it doesn’t overwhelm.
+<Card title="Size and Position">
+The popup container width can be adjusted in the Popup settings under Layout (e.g., you can set a specific width or height, or keep it auto). Typically let it be a reasonable width (maybe 400-600px) so it doesn't overwhelm.
+</Card>
 
-Design for Attention: Use clear messaging and a strong call-to-action. Since you have Elementor, you can include images, icons, etc., for impact.
+<Card title="Design for Attention">
+Use clear messaging and a strong call-to-action. Since you have Elementor, you can include images, icons, etc., for impact.
+</Card>
 
-Frequency: If using a site-wide popup on load, consider using Show Once <Badge text="Pro" /> (or the provided toggle) so users don’t see it repeatedly. Nothing frustrates users more than the same popup on every page refresh. By default, Vertex’s “Show once” will ensure each visitor sees it only the first time.
+<Card title="Frequency">
+If using a site-wide popup on load, consider using Show Once (or the provided toggle) so users don't see it repeatedly. Nothing frustrates users more than the same popup on every page refresh. By default, Vertex's "Show once" will ensure each visitor sees it only the first time.
+</Card>
 
-Multiple Popups: You can create different popups for different purposes. For example, one for a promotion that only shows on a specific landing page, another as an exit intent on pricing pages. Leverage Display Conditions to target them precisely.
+<Card title="Multiple Popups">
+You can create different popups for different purposes. For example, one for a promotion that only shows on a specific landing page, another as an exit intent on pricing pages. Leverage Display Conditions to target them precisely.
+</Card>
 
-Manual Triggers (Optional Advanced): If you want a popup to open on a button click, leave its Open Event as Not Selected (so it doesn’t auto-open). Then give your button a unique selector and use a script to open the popup by adding the class afeb-popup-open to the popup’s container (requires custom code). This is advanced; if you’re not comfortable with code, you might stick to the built-in triggers (load/exit).
+<Card title="Manual Triggers (Optional Advanced)">
+If you want a popup to open on a button click, leave its Open Event as Not Selected (so it doesn't auto-open). Then give your button a unique selector and use a script to open the popup by adding the class afeb-popup-open to the popup's container (requires custom code). This is advanced; if you're not comfortable with code, you might stick to the built-in triggers (load/exit).
+</Card>
 
-<Aside type="note">The Popup Builder even allows using dynamic content inside the popup. For example, you could create a popup that shows a Post Title and Post Content – then, using dynamic conditions, you could potentially trigger it for specific posts. In most cases though, popups are used for static promotional content or forms, not dynamic post content.</Aside>
+<Aside type="note">The Popup Builder even allows using dynamic content inside the popup. For example, you could create a popup that shows a Post Title and Post Content - then, using dynamic conditions, you could potentially trigger it for specific posts. In most cases though, popups are used for static promotional content or forms, not dynamic post content.</Aside>
 
-By using Vertex’s Popup Builder, you can enhance user engagement on your site – from announcing sales to capturing leads – all using Elementor’s visual design tools. Design popups that match your site’s style and set them to appear at just the right moment to catch your visitors’ attention.
+By using Vertex's Popup Builder, you can enhance user engagement on your site - from announcing sales to capturing leads - all using Elementor's visual design tools. Design popups that match your site's style and set them to appear at just the right moment to catch your visitors' attention.

@@ -1,62 +1,58 @@
 ---
 title: Archive Template
-description: "Design custom archive pages (blog listings, categories, search results) with Vertex’s Archive Template feature."
+description: "Design custom archive pages (blog listings, categories, search results) with Vertex's Archive Template feature."
 sidebar:
-  order: 3
+  order: 4
 ---
 import { Aside, Steps } from '@astrojs/starlight/components';
 
-Archive pages (like your blog index, category listings, tags, or search results) display lists of posts. With Vertex Addons, you can create a Custom Archive Template to control the layout and style of these pages. Instead of relying on your theme’s archive design, you’ll design it in Elementor, choosing exactly how posts should be presented.
+Archive pages (like your blog index, category listings, tags, or search results) display lists of posts. With Vertex Addons, you can create a Custom Archive Template to control the layout and style of these pages. Instead of relying on your theme's archive design, you'll design it in Elementor, choosing exactly how posts should be presented.
 
-{/* Image for archive template editing screen */}
+![Vertex Archive Template Editing Screen](https://cdn.webilia.com/u/d/2025/08/vertex-archive-builder.png)
 
 ## Creating an Archive Template
 <Steps>
-1. **Add New Archive Template:** Go to Vertex Addons > Template Builder and click “New Template”. In the dialog, choose Archive as the template type. Give it a name like “Blog Archive” or “Search Results Template” (optional) and create it.
+1. **Add New Archive Template:** Go to Vertex Addons > Template Builder and click "New Template". In the dialog, choose Archive as the template type. Give it a name like "Blog Archive" or "Search Results Template" (optional) and create it.
 2. **Design in Elementor:** The new archive template will open in Elementor editor. Now design how you want your archive pages to look:
-   - Archive Title: Use the Archive Title widget (provided by Vertex) to dynamically show the title of the archive (e.g., “Category: News” or “Search Results for…”). This widget will output the context-specific title automatically.
-   - Posts Listing: To display the list of posts for the archive, drag in a Dynamic Archive Posts widget (Vertex). This widget is specifically made for archive templates – it will automatically pull the posts from the current archive (category, search query, etc.) and display them. By default, it might show a simple list; you can customize it.
+   - Archive Title: Use the Archive Title widget (provided by Vertex) to dynamically show the title of the archive (e.g., "Category: News" or "Search Results for…"). This widget will output the context-specific title automatically.
+   - Posts Listing: To display the list of posts for the archive, drag in a Dynamic Archive Posts widget (Vertex). This widget is specifically made for archive templates - it will automatically pull the posts from the current archive (category, search query, etc.) and display them. By default, it might show a simple list; you can customize it.
    - Customize Post Appearance: The Dynamic Archive Posts widget can be customized in two ways:
      - Basic Settings: Choose layout (grid or list, number of columns, pagination, etc.).
-     - Loop Item Template: For more advanced design, Vertex lets you select a Dynamic Loop Item template within this widget (the setting “Choose a template”). If you have created a Dynamic Loop Item template (for post cards), select it to style each post item. Otherwise, the widget will display posts in a default style.
-   - Additional Elements: You might add other widgets like an Archive Description (if you want to show category description text – available via dynamic tag or an Elementor widget if provided), a search bar at top, or filters (some advanced design).
-   - Design the overall page structure – for instance, you could include a sidebar by using Elementor’s columns, or a full-width layout with a grid of posts.
+     - Loop Item Template: For more advanced design, Vertex lets you select a Dynamic Loop Item template within this widget (the setting "Choose a template"). If you have created a Dynamic Loop Item template (for post cards), select it to style each post item. Otherwise, the widget will display posts in a default style.
+   - Additional Elements: You might add other widgets like an Archive Description (if you want to show category description text - available via dynamic tag or an Elementor widget if provided), a search bar at top, or filters (some advanced design).
+   - Design the overall page structure - for instance, you could include a sidebar by using Elementor's columns, or a full-width layout with a grid of posts.
    - Responsive Design: Check tablet and mobile views in Elementor. Ensure the post grid/list is legible on smaller screens (adjust columns or switch to a single column on mobile if using a grid).
-3. **Set Display Conditions:** In the template’s settings (Elementor panel), set where this archive template applies. Under Display Conditions:
+3. **Set Display Conditions:** In the template's settings (Elementor panel), set where this archive template applies. Under Display Conditions:
    - Typically, you might choose All Archives to apply to every archive page (this covers blog, categories, tags, etc.).
    - If you want to target specific archives, you can. For example, you can set condition for a particular category archive only, or choose Archive -> Posts Archive (blog index) specifically. Vertex allows multiple archive templates if you need different designs per archive type.
    - Common setting: For a general blog design, select Posts Archive (this covers the main blog listing). For categories/tags, you could either make one template for all, or separate if desired.
-   - (If unsure, selecting the broad “Archive – All” ensures all archive pages use this template.)
+   - (If unsure, selecting the broad "Archive - All" ensures all archive pages use this template.)
 4. **Publish:** Click Publish and confirm the conditions. Now the archive template is live.
 
 </Steps>
 
 ## Checking the Archive Template on Your Site
 
-Once published, navigate to an archive on your site to see the result:
-
-Go to your blog page or a known category page. It should now display with the structure you built (the archive title, the styled list of posts, etc.).
+Once published, navigate to an archive on your site to see the result. Go to your blog page or a known category page. It should now display with the structure you built (the archive title, the styled list of posts, etc.).
 
 Verify that the Archive Title is showing the correct context (e.g., the category name or search term).
 
 Scroll through the post listings to ensure they appear as intended. If you used a Dynamic Loop Item template for the posts, confirm that design is applied to each item.
 
-If something is off:
+**No posts showing?** Ensure the Dynamic Archive Posts widget is present and configured. This widget by default takes the current query of the archive; you shouldn't need to set a query for it when used in an Archive Template.
 
-No posts showing? Ensure the Dynamic Archive Posts widget is present and configured. This widget by default takes the current query of the archive; you shouldn’t need to set a query for it when used in an Archive Template.
+**Wrong template showing?** Check Display Conditions. If multiple archive templates exist, a more specific one might override a general one. For instance, if you have one template assigned to "All Archives" and another specifically for "Search Results", the search results page will use the specific one.
 
-Wrong template showing? Check Display Conditions. If multiple archive templates exist, a more specific one might override a general one. For instance, if you have one template assigned to “All Archives” and another specifically for “Search Results”, the search results page will use the specific one.
-
-Archive Title missing? Ensure you included the Archive Title widget, or add a heading with a dynamic tag for Archive Title.
+**Archive Title missing?** Ensure you included the Archive Title widget, or add a heading with a dynamic tag for Archive Title.
 
 ## Tips for Archive Templates
 
-Use Dynamic Content: Archive pages benefit from dynamic widgets. Besides Archive Title, you can also insert dynamic breadcrumbs (if you have a breadcrumb widget or plugin), or an Archive Description (Vertex’s dynamic tags include Archive Description which can be used in a Text widget).
+**Use Dynamic Content:** Archive pages benefit from dynamic widgets. Besides Archive Title, you can also insert dynamic breadcrumbs (if you have a breadcrumb widget or plugin), or an Archive Description (Vertex's dynamic tags include Archive Description which can be used in a Text widget).
 
-Pagination: The Dynamic Archive Posts widget will handle pagination if there are many posts. Style the pagination in the widget’s settings (it may have options for page numbers, next/prev text, etc.).
+**Pagination:** The Dynamic Archive Posts widget will handle pagination if there are many posts. Style the pagination in the widget's settings (it may have options for page numbers, next/prev text, etc.).
 
-Consistent Design: Typically, you’ll want archive pages to have the same header and footer as the rest of your site. By using Vertex’s Header and Footer templates in conjunction, your archive will seamlessly integrate with your site’s look.
+**Consistent Design:** Typically, you'll want archive pages to have the same header and footer as the rest of your site. By using Vertex's Header and Footer templates in conjunction, your archive will seamlessly integrate with your site's look.
 
 <Aside type="note">If you need a different layout for different archive types (say, a unique design for a specific category), you can create another Archive Template and set its condition to that category only. Vertex will use that for the chosen category while your default archive template covers the rest.</Aside>
 
-With a custom Archive Template in place, you control exactly how your blog listings and other archives appear. This helps in maintaining a branded, user-friendly blog section that matches your site’s design and showcases posts in the best way possible.
+With a custom Archive Template in place, you control exactly how your blog listings and other archives appear. This helps in maintaining a branded, user-friendly blog section that matches your site's design and showcases posts in the best way possible.

@@ -1,6 +1,6 @@
 ---
 title: Template Kit Importer
-description: "Quickly import pre-designed website template kits with Vertex Addons’ Template Kit feature to jumpstart your site design."
+description: "Quickly import pre-designed website template kits with Vertex Addons' Template Kit feature to jumpstart your site design."
 sidebar:
   order: 1
 ---
@@ -12,69 +12,59 @@ Vertex Addons includes a Template Kit Demo Importer that lets you import complet
 
 A Template Kit is a collection of Elementor templates assembled to create a full website layout. It typically includes a home page, about page, contact page, header, footer, blog archive, single post template, etc., all styled consistently. By importing a kit, you get all these pieces installed on your site.
 
-Vertex provides some template kits as demos. For example, a “Nonprofit Organization” kit might include multiple pages (Home, About, Contact, Blog, etc.) and the necessary header/footer and blog templates that match that design.
+Vertex provides some template kits as demos. For example, a "Nonprofit Organization" kit might include multiple pages (Home, About, Contact, Blog, etc.) and the necessary header/footer and blog templates that match that design.
 
 ## Importing a Template Kit
 <Steps>
 1. **Open Template Kit Importer:** In WordPress admin, navigate to Vertex Addons > Templates Kit. (This is a tab in the Vertex Addons menu).
-2. **Browse Available Kits:** You will see a gallery of template kits. Each kit might be represented by a thumbnail image and name/description. For example, you might find a kit like “Nonprofit Organization” with a short description of its style and included pages.
-3. **Preview (Optional):** If there’s a Preview option, click it to see details of the kit. Vertex may show previews of the pages included or a live demo link. This helps you decide if the kit suits your needs.
-4. **Import the Kit:** Click the Import button on the kit you want. A confirmation dialog may appear, summarizing what will happen. (The importer will add pages/templates to your site. If required plugins are needed, it may prompt or attempt to install them – e.g., if a kit uses a form widget from a certain plugin.)
+2. **Browse Available Kits:** You will see a gallery of template kits. Each kit might be represented by a thumbnail image and name/description. For example, you might find a kit like "Nonprofit Organization" with a short description of its style and included pages.
+3. **Preview (Optional):** If there's a Preview option, click it to see details of the kit. Vertex may show previews of the pages included or a live demo link. This helps you decide if the kit suits your needs.
+4. **Import the Kit:** Click the Import button on the kit you want. A confirmation dialog may appear, summarizing what will happen. (The importer will add pages/templates to your site. If required plugins are needed, it may prompt or attempt to install them - e.g., if a kit uses a form widget from a certain plugin.)
 5. **Confirmation:** Confirm to proceed. The import process will begin. You might see a progress indicator. Vertex will:
-   - Download the kit’s template files from the cloud.
+   - Download the kit's template files from the cloud.
    - Import all the templates (pages, section templates, theme builder parts like header/footer).
    - Import site settings if the kit defines global styles.
    - Activate any required plugins listed for the kit (the importer might install and activate dependencies automatically for you if needed).
    - Assign the imported templates appropriately (e.g., set the imported header as the active header template, assign the imported homepage as your Front Page in WordPress settings, etc.).
-   - Completion: Wait for the import to finish. You should get a success message once done (e.g., “Template Kit imported successfully!”).
+   - Completion: Wait for the import to finish. You should get a success message once done (e.g., "Template Kit imported successfully!").
 </Steps>
 
-## After Import – Setting Up
+## After Import - Setting Up
 
-Once the kit is imported:
+**Pages Added:** Check Pages > All Pages in your dashboard. You will find new pages like Home, About Us, Contact, etc., created by the kit. They will be populated with demo content.
 
-Pages Added: Check Pages > All Pages in your dashboard. You will find new pages like Home, About Us, Contact, etc., created by the kit. They will be populated with demo content.
+**Templates Added:** Under Vertex Addons > Template Builder, you'll see new templates (Header, Footer, Single, Archive) that were part of the kit. These are already published and assigned via conditions (the kit import handles that).
 
-Templates Added: Under Vertex Addons > Template Builder, you’ll see new templates (Header, Footer, Single, Archive) that were part of the kit. These are already published and assigned via conditions (the kit import handles that).
+**Site Settings:** Some kits may adjust your Reading Settings (setting the home page to the imported Home, and blog page to a Blog page). Verify under Settings > Reading that your homepage is set to the intended page if applicable.
 
-Site Settings: Some kits may adjust your Reading Settings (setting the home page to the imported Home, and blog page to a Blog page). Verify under Settings > Reading that your homepage is set to the intended page if applicable.
+**Menus:** If the kit included menus, you might need to assign menus to theme locations. For example, check Appearance > Menus - a menu might be imported, but you should assign it to the Primary menu location (especially if using Vertex's header, ensure the Nav Menu widget in the header is pointed to this menu).
 
-Menus: If the kit included menus, you might need to assign menus to theme locations. For example, check Appearance > Menus – a menu might be imported, but you should assign it to the Primary menu location (especially if using Vertex’s header, ensure the Nav Menu widget in the header is pointed to this menu).
+**Widgets/Plugins:** If a kit uses specific widgets (like a form or slider), ensure those plugins are installed. The importer often takes care of this. For instance, if the kit had a form built with Elementor Pro, Vertex would typically avoid that in a free kit, but if so, you might need Elementor Pro or replace that form with a free alternative.
 
-Widgets/Plugins: If a kit uses specific widgets (like a form or slider), ensure those plugins are installed. The importer often takes care of this. For instance, if the kit had a form built with Elementor Pro, Vertex would typically avoid that in a free kit, but if so, you might need Elementor Pro or replace that form with a free alternative.
-
-Now visit your site’s homepage (which should now be the kit’s home design):
-
-You’ll see a fully designed page with placeholder text and images from the kit.
-
-The header and footer should reflect the kit’s style.
-
-Navigate to other imported pages to review their design.
+Now visit your site's homepage (which should now be the kit's home design). You'll see a fully designed page with placeholder text and images from the kit. The header and footer should reflect the kit's style. Navigate to other imported pages to review their design.
 
 ## Customizing the Imported Kit
 
 The power of template kits is that after importing:
 
-Replace Content: Edit each imported page with Elementor to replace text and images with your own content. The design (layout, colors, typography) is already there; you just swap out the placeholder content.
+<Steps>
+1. Edit each imported page with Elementor to replace text and images with your own content. The design (layout, colors, typography) is already there; you just swap out the placeholder content.
+2. The kit likely applied consistent colors and fonts via Elementor's Site Settings or global styles. You can tweak these globally if you want to adjust the theme of the kit (for instance, change the primary color in one place, rather than on each widget).
+3. If the kit's header has a logo placeholder, you'll want to edit the Header template (via Template Builder or "Edit with Elementor" on the header template) and insert your site's actual logo (e.g., using the Site Logo widget which will pull from your site identity, or directly replacing the image).
+4. Similarly, check the Footer template for any placeholder address or social links and update them.
+5. Review Dynamic parts: If the kit included a Blog Single template or Archive, make sure they function with your actual posts (the demo content might include some dummy posts). Create or use existing posts to ensure the single post template displays properly.
+</Steps>
 
-Global Styling: The kit likely applied consistent colors and fonts via Elementor’s Site Settings or global styles. You can tweak these globally if you want to adjust the theme of the kit (for instance, change the primary color in one place, rather than on each widget).
-
-Update Templates: If the kit’s header has a logo placeholder, you’ll want to edit the Header template (via Template Builder or “Edit with Elementor” on the header template) and insert your site’s actual logo (e.g., using the Site Logo widget which will pull from your site identity, or directly replacing the image).
-
-Similarly, check the Footer template for any placeholder address or social links and update them.
-
-Review Dynamic parts: If the kit included a Blog Single template or Archive, make sure they function with your actual posts (the demo content might include some dummy posts). Create or use existing posts to ensure the single post template displays properly.
-
-<Aside type="tip">It’s good practice after importing a kit to go through each page and template systematically to personalize it. The Template Kit gives you a huge head start with design, but it’s your content and branding that will make it truly yours. Replace all instance of demo text (“Lorem ipsum”) and images to avoid an unprofessional look.</Aside>
+<Aside type="tip">It's good practice after importing a kit to go through each page and template systematically to personalize it. The Template Kit gives you a huge head start with design, but it's your content and branding that will make it truly yours. Replace all instance of demo text ("Lorem ipsum") and images to avoid an unprofessional look.</Aside>
 
 ## Important Notes
 
-Images in Kits: Demo images are often copyright or low-resolution placeholders. Template Kit imports might include these images for layout purposes. Plan to replace them with your own licensed images. The kit’s images are usually just for demonstration.
+**Images in Kits:** Demo images are often copyright or low-resolution placeholders. Template Kit imports might include these images for layout purposes. Plan to replace them with your own licensed images. The kit's images are usually just for demonstration.
 
-Multiple Imports: You can import multiple kits, but it’s generally not recommended to mix entire kits on one site as they have different design languages. If you do import another kit, be aware it will add more pages and could overwrite some settings. It’s usually best to stick to one kit and customize it.
+**Multiple Imports:** You can import multiple kits, but it's generally not recommended to mix entire kits on one site as they have different design languages. If you do import another kit, be aware it will add more pages and could overwrite some settings. It's usually best to stick to one kit and customize it.
 
-Cleanup: If you decide a kit isn’t to your liking after import, you may need to manually delete the imported pages and templates. (There isn’t an automatic “uninstall kit” feature, so be mindful before importing.)
+**Cleanup:** If you decide a kit isn't to your liking after import, you may need to manually delete the imported pages and templates. (There isn't an automatic "uninstall kit" feature, so be mindful before importing.)
 
 <Aside type="note">Vertex Addons <Badge text="Pro" /> users may have access to a larger library of Template Kits and possibly the ability to import premium designs. The process remains the same. Using kits can save hours of design time by providing a complete starting point that you then tweak.</Aside>
 
-By utilizing the Template Kit importer, even beginners can set up a complex website layout in minutes. It’s like having a blueprint of a house ready – all you do is move in your furniture (content). This accelerates development while still allowing full customization via Elementor for truly bespoke results.
+By utilizing the Template Kit importer, even beginners can set up a complex website layout in minutes. It's like having a blueprint of a house ready - all you do is move in your furniture (content). This accelerates development while still allowing full customization via Elementor for truly bespoke results.
