@@ -1,8 +1,107 @@
 ---
 title: Dynamic Tags
-description: TODO
+description: "Leverage Vertex's Dynamic Tags to insert post data and site information (title, dates, author, etc.) into Elementor designs dynamically."
 sidebar:
   order: 4
 ---
+import { Aside, Steps } from '@astrojs/starlight/components';
 
-Content coming soon.
+Dynamic Tags allow you to inject dynamic content (like post titles, dates, custom URLs, etc.) into Elementor elements. Vertex Addons provides a range of Dynamic Tags that are normally only available with Elementor Pro, enabling you to build more dynamic, data-driven designs with Elementor Free.
+
+## What are Dynamic Tags?
+
+In Elementor, when editing a widget (say a Heading or a Text field), you'll see a small database icon next to many input fields. That icon means you can select a dynamic value for that field instead of static text. Dynamic Tags are those values - they pull content from your site or the current page context.
+
+Vertex adds new tags such as Post Title, Post Excerpt, Post Content, Post Date, Post Terms, Author Info, Site URL, Internal URL, and more. These tags update automatically based on the content being viewed.
+
+For example:
+
+- Using the Post Title tag in a Heading widget on a Single Post Template will display the actual title of each post.
+- An Internal URL tag can be used to link a button to a specific page without hardcoding the URL (useful if the URL might change, it stays updated).
+
+## Available Dynamic Tags in Vertex
+
+Vertex introduces several categories of tags:
+
+### Post Tags
+
+These retrieve information about the current post (or page).
+
+<Steps>
+1. Post Title - The title of the post.
+2. Post Excerpt - The excerpt (summary) of the post.
+3. Post Content - The full content/body of the post (use carefully, typically used in the Post Content widget rather than inline).
+4. Post Date - The publish date of the post. (Vertex lets you choose the date format in the tag's settings, e.g., June 1, 2025 or 2025-06-01.)
+5. Post Time - The publish time of the post (selectable format, or combined date/time if needed).
+6. Post URL - The permalink URL of the post. Useful for linking buttons or read more links.
+7. Post Terms - The categories or tags assigned to the post. You can select which taxonomy (category, tag, or any custom taxonomy) and the tag will output them (with optional separators and link on/off).
+8. Post Featured Image - (Appears in image fields) The featured image of the post; you can use this to dynamically set an Image widget's source.
+9. Post Comments - The number of comments text. This tag can output "No Comments", "1 Comment", or "X Comments" based on settings.
+</Steps>
+
+### Author Tags
+
+These provide info about the author of the current post.
+
+<Steps>
+1. Author Name - The display name of the post's author.
+2. Author URL - A link to the author's archive page (if you link text to this tag, clicking it would go to all posts by that author).
+For an author bio or avatar, Vertex has an Author Box widget, but dynamic tags cover basic author text data.
+</Steps>
+
+### Archive Tags
+
+Useful in Archive Templates.
+
+<Steps>
+1. Archive Title - The title of the current archive page. For example "Category: News" or "Search Results for X".
+2. Archive Description - The description of the current archive (e.g., a category description text, if it exists).
+</Steps>
+
+### Site Tags
+
+Useful in all Templates.
+
+<Steps>
+1. Site URL - The home URL of your site. This is handy if you need to link something back to the homepage dynamically.
+2. Internal URL - This special tag allows you to select any internal content and outputs its URL. When you choose this tag, you can select Type (Post, Page) and then pick a specific post or page. It will then dynamically use that page's URL. For example, link a button to a certain page - if that page URL changes, the tag updates automatically.
+3. Site Title - Not explicitly listed as a tag in Vertex's code from what we saw, but you might use the Site Title widget instead. (If provided, it would output your site's name.)
+</Steps>
+
+All these tags are accessible by clicking the dynamic icon (database icon) next to a field and looking under sections likely labeled by content type (Elementor might group them by "Site", "Post", etc., and Vertex's tags may appear under those or under a "Vertex" or "AFEB" section).
+
+## Using Dynamic Tags
+
+**In Text or Heading Widgets:** Instead of typing static text, click the dynamic icon. Choose (for example) Post Title. The field will show a placeholder indicating a dynamic tag is set. On the live page, it will output the actual post's title.
+
+**Link Fields:** You can make a button link dynamic. For instance, select Internal URL tag, then choose a page (like "Contact Us") in the tag settings. Now that button will always link to your Contact page - if you ever change the page's URL or replace the page, updating the tag settings will update all such buttons.
+
+**Images:** Add an Image widget, click the dynamic icon for the image source, choose Post Featured Image. Now the image will show the current post's featured image. You can even set fallback images in tag settings if needed.
+
+**Repeating Elements:** In a Loop Item Template or Archive, these tags shine - e.g., using Post Title tag means each item shows its own title.
+
+Vertex's dynamic tags can be combined with Elementor Free's features to achieve dynamic designs that were previously only possible with Pro:
+
+Want a post's publish date in a fancy format below the title? Use a Text widget, type "Published on" and then insert the Post Date tag after it (you can mix static text and dynamic in one text widget by using multiple tags).
+
+Need a "Read more" text that is clickable to the post? You could drop a Text Editor, write "Read more", select it, add a hyperlink, and for the URL choose Post URL dynamic tag.
+
+## Dynamic Tag Settings
+
+Many tags have simple options. **Date/Time** tags let you pick the format (like F j, Y for a full date). **Post Terms** tag lets you pick taxonomy (category, tag) and a separator (e.g., comma). **Internal URL** tag, as mentioned, lets you choose what link (post, page, etc.) it should output.
+
+These settings ensure the output appears exactly as you need.
+
+<Aside type="caution">Be mindful of context: Dynamic tags pull from the current post or page in view. If you use a Post Title tag on a normal page (not in a Loop or Single template), it will show that page's title. In a header or footer (which are outside the loop context), some post tags might not output what you expect (for instance, Post Title used in a global header might show the title of the page currently being viewed - which could be useful or not depending on your design). Always test to ensure the dynamic content is appearing where and how you intend.</Aside>
+
+## Tips and Advanced Usage
+
+**Combining Tags:** You can place multiple dynamic tags in one widget (especially the Text Editor widget). For example: "Posted on Post Date by Author Name in Post Terms (Category)" - this could all be one text block with those tags inserted in the sentence.
+
+**Site Identity:** If Vertex doesn't have a Site Title tag, remember there is a Site Title widget you can use in headers to dynamically show the site name (and a Site Logo widget for the logo).
+
+**Updates:** Dynamic tags always fetch the current data. Change a post's title, and anywhere a Post Title tag was used (like on the homepage featured post section) it updates automatically. This reduces manual maintenance.
+
+**Custom Fields (Pro):** If you have custom fields (ACF, etc.), Vertex's free dynamic tags might not cover those. That typically requires Elementor Pro or a separate addon. Vertex Pro might introduce dynamic tags for custom fields in the future. For now, the included tags cover the standard WordPress data.
+
+Using dynamic tags makes your Elementor designs smarter - the content displayed is always up-to-date and contextually relevant. It's a key part of building templates (headers, singles, etc.), but even in static pages you can use them for consistency (like an automatically updating year, or pulling in a specific post title somewhere). Explore the dynamic tag menu and see what data you can harness for a more dynamic site experience.

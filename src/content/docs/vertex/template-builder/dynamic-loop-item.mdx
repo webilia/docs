@@ -1,8 +1,68 @@
 ---
-title: Dynamic Loop Item
-description: TODO
+title: Dynamic Loop Item Template
+description: "Design custom loop item templates to style repeated post listings (cards) and apply them in grids or carousels with Vertex."
 sidebar:
   order: 5
 ---
+import { Aside, Steps } from '@astrojs/starlight/components';
 
-Content coming soon.
+Dynamic Loop Items are a unique feature in Vertex Addons that let you design how each item in a posts list or grid looks. Instead of a fixed design for post listings, you can create a Loop Item Template (essentially a mini-template for one post "card"), then use it in widgets like Dynamic Grid/Carousel or Archive Posts. This gives you complete control over the appearance of each post in a list.
+
+## What is a Dynamic Loop Item?
+
+A Dynamic Loop Item template is a small design that represents one post or item in a loop. For example, if you want your blog archive to show posts as cards with an image, title, and excerpt, you would create a loop item template that includes those elements arranged nicely. Then the posts widget will repeat that template for each post.
+
+This decouples the item design from the widget, allowing you to update the style of all post items in one place (the loop template). It's similar to Elementor Pro's Loop Grid feature, now available via Vertex.
+
+## Creating a Dynamic Loop Item Template
+<Steps>
+1. **Add New Loop Item Template:** Go to Vertex Addons > Template Builder and click "New Template." In the dialog, select Dynamic Loop Item as the type. Name it something descriptive like "Post Card Template" (optional) and create it.
+2. **Design the Loop Item in Elementor:** The Elementor editor opens a blank canvas for your loop item. This canvas represents a single post item. Design it with the content that one item should display:
+   - Typically, a post "card" includes:
+     - A featured image,
+     - The post title,
+     - Maybe an excerpt or a short description,
+     - Perhaps metadata like date or category,
+     - A read more button or link.
+   - Featured Image: Drag the Post Featured Image widget into the design. This will dynamically pull in the post's featured image for each item.
+   - Title: Add a Post Title widget (or a Heading and use dynamic tag for Post Title) to show the post's title. Style it (font, size) as needed for a card.
+   - Excerpt: Insert the Post Excerpt widget if you want a snippet of the post content on the card. You can control excerpt length in that widget's settings.
+   - Meta/Date: If you want the date or category on the card, you can include a Post Date widget (or dynamic Post Date tag in a Text element) and/or Post Terms widget for category tags.
+   - Read More: Optionally, add a Button or Text link for "Read More". You can make this dynamic by linking it to the post's URL. For example, set the button's link to Post URL (use dynamic tag Post URL on the link field). Label the button "Read More" (or any call-to-action).
+   - Arrange these elements visually. You might have the image on top and text below, or image on left and text on right, depending on the look you want. It's just like designing a small section in Elementor.
+   - Styling: Style each part to fit your site's design. For instance, ensure the card has appropriate padding, maybe a background or border. You can also add a Hover effect on the card using Elementor interactions if desired.
+   - Responsive Check: Even though this is a small item, verify that it will display nicely in different grid arrangements. If your card is going to be in a 3-column grid on desktop and 1-column on mobile, ensure the design is flexible (Elementor typically will handle stacking, but check that nothing overflows or looks odd when narrower).
+   - No Display Conditions Needed: Loop Item templates are not directly assigned to pages via conditions. So you don't set display conditions here. Instead, you will use this template within other widgets. (Vertex automatically knows this is a loop item design; it won't appear on its own on the front-end by itself.)
+3. **Publish:** Click Publish to save the loop item template.
+
+</Steps>
+
+## Using the Loop Item Template in a Posts Widget
+
+Creating the template is only the first step. Now you apply it.
+
+**Dynamic Grid/Carousel Widget:** Edit a page (or an Archive Template) where you want to display a list of posts. Add the Dynamic Grid/Carousel widget (Vertex).
+
+In its settings, you'll find an option "Choose a template" (or similar) which lists available Dynamic Loop Item templates. Select the name of the loop template you created (e.g., "Post Card Template").
+
+Configure the query or source of posts. For example, if on a normal page, set it to show recent posts or posts by category. If you're using it on an archive page, Vertex's Dynamic Archive Posts widget is a variation that automatically pulls the archive's posts - it also has a template selector.
+
+Set layout options like number of columns (the widget will repeat your loop item in each column), carousel settings if applicable, etc.
+
+**Dynamic Archive Posts Widget:** If you are in an Archive Template, you likely use this widget. It works similarly - ensure your loop item template is selected in the widget's template option.
+
+Once set, the widget will render each post using your loop design. Each element (image, title, etc.) will populate with that post's data. The styling and arrangement are exactly as you designed in the loop template.
+
+## Example Scenario
+
+Imagine you want a fancy blog grid:
+
+- You made a loop item template that has a card with the post's featured image as a background, title overlaid, and a read more button.
+- On your Blog Archive Template, you insert Dynamic Archive Posts, choose a 3-column grid and select your loop template.
+- When you view the blog page, you'll see three posts per row, each rendered as that card design you built. Hover effects, fonts - all as set.
+
+If you ever want to change the look of those post cards, simply edit the Dynamic Loop Item template in Vertex and update it. All places where it's used (grids, carousels, etc.) will automatically reflect the new design. This is incredibly efficient for site-wide updates to post listing styles.
+
+<Aside type="tip">You can create multiple loop item templates for different purposes. For instance, a compact list style vs. a card style. Then pick the appropriate one in each widget. This saves time if you want different looks in different sections (e.g., a sidebar recent posts list might use a simpler loop item template with just title and date).</Aside>
+
+Remember, a loop item template by itself does nothing until applied in a listing widget. It's a design piece waiting to be utilized. Once you tie it to a Dynamic Posts widget, it becomes the blueprint for each item in that list.

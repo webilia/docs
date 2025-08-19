@@ -1,8 +1,80 @@
 ---
-title: Single
-description: TODO
+title: Single Post Template
+description: "Create custom single post/page layouts with Vertex's Single Template to control how individual content is presented."
 sidebar:
-  order: 4
+  order: 6
 ---
+import { Aside, Steps } from '@astrojs/starlight/components';
 
-Content coming soon.
+Vertex allows you to design the layout for individual posts or pages using the Single Template feature. This is perfect for customizing the appearance of blog posts, pages, or other single post types (like custom post types) beyond what your theme offers. You can include dynamic elements such as the post title, content, author, etc., in any arrangement you like.
+
+## What is a Single Template?
+
+A Single Template defines the structure for a single piece of content - for example, a blog post or a static page. Instead of the theme's default post layout, which might have a fixed title placement and metadata, a Vertex Single Template lets you decide where everything goes and how it looks using Elementor.
+
+## Common Uses
+
+<Steps>
+1. Create a branded blog post design (with author info box, related posts section, etc.).
+2. Design a page layout for all standard pages (if you want a uniform look or special banner on every page).
+3. Style custom post type entries (if your site has portfolio items, events, etc., and you want a specific layout for them).
+</Steps>
+
+## Creating a Single Template
+<Steps>
+1. **Add a New Single Template:** Go to Vertex Addons > Template Builder and click "New Template." In the dialog, choose Single as the type. Optionally name it (e.g., "Blog Post Template" or "Page Template") and click Create Template.
+2. **Edit in Elementor:** The Elementor editor opens for your new Single template. You now build the layout as you want an individual post/page to appear:
+   - Post Title: Drag in the Post Title widget (Vertex provides this) to where you want the title to show (usually at top). This widget will dynamically display the title of the post when viewed.
+   - Post Content: Insert the Post Content widget. This is crucial - it outputs the main content of the post/page that you wrote in the editor. Place it in the layout where the article text should go.
+   - Featured Image: If you want the featured image displayed, use the Post Featured Image widget. You can, for example, put it above the title as a full-width banner image, or as a thumbnail within the content - your design choice.
+   - Post Meta: To show meta information like author, date, categories, etc., you can use a combination of Vertex widgets:
+     - Post Date widget to show the date (or use a dynamic tag in a Text widget, formatted as needed).
+     - Post Author (Author Box widget or dynamic Author Name tag in text).
+     - Post Terms widget for categories/tags if desired (Vertex offers Post Terms widget/dynamic tag to list categories).
+     - Comments - you can include a Post Comments widget to show the comments list or a Comments Form widget for the comment form.
+   - Arrange these elements in the desired order. For instance, a classic blog post layout might be: Featured Image -> Post Title -> Meta (date/author) -> Post Content -> Comments.
+   - Add any additional design flairs: an author bio section (using Author Box widget), social share buttons (if you have a plugin or widget), etc.
+   - Global vs Specific: Decide if this template is for all single posts, all pages, or specific content:
+     - If it's for blog posts, design with posts in mind (e.g., include categories, author, etc.).
+     - If it's for pages, you might exclude some elements (like author or date, since pages often don't show those). You can create separate templates for each if needed (one for posts, one for pages).
+   - Responsive Design: Check how the layout looks on mobile and tablet in Elementor. Ensure images resize properly and text is readable. Adjust sections (for example, you might center the title on mobile, or reorder elements using Elementor's responsive settings).
+3. **Set Display Conditions:** Before publishing, set where this template applies:
+   - Click the gear/settings icon in Elementor (bottom left) to open the Document Settings, find Display Conditions.
+   - For a blog post template: under Single, choose Posts - All (this will apply to all posts of the default "Posts" type).
+   - For a page template: choose Pages - All.
+   - You can target specific categories of posts too. For instance, if this template is only for posts in the "News" category, set a condition for that under Singular conditions. (However, category-specific single design is less common than archive-specific; most likely you'll use All Posts.)
+   - You can add multiple conditions. E.g., apply to "All Posts" and maybe also to a custom post type if you want the same layout for both.
+   - Publish: Click Publish and confirm the conditions. Now your single template is active.
+
+</Steps>
+
+## Viewing the Custom Single Template
+
+After publishing, check an example piece of content. If you created a posts template, open any blog post on your site. It should now use the layout you designed (with your chosen placement of title, image, etc.).
+
+If a pages template, view a regular page. Verify:
+
+- The Post Title is showing the actual title of the post.
+- The Post Content widget is outputting the full content you wrote for that post (formatting intact).
+- Other dynamic bits (date, author, categories, comments) are correct for that post.
+- The styling matches what you set in Elementor (fonts, colors, spacing).
+
+If you don't see the new design:
+
+- Make sure no other Single template with a conflicting condition is overriding. If two templates could apply to the same post, the one with more specific condition takes precedence.
+- Ensure the post/page you're checking meets the condition. For example, if you only applied the template to "Posts", it won't affect pages.
+- Clear any cache (if using caching plugins) to ensure you're seeing fresh output.
+
+## Tips for Single Templates
+
+**Multiple Templates:** You can have different single templates for different post types. For instance, a separate layout for a Custom Post Type (CPT) like "Portfolio". Vertex will list custom post types in Display Conditions if available. (E.g., you might see an option for that CPT under Single conditions if it's public.)
+
+**Dynamic Tags:** Utilize dynamic tags in text widgets for flexibility. For example, instead of separate widgets, you could add a Text Editor widget and insert dynamic tags for author name, date, etc., inline with custom separators. Vertex's dynamic tags include Post Title, Post Excerpt, Post Date, Author Name, etc., which you can embed in text or heading widgets for unique layouts.
+
+**Consistency:** If you want a uniform look for all single content, ensure you've covered both Posts and Pages. You might need one template for each if they should differ. If they should be the same, you still currently have to create two (one for all posts, one for all pages) since conditions separate them.
+
+**Page Builders vs Theme:** Once your single template is active, it takes over the content layout. If you find your theme's elements (like the default title) still showing, it means the Vertex template might not be applying — usually due to conditions. Double-check conditions in that case.
+
+<Aside type="tip">You can include Elementor sections or widgets that only show under certain conditions if needed. For example, using Visibility Controls (an extension from Vertex) to show an "Author Bio" only on posts and not on pages within a unified template. This is an advanced use, but it's possible to tailor sections within one template using such extensions.</Aside>
+
+With a Single Post Template in place, editing the design of your blog posts or pages becomes centralized. Change the template's design and it updates the look of all those posts, ensuring consistency and saving time compared to editing each post individually.

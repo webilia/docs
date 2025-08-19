@@ -1,9 +1,67 @@
 ---
 title: Advanced Template Builder
-description: TODO
+description: "Use Vertex's Advanced Template Builder to create custom Headers, Footers, Single post layouts, Archive pages, and more without Elementor Pro."
 sidebar:
-  label: Advanced Template Builder
-  order: 3
+  label: Overview
+  order: 1
 ---
+import { Aside, Steps } from '@astrojs/starlight/components';
 
-Content coming soon.
+Vertex Addons' Advanced Template Builder is a powerful feature that brings theme building capabilities to Elementor Free. It allows you to create and manage templates for different parts of your website (like header, footer, single post, archive, etc.) and set where they appear. Essentially, you gain Elementor Pro-like Theme Builder functionality at no extra cost.
+
+## What is the Advanced Template Builder?
+
+The Advanced Template Builder is an interface in the WordPress dashboard (under Vertex Addons) where you can create templates for various site areas:
+
+- **Header** - Custom site header designs.
+- **Footer** - Custom footer designs.
+- **Single** - Layout for single posts or pages.
+- **Archive** - Layout for archive pages (blog index, categories, search results, etc.).
+- **Dynamic Loop Item** - Template for repeated post items in grids or loops.
+
+Each template is built with Elementor's editor, using Vertex's added widgets and dynamic tags for site data. Once a template is published, Vertex will display it on the site according to conditions you specify (for example, using your custom header on the entire site, or a specific footer only on certain pages).
+
+<Aside type="tip">**No Elementor Pro needed:** The Advanced Template Builder works with Elementor Free. It unlocks the ability to override theme parts (which is usually a pro feature in Elementor). This means you can build a fully custom header-footer and blog design without upgrading Elementor.</Aside>
+
+## How to Create and Use Templates
+
+Using the Template Builder is straightforward and similar for each template type:
+<Steps>
+1. **Access the Builder:** Go to Vertex Addons > Template Builder in WP admin. Here you'll see a list of existing templates (if any) and a button to add new.
+2. **Add a New Template:** Click "New Template". In the dialog that appears:
+   - Choose Type: Select which type of template you want to create (Header, Footer, Single, Archive, or Dynamic Loop Item).
+   - Name: Enter an optional name (this is just for your reference, e.g., "Blog Archive Template").
+   - Click Create Template.
+3. **Edit in Elementor:** After creation, the template will open in the Elementor editor. Design the template as desired:
+   - You can use regular Elementor widgets and any Vertex widgets (many Vertex widgets are specifically useful for theme parts, like Post Title, Site Logo, Archive Title, etc.).
+   - For Single templates, use dynamic widgets (Post Title, Post Content, Featured Image, etc.) to pull in actual post data.
+   - For Archive templates, you might add an Archive Title widget and a posts listing (using Dynamic Archive Posts widget).
+   - For Headers/Footers, design the layout and include relevant site elements.
+4. **Display Settings & Conditions:** Before publishing, configure where this template should apply:
+   - In the Elementor editor panel, find Display Conditions (added by Vertex in the template's Settings). Enable it and set the conditions. For example, for a Single Post template, you might choose "Posts - All" to apply to all blog posts (or a specific category of posts if needed). For a Header, you might set it to Entire Site.
+   - You can add multiple conditions or exclude conditions if necessary. For instance, a header could be set to Entire Site but excluding a landing page.
+5. **Publish the Template:** Click Publish. Elementor (with Vertex) will prompt to confirm the display conditions if you haven't already. Finalize these settings and publish.
+6. **Review Active Templates:** Back in Vertex Addons > Template Builder, you'll now see your new template listed alongside its type. You can create multiple templates of the same type if you need variations for different sections of your site (e.g., a different Single template for pages vs. posts).
+</Steps>
+
+## How Vertex Applies Your Templates
+
+Once a template is published, Vertex injects your template's content into the site at the appropriate hook. For example, a Header template will be displayed at the top of the page, a Footer at the bottom, replacing the theme's output. Single and Archive templates will override the content area for posts or archives.
+
+**Priority**: If more than one template of the same type could apply (overlapping conditions), Vertex will use the most specific match. (For instance, if you have one Single template for "All Posts" and another for a specific category, the specific category one will show for posts in that category.)
+
+**Dynamic content**: While editing a template, you can choose a preview source (Vertex adds a "Preview Source" dropdown in the editor's settings). This lets you see an example post or archive while designing. It doesn't affect where the template displays; that's controlled by conditions.
+
+<Aside>For example, you might create two Single Post templates - one for standard blog posts and one for a custom post type. Using display conditions, assign each to the appropriate content. The Template Builder will ensure each post type shows the correct design.</Aside>
+
+## Managing Templates
+
+All your templates are listed under Vertex Addons > Template Builder. Here you can:
+
+- Edit a template (to change its design or update content).
+- Quick Edit to rename if needed.
+- Trash a template if you no longer need it.
+
+Remember that if you want to temporarily disable a custom template, you can save it as Draft. In that case, your theme's default design will resume for that part of the site until the template is published again.
+
+The Advanced Template Builder essentially hands you the reins of your site's theme. You can craft the exact header, footer, and content layouts you envision, all within Elementor's familiar interface. Once set up, your site's structure becomes easy to maintain - edit the template once to update that part of your site everywhere.
