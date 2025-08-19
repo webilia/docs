@@ -29,3 +29,7 @@ ul.top-level details ul li details .group-label span.large {
   font-size: var(--sl-text-sm);
   color: var(--sl-color-gray-2);
 }
+
+.site-title img {
+  width: 60%;
+}
