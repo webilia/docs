@@ -5,9 +5,18 @@ import starlightUtils from '@lorenzo_lewis/starlight-utils';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://docs.webilia.com',
   integrations: [
     starlight({
-      title: 'Webilia',
+      title: 'Webilia Docs',
+      logo: {
+        src: './src/assets/logo.svg',
+        replacesTitle: true,
+      },
+      favicon: './src/assets/favicon.svg',
+      editLink: {
+        baseUrl: 'https://github.com/webilia/docs/edit/main',
+      },
       defaultLocale: 'root',
       locales: {
         root: { label: 'English', lang: 'en' },
@@ -55,7 +64,7 @@ export default defineConfig({
               ],
               collapsed: true
             },
-            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' }, collapsed: false },
+            { label: 'Extensions', autogenerate: { directory: 'vertex/extensions' }, collapsed: true },
             { label: 'Template Builder', autogenerate: { directory: 'vertex/template-builder' }, collapsed: true },
             {
               label: 'Advanced Features',
