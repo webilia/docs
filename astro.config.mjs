@@ -13,7 +13,7 @@ export default defineConfig({
         src: './src/assets/logo.svg',
         replacesTitle: true,
       },
-      favicon: './src/assets/favicon.svg',
+      favicon: '/favicon.svg',
       editLink: {
         baseUrl: 'https://github.com/webilia/docs/edit/main',
       },
