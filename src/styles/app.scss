@@ -50,3 +50,17 @@ ul.top-level {
     width: 60%;
   }
 }
+
+.content-panel {
+  .hero {
+    padding: 0;
+  }
+
+  .hero + .sl-markdown-content {
+    display: none;
+  }
+
+  .hero + .sl-markdown-content + footer.sl-flex {
+    display: none;
+  }
+}
