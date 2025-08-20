@@ -34,9 +34,6 @@ ul.top-level details ul li details .group-label span.large {
   width: 60%;
 }
 
-.content-panel .hero {
-  padding: 0;
-}
 .content-panel .hero + .sl-markdown-content {
   display: none;
 }
