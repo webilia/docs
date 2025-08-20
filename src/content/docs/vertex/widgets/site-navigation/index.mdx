@@ -6,22 +6,26 @@ sidebar:
   order: 1
 ---
 
-import { Aside, Steps } from '@astrojs/starlight/components';
+import { Aside, Steps, CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 The **Site & Navigation** section of Vertex Addons includes several widgets that help you build your website's header and navigation structure without coding. These widgets work together to display your branding (logo/title), menus, breadcrumbs, and search, giving you full control over your site's navigation experience.
 
-**Widgets in this category include:**
+Below is an overview of each Site & Navigation widget and what you can achieve with it:
 
-- **Site Logo:** Display your website's logo and optionally link it to the homepage.
-- **Site Title:** Show your site's name as a heading, which can dynamically update from your WordPress settings.
-- **Advanced Menus:** Add customizable navigation menus (horizontal, vertical, or hamburger menu) using your WordPress menu items.
-- **Offcanvas Menu (Sidebar):** Create a collapsible side menu that slides in on click - great for mobile navigation or additional hidden menus.
-- **Breadcrumb:** Display a breadcrumb trail for pages/posts, helping users navigate back through your site's hierarchy.
-- **Search Input (Live/Ajax):** Insert a search bar so visitors can search your site, with an option for live Ajax results.
+<CardGrid>
+  <LinkCard href="./site-logo" title="Site Logo" description="Display your website's logo and optionally link it to the homepage."/>
+  <LinkCard href="./site-title" title="Site Title" description="Show your site's name as a heading, which can dynamically update from your WordPress settings."/>
+  <LinkCard href="./advanced-menus" title="Advanced Menus" description="Add customizable navigation menus (horizontal, vertical, or hamburger menu) using your WordPress menu items."/>
+  <LinkCard href="./offcanvas-menu" title="Offcanvas Menu (Sidebar)" description="Create a collapsible side menu that slides in on click - great for mobile navigation or additional hidden menus."/>
+  <LinkCard href="./breadcrumb" title="Breadcrumb" description="Display a breadcrumb trail for pages/posts, helping users navigate back through your site's hierarchy."/>
+  <LinkCard href="./search-input" title="Search Input (Live / Ajax)" description="Insert a search bar so visitors can search your site, with an option for live Ajax results."/>
+</CardGrid>
 
 Each widget is designed to be **drag-and-drop** simple in Elementor, but also comes with extensive settings to tweak functionality and style. Whether you're building a complete site header or adding navigation aids to pages, the Site & Navigation widgets provide the building blocks you need.
 
-<Aside>**When to Use These Widgets:** Typically, you'll use Site Logo, Site Title, and Advanced Menus together in a header template to form a classic website header. The Offcanvas Menu is perfect for mobile-friendly navigation or secondary menus. Breadcrumbs are often placed below page headers or in dynamic templates to enhance UX, and the Search Input can be placed in headers or sidebars for easy access.</Aside>
+<Aside type='note' title='When to Use These Widgets'>
+Typically, you'll use Site Logo, Site Title, and Advanced Menus together in a header template to form a classic website header. The Offcanvas Menu is perfect for mobile-friendly navigation or secondary menus. Breadcrumbs are often placed below page headers or in dynamic templates to enhance UX, and the Search Input can be placed in headers or sidebars for easy access.
+</Aside>
 
 ## Building a Header with Site & Navigation Widgets
 

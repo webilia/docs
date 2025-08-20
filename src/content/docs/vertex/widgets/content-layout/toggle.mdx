@@ -1,8 +1,37 @@
 ---
-title: Toggle
-description: TODO
+title: Toggle Widget
+description: Display collapsible sections where multiple can be open at once using the Toggle widget (Pro feature).
 sidebar:
   order: 4
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge } from '@astrojs/starlight/components';
+
+**Toggle** is a Pro-only widget that functions similarly to an accordion, but allows multiple items to be expanded simultaneously. It's ideal when you want to present Q&A or content sections where users might need to open several items at once for comparison or convenience (unlike a standard accordion which only opens one section at a time).
+
+## How to Use the Toggle Widget <Badge variant='caution' text='Pro' />
+
+<Steps>
+
+1. **Add the Toggle widget:** After upgrading to Vertex Addons Pro and activating it, drag the **Toggle** widget into your Elementor page.
+2. **Add Toggle Items:** In the content settings, add your items (just like with Accordion):
+   - Click **Add Item** to create a new toggle section.
+   - Set the **Title** for the item (this is the clickable header).
+   - Provide the **Description** content for that item. This is the text revealed when the toggle is expanded.
+   - You can also choose an **Icon** for each item, as well as specific **Open** and **Close** icons if you want to indicate the expanded/collapsed state (for example, a "plus" icon for closed and a "minus" icon for open).
+3. **Behavior:** By design, the Toggle widget lets multiple sections stay open. Users can click each item to expand or collapse it independently. There's no forced closure of other sections, meaning they can open all items if they wish. No additional settings are needed to enable this behavior.
+4. **Customize Icons/Styles:** In the **Content** tab, ensure your desired icons are set (or you can disable icons if not needed by choosing none). Then switch to the **Style** tab to adjust the appearance:
+   - **Title** (Toggle Header) styling: Set the typography, color, and background for the toggle headers. You might want an **Active** color state to highlight which toggles are open.
+   - **Icon Styling:** Adjust icon size/color and the background shape (if any) for the icons next to titles.
+   - **Content Styling:** Configure the text style, spacing, and background for the content panels.
+5. **Test the Toggles:** Save and preview the page. Clicking on each toggle header will expand its content. Because this is a toggle (and not an accordion), opening one section does *not* close others. Ensure that this fits the user experience you want. Users will be able to open or close each section independently.
+
+</Steps>
+
+<Aside type='tip' title='Use Case'>
+The Toggle widget is great for FAQ pages where users might want to open several questions at once to read through answers without closing others. It's also useful for sections where comparing content side by side makes sense (users can expand all relevant sections).
+</Aside>
+
+<Aside type='note'>
+Since Toggle is a Pro widget, if it's not appearing in your Elementor editor, verify that Vertex Addons Pro is installed and activated. Pro widgets are labeled in the Elementor panel, and using one will typically require the Pro plugin to be active on the site.
+</Aside>

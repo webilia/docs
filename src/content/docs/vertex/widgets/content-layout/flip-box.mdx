@@ -1,8 +1,58 @@
 ---
-title: Flip Box
-description: TODO
+title: Flip Box Widget
+description: Create interactive content boxes that flip to reveal more information using the Flip Box widget for Elementor.
 sidebar:
   order: 10
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Flip Box** widget lets you display two-sided content: a front face and a back face. The widget flips like a card when the user hovers over (or taps on mobile) the front face, revealing the back face. This is great for showing an initial piece of content (like an icon or brief text) and more details on the backside (like additional text or a call-to-action) in the same space.
+
+## How to Use the Flip Box Widget
+
+<Steps>
+
+1. **Add the Flip Box:** Drag the **Flip Box** widget onto your page. You'll see a default two-sided box appear (with some placeholder content).
+2. **Configure Front Side Content:** In the Content settings, look for the **Front** section (it might be separated into tabs like Front and Back):
+   - **Graphic Element (Front):** Choose what to display on the front face as a graphic. Options typically are *None*, *Icon*, or *Image*.
+     - If **Icon**: Select an icon that represents the content (for example, a service icon or a symbol). The icon will display on the front.
+     - If **Image**: Upload or choose an image from the media library. The image (e.g., a photo or illustration) will be shown on the front.
+     - If **None**: You can opt not to have a graphic, and just use text.
+   - **Front Title:** Enter the heading text for the front side. This should be a short phrase or word that teases the content (e.g., "Our Mission" or "Premium Plan").
+   - **Front Description:** Enter a short description for the front (if desired). Many flip boxes only show a title and maybe an icon on the front, keeping it simple. Use the description if you want a bit more text on the front.
+   - You can also set styling specifics for the front content in the Style tab later, but for now, focus on content.
+3. **Configure Back Side Content:** Now set up the **Back** side (there will be a Back content section):
+   - **Back Title:** Enter a heading for the back side (could be the same as front or a continuation). For example, if front title was "Our Mission," back title could be something like "Our Mission" again or "Why We Do It" - or you can leave the title blank on back if the front had one.
+   - **Back Description:** This is where you put more detailed information that you want revealed on hover. It can be a couple of sentences or bullet points since the back has more space to elaborate. For instance, a description of the service/feature or additional details that weren't on the front.
+   - **Back Button (Optional):** Often flip boxes allow an optional button on the back face for a call-to-action. If applicable:
+     - **Button Text:** Enter the text for a button on the back (e.g., "Learn More", "Contact Us", "Sign Up"). If you leave this blank, no button will display.
+     - **Button URL/Link:** Set the link for the button. This could navigate the user to another page or section for more info.
+     - (Some flip box widgets also have an option *Apply link on whole box or just button*. If present and you want the entire box clickable to a link, configure that accordingly. Otherwise, by default only the button is clickable.)
+4. **Flip Settings:** Look for settings related to the flipping behavior:
+   - **Flip Effect:** Choose the animation style of the flip. Common options include *Flip* (a 3D card flip) or *Fade* (one side fades into the other without a 3D flip). The default "Flip" will rotate the card. Pick the one you prefer.
+   - **Flip Direction:** If using the Flip effect, choose which direction the card flips: *Left, Right, Up,* or *Down*. For example, *Left* means it flips over as if turning leftwards. *Up* means it flips vertically from bottom to top. Choose what looks best with your design.
+   - **3D Depth (if available):** Some flip animations have a slight 3D perspective. Typically this is automatic, but some widgets might allow adjusting perspective or depth. It's usually fine to leave at default.
+   - **Flip on Hover vs. Click:** By default, Vertex Flip Box flips on hover (on desktop). On mobile devices, it will flip on tap. There usually isn't a toggle for this, as it's handled automatically for touch devices.
+5. **Size and Spacing:** You might have an option to set a fixed **Height** for the flip box. This ensures the front and back are the same size. For example, set the height to 300px (or leave as default "auto" to adjust to content). If your front and back content heights differ, a fixed height ensures the box doesn't change size when flipped.
+   - Also, you can adjust **Border Radius** if you want rounded corners on the box (make sure to set this for both front and back consistently).
+6. **Style the Front and Back:** Go to the **Style** tab:
+   - **Backgrounds:** Set the background color or image for the front and back. You might use a colored background on one side and a slightly different shade on the other to differentiate, or use images on one/both sides.
+   - **Overlay/Opacity:** If you placed text over an image, you can add a background overlay color to improve readability (e.g., a semi-transparent overlay).
+   - **Title & Text Styles:** Customize typography and color for the front title/description and back title/description separately. For example, front might have larger text or centered text.
+   - **Icon/Image Style:** If you used an icon on the front, you can adjust its size and color under front styles. If you used an image, ensure it's sized well (you can often adjust image width or height percentages in style).
+   - **Button Style:** If the back has a button, style the button (text color, background, hover state, typography, etc.) in the style tab.
+   - **Alignment:** You'll find controls for alignment of content on front and back (horizontal and vertical alignment). For example, center all content, or top-align it. Set these so that the content on both sides is positioned nicely within the box.
+   - **Borders/Shadow:** Optionally, add a border or shadow to the flip box to make it stand out. A subtle shadow can give a card-like feel.
+7. **Preview the Flip:** Update and preview the page. Hover your mouse over the Flip Box: the front should flip and reveal the back. Check that the content on both sides is correctly visible and nothing is cut off. On mobile, simulate a tap (or check on an actual device) to ensure tapping the flip box triggers the flip.
+   - Ensure the back-side content is not too long (as it must fit in the same box). If you find content getting cut, either reduce the text or increase the height setting of the box.
+
+</Steps>
+
+<Aside type='tip'>
+Keep the front side simple and enticing - maybe just an icon and a short title. Put the details on the back side. Users will be curious to hover or tap to see more. Also, make sure the two sides design-wise look like they belong together (use complementary colors or imagery) so the flip transition is visually smooth.
+</Aside>
+
+<Aside type='note'>
+On touch devices, there's no hover. Users will have to tap the flip box to see the back, and then typically it will flip back when they tap away. Be mindful that very small flip boxes might be hard to tap - give them adequate size and consider usability. If a flip interaction isn't ideal on mobile, ensure that the essential information is accessible in another way.
+</Aside>

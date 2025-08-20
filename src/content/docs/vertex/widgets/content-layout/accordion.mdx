@@ -1,8 +1,36 @@
 ---
-title: Accordion
-description: TODO
+title: Accordion Widget
+description: Organize content in collapsible sections using the Accordion widget for Elementor.
 sidebar:
   order: 2
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Accordion** widget allows you to display content in collapsible sections. It's perfect for FAQs or any content where you want to save space by toggling visibility. Only one accordion item is open at a time, so when a new section opens, the others close automatically, keeping the interface compact.
+
+## How to Use the Accordion Widget
+
+<Steps>
+
+1. **Add an Accordion:** In the Elementor editor, drag and drop the **Accordion** widget onto your page.
+2. **Add Accordion Items:** By default, a few accordion items will be present. You can add a new item by clicking **Add Item** in the content panel. For each item:
+   - Set the **Title** - this is the header that users click on.
+   - Enter the **Description** - this text will expand under the title when the item is opened. You can format this text or include links as needed.
+   - *(Optional)* Choose icons for the item: an **Icon** to display with the title, as well as **Open Icon** and **Close Icon** to indicate the toggle state. By default, arrows are used, but you can pick any icons (e.g., "+" and "-" symbols).
+3. **Configure Behavior:** The Accordion widget is designed so that opening one section closes the others automatically. There is no additional setting needed for this behavior (it's built-in for accordions).
+4. **Style the Accordion:** Switch to the **Style** tab to customize the appearance:
+   - **Title Style:** Adjust typography (font, size), text color, and background for the accordion headers. You can also set an active color (for the open item's header) to highlight it.
+   - **Icon Style:** Customize the icon color and background. For example, you might use one color for the default state and another for the active state to create a visual cue.
+   - **Content Style:** Adjust the text style and padding for the description content area.
+5. **Save and Preview:** Update or preview the page. Test clicking the accordion titles - one section opens at a time, revealing its content while closing others.
+
+</Steps>
+
+<Aside type="tip">
+Use clear, concise titles for each accordion item so users know what content to expect. Accordions work best for FAQ sections or lists of topics where only one answer or content block needs to be viewed at once.
+</Aside>
+
+<Aside>
+The Accordion widget only allows one section open at a time by design. If you want multiple sections to stay open simultaneously, consider using the **Toggle** widget instead (available in Pro) - it's similar in setup but doesn't auto-collapse other sections when one is opened.
+</Aside>
