@@ -1,8 +1,47 @@
 ---
-title: Creative Button
-description: TODO
+title: Creative Button Widget
+description: Add interactive call-to-action buttons with hover animations using the Creative Button widget for Elementor.
 sidebar:
   order: 9
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Creative Button** widget lets you create eye-catching buttons with creative hover effects. These buttons go beyond the standard Elementor button by adding stylish animations or transformations when users hover over them. It's perfect for drawing extra attention to your calls-to-action (CTA) like "Buy Now," "Sign Up," etc., in a unique way.
+
+## How to Use the Creative Button Widget
+
+<Steps>
+
+1. **Add the Creative Button:** Drag the **Creative Button** widget into your design where you need a CTA button.
+2. **Button Content:** In the Content tab, set up the basic button details:
+   - **Button Style:** Select a style preset from the dropdown (Style1, Style2, … up to Style8). Each style corresponds to a different hover animation or design for the button. You can try each to see which effect fits your site's aesthetic (for example, one style may have a sweeping underline, another might have a color flip, etc.).
+   - **Text:** Enter the button label text (e.g., "Learn More", "Sign Up", "Buy Now"). This is the text that will appear on the button.
+   - **Link:** Set the URL for the button to link to. This can be an internal page or an external link. You can also choose if the link opens in a new tab.
+   - **Icon (Optional):** If you want an icon on your button, choose one from the icon library. For example, a right arrow icon or a shopping cart icon. 
+   - **Icon Position:** If an icon is selected, decide its position relative to the text. You can choose **Start** (icon on left of text) or **End** (icon on right of text). The widget handles RTL automatically, so "Start" will put the icon on the appropriate side for your site's language direction.
+   - **Icon Spacing:** Adjust the spacing (gap) between the icon and the text so it looks balanced.
+   - **Button ID (Optional):** You can assign a CSS ID to the button if you need to target it with custom code or scripts (this is optional and for advanced use).
+3. **Style Customization:** Now switch to the **Style** tab to customize the appearance:
+   - **Typography & Color:** Set the font and size of the button text, and the default text color.
+   - **Background and Border:** Customize the button's background color and border. Depending on the style chosen, some styles might always show a border or only on hover. You can still set base colors here. For example, choose a primary color for the button background or border.
+   - **Hover Styles:** Each Creative Button style has a unique hover effect, but you can often customize the hover state colors. For instance, set a different text color or background color for when the user hovers. Some styles might invert colors or reveal an overlay - adjust the hover color settings to your preference.
+   - **Padding & Border Radius:** You can adjust the padding (the space inside the button around the text) to make the button larger or smaller. Also set the border radius for rounded corners, if desired (though some styles may have pre-defined shapes).
+   - **Icon Style:** If you included an icon, you can adjust the icon size and maybe its color (usually it inherits text color, but ensure it looks right).
+4. **Choose the Right Hover Effect:** It helps to preview the different Style presets to see which animation you like. For example:
+   - Style1 might have a background slide or fill effect.
+   - Style2 could have an underline or border expansion.
+   - Style3, Style4, etc., each will do something different (glow, 3D tilt, sweep, etc.). Experiment by selecting each style and hovering the button in the preview to see the effect.
+   Once you decide on one, fine-tune the colors and speeds if such options exist.
+5. **Mobile/Tablet Considerations:** Ensure the button is still usable and looks good on smaller screens. Sometimes hover effects won't activate on touch devices (they might just show the end state on touch). Make sure the button is clearly styled and recognizable even without hover on mobile. You can use responsive controls to adjust font size or padding for mobile if needed (so the button isn't too large or small on different devices).
+6. **Save and Test:** Update the page and test the button on the live site. Hover over it with your mouse to see the creative effect in action. Also, click it to confirm it goes to the correct link.
+
+</Steps>
+
+<Aside type='tip'>
+Use Creative Buttons sparingly for emphasis. Because they draw attention, it's best to use them for your primary calls-to-action on a page (for example, a "Get Started" button or a purchase button). Having too many animated buttons can be visually overwhelming, so choose one or two key actions to highlight with this widget.
+</Aside>
+
+<Aside type='note'>
+Each style has its own animation flair. If you have brand guidelines or a particular style on your site (e.g., very minimal vs. very flashy), choose the button style that aligns with that. You can then customize the colors to match your brand. The underlying animation (like a hover line, background swipe, icon movement, etc.) will provide the creativity without needing custom code.
+</Aside>

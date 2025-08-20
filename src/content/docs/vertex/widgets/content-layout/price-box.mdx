@@ -1,8 +1,58 @@
 ---
-title: Price Box
-description: TODO
+title: Price Box Widget
+description: Build pricing plan boxes or feature lists with the Price Box widget for Elementor.
 sidebar:
   order: 11
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Price Box** widget is perfect for showcasing pricing plans or packages in a structured format. It typically includes a title (plan name), the price, a list of features or offerings, and an optional button to encourage the user to purchase or sign up. You can use multiple Price Box widgets side by side to create a pricing table comparison.
+
+## How to Use the Price Box Widget
+
+<Steps>
+
+1. **Add the Price Box:** Drag a **Price Box** widget into your page. If you are creating a pricing section with multiple plans, drag multiple Price Box widgets into adjacent columns.
+2. **Title (Plan Name):** In the content settings for the Price Box, find the **Title** field. Enter the name of the plan or package (e.g., "Basic Plan", "Pro", "Enterprise"). This will appear at the top of the price box.
+3. **Price Settings:** Configure the pricing details under the Price section:
+   - **Price:** Enter the price amount for this plan. This can be a number like "49.99" (do not include the currency symbol here if there's a separate field for that).
+   - **Currency:** Enter the currency symbol or abbreviation. For example, "$" or "USD". This will display alongside the price. (Some widgets allow positioning the currency symbol as well, but typically it's shown before the price by default.)
+   - **Special Sales (Toggle):** If your price is a discounted or sale price, turn **Special Sales** to "Yes" (or toggle it on). This will enable an option to show a regular price strikethrough.
+   - **Regular Price:** When Special Sales is enabled, a field appears to enter the original price (e.g., "99.99"). This original price will typically show as a crossed-out higher price, indicating the current price is a discount.
+   - The Price Box will automatically format these, for example showing ~$99.99~ next to $49.99 if you set a regular price.
+4. **Features List:** Set up the features or benefits included in this plan:
+   - Look for a **Features** repeater list (often just below price). It may be called "Features" or "List Items."
+   - Click **Add Item** to create feature bullet points. For each feature, enter a short description, e.g., "10 Projects", "5 GB Storage", "Email Support".
+   - Continue adding items for all key features of this plan. Keep each to one line for clarity. The Price Box will display them typically as a list.
+   - The example default might already include some sample features (like "24-hour support", "Online service", etc.); you can edit or replace these.
+5. **Button (Call-to-Action):** Configure the signup/purchase button at the bottom:
+   - **Button Show:** Ensure the toggle for showing a button is enabled (it might be on by default). If you turn it off, no button will display.
+   - **Button Title (Text):** Enter the text for the button. Common labels: "Sign Up", "Buy Now", "Choose Plan", "Get Started".
+   - **Button Link (URL):** Set the link where this button should take the user. This might be a checkout page, a contact form, or an anchor link to another section. If you want it to open in a new tab (for an external link), adjust the settings accordingly.
+6. **Style the Price Box:** Switch to the **Style** tab to adjust the design:
+   - **Box Background & Border:** Set the background color of the price box container. Many designs use a distinct background for the active/featured plan. You can also add a border or shadow to each box. Adjust border radius if you want rounded corners.
+   - **Title:** Style the plan title text (font, size, color). You might, for example, bold the plan name and make it larger.
+   - **Price:** There could be separate styling for the price. You can adjust the currency symbol size vs. the number, color of the price, etc. If a regular price is shown (strikethrough), that may have its own style (often smaller or grey with a line through it automatically).
+   - **Features (List) Style:** Customize the list style for features. This might include text color, typography, and spacing between items. Some price box styles include icons or bullets for each feature (like check marks). Ensure the list is easily readable.
+   - **Button Style:** Style the button to make it prominent. Change the button color to match your theme (for example, your brand color). Also adjust hover color, text color, and border if needed. You want the button to stand out as the next action.
+   - **Alignment & Spacing:** You can center or left-align content as needed. Often, price boxes have centered text. Ensure there is adequate padding inside the box so content isn't cramped against the edges.
+7. **Featured Plan (Optional):** If you have multiple price boxes and want one to stand out as "recommended" or "most popular," you can style that one differently. This isn't a specific toggle in the widget, but you can achieve it by:
+   - Using a different background or accent color for that Price Box.
+   - Adding a Badge (maybe manually in the title as text or using an Elementor widget) like "Popular" or "Best Value".
+   - Making it slightly larger (maybe put it in a column with a bit more width).
+   These changes have to be done manually by styling one widget differently from the others.
+8. **Responsive Adjustments:** Check how the price boxes look on tablet and mobile. Price Boxes in a row will typically stack on smaller screens. You may need to adjust text sizing or padding for mobile to ensure they look balanced. Use responsive controls in the Style tab for font sizes if available.
+9. **Save and Review:** Update your page. If you have multiple Price Boxes, review the section as a whole:
+   - The heights of the boxes should ideally be equal for a neat layout (if one has significantly more features text, consider adding a little padding to the shorter ones or limiting text so they match visually).
+   - Click the button to verify it goes to the correct link.
+
+</Steps>
+
+<Aside type='tip'>
+When presenting multiple pricing plans, highlight the recommended plan by using the Price Box's styling. For example, you can use a slightly different background or add a "Recommended" label. Vertex Addons' Price Box gives you flexible styling, so take advantage to make the important plan pop. Also, ensure feature lists are comparable (if one plan has something another doesn't, consider using an en dash or "-" to indicate an unavailable feature in that plan's list, if needed for comparison).
+</Aside>
+
+<Aside type='note'>
+You can duplicate a Price Box widget in Elementor to quickly create a second or third one with the same structure. After duplicating, just change the content (title, price, features, etc.) for the other plans. This keeps the style consistent across all your pricing boxes.
+</Aside>

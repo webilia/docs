@@ -1,8 +1,38 @@
 ---
-title: Notice Box
-description: TODO
+title: Notice Box Widget
+description: Display important notices or messages with the stylized Notice Box widget in Elementor.
 sidebar:
   order: 6
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Notice Box** widget provides a way to draw attention to important information on your page. It typically includes an icon and a block of text, styled in a way that stands out (for example, an info box with a colored border or background). Use it for announcements, warnings, or any text you want users to notice easily during their visit.
+
+## How to Use the Notice Box Widget
+
+<Steps>
+
+1. **Add a Notice Box:** Drag the **Notice Box** widget into your page where you want the message to appear.
+2. **Content Configuration:** In the content settings panel, you will find fields to customize:
+   - **Icon:** Choose an icon that represents the type of notice. For example, an "ℹ️ (info)" icon for informational notices or a "⚠️ (warning)" icon for cautions. The default might be a general exclamation icon. Pick an icon that suits your message.
+   - **Title:** Enter a short title or heading for the notice (optional but recommended). This could be something like "Important," "Note," or a brief phrase like "Maintenance Downtime."
+   - **Text:** Enter the main notice text in the text area. This is the message you want to communicate. Keep it concise so that it's easily readable at a glance.
+3. **Notice Style Options:** Notice Box may have preset design elements such as a colored side border or background by default. In the **Style** tab, you can adjust:
+   - **Box:** Customize the background color of the notice box and its border. For instance, you might choose a light yellow background for a warning, or a light blue for an info notice. There's also an option to set a border or left border line color (often used to give a "stripe" accent to the notice).
+   - **Icon Style:** Set the icon's background and color. You can pick the icon container shape as well — options typically include *Circle*, *Square*, or *Shield*. "Shield" style might show the icon with a left border accent, while circle or square will put the icon in a colored shape. Adjust the size of the icon and its container padding to your liking.
+   - **Title Style:** If you are using a title, adjust its typography (font, size, weight) and color. You might choose a stronger color for the title to ensure it stands out.
+   - **Text Style:** Customize the body text color and typography so the message is easily readable. Ensure sufficient contrast with the background.
+   - **Spacing:** Adjust padding inside the notice box and spacing between the icon and text if needed (the widget likely handles this well by default, but you have control if needed).
+4. **Emphasis Variations:** The Notice Box can be used for different emphasis levels. For example, you might create a subtle notice with a faint background for general info, versus a high-emphasis notice with bold colors for urgent messages. Use the styling options to match the notice's importance.
+5. **Preview the Notice:** Save or preview your page. Ensure that the notice stands out as intended. The icon should be clearly visible and the text easily legible. The overall box should catch the user's eye without clashing with your page's design.
+
+</Steps>
+
+<Aside type='tip'>
+Use consistent colors for notices based on their type. For example, blue for informational notes, yellow/orange for warnings, green for success messages, red for errors. This consistency helps users quickly recognize the nature of the message. You can achieve this by adjusting the Notice Box colors to your preferred palette.
+</Aside>
+
+<Aside type='note'>
+Unlike the Alert Box, the Notice Box does **not** include a close/dismiss button. It's meant for persistent messages on the page. If you need the message to be dismissible by the user, consider using the **Alert Box** widget instead.
+</Aside>
