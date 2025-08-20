@@ -1,0 +1,41 @@
+---
+const PAGE_TITLE_ID = '_top';
+const { title, header_button } = Astro.locals.starlightRoute.entry.data;
+---
+<div class="page-title-wrapper">
+  <h1 id={PAGE_TITLE_ID}>{title}</h1>
+  {header_button && (
+    <a href={header_button.url} class="header-button" target="_blank" rel="noopener noreferrer">
+      {header_button.label}
+    </a>
+  )}
+</div>
+
+<style>
+  @layer starlight.core {
+    .page-title-wrapper {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .page-title-wrapper h1 {
+      margin: 0;
+      font-size: var(--sl-text-h1);
+      line-height: var(--sl-line-height-headings);
+      font-weight: 600;
+      color: var(--sl-color-white);
+    }
+    .header-button {
+      padding: 0.5rem 0.75rem;
+      background-color: var(--sl-color-accent);
+      color: var(--sl-color-white);
+      border-radius: 0.25rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    .header-button:hover {
+      opacity: 0.9;
+    }
+  }
+</style>
