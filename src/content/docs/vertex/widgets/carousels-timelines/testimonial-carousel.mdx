@@ -1,8 +1,78 @@
 ---
 title: Testimonial Carousel
-description: TODO
+description: Showcase customer testimonials in a rotating carousel, with options for images, names, ratings, and more.
 sidebar:
   order: 2
 ---
 
-Content coming soon.
+import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
+
+The **Testimonial Carousel** widget is perfect for displaying client reviews, user testimonials, or quotes in an interactive slider. It allows you to highlight praise from your customers in a visually engaging way.
+
+## Adding Testimonials
+
+When you drag **Testimonial Carousel** into your page, it comes with a few sample testimonial items. You can add, remove, or edit these items:
+
+<Steps>
+
+1. **Add a Testimonial Item:** In the **Content** tab, under **Testimonials**, click **Add Item** to create a new testimonial entry.
+2. **Content for Each Item:** For each testimonial, you can set:
+   - **Image:** An avatar or photo of the person (upload an image or select from media library). This image typically displays in a circle at the top of the testimonial.
+   - **Description:** The testimonial text. This field is a WYSIWYG editor, so you can include rich text if needed (but usually a plain quote or feedback).
+   - **User Name:** The name of the person giving the testimonial (e.g., *John Doe*).
+   - **Site Name:** The person's company or website. Often used to add context, like *Acme Inc.* or *via example.com*. (You can leave it blank if not applicable.)
+   - **Show Rating:** Toggle whether to show a star rating.
+   - **Rating:** If **Show Rating** is enabled, set the rating value (e.g., 4.5 out of 5). The widget will display stars accordingly (including half-stars).
+   - **Show Number:** Optionally display the numeric value of the rating next to the stars (e.g., "4.5"). You can turn this on or off.
+3. **Reorder as Needed:** You can drag testimonial items up or down in the list to change their display order. The carousel will cycle through items in this order.
+
+</Steps>
+
+<Aside type="note" title="Tip: Keep It Concise">
+Testimonials work best when they're relatively short. Try to keep each quote to a few sentences so that your carousel slides don't become too text-heavy. If a testimonial is long, consider summarizing it or highlighting the key sentence.
+</Aside>
+
+## Carousel Settings
+
+Expand the **Settings** section under Content to adjust how the carousel behaves:
+
+- **Slides on Display:** Control how many testimonials are visible at once. For example, set **2** to show two testimonials side by side on desktop. This setting is **responsive** - you can specify different values for desktop, tablet, and mobile (e.g., 2 on desktop, 1 on mobile for easier reading).
+- **Slides on Scroll:** Define how many slides advance at a time when the user navigates. Typically this is 1 (advance one testimonial per scroll/click).
+- **Pagination:** Choose if you want **Dots** navigation (little indicators for each slide) or **None**. Dots appear below the carousel and highlight the current slide.
+- **Infinite Scroll:** Toggle **Yes** to have the carousel loop continuously (after the last testimonial, it wraps around to the first). If turned off, the carousel will stop at the last slide.
+
+If you have multiple slides visible, users can often scroll through them by dragging or using arrows; infinite scroll makes that experience seamless.
+
+## Navigation Arrows
+
+In the **Navigation** section, you can enable and style arrows for the carousel:
+
+- **Arrows:** Toggle on to show "Previous" and "Next" arrow buttons for manual navigation.
+- When arrows are enabled, you can customize each:
+  - **Previous Icon / Next Icon:** Select icons for your arrows (default: left and right arrow circle icons). You can choose different icons from the icon library if desired.
+  - **Positioning (Offset):** Adjust the arrows' position. By default, arrows typically sit at the sides of the carousel. The widget provides **Offset Left** and **Offset Top** controls for each arrow. For example, you might move them slightly inward or upward. Enable the "Custom Offset" toggle to set specific pixel or percentage values to reposition arrows exactly where you want.
+- Arrow styling (color, background, size) is handled in the **Style** tab under Navigation, where you can make arrows match your site's look.
+
+Users can click arrows or swipe (on touch devices) to navigate through testimonials.
+
+## Styling the Carousel
+
+Switch to the **Style** tab to polish the appearance:
+
+- **Avatar (Image) Styles:** Set the size of the testimonial image and its border radius (to make it a circle or rounded square). You can also add a shadow or margin around it.
+- **Text and Name Styles:** Customize the testimonial text typography (font, size, color) and the name/site text styles. The widget likely has separate style sections for the testimonial content, the author name, and the company/site name.
+- **Rating Stars:** If you show ratings, you can adjust star color (for filled and empty stars) under a **Rating** style section.
+- **Spacing:** Modify padding/margins between elements - for example, spacing between the quote text and the author's name, or between multiple testimonials if more than one per slide.
+- **Background and Border:** You might have options to give each testimonial item a background color or border. This can help quotes stand out - e.g., a light gray background box with rounded corners around each testimonial.
+
+Each testimonial slide is contained in a card-like layout. Feel free to experiment with style settings to get the look you want (such as adding a quotation mark icon via background image, or changing the alignment of text).
+
+## Use Cases
+
+<CardGrid stagger>
+  <Card title='Client Testimonials'>Rotate through quotes from happy clients on your homepage to build credibility.</Card>
+  <Card title='Product Reviews'>Showcase user reviews for a product in a slider on the product page.</Card>
+  <Card title='Case Studies'>Highlight short snippets from case studies or success stories.</Card>
+</CardGrid>
+
+The Testimonial Carousel draws attention to praise about your business in a compact, dynamic format. By adjusting the settings and style, you can ensure it fits perfectly with your site's design and draws the eye to your customers' positive words.
