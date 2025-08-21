@@ -1,8 +1,76 @@
 ---
 title: Team Member Carousel
-description: TODO
+description: Present your team or partners in a carousel with photos, names, roles, and social media links.
 sidebar:
   order: 3
 ---
 
-Content coming soon.
+import { Steps, Card, CardGrid } from '@astrojs/starlight/components';
+
+The **Team Member Carousel** widget lets you display a set of team profiles (or any collection of images and text) in a sliding carousel. It's great for introducing your team, showcasing client logos, or any group of items you want to highlight in a rotating gallery.
+
+## Setting Up Team Members
+
+After adding the Team Member Carousel widget to your page, you can add team profiles as items:
+
+<Steps>
+
+1. **Add Team Members:** In the **Content** tab, under the **Team Member Carousel** section, click **Add Item** to create a new member entry. Repeat this for each team member or item you want to showcase.
+2. **Configure Each Profile:** Each item includes:
+   - **Image:** The member's photo or image (choose an image for the person's headshot or a representative graphic).
+   - **Title:** The name of the team member. (This is usually the person's full name.)
+   - **Description:** A brief description, such as the person's role/position (e.g., "Lead Developer") or a short bio snippet.
+   - **Social Icons:** You can add up to three social or contact icons for each member (e.g., LinkedIn, Twitter, Email). By default, *Social Icons* are enabled. For each icon:
+     - Choose an icon (the widget offers a library of popular brand icons and generic icons - you'll see options for Facebook, Twitter, LinkedIn, etc.).
+     - Provide a URL for that icon (for example, the team member's LinkedIn profile link). If you leave the URL blank, the icon won't be clickable.
+     - You can typically configure 3 separate icons (Icon 1, Icon 2, Icon 3). If you need fewer, simply remove the extra ones or disable the Social Icons toggle entirely.
+3. **Reordering:** Drag and drop the items in the list if you want to change the order the team members appear in the carousel.
+
+</Steps>
+
+Keep descriptions concise - usually a job title or a one-sentence bio works well. Too much text can make the carousel slides tall and inconsistent.
+
+## Carousel Behavior Settings
+
+Under the **Settings** section of Content, you can adjust how the carousel functions:
+
+- **Slides on Display:** Set how many profiles are visible at once. For example, display **3** team members in a row on desktop for a gallery feel, and perhaps fewer on mobile (you can set responsive values for tablet and phone).
+- **Slides on Scroll:** Determine how many slides move when advancing. Commonly this is **1**, so the carousel shifts one member at a time.
+- **Pagination:** Choose **Dots** to show indicator dots (useful if you have several members, as it hints at how many sets there are) or select **None** if you prefer a cleaner look without dots.
+- **Autoplay:** Toggle this **On (yes)** to have the carousel auto-rotate through members. You can then set **Autoplay Speed** (in milliseconds, e.g., 2000ms = 2 seconds) to control how fast it advances.
+- **Pause on Hover:** If autoplay is on, enable **Pause on Hover** so that when a visitor hovers their mouse over the carousel, it pauses the sliding (helpful so they can read details without the slider moving).
+- **Infinite Scroll:** Keep this on **Yes** for a continuous loop (recommended for a nice seamless carousel). If turned off, the slider will stop when it reaches the last member and not loop back.
+
+These options help ensure visitors see all team members without manual intervention (if autoplay is on), or allow them to manually browse if they prefer.
+
+## Navigation Options
+
+Under **Navigation**, you have similar arrow controls as the Testimonial Carousel:
+
+- **Arrows:** Enable this to show Previous/Next arrow buttons.
+- Customize arrow **Icons** (you can change from the default arrows if desired).
+- **Arrow Position:** Adjust offsets to position the arrows. For example, you might want arrows to overlay on the carousel images or sit just outside the carousel container. Use the **Offset Left/Top** sliders to nudge their placement.
+- When styling, ensure arrows are visible against your images (choose a contrasting color or add a background circle to the arrow icons via Style settings).
+
+## Styling the Carousel
+
+Use the **Style** tab to refine the appearance:
+
+- **Image Style:** Control the width/size of member photos and their shape. For instance, set a uniform size so all headshots align, and apply a border radius to make them circular if they aren't already perfect circles.
+- **Spacing:** Adjust margin or padding around images and text. You might add space below each photo before the name, or between the name and description.
+- **Typography:** Set the font, size, and color for the **Name (Title)** and the **Description**. Perhaps make the name bold and slightly larger, with the role in a lighter color.
+- **Alignment:** You can center all content within each slide, or align left/right depending on your design.
+- **Social Icon Style:** Style the icons (color and size). For example, you might color them with your brand color or the platform's signature color. Also, you can adjust spacing between icons.
+- **Slide Background/Borders:** Some designs put each member's info in a card with a background. You can add a background color or border to the item container if desired (e.g., a light gray background behind each member's info to separate from the page background).
+
+Remember that, like testimonials, multiple items per slide will shrink to fit; on smaller screens the widget will automatically stack or show fewer per slide (based on your responsive "Slides on Display" settings).
+
+## Use Cases
+
+<CardGrid stagger>
+  <Card title='Meet the Team'>A "Our Team" page section where each slide highlights a different department or a random selection of team members.</Card>
+  <Card title='Advisors or Contributors'>If you have a list of collaborators or sponsors, you can use their logos or headshots in a carousel.</Card>
+  <Card title='Client Logos'>Even though it's called Team Member Carousel, you could repurpose it to scroll through client logos or partner logos - just use the image for the logo and perhaps the title for the company name. (Social icons could even link to case studies or external sites in this scenario.)</Card>
+</CardGrid>
+
+The Team Member Carousel provides an interactive way to humanize your site by showing the faces behind the company. With autoplay and a sleek design, visitors can scroll through and get a sense of your team at a glance.

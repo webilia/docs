@@ -1,8 +1,88 @@
 ---
 title: News Ticker
-description: TODO
+description: Create a scrolling news ticker to display recent posts or custom messages, with customizable labels and animation.
 sidebar:
   order: 5
 ---
 
-Content coming soon.
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+The **News Ticker** widget adds a horizontal scrolling list of news headlines or updates on your site - similar to a news channel ticker. It's perfect for showcasing latest blog posts, announcements, or any rotating text snippets.
+
+## Configuring the News Ticker
+
+When you insert the News Ticker widget, you'll need to decide what content it will display and how it will behave:
+
+### Source of Items
+
+- **Source (Dynamic vs Manual):** Choose between **Dynamic** or **Manual** sources for the ticker items.
+  - **Dynamic:** Automatically pull in your latest posts or pages. 
+  - **Manual:** Manually select specific posts/pages to show in the ticker.
+- **Content Type:** Select whether to pull from **Posts** or **Pages** (this might appear as an option or as separate tabs).
+  - If you choose Posts (dynamic), the ticker will fetch recent blog posts. If Pages, then recent pages.
+- **Number of Items:** Set the **Number of Items** to display (this is how many posts or entries will cycle through). For example, if you set 5 and have 10 recent posts, only the 5 most recent will show in rotation.
+- **Manual Selection:** If you set the source to Manual, you will see a field (or multiple fields) to **Select Posts** or **Select Pages**. Use these to pick exactly which items to include in the ticker. You can search by title and select them. Only those selected will appear.
+- **Query Filters (Dynamic mode):** If using Dynamic, you might have additional query controls:
+  - Filter by category, tag, or other taxonomy (e.g., show only posts from category "News").
+  - Order or Order By settings (e.g., newest first, or by title, etc.). By default, it's usually date descending (latest first).
+  - You can often exclude certain posts or limit to specific authors if needed.
+
+### Ticker Label
+
+The ticker comes with an optional label (often seen to the left of the scrolling text, like a heading). Configure it under **Label** settings:
+
+- **Show Label:** Toggle on/off with something like **Label** or **Label Title**. Default label text is often "Trending" or "Latest".
+- **Label Text:** Change the text to whatever you want (e.g., "Latest News", "Updates", or even a custom word).
+- **Label Position:** Decide where the label appears:
+  - **Left or Right:** You can position the label on the left side of the ticker or the right. In some layouts, you can also place it above or below (as a heading), but commonly left is used.
+  - The widget provides options like Top/Bottom/Left/Right (in a drop-down or buttons). For example, selecting "Left" might show the label on the left and the news items scrolling to its right. "Top" might stack the label above a horizontal ticker.
+- **Label Width:** If the label is placed to the left or right of the ticker, you can adjust how much width it takes up relative to the ticker content. For instance, set a percentage width or pixels for the label container. This is helpful to ensure the label doesn't overlap or that it has enough space.
+- The label is typically styled differently (e.g., a background color or all-caps text) to set it apart from the scrolling items.
+
+### Ticker Behavior (Carousel Settings)
+
+The ticker uses a slider functionality (internally, it uses a carousel script) to scroll items:
+
+- **Autoplay:** Turn this **On** so that the news ticker scrolls automatically. (Usually, for a ticker, you will want autoplay on, otherwise it's just static text).
+- **Autoplay Speed:** Set the speed at which the ticker moves. This is usually in milliseconds (e.g., 2000ms = 2 seconds for each item). Adjust to make sure the text is readable - too fast and users can't follow, too slow and it might feel sluggish. A typical speed might be 2000-5000ms per item depending on length.
+- **Pause on Hover:** Enable this so that if a user hovers over the ticker (e.g., to read or click a headline), the scrolling pauses.
+- **Infinite:** The ticker will naturally loop infinitely (since news tickers are meant to repeat), but ensure infinite or loop setting is on if provided. Typically, yes, because you want the updates to continuously flow.
+
+The ticker will display one item at a time scrolling in (depending on the implementation, sometimes it scrolls a continuous marquee style, or it "slides" one item at a time).
+
+## Styling the News Ticker
+
+Under the **Style** tab, you'll find controls to match the ticker to your site's design:
+
+- **Label Style:** Customize the label appearance:
+  - Text color, typography (you might want it bold or uppercase).
+  - Background color of the label (often a highlight color to distinguish it, like a dark background with light text).
+  - Padding around the label text to give it a "badge" look.
+  - Perhaps border radius if you want rounded corners on the label background.
+- **Item Text Style:** Style the news items (the scrolling text):
+  - Set the typography (font size, family) for the item titles.
+  - Color of the text - ensure it's high contrast against your page background. Many tickers use a neutral or brand color for the text.
+  - If the items are links (by default, if it's pulling posts, each headline is likely a hyperlink to that post), style link colors and hover colors. You might want the headlines to be clickable - confirm that in preview (most times, ticker items link to the content).
+- **Background:** You can set a background color or even an image for the ticker's entire container. A common approach is to have a solid color background (like a banner) that runs across the section. For example, a black or dark blue bar with white text for a classic news ticker feel.
+- **Spacing & Alignment:** Adjust how the label and ticker items are spaced:
+  - You might tweak the separation between the label and the moving text.
+  - Vertical alignment of label vs text (they should be inline-center by default).
+  - If the label is above or below, you can adjust margins accordingly.
+- **Arrow/Navigation Style:** Usually, a ticker doesn't show arrows or dots for navigation (it scrolls on its own). If yours does show any navigation elements (not common for a news ticker), you can style or hide them. Generally, you'll keep navigation off to maintain the marquee effect.
+
+## Usage Notes
+
+- **Clickable Headlines:** If dynamic, each ticker item is typically a link to the corresponding post or page. Ensure this is the case and that the styling indicates it (e.g., underline on hover or a cursor pointer).
+- **Keep it Short:** Headlines or items should be brief for a ticker - one line of text ideally. If a post title is very long, consider editing the title or using a custom excerpt for the ticker if possible. Long text may not display nicely in a quick scroll.
+- **Content Freshness:** If using dynamic posts, the ticker updates automatically as you publish new posts (assuming they fit the query criteria and are among the number of items). This is great for keeping content fresh. If using manual, remember to update it periodically with new announcements.
+
+## Use Cases
+
+<CardGrid stagger>
+  <Card title='Blog Updates'>"Latest Posts" ticker on your homepage showing recent article titles.</Card>
+  <Card title='Promotions'>A ticker listing current promotions or deals (manually entered, e.g., "🔥 50% off all shoes today! - Use code SHOE50").</Card>
+  <Card title='News Headlines'>If you run a news site, a breaking news ticker can highlight top stories.</Card>
+  <Card title='Event Schedule'>Could be used to scroll through upcoming events or deadlines.</Card>
+</CardGrid>
+
+With the News Ticker widget, your site gains a dynamic element that draws attention to important updates. By adjusting its style and settings, you ensure it's eye-catching but not intrusive, keeping visitors informed about what's new or important on your site.
