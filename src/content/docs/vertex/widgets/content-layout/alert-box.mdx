@@ -1,8 +1,40 @@
 ---
-title: Alert Box
-description: TODO
+title: Alert Box Widget
+description: Show dismissible alert messages on your site with the Alert Box widget for Elementor.
 sidebar:
-  order: 6
+  order: 7
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Alert Box** widget is designed for urgent or important messages that you might want the user to notice and possibly dismiss. Common examples include cookie consent notices, special announcements, error or success messages, etc. The Alert Box typically features a block of text styled prominently and can include a close ("×") button that allows users to dismiss the alert.
+
+## How to Use the Alert Box Widget
+
+<Steps>
+
+1. **Add an Alert Box:** Drag the **Alert Box** widget into your page where the message should appear (often at the top of a page or inside a section where the alert is relevant).
+2. **Enter Alert Text:** In the content settings, you will see a field for **Text** (or Message). Type the message you want to show to your visitors. Keep it brief and clear. For example: "This site uses cookies to improve your experience" or "Your changes have been saved successfully!"
+3. **Enable/Disable Close Button:** There is a toggle option for **Close Button** (sometimes labeled "Dismiss" or similar). By default, it's typically enabled so that an "X" icon appears on the alert. If you want the alert to be permanently visible with no dismissal, you can turn this off. In most cases, you'll leave it on so users can close the alert after reading.
+   - When the close button is enabled, you can also choose the **Icon** for it (default is usually a simple "×" icon). If desired, click the icon picker for the close button to change it.
+4. **Style the Alert:** Switch to the **Style** tab to adjust the appearance:
+   - **Content Box Style:** Set the background color of the alert box. Often, alert boxes use bright background colors (e.g., green for success, red for error, blue for info, yellow for warning) to convey the type of message. Choose a color that matches the context of your message. Adjust padding and border if needed (for example, you might give it rounded corners or a drop shadow to make it pop out).
+   - **Text Style:** Customize the alert message text. You can adjust the text color (make sure it's readable against your chosen background), typography (font family, size, weight), and alignment (centered, left, right).
+   - **Close Button Style:** There will be styling options for the close (dismiss) button icon. You can set its normal and hover state colors (for example, the "X" could be gray normally and turn black on hover, or white on hover, etc., depending on your design). You can also adjust the size of the icon and the shape/background of the close button if it has one. By default, the close "X" might appear as just an icon or within a small circle/button - style it to fit your design.
+5. **Test Dismiss Behavior:** Update and preview the page on the front-end. Verify that the alert box is visually prominent and that clicking the close icon indeed hides the alert. (The Alert Box widget's script will remove the element from view when the close button is clicked.)
+6. **Usage Consideration:** Remember that if a user dismisses the alert, it will disappear for that page session. If you require the message to be seen every time or on every page, you might not want it dismissible. In that case, using a Notice Box (persistent) without a close button might be more appropriate. Use Alert Box when giving the user the option to hide the message after reading.
+
+</Steps>
+
+<Aside type='tip'>
+Tailor the colors of your Alert Box to the type of message:
+- Green background for success confirmations (e.g., "Your form has been submitted successfully.").
+- Red background for errors or important warnings.
+- Yellow or orange for cautionary alerts.
+- Blue for general information.
+Using universally understood color cues helps users instantly recognize the nature of the alert.
+</Aside>
+
+<Aside type='note'>
+The Alert Box is intended for short messages. Avoid placing large amounts of content or complex layouts inside it. If the user dismisses it, that content is gone from view. For longer-term notices or content that needs to remain visible, consider using a different layout or a Notice Box without a close option.
+</Aside>

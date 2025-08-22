@@ -1,8 +1,62 @@
 ---
 title: Sound Player
-description: TODO
+description: Add an audio player to your page with playback controls, skip buttons, and an optional volume slider. Great for music tracks, podcasts, or any audio content.
 sidebar:
-  order: 2
+  order: 3
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Sound Player** widget embeds a clean, customizable audio player into your page. This allows you to play music, voice recordings, podcasts, or any sound file with a user-friendly interface. The player includes controls for play/pause, skipping forward or backward, and an optional volume control, giving visitors a familiar audio experience.
+
+## Key Features
+
+- **Title & Subtitle Display:** You can set a **Title** (e.g., the track or song name) and a smaller **Sub Title** (perhaps the artist, album, or any descriptor). These appear in the player, giving context to the audio that's playing.
+- **Cover Image:** Optionally add a square cover image (such as album art or a thumbnail) to display alongside the audio controls. This makes your player more visually appealing and informative.
+- **Audio File Support:** Upload or select an audio file from your media library. Common formats like **MP3** are recommended (they are widely supported and compressed for web). Once set, the widget will load this audio for playback.
+- **Playback Controls:** The player includes a prominent play/pause toggle button so users can start or stop the audio. It also features "skip" buttons - by default, these will rewind or fast-forward the track by 30 seconds, allowing users to navigate within the audio.
+- **Volume Control (Optional):** You can choose to display a volume icon and slider. If enabled, users can adjust the sound volume directly on the player. On desktops this slider allows precise volume changes, while on mobile devices volume control may be limited (users typically use device volume buttons).
+- **Responsive & Compact:** The Sound Player is designed to fit in a variety of layouts. The cover image will sit to the left of the text and controls (on larger screens) or above them (on narrower screens), ensuring a neat, responsive layout.
+
+## How to Use the Sound Player
+
+<Steps>
+1. **Add the widget:** Drag **Sound Player** into your page. It often works well in a column or section dedicated to media content.
+2. **Configure Audio Content:** In the **Content > Audio** section:
+   - **Title:** Enter the main title for the audio (for example: the name of a song or podcast episode).
+   - **Sub Title:** Enter a subtitle or description (for example: the artist name, podcast series, or a short tagline for the audio). This field is optional; you can leave it blank if not needed.
+   - **Audio:** Click the field to upload or select your audio file. Choose an MP3 or similar audio file from the media library. After selecting, you should see the file name appear, indicating it's set.
+   - **Cover Image:** Click to choose an image to display as the cover. This should be a square image (like album art or a relevant graphic). If you don't set one, a default placeholder may be used or the space will be adjusted.
+3. **Settings:** Under **Content > Settings**, you have one primary option:
+   - **Sound Volume:** Toggle this **On** to display the volume control (speaker icon and slider). If toggled **Off**, the player will still play at full volume (users can adjust volume via their device or browser, but no slider will appear on the player).
+   *(There are no other settings needed - the player controls for skip and play are built-in and always visible.)*
+4. **Style the Player:** Switch to the **Style** tab to customize the appearance:
+   - **Box:** Adjust the overall player container style:
+     - You can set a background color for the player box, add padding, border, or a shadow. For example, you might give it a light grey background or rounded corners to match your site design.
+   - **Image:** Style the cover image section:
+     - Set a background color for the area behind the cover (or leave transparent).
+     - Adjust the size of the cover image by setting a custom width/height if needed (the default will be a reasonable size, but you can make it larger or smaller).
+     - Add margin around the image or a border radius (e.g., to make it circular).
+   - **Title:** Style the title text:
+     - Change the title text color.
+     - Adjust typography (font size, weight, font family) to make the title stand out.
+     - There will also be a style for the **Sub Title** (often grouped with title styling or just below it) where you can set a different color/typography if you want the subtitle to have a different appearance (e.g., lighter or smaller).
+   - **Controls:** Customize the playback controls and icons:
+     - The skip and play buttons are SVG icons. You can typically adjust their color (to match your theme) and size.
+     - The **30 Seconds Back/Forward Buttons** can have their icon color changed. You might see options labeled as such in the style panel - for example, you can set the icon/path color of these circular arrow icons.
+     - The **Play/Pause Button** color can be set (this covers the play triangle icon and the pause icon when it toggles).
+   - **Volume Button:** If you enabled the volume control, you'll have style options for the volume icon and slider:
+     - You can set the color of the speaker icon and the size (to make it larger or smaller).
+     - **Volume Box:** Style the slider track and thumb - for instance, you can set the track's background color and the thumb (the movable part) color. By default, adjusting the thumb color might also fill the track to that point, indicating current volume.
+5. **Save & Test:** Publish or preview your page and test the player:
+   - Click the play button to ensure the audio starts. (Browsers generally allow autoplay only if muted, so this widget will not auto-play audio - the user must click play.)
+   - Use the skip back ("-30s") and skip forward ("+30s") buttons to jump within the track. Each click should move the playback 30 seconds backward or forward.
+   - If you enabled volume, click the speaker icon and adjust the slider to confirm it changes the volume.
+   - Check the layout on different devices to ensure the player looks good responsively (the layout will stack on smaller screens with the cover centered above controls).
+</Steps>
+
+<Aside type="tip">
+For best results, use an MP3 file for your audio, as it's widely supported across browsers and devices. Other formats (like WAV, OGG, or AAC) may work in some browsers but not others. MP3 ensures maximum compatibility. Also, try to keep the file size reasonable (a few megabytes at most) so that your page loads quickly for users.
+</Aside>
+
+The Sound Player widget provides an easy way to share audio content without requiring any external services or coding. It loads the audio only when needed and uses the popular **Howler.js** library behind the scenes for smooth playback. Whether it's a single music track on a portfolio site, a sample audio clip for a product, or an educational podcast episode, you can now integrate it seamlessly into your page with a consistent, customizable player interface.

@@ -1,8 +1,100 @@
 ---
 title: Countdown
-description: TODO
+description: Add a live countdown timer to count down to a specific date or time, with customizable labels and post-expiration actions.
 sidebar:
-  order: 5
+  order: 6
 ---
 
-Content coming soon.
+import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
+
+The **Countdown** widget creates a live timer on your page, ticking down toward a date/time you specify. Use it for product launches, event countdowns, limited-time offers, or any scenario where you want to build urgency and excitement.
+
+## Configuring the Timer
+
+Once you add the Countdown widget, you'll see a default countdown (often 30 days from now as a placeholder). Let's set it up for your needs:
+
+<Steps>
+
+1. **Due Date:** In the **Content** tab (Timer section), set the **Due Date** to your target date and time. A date-time picker lets you select the exact year, month, day, and time (in HH:MM:SS format). This is the moment the countdown will hit zero.
+2. **Select Time Units (Items):** Choose which time units to display using the **Items** multi-select field. Options include Days, Hours, Minutes, Seconds. By default all are selected. You can remove any unit you don't want to show:
+   - For example, if you're only counting down a few hours, you might hide "Days".
+   - If you only care about days and hours (like a countdown to an event day), you might hide minutes and seconds for a cleaner look.
+   The countdown will automatically calculate those units. If a unit is not selected, its value is just not shown (the timer still counts down accurately).
+3. **Display Style:** Choose between **Block** or **Inline** display for the time units:
+   - **Block:** Each time unit (day, hour, etc.) will stack, one above the other (typically used if you want them in a column or if space is tight).
+   - **Inline:** The time units will appear side by side in one line (e.g., "10 Days : 5 Hours : 30 Minutes : 20 Seconds"). This is common for banners or heading-style countdowns.
+   Pick the one that fits your design; inline is usually default for a horizontal layout.
+4. **Alignment:** Set the overall alignment of the countdown (if needed). Commonly, you might center the countdown on the page or align it left/right depending on layout. The widget might have an **Alignment** option (under Style or Content) to easily center it.
+5. **Direction (Order):** The **Direction** setting allows you to reverse the order of the time units if desired. 
+   - *Left (Normal)*: Days → Hours → Minutes → Seconds (this is typical).
+   - *Right (Reversed)*: Seconds → Minutes → Hours → Days.
+   In most cases, you'll keep it in the logical left-to-right order (largest unit to smallest), which is more intuitive for readers.
+
+</Steps>
+
+Now your countdown is ticking toward the specified date! It will automatically calculate days, hours, etc., remaining and update every second.
+
+## Customizing Labels (Translation)
+
+By default, the countdown might show unit labels like "Days", "Hours", "Minutes", "Seconds" (often below or next to the numbers). If you need to change these (for language or style):
+
+- In the **Translation** section (Content tab), you'll find fields for **Day, Hour, Minute, Second**. You can change the text for each. For example, in another language or to singular form when needed.
+- There's also an **Apostrophe s ('s)** field (sometimes labeled "Plural S" or similar). This is the character to append for plural. By default it's just "s". The widget may automatically pluralize the words when the numbers are more than 1. Ensure this is set correctly or left as default.
+- For instance, if you prefer to always show plural (e.g., "Days" even when 1 day left), you might just use plural forms. Or if in a language where pluralization is different, you can adjust accordingly.
+- If you want to hide labels entirely (just show numbers), you could technically remove the text or perhaps there's a toggle to hide unit labels. (If not, you could set the label text fields to empty - the numbers will still show and likely just show the unit letter or nothing).
+
+Common customization: Some people change "Days" to "DAYS" (uppercase for styling) or abbreviate to "D, H, M, S". You can do that here by typing your preferred label text.
+
+## Actions After Expiry
+
+What happens when the countdown reaches zero? The **Expire Actions** section allows you to define it:
+
+- **Actions After Timer Expires:** Select an action:
+  - **Hide Element:** This will hide some element on the page when time is up. You need to specify which element by a CSS selector.
+  - **Display Message:** This will replace the countdown with a custom message once it finishes.
+  - (If you leave it blank or do nothing, by default the timer will just stop at 0 and remain visible.)
+- **Hide Element option:** If you choose "Hide Element", a field appears to enter a **CSS Selector**. This could be an ID or class of an element on your page (for example, `#banner` or `.promo-section`). When the countdown ends, that element will be hidden (via CSS/JS) - useful if the countdown is tied to a promotion banner or a sale button that should disappear when expired.
+  - Example: If the countdown is for a sale, you might hide the "Buy Now" button or a pricing section once time's up.
+  - Ensure the selector is specific and targets the correct element. The widget will use jQuery to hide it, so an ID is simplest (e.g., `#my-section-to-hide`).
+- **Display Message option:** If selected, you get a **Display Message** WYSIWYG or text field. Here, write the message you want users to see after expiry, such as "The offer has ended" or "Event started!". You can style this text (bold, etc.) as needed.
+  - When time's up, the countdown numbers will be removed and this message will be shown in its place on the page.
+- You can only pick one of the actions. If you need both (hide something and show a message), note that "Hide Element" hides a different element, while "Display Message" affects the countdown widget itself by showing a message in place. In combination, you could hide a page element and the countdown widget would show a message - that's achievable by selecting "Display Message" action, and within that message you could inform the user that something is no longer available.
+
+Make sure to test the expiry behavior by temporarily setting the due date to a minute or two in the future and watching what happens when it hits zero. This ensures your selector is correct or the message appears as expected.
+
+## Styling the Countdown
+
+Move to the **Style** tab to refine the look:
+
+- **Digits (Number) Style:** Customize the appearance of the numbers:
+  - Font size, weight, color - you might want them big and bold for emphasis.
+  - Perhaps a different color for urgent effect (red? or your brand color).
+- **Label (Unit) Style:** Style the unit labels ("Days", etc.):
+  - Typography (often smaller than the numbers).
+  - Spacing - you may adjust spacing between the number and its label.
+  - Text transform - some designs use all-caps for labels.
+- **Alignment & Spacing:** If you chose block layout, you might want to center-align everything. If inline, ensure appropriate spacing or separators.
+  - Some countdown designs include a colon or separator between units when inline. Check if the widget adds any (some do automatically). If not, spacing is key.
+- **Background and Box Styling:** You might style each time unit as a "box":
+  - Many countdowns have each number in a box or circle. You can simulate this by adding background color and padding to the number/label container, and perhaps adding a border radius (for a pill or circle shape).
+  - There might be a style subsection for **Boxes** or each **Item**. For example, to add a background behind each time unit value.
+- **Separator Lines or Characters:** If the widget includes separators (like vertical lines or dots between day-hour-minute), see if their color or style can be changed. If they're just text (like ":" colons), you'd style them via the text style.
+- **End Message Style:** If you set a display message on expiry, you'll have a style section (likely under a tab like "End Message") to style that text. Common options: text color, typography for the message, maybe alignment. For consistency, style it similarly to your countdown or however you want that final note to appear.
+
+## Tips for Use
+
+- **Time Zone:** The countdown uses the visitor's local time to compute remaining time until the target (which is set presumably in your site's time zone or UTC). Usually, you don't need to worry about time zones - just know that if your audience is global, the countdown will end at the same moment worldwide (it's not per timezone unless you intentionally set it so).
+- **Urgency:** To maximize effect, consider placement and style:
+  - Put the countdown near the top of a page if it's for an upcoming event or sale, so it's immediately visible.
+  - Use contrasting colors to draw attention (e.g., a bright background or bold text).
+- **After Expiry:** Remember to update or remove the widget after the event ends, if needed. The expire message helps automate immediate aftermath, but you might not want to keep a "This event has ended" message forever. It's a good practice to later remove or repurpose the countdown widget.
+
+## Use Cases
+
+<CardGrid stagger>
+  <Card title='Sale Countdown'>"Sale ends in 2 Days 5 Hours 30 Minutes!" - after expiry, hide the sale pricing section and show a message "This offer has expired."</Card>
+  <Card title='Event Countdown'>"Countdown to Webinar: 00 Days 12 Hours 00 Minutes 00 Seconds" - after expiry, message "We are live now!" or hide countdown if the event is underway.</Card>
+  <Card title='Product Launch'>Build anticipation for a new product release by counting down to the launch date and then displaying a "Now Available!" message or auto-redirect (note: auto-redirect is not built-in but could be done via custom script if needed).</Card>
+</CardGrid>
+
+The Countdown widget is a dynamic way to engage visitors and emphasize time-sensitive information. By customizing its look and behavior, you can integrate it seamlessly into your site's design and strategy.

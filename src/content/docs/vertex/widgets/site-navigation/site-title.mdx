@@ -1,8 +1,34 @@
 ---
 title: Site Title
-description: TODO
+description: Display your website's title as a heading, linked or unlinked, with full styling control.
 sidebar:
-  order: 2
+  order: 3
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Site Title** widget displays your website's name (the title set in WordPress settings) anywhere on your site. This is especially useful when building custom headers or footers in Elementor - you can show the site name and style it like any heading, ensuring it always stays up-to-date with your WordPress **Site Title** setting.
+
+## How to Use
+
+<Steps>
+
+1. **In WordPress Admin:** Confirm your site's title is set correctly under **Settings > General > Site Title**. The widget will pull this text dynamically.
+2. **In the Elementor Editor:** Drag the **Site Title** widget into your page or template (commonly used in a header). It's located under **Vertex Addons - Site & Navigation**.
+3. **Choose HTML Tag:** In the Content tab, select the appropriate **HTML Tag** for the title (H1-H6, div, span, etc.). For example, if this is your main site title in the header, you might use an `<h1>` for significance (or `<div>`/`<span>` if you want to avoid additional heading hierarchy impact).
+4. **Link it (Optional):** By default, the site title text is static. If you want the site title to be clickable (commonly linking to your homepage), enter a URL in the **Link** field (e.g. your home URL) or choose **Dynamic > Site URL**. You can also set the link to open in a new tab if needed (for home link, you'll typically leave it in the same tab).
+5. **Style the Title:** Switch to the Style tab to customize the appearance:
+   - **Alignment:** Align the text left, center, or right.
+   - **Typography:** Set the font, size, weight, and letter spacing to match your branding (or use global typography styles).
+   - **Color:** Pick the text color. You can also set a **Hover Color** if you linked the title and want a different color on mouse hover.
+   - **Text Shadow / Stroke:** (Optional) Add a text shadow or stroke effect for a special style.
+   - **Spacing:** Adjust margin/padding if you need to position it with breathing room.
+6. **Save Changes:** Update your page or template. The site title will now display with your chosen styling. If you ever change the **Site Title** in WordPress settings, this widget will automatically update to reflect the new title.
+
+</Steps>
+
+Using the Site Title widget ensures your site's name is always consistent and dynamically managed. It's particularly powerful in template designs - for instance, in a header template, you can use Site Logo alongside Site Title (maybe as a tagline) or by itself as the main branding element. This widget saves you from retyping your site name in multiple places; it pulls from one central source.
+
+<Aside type="note">**Pro Tip:** If you want to add additional text like a tagline or custom phrase next to your site title, you can simply type directly in the widget's text field (replacing the dynamic tag). However, doing so will make it static. For a dynamic tagline, consider using dynamic tags or another widget if available.</Aside>
+
+![Site Title Widget Settings](https://cdn.webilia.com/u/d/2025/08/vertex-widget-site-title.png)

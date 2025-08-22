@@ -1,8 +1,51 @@
 ---
-title: Fancy Text
-description: TODO
+title: Fancy Text Widget
+description: Add animated rotating text effects to your headings with the Fancy Text widget for Elementor.
 sidebar:
-  order: 7
+  order: 8
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Fancy Text** widget allows you to create animated text that cycles or changes, making your headings and content more engaging. It's commonly used to draw attention to keywords or phrases by rotating through a list of words with stylish transitions. For example, you might have a slogan like "We provide **design / development / marketing** solutions," where the bold words rotate through a list of options.
+
+## How to Use the Fancy Text Widget
+
+<Steps>
+
+1. **Add Fancy Text to your page:** Drag the **Fancy Text** widget into an Elementor section where you want the animated text effect to appear (often used in hero sections or prominent headings).
+2. **Configure Text Segments:** In the Content tab, you'll find fields to set up Prefix, Rotating texts, and Suffix:
+   - **Prefix Text:** This is the static text that comes before the animated part (if any). For example, in "We offer **fast / secure / reliable** service," the prefix would be "We offer".
+   - **Fancy Text List:** This is the list of words or phrases that will rotate or change. You will see an interface (repeater list) to add multiple items. Click **Add Item** to add each word or phrase. For each item, just enter the text (e.g., "fast", then another item "secure", another "reliable"). Keep each item relatively short for best effect.
+   - **Suffix Text:** (Optional) Text that comes immediately after the rotating text. For example, continuing the above, a suffix might be "service" after the animated words. If you don't need a suffix, you can leave this blank.
+3. **Settings for Animation:** Still in the Content tab (or a separate Settings section), adjust the Fancy Text settings:
+   - **Effect:** Choose the animation effect for how the text transitions. Available effects include:
+     - **Typing:** simulates typing each word with a cursor blinking at the end.
+     - **Slide:** slides the words in and out of view.
+     - **Clip:** reveals the text with a clipping mask (giving a highlight or text-reveal effect).
+     - **Zoom:** zooms the text in/out during transitions.
+     - **Push:** pushes the text up or down as it transitions.
+     - **Skew:** rotates/skews the text from one word to the next.
+   - **Cursor (for Typing/Clip):** If using the **Typing** or **Clip** effect, you can choose a cursor style. Options are typically *Underline* (a block underscore cursor), *Pipe* (a vertical line "|" cursor), or *Custom* (where you can enter a custom cursor character).
+   - **Custom Cursor:** If you selected the custom cursor option, enter the character or symbol you want to use as the cursor (e.g., "_" or "|" or any character).
+   - **Animation Duration:** For typing effects, this might control typing speed (in seconds or milliseconds). For other effects, it might not be used. Set how fast each character is typed or how long the transition lasts.
+   - **Animation Delay:** Set how long the widget waits before switching to the next word. For example, a delay of 2 seconds means the word stays visible for 2 seconds before transitioning to the next one.
+   - **HTML Tag:** Choose the HTML heading level or container for the Fancy Text block (e.g., **H1**, **H2**, **span**, **div**, etc.). This affects the semantic HTML and default sizing of the text.
+4. **Style the Fancy Text:** Go to the **Style** tab to fine-tune the appearance:
+   - **Prefix Text Style:** If you have prefix text, you can adjust its typography and color independently.
+   - **Animated Text Style:** Adjust the typography (font family, size, weight) and color of the rotating text. This is important because you might want the animated part to stand out (for example, a different color or bold style).
+   - **Suffix Text Style:** Similarly, style the suffix if applicable.
+   - **Alignment:** Set the alignment of the whole fancy text block (left, center, right) depending on your design.
+   - **Spacing:** There may be controls for spacing between prefix, fancy text, and suffix. Ensure the combined phrase reads naturally with appropriate spacing.
+5. **Preview the Effect:** Update or preview your page. You should see the prefix text (if set), then the first fancy word/phrase animating in. Watch the animation cycle through all the words you entered. Ensure the timing feels right (not too fast or slow to read each word) and that the styling is as desired.
+   - Adjust the speed or effect as necessary by returning to the settings if the animation doesn't look smooth or readable.
+
+</Steps>
+
+<Aside type='tip'>
+Use Fancy Text to emphasize dynamic aspects of your content. For instance, highlighting various services, features, or adjectives that describe your product. Keep each animated word or phrase short (one to three words) so that the effect is punchy and easy to read. Too much text in each item can be hard to follow.
+</Aside>
+
+<Aside type='note' title='Accessibility'>
+Remember that not all users will see the animation (for example, screen readers will read all text sequentially). Ensure that your message still makes sense if all the options were read together. You might use the prefix/suffix to form a complete sentence inclusive of the animated parts.
+</Aside>

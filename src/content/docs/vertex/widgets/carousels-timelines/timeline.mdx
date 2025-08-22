@@ -1,8 +1,69 @@
 ---
 title: Timeline
-description: TODO
+description: Display chronological events or milestones using a vertical timeline layout with icons, dates, and content.
 sidebar:
-  order: 3
+  order: 4
 ---
 
-Content coming soon.
+import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
+
+The **Timeline** widget helps you present a series of events or steps in chronological order. It's ideal for showcasing a company history, project roadmap, process flow, or any sequence of points in time. The timeline appears as a vertical line with items branching to either side, creating a clear visual of progression.
+
+## Adding Timeline Items
+
+Once you drag the Timeline widget into your page, you can add your events or milestones as individual items:
+
+<Steps>
+
+1. **Add an Item:** In the **Content** tab under the **Timeline** section, click **Add Item** to create a new timeline entry. By default, a few sample items might be provided - you can edit those or add new ones as needed.
+2. **Configure Event Details:** For each timeline item, you have these fields:
+   - **Date:** A short date or time stamp for the event (e.g., *"Jan 2020"*, *"15 Dec"*, or even a year). This will typically appear at the top of the item. If the date is not relevant, you can turn it off using the "Show Date" toggle.
+   - **Icon:** Choose an icon that represents the event. For example, a graduation cap icon for an education milestone, a briefcase for a work milestone, etc. This icon will display in a circle on the timeline line.
+   - **Title:** The title or name of the event or step (e.g., *"Founded the Company"*, *"Version 2.0 Release"*).
+   - **Text:** A description or details about the event. You can enter a few sentences describing what happened or any important notes.
+   - **Show Date:** A yes/no toggle. If you set this to "No" for an item, the date field (and its value) will be hidden for that entry. This is useful if some steps don't have specific dates.
+   - **Box Alignment:** Choose Left or Right alignment for the content box of this item. Items can alternate sides to create an alternating timeline look. By default, the widget alternates each item automatically (first item left, second right, etc.). You can override an item's position by explicitly setting its alignment here.
+3. **Default Items:** The widget may include some default example items. Be sure to replace those with your actual content or remove them. You can remove an item by selecting it and clicking the "X" (delete) button for that item in the list.
+4. **Reorder Events:** Drag and drop the items in the list to reorder the timeline. The top item in the list will appear as the first (top) event on the timeline.
+
+</Steps>
+
+Each item's **Icon** will be displayed on the central line, and the content will be in a box either to the left or right of that line, connected by a connector line or dot.
+
+<Aside type="tip" title="Icon & Date Styling">
+Keep your date labels short (e.g., use year or month abbreviations) to maintain a neat appearance. For icons, the default is usually a circle background - pick simple icons that are easy to recognize at a small size.
+</Aside>
+
+## Timeline Appearance & Style
+
+While the Timeline widget doesn't have "slides" like carousels, it offers styling options to customize its look:
+
+- **Line Color and Style:** Under the **Style** tab, look for a section likely labeled "Line" or similar. Here you can set the color of the vertical timeline line (and any connecting lines). You might also adjust its thickness if options are provided.
+- **Icons:** In the Style settings for **Icon**, you can adjust the icon size, icon color, and the icon's background color (the circle behind the icon). This lets you, for example, use your brand color as the icon circle background.
+- **Content Box:** Style options for the content container (each event's box) include:
+  - **Background Color:** You can give each item's content box a background (e.g., white or light grey) to distinguish it from the page background.
+  - **Text Color:** Set the text color for titles and description.
+  - **Typography:** Customize font size, weight, etc., for the Title (often an `<h2>` tag by default) and the Description text.
+  - **Padding & Border:** Adjust padding inside the content boxes to give text some breathing room. You can also add a border or shadow to these boxes to make them stand out.
+- **Date Style:** If dates are shown, there may be a specific style control for the date text (color, font size) and perhaps spacing around it.
+- **Alignment & Spacing:** The widget typically auto-aligns alternate items. However, you can tweak the overall alignment or spacing:
+  - Vertical spacing between items can usually be adjusted (so you can increase or decrease the gap between successive timeline entries).
+  - If needed, margin adjustments on the content boxes (like if you want them slightly farther from the center line).
+- **Connector Lines:** Some timeline designs include a small line connecting the central line to the content box. The color of this usually follows the main line color, but check if there's a setting for it.
+
+## Advanced Tips
+
+- **Alternate Coloring:** For visual clarity, you could use two slightly different background colors for alternating sides (for example, left side events with a white background, right side with an off-white). This isn't automatic, but you could achieve it by styling individual items if needed.
+- **Ordering:** Remember the timeline is vertical - the first item in the editor list is the top of the timeline. Arrange your content in the chronological (or logical) order you want viewers to read from top to bottom.
+- **Interactivity:** The timeline widget is mostly static content (no clicking or sliding needed from the user). If you want an item to link somewhere (say to a detailed blog post about that milestone), you could potentially add a link in the description text or even make the title a link by editing it in the WYSIWYG editor.
+
+## Use Cases
+
+<CardGrid stagger>
+  <Card title='Company History'>List out founding dates, product launches, major achievements year by year.</Card>
+  <Card title='Project Roadmap'>Show past and upcoming milestones for a project (you could include future dates like "Q4 2025 - Launch new feature" to communicate plans).</Card>
+  <Card title='Process Steps'>Explain a process (like "Step 1: Consultation, Step 2: Planning, Step 3: Execution, Step 4: Review") with the timeline as a visual guide, even if those aren't dates but sequential steps.</Card>
+  <Card title='Personal Timeline/Resume'>Highlight key life events or resume highlights (education, jobs, etc.) in a timeline format on an "About Me" page.</Card>
+</CardGrid>
+
+The Timeline widget organizes information in a way that's easy to follow. By customizing its style, you can make it an attractive centerpiece on your page that draws readers into the story you're telling.

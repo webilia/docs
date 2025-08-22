@@ -1,9 +1,43 @@
 ---
 title: Carousels & Timelines
-description: TODO
+description: Overview of Vertex's Carousels & Timelines widgets - dynamic sliders and timeline displays for testimonials, team members, news, events, and more.
 sidebar:
-  label: Carousels & Timelines
-  order: 8
+  label: Overview
+  order: 1
 ---
 
-Content coming soon.
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+The **Carousels & Timelines** section offers interactive widgets that display content in engaging, animated formats. These widgets help you showcase testimonials, team profiles, chronological events, news headlines, and countdowns in a visually appealing way.
+
+## Widgets in Carousels & Timelines
+
+<CardGrid>
+  <LinkCard href="./testimonial-carousel/" title="Testimonial Carousel" description="Show client testimonials in a sliding carousel format." />
+  <LinkCard href="./team-member-carousel/" title="Team Member Carousel" description="Display your team or staff profiles in an interactive carousel." />
+  <LinkCard href="./timeline/" title="Timeline" description="Present events or milestones on a vertical timeline." />
+  <LinkCard href="./news-ticker/" title="News Ticker" description="Show scrolling news headlines or post titles on your site." />
+  <LinkCard href="./countdown/" title="Countdown" description="Add a countdown timer counting down to a specific date or time." />
+</CardGrid>
+
+These widgets are **highly customizable** and optimized for performance:
+- **Testimonial Carousel:** Rotate through testimonials or quotes, with options for star ratings and multiple slides visible.
+- **Team Member Carousel:** Showcase team members or client logos in a sliding gallery, complete with images and social links.
+- **Timeline:** Display a list of events or steps in chronological order, using an elegant vertical timeline with icons and dates.
+- **News Ticker:** Create a horizontal scrolling feed of recent posts or announcements, much like a news headline ticker.
+- **Countdown:** Build excitement by counting down to a launch, event, or deadline with a live timer.
+
+All carousel widgets (Testimonial & Team Member) use a lightweight slider system for smooth animations and offer responsive controls - you can set how many items show at once on desktop, tablet, and mobile. The timeline and ticker provide eye-catching ways to present information that updates or progresses.
+
+<Aside type="tip" title="Common Settings">
+Carousels share common settings like **Slides to Show**, **Autoplay**, **Navigation Arrows**, and **Pagination Dots**. Once you learn one, you can easily configure the others. Similarly, all items can be styled (colors, typography, spacing) under the Style tab to match your site.
+</Aside>
+
+Choose the appropriate widget based on your content:
+- Use **Testimonial Carousel** to build trust with client reviews.
+- Use **Team Member Carousel** to introduce your staff or partners.
+- Use **Timeline** for company history, project roadmap, or process steps.
+- Use **News Ticker** for updates, promotions, or latest blog posts.
+- Use **Countdown** to draw attention to an upcoming event or sale expiration.
+
+In the following pages, we'll dive into each widget's setup and options, helping you make the most of Carousels & Timelines in Vertex.

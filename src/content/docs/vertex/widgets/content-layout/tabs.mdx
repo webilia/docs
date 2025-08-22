@@ -1,8 +1,39 @@
 ---
-title: Tabs
-description: TODO
+title: Tabs Widget
+description: Create tabbed content sections with the Tabs widget for Elementor.
 sidebar:
-  order: 2
+  order: 3
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Tabs** widget lets you organize content into tabbed sections. Users can switch between different content panels by clicking the tab labels. This is useful to present related information in a compact space (for example, product specs vs. reviews, or multiple categories of content) without cluttering the page with all content at once.
+
+## How to Use the Tabs Widget
+
+<Steps>
+
+1. **Add the Tabs widget:** Drag the **Tabs** widget into your page in the Elementor editor.
+2. **Create Tabs:** In the content settings, you'll see Tab Items. By default there may be a couple of sample tabs. You can **Add Item** to create a new tab. For each tab item:
+   - Enter the **Title** of the tab (this appears on the tab button).
+   - Enter the **Content** for that tab. You can type text, or even include other widgets/formatting in the rich text editor for more complex content.
+3. **Tab Position (Layout):** Decide how the tabs should be positioned. By default, tabs are horizontal (the tab labels appear at the top). You can change the **Position** setting to **Left** to display tabs vertically on the left side of the content. (Horizontal tabs along the top is the "Top" position.)
+4. **Additional Options:** The Tabs widget may include options for behavior:
+   - You can choose which tab is **Default Active** (usually the first tab is open initially).
+   - Some tab widgets allow switching tabs on hover versus click. By default, Vertex Tabs switch on click (which is standard).
+5. **Style the Tabs:** Go to the **Style** tab to customize:
+   - **Tabs (Nav) Style:** Adjust the typography and color of the tab labels. You can set **Normal** and **Active** state colors (for example, make the active tab label highlighted with a different color or underline).
+   - **Content Style:** Style the content area (padding, background color, text styles for the content).
+   - **Border/Divider:** If the design uses dividers between tabs or an outline, you can adjust those colors and widths.
+6. **Responsive Considerations:** When viewing on mobile, horizontal tabs might stack or turn into an accordion-style for usability. Check the responsive preview in Elementor and adjust alignment or font size so tab labels remain readable on smaller screens.
+7. **Save and Test:** Publish or preview the page. Click between your tab labels to ensure each content panel appears correctly and the styling matches your design.
+
+</Steps>
+
+<Aside type='tip'>
+Use the Tabs widget to avoid long scrolling pages. For example, on a product page, you could have "Description", "Specifications", and "Reviews" each in their own tab. This keeps the page tidy and lets users quickly navigate to the content they care about.
+</Aside>
+
+<Aside type='note'>
+If you have many tabs or very long tab labels, consider using a vertical layout so that the labels are listed down the side. Vertical tabs (by setting Position to Left) provide more room for long titles. Horizontal tabs work best for a small number of short labels.
+</Aside>

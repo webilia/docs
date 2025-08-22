@@ -1,8 +1,38 @@
 ---
-title: Information Box
-description: TODO
+title: Information Box Widget
+description: Highlight key information with an icon and text using the Information Box widget for Elementor.
 sidebar:
-  order: 4
+  order: 5
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Information Box** widget lets you feature an icon alongside a heading and description, all contained in a stylized box. This is useful for highlighting services, features, or any important information in a visually appealing way. It's essentially like an "icon box" that draws attention to content with graphics and text.
+
+## How to Use the Information Box Widget
+
+<Steps>
+
+1. **Add an Information Box:** Drag the **Information Box** widget into your Elementor design where you want to highlight a piece of information.
+2. **Content Settings:** In the left panel, set up the content:
+   - **Icon:** Choose an icon that represents your content. Click the icon picker to select from the library (e.g., a checkmark, info icon, etc.). This icon will display at the top or side of your info box, depending on styling.
+   - **Title:** Enter the headline or title for the info box. Keep it short and descriptive (e.g., "Fast Delivery" or "Premium Quality").
+   - **Description:** Enter the descriptive text or details below the title. This should be a brief explanation or supporting detail for the title. For example, a sentence or two elaborating on the feature or service.
+3. **(Optional) Icon Customization:** You can customize the icon's appearance directly in the content tab by picking a default icon. Additional styling like icon color, background shape, etc., will be handled in the Style tab.
+4. **Style the Info Box:** Switch to the **Style** tab to refine the look:
+   - **Icon Style:** Adjust the icon color and background. You can choose a background color for the icon container (making it a circle or square behind the icon) and change the icon's color itself. There are controls for icon size and the padding/shape (for example, you can create a circle or rounded square by adjusting border radius).
+   - **Title Style:** Customize the title text typography (font, size, weight) and color. You can also set spacing (margin) below the title if needed.
+   - **Description Style:** Customize the paragraph text - adjust the color, typography, and alignment for the description to ensure readability.
+   - **Box Styling:** Some Info Box designs allow styling of the overall container. You can set the background color of the info box, add padding, and even a border or shadow to make it stand out from the page.
+5. **Spacing and Alignment:** Ensure the Information Box is aligned as desired on your page. You can center it or align left/right depending on the layout. Use the widget's alignment options or column positioning in Elementor.
+6. **Save and Preview:** Update your page and preview it. The information box should display with the icon and text in the style you set. Hover effects (if any are preset, like an icon hover color) can be checked by moving your mouse over the widget.
+
+</Steps>
+
+<Aside type='tip'>
+Information Boxes work great in columns or grids. For example, you can place three Information Box widgets side by side to showcase a trio of features or services. Use consistent icon styles and colors for a uniform look, or use different colors to differentiate categories.
+</Aside>
+
+<Aside type='note' title='Related'>
+For alert messages or notices that need to grab user attention more prominently, consider using a **Notice Box** or **Alert Box** widget. The Information Box is generally for static content highlights, whereas Notice/Alert Boxes are for calling out important messages.
+</Aside>

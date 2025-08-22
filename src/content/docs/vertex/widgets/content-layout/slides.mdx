@@ -1,8 +1,68 @@
 ---
-title: Slides
-description: TODO
+title: Slides Widget
+description: Create an image or content slider/carousel with the Slides widget for Elementor.
 sidebar:
-  order: 11
+  order: 12
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Slides** widget allows you to create a slideshow or carousel of content. Each slide can contain background imagery and text (like a heading, description, and a button). This widget is excellent for making hero sliders, banner carousels, testimonials with background images, or any rotating content on your page. The Slides widget in Vertex Addons is flexible and comes with navigation controls (arrows, dots) and autoplay options powered by the Slick Slider library.
+
+## How to Use the Slides Widget
+
+<Steps>
+
+1. **Add the Slides widget:** Drag the **Slides** widget onto your page. It will insert a default slider with a couple of example slides.
+2. **Add/Edit Slides:** In the Content tab, you will manage the individual slides:
+   - You should see a list of "Slides" items. Click on an item (e.g., Slide 1) to expand its settings, or click **Add Item** to add a new slide.
+   - For each slide, configure the following:
+     - **Background:** Under the slide's Background settings, choose a background color or image. 
+       - *Background Color:* You can set a solid color if you want a plain colored slide (or an overlay color).
+       - *Background Image:* Click to select an image for this slide's background. For best results, use high-resolution images (e.g., 1920x1080 or similar) so they look good full-width. The image will typically cover the slide area.
+       - Optionally, you can configure an overlay or opacity if you want to darken/lighten the image for text readability (there might be a separate overlay color option).
+     - **Heading (Title):** Enter the slide's headline text. This could be a promotional tagline or title you want on that slide.
+     - **Description:** Enter a smaller text paragraph for the slide. This could be a sentence or two of supporting information. For example, a brief description of a product or a message like "Limited time offer" details.
+     - **Button Text:** If you want a call-to-action button on the slide, enter the text for it here (e.g., "Learn More", "Shop Now", "Get Started"). If you leave this blank, no button will display on that slide.
+     - **Link:** Set the URL for the slide's link. This link will be used by the button if you provided button text. Additionally, you may have an option called **Apply Link On: Slide or Button**. 
+       - If "Whole Slide" is chosen, the entire slide (anywhere the user clicks) will act as a link to the provided URL.
+       - If "Button Only" is chosen, only the button is clickable.
+       - Decide based on whether you want the user to click anywhere on the banner or specifically on the button.
+     - **Custom Style (per slide):** There may be a toggle for "Custom Style" per slide. If you enable this, you can override the global style settings for this particular slide (changing text color, alignment, etc., just for this one). If you plan on all slides sharing the same style, keep this off for consistency.
+3. **Slider Settings:** Below or aside from the slide list, configure overall slider behavior:
+   - **Autoplay:** Toggle this on if you want the slides to rotate automatically. When on, also set the **Autoplay Speed** (e.g., 2000 milliseconds which is 2 seconds, or a higher number for a longer display time per slide).
+   - **Pause on Hover:** If autoplay is on, decide if the slide rotation should pause when the user hovers the mouse over the slider. Typically, leaving this on is user-friendly (so they can read without it sliding away).
+   - **Infinite Loop:** Ensure **Infinite** or loop is enabled if you want the slides to continuously loop back to the start after the last slide. (Usually true by default.)
+   - **Navigation Arrows:** Toggle **Arrows** on or off. Arrows allow users to manually go previous/next. If your design doesn't need them (or on mobile you might hide them), you can turn them off. By default, they are usually on.
+   - **Dots/Pagination:** Toggle **Dots** (pagination) on or off. Dots are the little indicators at the bottom showing the number of slides. These allow jumping to a particular slide. If you have only a couple of slides or prefer a cleaner look, you might disable them. They are typically on by default for multiple slides.
+   - **Transition Effect:** The Slides widget might not have multiple transition animations (it often uses a slide transition by default), but if there is an option (like fade vs slide), choose your preference.
+   - **Speed:** You might see a "Speed" setting (not autoplay speed, but animation speed) - this is how fast the transition animation occurs (in milliseconds). Adjust if needed; otherwise default is fine.
+4. **Style the Slides:** Switch to the **Style** tab for design options:
+   - **Slide Height:** Set the height of the slider (if not already in content settings). You can use a pixel value or VH (percentage of viewport height). For example, setting to 500px or 100vh depending on your design. Make sure the content fits within this height or is aligned properly.
+   - **Overlay & Color:** If you need a semi-transparent overlay on images (to darken them so text pops), set an overlay color and opacity.
+   - **Content Alignment:** Adjust how the text content within each slide is aligned (left, center, right) and vertically positioned (top, middle, bottom of the slide). For instance, a common choice is center-center for a classic banner look.
+   - **Heading, Description, Button Styles:** Customize the typography (font, size, weight) and colors for the slide heading and description text. Perhaps white text for a dark image, etc. Do the same for the button (set its background color, text color, hover styles, border radius, etc.) so it's clearly visible on the slide.
+   - **Navigation Arrows Style:** If arrows are enabled, you can style them - set their icon (if not using default), size, color, background shape (e.g., circle background), and position offsets. For example, you might want arrows in white with semi-transparent circle backgrounds, positioned halfway up the slider.
+   - **Dots Style:** If dots/pagination are enabled, you can style the dots. You can choose their size (diameter), spacing, and colors for default, hover, and active states. Often, making the active dot a prominent color helps indicate which slide is current.
+5. **Responsive Checks:** Review the slider on tablet and mobile views. Because slides often have text over images, you may need to adjust:
+   - Font sizes for the heading/description on smaller screens (so text isn't too large or cut off).
+   - Possibly the height of the slider on mobile (maybe shorter, or allow it to auto-adjust).
+   - Navigation: sometimes you might hide arrows on mobile and rely on swipe, which Slick slider usually allows by default.
+   Use the responsive controls in the Style tab to fine-tune if necessary (e.g., smaller text on mobile).
+6. **Test the Slider:** Save and preview your page. 
+   - If autoplay is on, watch that slides change at the set interval.
+   - Click the navigation arrows to ensure they move slides.
+   - Click the dots (if present) to ensure they jump to the correct slide.
+   - If you set the entire slide as clickable, test that clicking on a non-button area goes to the link.
+   - Check that your text is readable against the images (adjust overlay or text color if not).
+   - Make sure the slide transitions and timing feel smooth (not too fast to read, not too slow to bore).
+
+</Steps>
+
+<Aside type='tip'>
+Less is often more with sliders. Try to limit to 3-5 slides; users may not see beyond a few. Make sure each slide has a clear purpose and call-to-action. Keep text concise - a heading and a short line of text is usually sufficient to get the message across quickly.
+</Aside>
+
+<Aside type='note' title='Accessibility'>
+Provide context for your slides. If the text on the slide is crucial, ensure it's actual text (as we did by typing into the widget fields) rather than baked into the image, so screen readers can read it. Also, if using autoplay, giving users controls (arrows or dots) to navigate is good practice so they're not forced to wait for the next slide.
+</Aside>

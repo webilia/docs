@@ -1,9 +1,44 @@
 ---
 title: Site & Navigation
-description: TODO
+description: Overview of site and navigation widgets for building headers and menus in Vertex.
 sidebar:
-  label: Site & Navigation
-  order: 2
+  label: Overview
+  order: 1
 ---
 
-Content coming soon.
+import { Aside, Steps, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+The **Site & Navigation** section of Vertex Addons includes several widgets that help you build your website's header and navigation structure without coding. These widgets work together to display your branding (logo/title), menus, breadcrumbs, and search, giving you full control over your site's navigation experience.
+
+Below is an overview of each Site & Navigation widget and what you can achieve with it:
+
+<CardGrid>
+  <LinkCard href="./site-logo" title="Site Logo" description="Display your website's logo and optionally link it to the homepage."/>
+  <LinkCard href="./site-title" title="Site Title" description="Show your site's name as a heading, which can dynamically update from your WordPress settings."/>
+  <LinkCard href="./advanced-menus" title="Advanced Menus" description="Add customizable navigation menus (horizontal, vertical, or hamburger menu) using your WordPress menu items."/>
+  <LinkCard href="./offcanvas-menu" title="Offcanvas Menu (Sidebar)" description="Create a collapsible side menu that slides in on click - great for mobile navigation or additional hidden menus."/>
+  <LinkCard href="./breadcrumb" title="Breadcrumb" description="Display a breadcrumb trail for pages/posts, helping users navigate back through your site's hierarchy."/>
+  <LinkCard href="./search-input" title="Search Input (Live / Ajax)" description="Insert a search bar so visitors can search your site, with an option for live Ajax results."/>
+</CardGrid>
+
+Each widget is designed to be **drag-and-drop** simple in Elementor, but also comes with extensive settings to tweak functionality and style. Whether you're building a complete site header or adding navigation aids to pages, the Site & Navigation widgets provide the building blocks you need.
+
+<Aside type='note' title='When to Use These Widgets'>
+Typically, you'll use Site Logo, Site Title, and Advanced Menus together in a header template to form a classic website header. The Offcanvas Menu is perfect for mobile-friendly navigation or secondary menus. Breadcrumbs are often placed below page headers or in dynamic templates to enhance UX, and the Search Input can be placed in headers or sidebars for easy access.
+</Aside>
+
+## Building a Header with Site & Navigation Widgets
+
+<Steps>
+
+1. **Create a Header Template (if using Elementor Theme Builder):** In WordPress, go to **Templates** and create a new Header (or edit your current header). This is where you'll typically combine Site & Navigation widgets.
+2. **Add Branding Elements:** Drag the **Site Logo** widget to display your logo, or use **Site Title** if you prefer a text-based site name. You can use both (logo plus title/tagline) if desired for branding.
+3. **Add a Navigation Menu:** Drag the **Advanced Menus** widget to add your site's navigation. Select the menu you created under **Appearance > Menus** in WordPress. Choose a layout (horizontal for a standard top menu, or vertical/sidebar as needed) and adjust menu settings (like submenu indicators and responsive toggle).
+4. **(Optional) Add Offcanvas Menu for Mobile:** For a mobile-friendly menu, you can include the **Offcanvas Menu** widget. This provides a hamburger button that opens a sidebar menu (you would design the sidebar content - often another menu - in a separate template and select it in the Offcanvas widget settings).
+5. **Enhance with Search or Breadcrumbs:** If your design calls for it, add a **Search Input** widget in the header for on-site search. If you're creating a page template (like a blog post header), you might place a **Breadcrumb** widget somewhere in the layout to show users their navigation path.
+6. **Configure and Style:** For each widget, go through its Content settings (to configure sources, links, behavior) and Style settings (to match colors, typography, spacing to your site's design). The widgets are highly customizable - e.g., style your menu links in Advanced Menus, set your Offcanvas panel width/color, and so on.
+7. **Save & Test:** Save your header (or page) template. Test on the frontend: click through menu items, open the offcanvas menu on mobile, observe the breadcrumb on a sample page, and try the search box. Ensure everything works together smoothly.
+
+</Steps>
+
+Using these Site & Navigation widgets in combination allows you to craft a fully custom header and navigation system. You can mix and match based on your needs - for example, some designs might use only a logo and an offcanvas toggle (for a minimalist mobile-first header), while others use a full horizontal menu with a search bar. Vertex Addons gives you the flexibility to achieve your desired look and functionality.

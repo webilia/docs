@@ -1,9 +1,22 @@
 ---
 title: Data & Maps
-description: TODO
+description: Widgets for showcasing tabular data and maps, including interactive tables and Google/OpenStreetMap integrations.
 sidebar:
-  label: Data & Maps
-  order: 6
+  label: Overview
+  order: 1
 ---
 
-Content coming soon.
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+The **Data & Maps** category of Vertex Addons provides widgets to present structured data and geographic information in an interactive way. Use these widgets to display complex datasets in a user-friendly table format or to embed maps with location markers on your site.
+
+Below are the Data & Maps widgets included in Vertex:
+
+<CardGrid>
+  <LinkCard href="./advanced-datatable" title="Advanced Data Table" description="Create sortable, searchable tables with pagination, search box, and export buttons. Populate data manually or by uploading a CSV file for easy data display." />
+  <LinkCard href="./advanced-map" title="Advanced Map" description="Embed interactive Google Maps or OpenStreetMap with custom markers. Display one or multiple locations with info pop-ups and choose between map providers." />
+</CardGrid>
+
+<Aside type="note" title="When to Use Data & Maps Widgets">
+**Advanced Data Table** is perfect for any information best shown in a grid or spreadsheet, such as directories, price lists, schedules, or comparison charts. **Advanced Map** is ideal whenever you need to show locations - like store branches, event venues, or an office location - on an interactive map. These widgets help convey detailed data and geographic info in formats that are easy for users to explore.
+</Aside>

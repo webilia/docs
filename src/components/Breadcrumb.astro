@@ -1,0 +1,78 @@
+---
+const route = Astro.locals.starlightRoute;
+const { entry, sidebar } = route;
+// If breadcrumb explicitly disabled in frontmatter, do not render anything.
+const { breadcrumb } = entry.data;
+if (breadcrumb === false) return;
+
+const normalize = (path) => (path.endsWith('/') ? path : path + '/');
+
+function flatten(entries, parents = []) {
+  return entries.flatMap((e) =>
+    e.type === 'link'
+      ? [{ ...e, parents }]
+      : flatten(e.entries, [...parents, e.label])
+  );
+}
+const links = flatten(sidebar);
+const findLink = (path) => links.find((l) => normalize(l.href) === normalize(path));
+
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+const crumbs = [];
+if (segments.length) {
+  const product = segments[0];
+  const rootLabel = product.charAt(0).toUpperCase() + product.slice(1);
+  crumbs.push({ label: rootLabel, href: `/${product}/` });
+  for (let i = 1; i < segments.length; i++) {
+    const path = '/' + segments.slice(0, i + 1).join('/') + '/';
+    if (i === segments.length - 1) {
+      crumbs.push({ label: entry.data.title });
+    } else {
+      const link = findLink(path);
+      if (link) {
+        let label = link.label.replace(/ Overview$/i, '');
+        if (/^overview$/i.test(label) && link.parents.length) {
+          label = link.parents[link.parents.length - 1];
+        }
+        crumbs.push({ label, href: link.href });
+      }
+    }
+  }
+}
+---
+{crumbs.length > 1 && (
+  <nav class="breadcrumb">
+    {crumbs.map((c, i) => (
+      <>
+        {i > 0 && <span class="separator">/</span>}
+        {c.href ? <a href={c.href}>{c.label}</a> : <span class="current">{c.label}</span>}
+      </>
+    ))}
+  </nav>
+)}
+
+<style>
+  @layer starlight.core {
+    .breadcrumb {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--sl-color-gray-3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    .breadcrumb a {
+      color: var(--sl-color-gray-3);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+    .separator {
+      opacity: 0.6;
+    }
+    .current {
+      font-weight: 500;
+    }
+  }
+</style>

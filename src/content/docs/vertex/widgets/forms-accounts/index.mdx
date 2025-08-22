@@ -1,9 +1,37 @@
 ---
 title: Forms & Accounts
-description: TODO
+description: Introduction to Vertex's Forms & Accounts widgets, including a custom Form Builder and Login/Register form for user authentication.
 sidebar:
-  label: Forms & Accounts
-  order: 7
+  label: Overview
+  order: 1
 ---
 
-Content coming soon.
+import { Aside, CardGrid, LinkCard, Card } from '@astrojs/starlight/components';
+
+The **Forms & Accounts** category of Vertex Addons empowers you to create interactive forms and user account interfaces directly within Elementor. With these widgets, you can build contact forms, registration/login forms, and more - all without any coding.
+
+<Aside type="note" title="Why Forms Matter">
+Using Vertex's form widgets means you don't need extra plugins for contact forms or login pages. Everything is handled inside Elementor, keeping your site lightweight and integrated.
+</Aside>
+
+## Widgets in Forms & Accounts
+
+<CardGrid>
+  <LinkCard href="./form-builder/" title="Form Builder" description="Build custom forms with various field types, validations, and submission actions." />
+  <LinkCard href="./login-register/" title="Login & Register" description="Create user login, registration, and password reset forms with ease." />
+</CardGrid>
+
+Both widgets are designed to be **user-friendly and highly customizable**. You can style the forms to match your site, set up custom messages, and ensure everything is responsive on all devices.
+
+<CardGrid>
+  <Card title='Form Builder'>
+  A flexible form creation tool for contact forms, surveys, or any custom form. Add text fields, emails, checkboxes, etc., and define what happens on submission (like sending an email or redirecting to a page).
+  </Card>
+  <Card title='Login & Register'>
+  A convenient widget to place user authentication forms on your site. It handles user login, new user registration, and password recovery, integrating with WordPress user accounts.
+  </Card>
+</CardGrid>
+
+<Aside type="tip" title="Getting Started">
+To begin, ensure you have **Vertex Addons for Elementor** activated. The Forms & Accounts widgets will appear in the Elementor editor under the "Vertex" or similar category. Simply drag the widget onto your page to start configuring it.
+</Aside>

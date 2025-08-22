@@ -1,8 +1,56 @@
 ---
 title: Form Builder
-description: TODO
+description: Create custom forms with the Vertex Form Builder - including contact forms, multi-step forms, file uploads, email notifications and more.
 sidebar:
-  order: 1
+  order: 2
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge } from '@astrojs/starlight/components';
+
+The **Form Builder** widget lets you craft fully custom forms inside Elementor. Use it to build contact forms, feedback forms, surveys, or any form with your own fields and design. No coding needed - just drag, drop, and configure.
+
+## Key Features
+
+- **Flexible Fields:** Add text inputs, email fields, dropdowns, checkboxes, radio buttons, dates, and more. You can even include hidden fields or HTML blocks for extra info.
+- **Multi-Step Forms:** Break long forms into steps (pages) for better user experience <Badge text="Pro" variant='caution' />. Simply insert a "Step" field to start a new page in the form.
+- **File Uploads:** Allow users to upload files via your form (e.g. for resumes or images) <Badge text="Pro" variant='caution' />.
+- **Spam Protection:** Add a reCAPTCHA v3 field to protect against spam submissions <Badge text="Pro" variant='caution' />.
+- **Custom Validation & Required Fields:** Mark fields as required and include placeholder text or default values. The form will validate common types like email URLs automatically.
+- **After-Submit Actions:** Define what happens when users submit the form:
+  - *Submission:* Save the entry to your site (accessible in WordPress admin as "Submissions").
+  - *Email:* Send an email notification with the form data to specified addresses.
+  - *Redirect:* Take the user to a thank-you page or custom URL after submitting.
+  (You can select one or multiple actions - for example, save the submission **and** send an email.)
+
+<Aside type="tip" title="Email Notifications">
+When using the **Email** action, you can customize the recipient (To, CC, BCC), email subject, and message content. By default, all form fields are included in the email, but you can insert specific field shortcodes to tailor the message.
+</Aside>
+
+## Using the Form Builder
+
+<Steps>
+
+1. **Add the widget:** Drag **Form Builder** onto your Elementor canvas. A default form with Name and Email fields will appear.
+2. **Add & Configure Fields:** In the **Content** tab, find the **Form** section. Click **Add Item** to add a new field. For each field, set its type (Text, Email, Textarea, etc.), label, and placeholder. Toggle **Required** if the field must be filled.
+3. **Choose Field Types:** Select the field type from the dropdown. Common types include Text, Email, URL, Telephone, Number, Radio, Select, Checkbox, Date, Time, and Password. You can also add special fields:
+   - **HTML:** Insert a block of HTML (useful for instructions or separators within the form).
+   - **Hidden:** Include a hidden field (e.g., to pass a tracking value).
+   - **Step (Pro):** Begin a new step/page in a multi-step form.
+   - **File Upload (Pro):** Allow file attachment uploads.
+   - **reCAPTCHA v3 (Pro):** Add invisible spam protection (requires site & secret keys).
+4. **Arrange and Style:** Drag to reorder fields if needed. Many field options can be styled under the **Style** tab - adjust input box styles, labels, spacing, etc., to match your design.
+5. **Form Settings:** Below the field list, configure messages and actions:
+   - **Success Message:** Text to show when form is submitted successfully (e.g., "Thank you! Your message has been sent.").
+   - **Error Message:** Text to show if there's an error (e.g., "Please fix the errors above.").
+   - **Actions After Submit:** Choose what happens on submission (saving, email, redirect as described above). If you select **Email**, additional email settings will appear (recipient emails, message template, etc.). If you select **Redirect**, a URL field will appear for you to enter the destination.
+6. **Test the Form:** Save and preview your page. Submit the form to ensure the success message or redirect works as expected. Check your email inbox if an email action is set, and verify submissions are recorded in the **Vertex Submissions** section in WordPress (if using the Submission action).
+
+</Steps>
+
+<Aside type="caution" title="Pro Tips">
+Some advanced field types (Multi-Step, File Upload, reCAPTCHA) are marked as <Badge variant='caution' text="Pro" /> and require Vertex Pro to function. If you include these fields in the free version, a prompt may remind you to upgrade.
+</Aside>
+
+After building your form, style it to make it stand out. Under the **Style** tab, you'll find controls to customize field spacing, colors, typography of labels and inputs, button styles, and more. This way, your form can seamlessly blend into your site's design.
+
+When configured, the Form Builder widget provides a powerful, custom form solution. All submissions can be managed via WordPress (and emailed to you if set up), helping you collect inquiries or user data effectively.

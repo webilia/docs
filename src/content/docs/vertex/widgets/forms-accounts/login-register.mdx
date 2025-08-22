@@ -1,8 +1,60 @@
 ---
 title: Login / Register
-description: TODO
+description: Add front-end user login, registration, and password reset forms to your site using the Vertex Login/Register widget.
 sidebar:
-  order: 2
+  order: 3
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge } from '@astrojs/starlight/components';
+
+The **Login & Register** widget enables user authentication forms on any page. With this single widget, you can create a custom login page or embed login and signup forms in modals, headers, etc. It handles user login, new account registration, and even password recovery.
+
+## Features at a Glance
+
+- **Login Form:** Standard username/email and password login form. You can customize the labels and error messages.
+- **Registration Form:** Allow new users to register an account. It can include username, email, password, and maybe additional fields (like first name/last name if enabled in WordPress settings).
+- **Password Reset:** Built-in "Lost Password" flow that sends the user a reset link via email, just like the default WordPress process.
+- **Toggle Links:** Optionally display links to switch between Login, Register, and Forgot Password views. For example, the login form can show a "Register" link and "Forgot password?" link, which when clicked will reveal the registration or reset form - all within the same widget.
+- **Custom Redirects:** After login or registration, users can be redirected to a specific page (e.g. a welcome dashboard). By default, login will redirect to the current page or WordPress dashboard, but you can set a custom URL.
+- **Logged-in State:** The widget can detect if a user is already logged in. You can customize the message it shows to logged-in users (e.g., "You are already logged in").
+- **Modal & Dropdown Skins:** In **Vertex Pro**, you have additional display options. You can show the login/register form in a modal popup or a dropdown menu from a header link <Badge text="Pro" variant='caution' />. This is great for quick access login forms without taking users to a dedicated page.
+
+<Aside type="note" title="WordPress Settings">
+For the registration form to work, make sure **Anyone can register** is enabled in your WordPress general settings (Settings → General → "Membership"). The widget will respect this setting; if registration is disabled, the form will not allow new signups.
+</Aside>
+
+## How to Use the Login/Register Widget
+
+<Steps>
+
+1. **Drag & Drop:** Add the **Login & Register** widget to your page. By default, it may show the login form in the editor.
+2. **Choose Form Type:** In the **Content** tab, locate the **Form Type** setting (labeled "Form Type"). Select which form you want to display initially - **Login**, **Registration**, or **Lost Password**. The widget is capable of all three; this setting chooses the default view.
+3. **Toggle Links:** Decide if you want to enable links to the other forms. For example:
+   - In **Login** settings, enable "Show Sign Up link" to include a link like *"Don't have an account? Register."* Clicking it will switch the widget to show the registration form.
+   - In **Register** settings, you can enable a "Sign In" link (to go back to login) and optionally a "Lost Password" link.
+   - In **Lost Password** settings, enable a "Back to Sign In" link so users can return to login after initiating a reset.
+   These options are typically toggles under each form's subsection in the Content tab. You can also customize the text of these links (e.g., the word "Back" or "Register").
+4. **Customize Fields:** The widget uses the standard WordPress fields:
+   - **Login form:** Username or Email, Password, and a Submit button. You can toggle whether to show a "Remember Me" option (if provided) and customize its text.
+   - **Registration form:** Username, Email, Password, and Register button. (WordPress will email new users a link or password depending on configuration. The widget will handle account creation.)
+   - **Lost Password form:** Email or Username field to send the reset link.
+   You can edit field labels or placeholder text to suit your site's tone.
+5. **Success and Error Messages:** Customize messages for various outcomes:
+   - Login errors (incorrect password, etc.) will show a message - you can style or set this text in the widget's settings.
+   - Registration success can redirect or show a custom message (e.g., "Registration successful - check your email."). By default, new users might get logged in or you might want them to verify email; tailor the experience accordingly.
+   - Password reset will display a confirmation message like "Check your email for the reset link." This text may be customizable.
+6. **Post-Login Redirect (Optional):** In the **Additional Options**, set where to redirect users after a successful login or registration. You might create a "My Account" page and direct them there. If left blank, the default WordPress behavior applies (login goes to WP Dashboard for admins or refreshes the current page for subscribers).
+7. **Design and Style:** Use the **Style** tab to design the form. You can adjust input field styles (colors, borders, width), button styles, spacing, and alignment. For instance, you might center the form, add a background box, or style the links (register/forgot links) to look like buttons or simple text.
+8. **Save & Test:** Save your page and test the entire flow:
+   - Try logging in with a known user.
+   - Try the registration form (you can make a test account to ensure emails are sent and the account is created).
+   - Use the lost password form to send yourself a reset email and verify it arrives.
+   Ensure that your custom messages and redirects work as intended.
+
+</Steps>
+
+<Aside type="tip" title="Replacing Default WP Login">
+Vertex allows you to replace the default WordPress login page with your new page. In the Vertex Addons settings (WordPress Dashboard → Vertex Addons), you can set your custom Login page, Register page, and Lost Password page. When configured, any attempt to access the old wp-login.php can redirect to your Elementor page with this widget, providing a seamless branded experience.
+</Aside>
+
+By using the Login & Register widget, you maintain full control over the user experience of signing in or signing up on your site. Combined with custom styling, you can create a login page that matches your site's design perfectly, all while leveraging WordPress's built-in user management under the hood.
