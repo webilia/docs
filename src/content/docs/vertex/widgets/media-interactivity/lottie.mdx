@@ -1,8 +1,60 @@
 ---
 title: Lottie
-description: TODO
+description: Bring your site to life with Lottie animations. Add JSON-based animations that are lightweight and scalable, with options for looping, speed, and rendering modes.
 sidebar:
   order: 4
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Lottie** widget allows you to add high-quality, vector-based animations to your webpage. Lottie animations are delivered as JSON files and rendered in real time, which means they look crisp at any size and typically have much smaller file sizes than GIFs or videos. Use this widget to enhance your design with subtle motion or engaging illustrative animations without worrying about performance.
+
+## Key Features
+
+- **Import via File or URL:** You have two options to load an animation:
+  - **Media File:** Upload a Lottie JSON file to your media library and select it. This is great for using custom animations you've created or downloaded.
+  - **External URL:** Provide a direct URL to a Lottie JSON file hosted online (for example, from a CDN or Lottie repository). This can save media library space or allow use of animations hosted on LottieFiles.
+- **Auto Play & Loop Control:** Animations play automatically as soon as the widget loads on the page. You can choose whether the animation should **Loop** continuously or play just once. Looping is enabled by default so the animation will repeat indefinitely unless turned off.
+- **Playback Speed:** Adjust the **Play Speed** (from 0.1x to 5x) to slow down or speed up the animation. For instance, `0.5` will play at half speed (slow motion), while `2.0` would play at double speed.
+- **Start and End Segments:** You can define a **Start Point** and **End Point** (in percentage of the animation) to only play a portion of the animation. For example, setting Start to 25% and End to 75% will trim the animation to play the middle half of the frames. By default, if these are left blank, the animation plays from 0% (beginning) to 100% (end).
+- **Renderer Options:** Choose the rendering method:
+  - **SVG (Default):** Renders the animation as scalable vector graphics. This usually offers the best quality and small size, and the animation remains sharp on high-DPI screens.
+  - **Canvas:** Renders the animation on an HTML5 canvas element. This can be more performant for very complex animations or a large number of objects, but the animation becomes rasterized (not scalable beyond its set size without quality loss).
+- **Styling & Sizing:** Control the size and placement of the animation:
+  - You can set a specific Width (and Max-Width) for the animation container, or let it scale 100% to its container.
+  - The widget wraps the animation in a container that you can style — e.g., add a border, background, padding, or shadow, just like an image or box.
+
+## How to Use the Lottie Widget
+
+<Steps>
+1. **Add the widget:** Drag **Lottie** into your design. It will insert a placeholder animation by default (or nothing if not configured yet).
+2. **Choose Source:** In **Content > Lottie**, select the **Source** type:
+   - **Media File:** (Default) to upload/select a Lottie JSON from your WordPress media. Click **Upload JSON File** and upload a `.json` animation file (or choose one you've already uploaded).
+   - **External URL:** to use an URL. Choose this and an **External URL** field appears. Paste the direct link to the Lottie JSON file. Make sure the URL is accessible (check by opening it in a browser) and returns the raw JSON.
+3. **Loop Setting:** Toggle **Loop** on if you want the animation to play repeatedly in a loop. Toggle it off if you want the animation to play only once and then stop.
+4. **Adjust Play Speed:** Set the **Play Speed** slider if you want the animation to run slower or faster than its normal rate. The default `1.0` is normal speed. For example, `0.8` will make it a bit slower and more subtle, whereas `2.0` will make it very fast.
+5. **Set Start/End (Optional):** If you need to trim the animation:
+   - **Start Point (%):** Enter a percentage where the animation should begin. `0%` is the beginning (default).
+   - **End Point (%):** Enter a percentage where the animation should stop. `100%` is the end (default).
+   You typically leave these at defaults to play the whole animation, but if the Lottie file contains multiple segments or you only want a part of it, you can use these.
+6. **Renderer:** Normally you can leave **Renderer** as **SVG**, which is best for most cases. If you encounter performance issues with a very complex animation, you could try switching to **Canvas**. (The visual result is similar, but Canvas may handle some heavy animations more smoothly at the cost of scalability.)
+7. **Style the Animation:** Under the **Style** tab:
+   - **Width / Max Width:** You can explicitly set how wide the animation should display. For instance, you might set width to 200px for a small icon-like animation, or 100% to stretch it full width. The Max-Width can ensure it doesn't get too large on big screens.
+   - **Alignment:** If the container is narrower than the full width, you can align the Lottie left, center, or right within its column.
+   - **Opacity:** You can adjust the opacity of the animation (e.g., set to 0.5 for half-transparent if you want it subdued).
+   - **Border & Radius:** Add a border around the animation container and adjust corner radius if you want a framed look or a circular animation container.
+   - **Box Shadow:** Add a shadow for depth.
+   - **Hover Effects:** If desired, you can style a different hover state (for example, maybe you set the animation's container to brighten or zoom slightly on hover by using filters or CSS transforms - though these options might be limited in the free version).
+8. **Save & Preview:** Update the page and preview it on the front-end. You should see the animation load and play. Verify that:
+   - It loops or not according to your setting.
+   - The speed feels right (adjust if needed).
+   - If you set a custom start/end, it indeed only plays that segment.
+   - The animation looks crisp (if using SVG, it will scale without blur; if using Canvas, make sure you're happy with the set size).
+   - Check on different devices or screen sizes as needed.
+</Steps>
+
+<Aside type="tip">
+You can find a huge variety of free Lottie animations on [LottieFiles.com](https://lottiefiles.com/). Download the JSON for an animation you like (or copy its URL via their CDN) and use it with this widget. This is a quick way to add high-quality animations to your site without creating them from scratch.
+</Aside>
+
+Using Lottie animations can really make your site feel modern and lively. Because they are vector-based, they tend to be very lightweight and won't pixelate on high-resolution screens. With the Advanced Lottie widget, you have fine control over how and when the animation plays, all without any coding. Add a Lottie to draw attention to a key message, to illustrate a concept, or simply to delight your users with a bit of motion design - all while keeping your pages fast and responsive.

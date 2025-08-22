@@ -1,8 +1,55 @@
 ---
 title: Advanced DataTable
-description: TODO
+description: Present data in an interactive table with sorting, searching, pagination, and export options. Ideal for directories, reports, and any structured data display.
 sidebar:
   order: 2
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Advanced Data Table** widget lets you display data in a feature-rich table without coding. Users can sort columns, search entries, change page size, and even export the table data. This widget is great for showcasing information like product lists, member directories, schedules, or any data that benefits from a tabular format.
+
+## Key Features
+
+- **Custom or CSV Data Source:** Enter table data manually in Elementor or load data from an external CSV file. Manual input is done via repeater fields (for headers and rows), while the CSV option lets you upload a `.csv` file and automatically generate the table.
+- **Sortable Columns:** If enabled, users can click any column header to sort the table by that column (alphabetically or numerically).
+- **Search Filter:** An optional search box can be displayed above the table, allowing users to quickly filter results by typing keywords (searches all table content in real time).
+- **Pagination & Info Display:** For long tables, you can enable pagination to show a limited number of rows per page. You can customize the available page size options (e.g., 5, 10, 25... rows) and show a dynamic info text (e.g., "Showing 1 to 10 of 50 entries").
+- **Export Buttons:** You can include buttons for **Copy**, **CSV**, **Excel**, and **Print**. These allow users to copy the table to clipboard, download it as CSV/Excel, or print the table directly. Each button's text and icons are customizable.
+- **Responsive Design:** The table will scroll horizontally if it's too wide for the screen, ensuring it remains usable on mobile devices. You can also turn off certain features (like pagination or search) if not needed on smaller screens.
+
+## Using the Advanced Data Table
+
+<Steps>
+1. **Add the widget:** Drag and drop **Advanced Data Table** into your Elementor page.
+2. **Choose a Data Source:** Under the **Content** tab, set **Source** to **Custom** (to input data manually) or **CSV** (to upload a CSV file).
+   - *Custom:* Define the table structure:
+     - In **Table Header**, click **Add Item** for each column header you want (e.g., "Name", "Price", "Date"). Enter the header text for each.
+     - In **Table Body**, build your rows. Each **Body** item represents a cell or a row break:
+       - Set **Action** to "Add New Cell" to add a cell in the current row, or "Start New Row" to begin a new table row.
+       - Provide the **Content** for each cell (you can use text, numbers, or HTML like links).
+       - Repeat adding cells, and use "Start New Row" where appropriate, until all your table data is entered.
+   - *CSV:* Upload or select a CSV file:
+     - When **Source** is **CSV**, a file selector appears. Click it to **Upload** or choose an existing CSV file from your media library. (By default, a sample CSV is preloaded as an example.)
+     - **Tip:** Ensure your CSV's first row contains column names, and each subsequent row corresponds to a table row. The widget will read the CSV and display it as a table.
+3. **Configure Table Features:** Open the **Settings** section:
+   - Toggle **Buttons** on if you want to show the Copy/Excel/CSV/Print export buttons. You can add or remove specific buttons in the **Button Items** list and even customize each button's label or icon (for example, change "copy" text to "Copy Table").
+   - Toggle **Show Items Per Page** if you want to let visitors change how many rows are shown. You can edit the **Items Per Page** options (a comma-separated list of numbers) and set a **Default Value** (initial rows per page).
+   - Toggle **Searching** to display the search box. You can customize the **Search Label** (default "Search:") and placeholder text, as well as add an icon before/after the label if desired.
+   - Toggle **Ordering** to enable column sorting when users click headers.
+   - Toggle **Info** to show the "Showing X of Y entries" text.
+   - Toggle **Paging** to enable pagination. If enabled, choose a **Paging Type**:
+     - "Numbers" (just page numbers),
+     - "Previous/Next",
+     - "Numbers + Previous/Next",
+     - "First/Last + Previous/Next",
+     - or "First/Last + Numbers".  
+     Depending on the type, you can customize the text and icons for the **First**, **Last**, **Previous**, and **Next** buttons (e.g., change "Previous" to "Prev" or add arrow icons).
+4. **Save & Preview:** Apply your changes and preview the page. Try using the search box, clicking column headers to sort, navigating through pages, and pressing export buttons. The table should respond accordingly—filtering results as you type and exporting data when buttons are clicked.
+</Steps>
+
+<Aside type="tip">
+When you switch the source to CSV, a sample table appears by default (from a sample CSV file). This can guide you on the format. Simply replace it by uploading your own CSV to instantly populate the table with your data.
+</Aside>
+
+The Advanced Data Table widget is powered behind the scenes by the popular **DataTables** library, ensuring efficient handling of your data. You can trust that even larger tables will remain interactive and fast. Use this widget to make your data **user-friendly** - visitors can find what they need through sorting or search, rather than scanning a wall of text.
