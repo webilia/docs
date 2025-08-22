@@ -1,6 +1,8 @@
 ---
 const PAGE_TITLE_ID = '_top';
-const { title, header_button } = Astro.locals.starlightRoute.entry.data;
+import Breadcrumb from './Breadcrumb.astro';
+
+const { title, header_button, breadcrumb } = Astro.locals.starlightRoute.entry.data;
 ---
 <div class="page-title-wrapper">
   <h1 id={PAGE_TITLE_ID}>{title}</h1>
@@ -10,6 +12,7 @@ const { title, header_button } = Astro.locals.starlightRoute.entry.data;
     </a>
   )}
 </div>
+{breadcrumb !== false && <Breadcrumb />}
 
 <style>
   @layer starlight.core {
