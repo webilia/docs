@@ -1,8 +1,55 @@
 ---
 title: Advanced Map
-description: TODO
+description: Display interactive maps with custom markers using Google Maps or OpenStreetMap. Perfect for showing store locations, event venues, and more.
 sidebar:
   order: 3
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Advanced Map** widget allows you to embed interactive maps on your site with ease. You can choose between **Google Maps** or **OpenStreetMap** as the map provider, add multiple location markers, and customize how the map appears. This is ideal for contact pages, store locator sections, or any scenario where you want to visually pinpoint locations for your visitors.
+
+## Key Features
+
+- **Google Maps & OpenStreetMap Support:** Select your preferred map provider. Google Maps offers various map types (roadmap, satellite, etc.) and requires an API key, while OpenStreetMap is open-source and doesn't require a key.
+- **Multiple Markers with Info Pop-ups:** Add one or many markers by specifying their latitude and longitude. Each marker can have a title and description (content) which appear in an info window when the marker is clicked. This is great for identifying multiple offices, event locations, or points of interest.
+- **Auto-Zoom to Markers:** The map will automatically adjust its zoom level to ensure all your markers are visible (if you have more than one marker). With a single marker, the map centers on that location at a default zoom level (approximately street level).
+- **Customizable Controls (Google Maps):** For Google Maps, you can toggle the Zoom UI controls on or off. You can also choose the default Map Type (Roadmap, Satellite, Hybrid, Terrain) to match the style of map you want.
+- **Map Styling Options:** You can apply styling to the map container - like setting a fixed width/height, adding a border or border radius (rounded corners), or even applying CSS filters. For example, you could show a map in grayscale and reveal color on hover using the style settings.
+
+## Using the Advanced Map
+
+<Steps>
+1. **Add the widget:** Drag **Advanced Map** onto your page in the Elementor editor.
+2. **Select Map Provider:** Under **Content > Map**, choose **Map Provider**: either **Google Map** or **OpenStreetMap**.
+   - If you select **Google Map**, an additional field for **Google API Key** will appear. Paste your Google Maps JavaScript API key there. *(You can obtain an API key from the Google Cloud Console - ensure the Maps JavaScript API is enabled for your project.)*
+   - If you select **OpenStreetMap**, no API key is required. The widget will use free OpenStreetMap tiles automatically.
+3. **Add Markers:** Still under the **Content** tab, you'll find a **Markers** list where you can add locations:
+   - Click **Add Item** to create a new marker.
+   - Enter the **Latitude** and **Longitude** for the location. (You can get these coordinates from Google Maps or other map services by finding the location and copying its GPS coordinates.)
+   - Optionally, set a **Title** - this text will appear as a bold heading in the info popup.
+   - Optionally, set **Content** - this text will appear below the title in the info popup (you can include an address, description, or any info about the location).
+   - Repeat to add additional markers as needed. Each marker you add will appear on the map.
+4. **Configure Map Settings:** In the **Settings** section:
+   - If using Google Maps:
+     - Double-check your **Google API Key** is entered (no extra spaces). *(Note: The API key is only used on the front-end; in the Elementor editor, the map may load a placeholder.)*
+     - Choose a **Map Type** (e.g., Road Map or Satellite) to set the default style of the map. 
+   - You can toggle **Zoom** control on or off (this shows or hides the +/- zoom buttons on the map).
+   - *(OpenStreetMap does not have multiple map types to choose from or require an API key, so for OSM these options are minimal.)*
+5. **Style your Map (Optional):** Switch to the **Style** tab to adjust the map's appearance:
+   - **Width & Max Width:** Set a specific size for your map or allow it to be full-width responsively. By default, the map will stretch to the container width.
+   - **Alignment:** Center or left/right align the map in its column if it doesn't fill the full width.
+   - **Border & Border Radius:** Add a border or rounded corners to the map container for style.
+   - **CSS Filters & Opacity:** You can apply filters (via the **Normal** and **Hover** style tabs) such as grayscale, brightness, etc. For example, you might show a grayscale map that turns full color on hover, by configuring the **Hover** state filter.
+6. **Save & Preview:** Update your page and view it on the live site (or preview). Check that:
+   - The map loads correctly and shows your chosen area.
+   - All your markers are visible. If multiple markers, the map should have auto-zoomed out to show all of them.
+   - Click on each marker to ensure the info window pops up with the title/content you set.
+   - If Google Maps isn't appearing, verify your API key is correct and that billing is enabled for your Google API project (a Google requirement).
+</Steps>
+
+<Aside type="note" title="Google Maps API Key in Editor">
+When editing in Elementor, the Google Map may not fully function. The API key is intentionally disabled in the editor for performance reasons, so you might see a placeholder or static map. **Use the preview or live page** to test your map with the API key. As long as you've entered a valid key, the map will load properly on the live site.
+</Aside>
+
+**Advanced Map** gives you a powerful way to share location information. For a quick setup without API keys, OpenStreetMap is a great choice. If you need Google's features or specific map types, Google Map integration is ready to go (just remember to provide your API key). With custom markers and pop-up info, you can make your maps informative and engaging, helping users find locations with ease.

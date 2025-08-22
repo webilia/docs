@@ -1,8 +1,61 @@
 ---
 title: Image Hotspot
-description: TODO
+description: Make your images interactive with hotspot markers and tooltips. Ideal for showcasing product features or creating engaging image maps with clickable points.
 sidebar:
   order: 2
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Image Hotspot** widget transforms a static image into an interactive experience. You can place hotspot markers on any image - when users hover or tap these hotspots, informative tooltips appear. This is perfect for **highlighting features** on a product photo, creating interactive infographics, or providing additional context on parts of an image.
+
+## Key Features
+
+- **Custom Image with Hotspots:** Upload any image (like a product image, diagram, or map) to use as the base. Then add one or multiple **hotspots** (points) on that image.
+- **Multiple Content Types for Hotspots:** Each hotspot can display as an **Icon** (using an icon from the library, e.g. a plus "＋" or info "ℹ" icon), as a **Custom Image** (you can use a small image or icon of your own), or as **None** (in case you want an invisible hotspot area). By default, an icon (a plus sign) is used.
+- **Easy Positioning with Offsets:** Position each hotspot by setting X (horizontal) and Y (vertical) offsets. You can toggle **Offset** to "Custom" and then use pixel or percentage values to move the hotspot into place. This placement is **responsive** - you can adjust the hotspot positions separately for desktop, tablet, and mobile breakpoints, ensuring the hotspots stay on the correct spot of the image on all devices.
+- **Tooltips on Hover/Click:** Each hotspot can have a tooltip - a text box that appears when the user hovers over (on desktop) or taps (on mobile) the hotspot. You can enable or disable the tooltip for each hotspot. The tooltip text is fully customizable and can include multiple lines or even basic formatting.
+- **Tooltip Positioning:** By default in the free version, tooltips appear above the hotspot (top-center). (Additional positions such as left or right may be available in premium versions.) This default ensures the tooltip is visible without covering the hotspot itself.
+- **Attention-Grabbing Design:** Hotspot markers come with a subtle pulsing animation out of the box, drawing the user's eye. You can customize the look - change the hotspot color, size, border, and icon - as well as the tooltip style (background color, text color, etc.) to match your design.
+
+## How to Use Image Hotspot
+
+<Steps>
+1. **Add the widget:** Drag **Image Hotspot** into your Elementor design where you want the interactive image.
+2. **Select an Image:** Under the **Content > Image** section, click the image field to upload or choose the image you want to use as the base. This could be a photograph, diagram, or any graphic.
+3. **Add Hotspot Items:** Go to the **Hotspots** section (still under Content) and click **Add Item** to create your first hotspot.
+   - **Media Type:** Choose the type of hotspot indicator:
+     - **Icon:** use a font icon symbol (default is a plus icon "✚"). If selected, an **Icon** field appears where you can pick a different icon from the library.
+     - **Image:** use a custom image as the marker (for example, a small pin graphic). If selected, an **Image** field appears to upload/select your image, and an **Image Size** field to set its display size.
+     - **None:** no visible marker (not commonly used unless you plan a custom setup).
+   - **Position (Offsets):** By default, a new hotspot is centered at a preset location. To place it, toggle **Offset** to "Custom" and then adjust:
+     - **Offset Left (X):** move the hotspot horizontally. Positive values move it right, negative values left. You can use pixels or % (percentage of image width).
+     - **Offset Top (Y):** move the hotspot vertically. Positive values move it down, negative values up.
+     *Tip:* If you prefer, use percentage units so the positioning adjusts with the image size (e.g., 50% left, 50% top will center the hotspot on the image).
+   - **Show Tooltip:** Enable this if you want a tooltip for this hotspot. When enabled, additional fields appear:
+     - **Tooltip Text:** Enter the content that should appear when the user hovers or clicks the hotspot. You can describe the feature or provide info (e.g., "Camera Lens: 12MP, f/1.8 aperture").
+     - *(Tooltip Position is fixed to Top in the free version, so the tooltip will appear above the hotspot.)*
+   - Repeat **Add Item** to create multiple hotspots. Each one can have its own icon/image and tooltip text. You'll see each hotspot item listed, and you can click one to adjust its settings.
+4. **Responsive Adjustment:** For each hotspot's offsets, you can switch the viewport (desktop, tablet, mobile) in Elementor and fine-tune the X and Y values so that the hotspots align correctly on the image at different screen sizes. This ensures your interactive points remain accurate no matter the device.
+5. **Style the Hotspots (Optional):** Switch to the **Style** tab to customize:
+   - **Image:** You can set a specific height/width for the base image if needed, or leave it at 100% width by default. You can also adjust the image's object fit (cover, contain, etc.) if you set a custom size.
+   - **Spot Style:** This controls the appearance of the hotspot markers:
+     - **Media Size:** Adjust the size of the icon or custom image inside the hotspot.
+     - **Background Size:** Adjust the overall diameter of the hotspot circle (the clickable area).
+     - **Colors:** Set the hotspot's background color (Normal/Hover) and icon color (Normal/Hover).
+     - **Border:** Add a border around the hotspot and adjust its radius (to make the hotspot circle or oval).
+     - **Box Shadow:** Add a shadow or glow effect to the hotspot if desired.
+   - **Tooltip Style:** Customize the tooltip's appearance:
+     - **Background Color:** Set the tooltip box color (and the little arrow indicator).
+     - **Text Color & Typography:** Style the tooltip text font, size, and color for readability.
+     - **Width:** You can set a max-width for the tooltip box (the default is around 150px; increase this if you have more text).
+     - **Padding & Border Radius:** Adjust tooltip padding for spacing and border radius for rounded corners.
+     - **Box Shadow:** Add a shadow to the tooltip to help it stand out.
+6. **Save & Preview:** Update your page and test the hotspots. On hover (desktop) or tap (mobile), each hotspot should display its tooltip. Make sure the positioning looks correct and the tooltips are readable (adjust styles or positions as needed).
+</Steps>
+
+<Aside type="tip">
+Use percentage values for offsets whenever possible - for example, 50% left and 50% top will place a hotspot roughly at the center of the image on all screen sizes. Percent-based positioning helps keep hotspots in the correct relative spot as the image scales on different devices. You can fine-tune each breakpoint as needed.
+</Aside>
+
+By using the Image Hotspot widget, you can pack a lot of information into a single image without cluttering it. Users love interactive images because they can explore at their own pace. Whether it's a product showcase (with each hotspot explaining a feature) or an informative diagram, this widget makes your content **both informative and fun** to explore.
