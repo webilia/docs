@@ -7,8 +7,12 @@ if (breadcrumb === false) return;
 
 const normalize = (path) => (path.endsWith('/') ? path : path + '/');
 
-function flatten(entries) {
-  return entries.flatMap((e) => (e.type === 'link' ? [e] : flatten(e.entries)));
+function flatten(entries, parents = []) {
+  return entries.flatMap((e) =>
+    e.type === 'link'
+      ? [{ ...e, parents }]
+      : flatten(e.entries, [...parents, e.label])
+  );
 }
 const links = flatten(sidebar);
 const findLink = (path) => links.find((l) => normalize(l.href) === normalize(path));
@@ -26,7 +30,10 @@ if (segments.length) {
     } else {
       const link = findLink(path);
       if (link) {
-        const label = link.label.replace(/ Overview$/i, '');
+        let label = link.label.replace(/ Overview$/i, '');
+        if (/^overview$/i.test(label) && link.parents.length) {
+          label = link.parents[link.parents.length - 1];
+        }
         crumbs.push({ label, href: link.href });
       }
     }
