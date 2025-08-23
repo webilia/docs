@@ -1,0 +1,48 @@
+---
+title: How to Translate the Listdom and Its Add-ons?
+description: Learn how to translate Listdom and its add-ons into your preferred language using translation plugins or translation files.
+sidebar:
+  order: 23
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Introduction
+
+If your website is in a language other than English, you can translate Listdom and its add-ons. This will allow you to change the static text on your site, such as headings, subheadings, captions, and buttons. This is useful if you want your site to appear in a language that Listdom does not support.
+
+Listdom and its add-ons are WordPress plugins, and you can translate them easily like other WordPress plugins. If you already know how to translate WordPress plugins, feel free to use your own method. In the following we will discuss some of the options:
+
+## 1. Translation Plugins
+
+You can use third-party translation plugins like **Loco Translate**, **Weglot**, or **WPML**.
+
+- **Loco Translate:** A user-friendly plugin that allows you to translate strings directly from your WordPress dashboard. It provides an intuitive interface for managing translations.  
+- **Weglot:** A cloud-based translation service that automatically translates your website content. It supports multiple languages and integrates seamlessly with WordPress.  
+- **WPML (WordPress Multilingual Plugin):** A comprehensive multilingual plugin that enables you to create and manage translations for your entire website, including themes and plugins.  
+
+There are even more free translation plugins that you can try. All of them have an option to translate themes and plugins. Please refer to the documentation of your chosen plugin for more information.
+
+## 2. Translation Files
+
+You can also translate the plugins using the classic method of translating plugins with **Poedit software** and `.po` files.  
+
+<Steps>
+1. Install the free version of **Poedit** on your computer.  
+2. Download the English language file of Listdom or its add-ons to your computer. Path:  
+   `/wp-content/plugins/listdom/i18n/languages/listdom-en_US.po`  
+3. Rename the file to your desired locale, for example: `listdom-nl_NL.po`.  
+4. Open the file in Poedit.  
+5. Translate all texts that you see or only the texts that you need.  
+6. Save the file. Poedit will create a `.mo` file next to the `.po` file.  
+7. Upload both files to `/wp-content/languages/`. Final path should look like:  
+   `/wp-content/languages/listdom-nl_NL.mo`  
+8. Visit your website in your desired language.  
+</Steps>
+
+## How to Translate the Listdomer?
+
+Listdomer is also a standard WordPress theme and follows the same rules and methods, so you can translate it just like other WordPress themes. We recommend using the translation plugins explained above.

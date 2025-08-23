@@ -1,0 +1,78 @@
+---
+title: How to Display a Map with Filters on the Side in Listdom
+description: Learn how to set up a Single Map shortcode with a Search and Filter form to display listings on a map with filters.
+sidebar:
+  order: 17
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+## Introduction
+
+Learn how to display a map with filters on the side in Listdom by creating a Single Map shortcode and a Search and Filter Form. You can either place both shortcodes on the same page or assign the search form directly in the shortcode settings to ensure targeted filtering. Follow this guide to set up an interactive map for your listings.
+
+## Step 1: Create a Single Map Shortcode
+
+Listdom provides a “Single Map” shortcode that allows you to display listings on a map. To create this shortcode:
+
+<Steps>
+1. Navigate to **Listdom > Shortcodes**.
+2. Click **Add New** and select **Single Map** as the skin.
+3. Configure the settings according to your requirements.
+4. Save the shortcode and copy it.
+</Steps>
+
+For detailed instructions, refer to the documentation: [Single Map Shortcode](/listdom/skins-shortcodes/single-map-view-shortcode/)
+
+## Step 2: Create a Search and Filter Form
+
+To allow users to filter listings on the map, you need to create a search form:
+
+<Steps>
+1. Go to **Listdom > Search and Filter Builder**.
+2. Click **Add New** and configure the fields you want in the form.
+3. Save the form and copy its shortcode.
+</Steps>
+
+For a step-by-step guide, see: [How to Create a Search and Filter Form](/listdom/search-filtering/)
+
+## Step 3: Assign the Search Form to the Single Map Shortcode
+
+There are two ways to integrate the search form with your map:
+
+### Option A: Place Both Shortcodes on the Same Page
+
+If you’re using a page builder or the WordPress block editor, you can simply add the Single Map and Search Form shortcodes next to each other on the same page:
+
+- Edit the page where you want to display the map.  
+- Insert the Single Map Shortcode.  
+- Add the Search Form Shortcode beside or above it.  
+
+<Aside type="note">
+This method will allow the search form to filter the map and any other Listdom shortcodes present on the page.
+</Aside>
+
+### Option B: Assign the Search Form Directly in the Shortcode Settings
+
+A more targeted approach is to assign the search form directly in the Single Map shortcode settings:
+
+<Steps>
+1. Edit the Single Map shortcode.
+2. Locate the **Search Form** option.
+3. Select the search form you created.
+4. Choose its position (e.g., Left, Right, Top, Bottom).
+5. Save the changes.
+</Steps>
+
+<Aside type="tip">
+This method ensures that the search form filters only the map and not other Listdom skins on the page.
+</Aside>
+
+For more details, see: [Skins Shortcodes Common Settings](/listdom/skins-shortcodes/skins-shortcodes-common-settings/)
+
+## Conclusion
+
+By following these steps, you can easily create a map with filters on the side in Listdom. Choose the method that best suits your layout and needs. If you encounter any issues, check out the Listdom documentation or contact support.

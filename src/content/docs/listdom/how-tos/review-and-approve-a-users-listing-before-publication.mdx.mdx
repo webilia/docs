@@ -1,0 +1,93 @@
+---
+title: How to Review and Approve a User’s Listing Before Publication?
+description: TBD
+sidebar:
+  order: 19
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Directory websites are increasingly popular for users wanting to showcase various businesses, services, or personal listings. Listdom, a leading WordPress directory plugin, allows site administrators to maintain quality control by reviewing listings submitted by users before they are published. This article will guide you through each step of this moderation process, covering user roles, Listdom’s functionalities, and specific settings that help ensure only vetted listings go live on your site. This powerful feature benefits directory owners by maintaining credibility and consistency in quality across listings.
+
+## Submitting Listings on Listdom
+Listdom offers an intuitive frontend dashboard (available through the Listdom Pro addon) where users can submit listings. This dashboard provides a user-friendly interface for authors to upload details, images, and other information necessary for creating a listing. Using this streamlined process, any user, regardless of technical background, can easily list their content.
+
+**Key Features of Listdom’s Frontend Dashboard:**  
+Easy Access: Users can access it directly from your WordPress website’s frontend without needing backend access.  
+Seamless Form Integration: The form includes fields for title, description, contact info, categories, and media uploads, helping users submit detailed information.  
+Real-Time Preview: Users can review their entries in real-time, making corrections as needed to create polished and detailed listings.
+
+## Understanding Listdom User Roles
+When it comes to managing and moderating content, user roles play a vital role in Listdom. Let’s take a detailed look at the two custom roles Listdom offers:
+
+**Listdom Author**  
+Purpose: This role is designed for users who submit listings but are not authorized to publish them immediately.  
+Functionality: Listings submitted by Listdom Authors require approval by an admin before they appear live on the site. This setup enables administrators to filter, edit, and approve listings as needed.  
+Approval Process: Once the listing is submitted, the admin receives a notification, allowing them to review the submission in the backend. For setup tips, review Listdom’s notification settings.
+
+**Listdom Publisher**  
+Purpose: This role is granted to trusted users whose listings do not require pre-approval before publishing.  
+Functionality: Any content submitted by a Listdom Publisher goes live immediately, bypassing the review process. This role is suitable for contributors with proven experience and quality submissions.  
+Auto-Publish Advantage: Allowing a select few trusted users to self-publish can streamline content management on your platform while maintaining standards.
+
+For further configuration options regarding user roles, refer to WordPress’ role assignment documentation.
+
+## Assigning User Roles in Listdom
+Roles can be assigned manually or adjusted based on user needs. Here’s a step-by-step process to assign roles in Listdom:
+
+<Steps>
+1. **Navigate to the Users Menu:**  
+   In the WordPress admin dashboard, go to Users → All Users.
+
+2. **Select the User and Modify Role:**  
+   Choose the user to whom you want to assign a role. Under the Role dropdown, select either Listdom Author or Listdom Publisher depending on the permissions you want them to have.
+
+3. **Save Changes:**  
+   Click Update User to save changes. Now, when this user submits a listing, Listdom will handle it according to the permissions assigned.
+</Steps>
+
+This setup ensures that new users (designated as Listdom Authors) have their listings reviewed, while trusted users (Listdom Publishers) have the freedom to post content directly.
+
+## What is the Listdom Pro Plugin?
+Listdom Pro is an advanced add-on that enhances the functionality of Listdom, providing a full-featured frontend dashboard and many other customization options. To install and activate Listdom Pro, follow this activation guide. It’s a valuable upgrade for site owners aiming for a more powerful directory site.
+
+## How to Review and Approve Listings
+<Steps>
+1. **Access Listings:**  
+   In the WordPress admin dashboard, go to Listdom → Listings. This menu shows all user-submitted listings, organized by status (pending, approved, or published).
+
+2. **Review Submitted Listings:**  
+   Review each listing’s content, images, and other details to ensure they meet your site’s standards. As an admin, you can edit the listing to fix formatting or make small corrections if needed.
+
+3. **Change Listing Status:**  
+   To approve a listing, change its status from Pending to Published. This action allows the listing to go live on your site. Listings marked as Draft will remain unpublished until their status changes to Published.
+
+4. **Notification Options:**  
+   Listdom includes notification settings to alert users when their listings have been approved. Configure these in the Listdom → Notifications section for automated messages to users upon listing approval.
+</Steps>
+
+For more on listing management, refer to Listdom’s listing management documentation.
+
+## Frequently Asked Questions (FAQs)
+**Q: Can I automatically approve listings from certain users?**  
+A: Yes, by assigning trusted users to the Listdom Publisher role, their listings will automatically go live without admin review.
+
+**Q: How do I notify users about their listing status?**  
+A: Through the Notifications section in Listdom settings, you can customize alerts that notify users when their listings are approved or require edits.
+
+**Q: Can Listdom Author users preview their listings before submission?**  
+A: Yes, Listdom’s frontend dashboard allows users to preview their listing and make edits before final submission, ensuring they have control over their content.
+
+**Q: Is there a way to filter listings by status in the admin dashboard?**  
+A: Absolutely. In the Listdom → Listings section, you can filter listings by status (e.g., Pending, Published), simplifying the review process.
+
+## Important Tips for Listing Moderation
+Set Guidelines for Approval: Consider setting clear content guidelines for authors to follow. This reduces the number of submissions that need editing and ensures a standard for all listings.  
+Customize the Notification Settings: Proper configuration of notification alerts is essential to keep both admins and users informed about listing statuses.  
+Utilize Additional Add-ons: Listdom’s range of add-ons—such as the Reviews Addon—can add depth to your moderation system by allowing user feedback on listings.
+
+## Final Thoughts on Reviewing User Listings in Listdom
+Using Listdom’s moderation features is a straightforward yet powerful way to maintain quality control on your directory site. From the ability to assign specific roles to the review and approval system, Listdom’s user role structure provides a robust framework for managing submitted content. As you configure Listdom, be sure to explore add-on features that could enhance your review process, such as automated notifications, advanced search options, and filters for a smoother experience.
