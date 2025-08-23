@@ -1,0 +1,85 @@
+---
+title: "Listdom Search Results Not Displaying"
+description: Fix the issue where Listdom search results return empty or redirect to the homepage.
+sidebar:
+  order: 8
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## Problem
+
+**I am using the Listdom plugin. I’ve created a search form, but when I search by location or category, either no results appear or I get redirected to the homepage. What should I do?**
+
+## Answer
+
+When the Listdom search form is configured but either doesn’t return results or unexpectedly redirects to the homepage, the problem is usually related to how the **search form, skin shortcode, and results page** settings are configured.
+
+Here’s a comprehensive troubleshooting guide to help you resolve this issue step by step.
+
+## Steps to Resolve
+
+<Steps>
+1. **Check That Listings Exist and Are Published**  
+   - Navigate to **Listings → All Listings**.  
+   - Confirm that listings are published and assigned to relevant categories, locations, features, and tags.  
+   - Listings must have values that match the filters in your search form; otherwise, results will appear empty.  
+   - Try a search without any filters to test if listings appear at all.  
+
+2. **Set the Correct Search Results Page**  
+   - Go to **Listdom → Search and Filter Builder**, and open the search form you’re using.  
+   - In the **Search Results panel**:  
+     - If your skin shortcode and search form are on the same page, set **Results Page** to “Current Page.”  
+       This will automatically apply the search filters to all skin shortcodes on that page.  
+     - If you’re using the APS Addon, a **Connected Shortcodes** option appears.  
+       Select the exact shortcode(s) you want to target and specify whether to apply the filter **On Submit** (after clicking search) or **On the Fly** (live as users select options).  
+     - If you select a different page as the Results Page:  
+       Ensure that page contains a skin shortcode.  
+       If multiple shortcodes exist on the page, you must define the **Target Shortcode** to avoid applying filters globally.  
+
+3. **Ensure a Skin Shortcode is Present on the Results Page**  
+   - Regardless of where the results will be shown (current or another page), a **skin shortcode** must be added there.  
+   - Go to **Listdom → Shortcodes**.  
+   - Create a skin shortcode (e.g., List, Grid, Single Map, etc.).  
+   - Choose your layout and filters.  
+   - If desired, assign the search form to the shortcode (only if you’re not using the search form separately).  
+   - Add the generated shortcode to the page using the WordPress editor, Elementor, or WPBakery.  
+   Without a skin shortcode on the target page, no search results will appear—even if the search form itself is working properly.  
+
+4. **Check APS Addon Settings (If Installed)**  
+   - If you’re using the Advanced Portal Search (APS) Addon, double-check the following:  
+     - **Matching Logic (OR/AND):** Under **Listdom → Settings → Addons → Advanced Portal Search**:  
+       OR = more inclusive results (default).  
+       AND = stricter filters, may result in 0 results if no listing matches all terms.  
+     - **AJAX Search Mode:**  
+       - Disabled: Page reload needed to show results.  
+       - Enabled: User must press the Search button; results load via AJAX.  
+       - On the Fly: Results update instantly as the user selects options.  
+
+5. **Check for Technical Conflicts**  
+   - If everything seems configured correctly but results still don’t appear:  
+     - Clear caches: Browser, site cache, and plugin caches.  
+     - **JavaScript Errors:** Check developer console (F12 → Console) for script issues.  
+     - **Plugin Conflicts:** Deactivate non-essential plugins and test.  
+     - **Theme Conflicts:** Temporarily switch to a default WordPress theme (e.g., Twenty Twenty-Four).  
+</Steps>
+
+## Why This Works
+
+To ensure your Listdom search form works properly:
+
+- Assign a valid results page (same or another page).  
+- Ensure a skin shortcode exists on that page.  
+- Confirm listings exist that match your filters.  
+
+With the right configuration, your search should return accurate results without redirects or empty states.  
+
+If the problem continues, provide:  
+- The name of the shortcode you’re using.  
+- A link to your search page.  
+- Or a screenshot of your settings.  
+
+This will help support debug further.

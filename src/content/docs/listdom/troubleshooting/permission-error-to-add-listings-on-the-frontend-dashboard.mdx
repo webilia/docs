@@ -1,0 +1,58 @@
+---
+title: "Permission Error to Add Listings on The Frontend Dashboard"
+description: Fix the issue where users cannot add listings on the Listdom Frontend Dashboard due to permission errors.
+sidebar:
+  order: 5
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Problem
+
+**On the Frontend Dashboard, the users cannot add listing.**  
+It returns a **'You do not have permission to add a listing'** error message.
+
+## Answer
+
+If you’ve set up Listdom Pro and Subscriptions add-ons and configured a paid package but are encountering the “You do not have permission to add a listing” error for paid listings, follow these steps to resolve the issue.
+
+## Understanding the Issue
+
+The error is related to **user roles** rather than the Listdom package configuration.  
+Listdom adds two specific roles called **“Listdom Author”** and **“Listdom Publisher”** to the WordPress user roles designed to manage listing permissions effectively.  
+
+- The listings of the user with the **Listdom Publisher** role will be published automatically.  
+- The **Listdom Author** listings will be in pending status unless the site admin publishes them.
+
+## Steps to Resolve
+
+<Steps>
+1. **Assign the New Roles:**  
+   - Navigate to the WordPress dashboard.  
+   - Go to **Users → All Users**.  
+   - Select the user experiencing the issue.  
+   - Change their role to **Listdom Author** or **Listdom Publisher**.  
+
+2. **Set Default User Role for New Users:**  
+   - Go to **Settings → General** in the WordPress dashboard.  
+   - Set the **New User Default Role** to **Listdom Author** or **Listdom Publisher**.  
+   - This ensures all new users have the appropriate permissions to add listings.  
+</Steps>
+
+## What Is the Difference Between Listdom Author and Listdom Publisher Roles?
+
+- **Listdom Publisher:** Listings are published automatically.  
+- **Listdom Author:** Listings remain in pending status unless published by the site admin.  
+
+## Higher Roles
+
+You can alternatively assign higher roles like **Author** or **Editor**, but be aware these roles grant additional access beyond Listdom functionalities.
+
+## Why This Works
+
+The **Listdom Author** or **Listdom Publisher** roles are specifically tailored to provide the necessary permissions for adding listings without granting excess capabilities that come with higher roles like **Author** or **Editor**.  
+
+By following these steps, you should be able to resolve the permissions issue and allow users to add listings successfully.

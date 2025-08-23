@@ -1,0 +1,44 @@
+---
+title: "I Can’t Find The Display Options in “Add Listing”"
+description: Fix the issue where the Display Options are missing in the Add Listing page of Listdom.
+sidebar:
+  order: 6
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## Problem
+
+**I can't find the Display Options on the "Add Listing" page or anywhere.**
+
+The **Display Options** are used to adjust the listing details page and elements visibility for each listing. If you cannot find this section on the Add Listing page, this article can help you.
+
+## Answer
+
+<Aside type="note">
+The “Display Options” are only available when the **Listdom Pro Add-on** is installed and active.
+</Aside>
+
+<Steps>
+1. **Ensure Listdom Pro Add-on is Active**  
+   First, confirm that the Pro addon is installed and activated. Without it, the “Display Options” section will not appear.
+
+2. **Configure Display Options**  
+   - Navigate to **Listdom → Settings → Single Listing**.  
+   - Locate the **Display Options Per Listing** field.  
+   - Select the appropriate option:  
+     - **Admin and Listing Owner:** Display options available to both.  
+     - **Admin Only:** Restrict display options to admin.  
+     - **Disabled:** No display options visible.  
+
+   This setting controls who can see and edit display options for each listing. If it’s set to “Disabled,” the options will not appear.  
+
+3. **Additional Notes**  
+   If you’re still having trouble after confirming the Pro addon and settings:  
+   - Try clearing the site cache.  
+   - Deactivate other plugins to check for conflicts.  
+   - Learn more in [How to Find a Plugin Conflict](/listdom/troubleshooting/how-to-find-a-plugin-conflict/).  
+</Steps>
