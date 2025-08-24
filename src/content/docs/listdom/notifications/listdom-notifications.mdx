@@ -30,237 +30,232 @@ To create your template from scratch, hit the “Add Notification” button.
 
 <Steps>
 1. **Add Title**  
-The name of this notification. The notification title will be used as the email subject too.
-
+        The name of this notification. The notification title will be used as the email subject too.
 2. **Content**  
-The content of the notification email. It includes:
-
-**Hook:** A hook is an event that happens in the website system. When something happens in the system, a hook is called. For example, a hook can be called when a new listing is created, when a new booking is made, or when a claim is paid. You can create an email or SMS notification for each hook. For example, you can create a notification to send an email when a new listing is created. It’s important to assign the notification to the correct hook; Otherwise, it won’t work as expected. Several Hooks are available to choose from. Some of them are available in the Listdom free version and the others are added by installing different add-ons of the Listdom.
-
-**Free Hooks:**
-- Contact Owner
-- New Listing
-- Listing Status Changed
-- Abuse Report
-
-**Hooks Added by Listdom add-ons:**
-- Auction Add-on
-- New Offer
-- Owner Offer Notification
-- Offer Accepted
-- Offer Unaccepted
-- Booking Add-on
-- New Booking
-- Owner Booking Notification
-- Booking Approved
-- Booking Rejected
-- Booking Canceled
-- Claim Add-on
-- New Claim
-- Claim Approved
-- Claim Rejected
-- Claim Waiting Payment
-- Claim Paid
-- Jobs Add-on
-- New Job Application
-- Owner Job Application Notification
-
-**Content Text Area:** This is a WYSIWYG editor to make the email content. Shortcodes and HTML codes are allowed in the content.
-
+        The content of the notification email. It includes:
+        
+        **Hook:** A hook is an event that happens in the website system. When something happens in the system, a hook is called. For example, a hook can be called when a new listing is created, when a new booking is made, or when a claim is paid. You can create an email or SMS notification for each hook. For example, you can create a notification to send an email when a new listing is created. It’s important to assign the notification to the correct hook; Otherwise, it won’t work as expected. Several Hooks are available to choose from. Some of them are available in the Listdom free version and the others are added by installing different add-ons of the Listdom.
+        
+        **Free Hooks:**
+        - Contact Owner
+        - New Listing
+        - Listing Status Changed
+        - Abuse Report
+        
+        **Hooks Added by Listdom add-ons:**
+        - Auction Add-on
+        - New Offer
+        - Owner Offer Notification
+        - Offer Accepted
+        - Offer Unaccepted
+        - Booking Add-on
+        - New Booking
+        - Owner Booking Notification
+        - Booking Approved
+        - Booking Rejected
+        - Booking Canceled
+        - Claim Add-on
+        - New Claim
+        - Claim Approved
+        - Claim Rejected
+        - Claim Waiting Payment
+        - Claim Paid
+        - Jobs Add-on
+        - New Job Application
+        - Owner Job Application Notification
+        
+        **Content Text Area:** This is a WYSIWYG editor to make the email content. Shortcodes and HTML codes are allowed in the content.
 3. **Placeholders**  
-Placeholders are dynamic data that can be added to the email and SMS content. Different Placeholders are available based on the Hook selected. For example, the name of the person who sends the contact request by the contact form. Use the #placeholders# in the notification content and subject (title). Change the Hook to see each one’s specific placeholders.
-
-| Hook | Placeholder | Definition |
-| --- | --- | --- |
-| Contact Owner | #name# | Name field of the contact form |
-| Contact Owner | #email# | Email field of the contact form |
-| Contact Owner | #phone# | Phone field of the contact form |
-| Contact Owner | #message# | Sent message |
-| Contact Owner | #listing_link# | Link to the listing |
-| Contact Owner | #date# | The current date while sending |
-| Contact Owner | #time# | The current time while sending |
-| Contact Owner | #datetime# | Current date & time while sending |
-| Contact Owner | #admin_email# | Email of the website admin |
-| Contact Owner | #site_name# | The subject of the website |
-| Contact Owner | #site_url# | Home URL of the website |
-| Contact Owner | #site_description# | Description of the website |
-| Contact Owner | #site_link# | Link to the website. The subject of the website will be used as the link title |
-| New Listing | #listing_status# | Status of new listing |
-| New Listing | #listing_date# | Listing creation date |
-| New Listing | #listing_title# | Title to the listing |
-| New Listing | #owner_name# | Name of listing owner |
-| New Listing | #owner_email# | Email or listing owner |
-| New Listing | #listing_link# | Link to the listing |
-| New Listing | #admin_link# | Link to the listing manage page in WordPress backend |
-| New Listing | #date# | Current date while sending |
-| New Listing | #time# | Current time while sending |
-| New Listing | #datetime# | Current date & time while sending |
-| New Listing | #admin_email# | Email of the website admin |
-| New Listing | #site_name# | Subject of the website |
-| New Listing | #site_url# | Home URL of the website |
-| New Listing | #site_description# | Description of the website |
-| New Listing | #site_link# | Link to the website. Subject of the website will be used as the link title |
-| Listing Status Changed | #previous_status# | Previous Status |
-| Listing Status Changed | #listing_status# | New Status |
-| Listing Status Changed | #listing_date# | Listing creation date |
-| Listing Status Changed | #listing_title# | Title to the listing |
-| Listing Status Changed | #owner_name# | Name of listing owner |
-| Listing Status Changed | #owner_email# | Email or listing owner |
-| Listing Status Changed | #listing_link# | Link to the listing |
-| Listing Status Changed | #date# | Current date while sending |
-| Listing Status Changed | #time# | Current time while sending |
-| Listing Status Changed | #datetime# | Current date & time while sending |
-| Listing Status Changed | #admin_email# | Email of the website admin |
-| Listing Status Changed | #site_name# | Subject of the website |
-| Listing Status Changed | #site_url# | Home URL of the website |
-| Listing Status Changed | #site_description# | Description of the website |
-| Listing Status Changed | #site_link# | Link to the website. Subject of the website will be used as the link title |
-| Abuse Report | #name# | Name field of abuse form |
-| Abuse Report | #email# | Email field of abuse form |
-| Abuse Report | #phone# | Phone field of abuse form |
-| Abuse Report | #message# | Sent message |
-| Abuse Report | #listing_link# | Link to the listing |
-| Abuse Report | #date# | Current date while sending |
-| Abuse Report | #time# | Current time while sending |
-| Abuse Report | #datetime# | Current date & time while sending |
-| Abuse Report | #admin_email# | Email of the website admin |
-| Abuse Report | #site_name# | Subject of the website |
-| Abuse Report | #site_url# | Home URL of the website |
-| Abuse Report | #site_description# | Description of the website |
-| Abuse Report | #site_link# | Link to the website. Subject of the website will be used as the link title |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_amount# | Offer Amount |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_email# | Offer Email |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_status# | Status of Offer |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_comment# | Offer Comment |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_datetime# | Offer Submission Date and Time |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_id# | Offer ID |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #listing_title# | Title of the listing |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #listing_link# | Link to the listing |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #date# | Current date while sending |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #time# | Current time while sending |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #datetime# | Current date & time while sending |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #admin_email# | Email of the website admin |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_name# | Subject of the website |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_url# | Home URL of the website |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_description# | Description of the website |
-| New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_link# | Link to the website. Subject of the website will be used as the link title |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #name# | Name of booker |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #phone# | Phone of booker |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #email# | Email of booker |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #message# | Booking Message |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_status# | Status of booking |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_datetime# | Booking Submission Date and Time |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_items# | Booked Item(s) |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_id# | Booking ID |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_price# | Booking Price |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_payable# | Booking Payable Amount |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_payment_status# | Booking Payment Status |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_invoice_url# | Booking Invoice URL |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_start# | Event Start |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_end# | Event End |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_capacity# | Event Capacity |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkin# | Checkin Date |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkin_datetime# | Checkin Date and Time |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkout# | Checkout Date |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkout_datetime# | Checkout Date and Time |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #listing_title# | Title of the listing |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #listing_link# | Link to the listing |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #date# | Current date while sending |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #time# | Current time while sending |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #datetime# | Current date & time while sending |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #admin_email# | Email of the website admin |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_name# | Subject of the website |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_url# | Home URL of the website |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_description# | Description of the website |
-| New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_link# | Link to the website. Subject of the website will be used as the link title |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #name# | Name field of claim form |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #email# | Email field of claim form |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #phone# | Phone field of claim form |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #message# | Sent message |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_message# | Admin Message (Normally used for rejection) |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #listing_title# | Title of the claimed listing |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #listing_link# | Link to the listing |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #attachment_link# | Link to the attached claim document. |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #claim_link# | Link to the claim page on frontend so users can pay or see the current status of their claim |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_link# | Link to the claim manage page in WordPress backend |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #date# | Current date while sending |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #time# | Current time while sending |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #datetime# | Current date & time while sending |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_email# | Email of the website admin |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_name# | Subject of the website |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_url# | Home URL of the website |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_description# | Description of the website |
-| New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_link# | Link to the website. Subject of the website will be used as the link title |
-| New Job Application, Owner Job Application Notification | #name# | Name of applicant |
-| New Job Application, Owner Job Application Notification | #mobile# | Mobile of applicant |
-| New Job Application, Owner Job Application Notification | #email# | Email of applicant |
-| New Job Application, Owner Job Application Notification | #message# | Applicant Message |
-| New Job Application, Owner Job Application Notification | #application_status# | Status of Application |
-| New Job Application, Owner Job Application Notification | #application_datetime# | Application Submission Date and Time |
-| New Job Application, Owner Job Application Notification | #application_date# | Application Submission Date |
-| New Job Application, Owner Job Application Notification | #application_time# | Application Submission Time |
-| New Job Application, Owner Job Application Notification | #application_id# | Application ID |
-| New Job Application, Owner Job Application Notification | #resume# | Resume Link |
-| New Job Application, Owner Job Application Notification | #cover# | Cover Link |
-| New Job Application, Owner Job Application Notification | #code# | Application Code |
-| New Job Application, Owner Job Application Notification | #listing_title# | Title of the listing |
-| New Job Application, Owner Job Application Notification | #listing_link# | Link to the listing |
-| New Job Application, Owner Job Application Notification | #date# | Current date while sending |
-| New Job Application, Owner Job Application Notification | #time# | Current time while sending |
-| New Job Application, Owner Job Application Notification | #datetime# | Current date & time while sending |
-| New Job Application, Owner Job Application Notification | #admin_email# | Email of the website admin |
-| New Job Application, Owner Job Application Notification | #site_name# | Subject of the website |
-| New Job Application, Owner Job Application Notification | #site_url# | Home URL of the website |
-| New Job Application, Owner Job Application Notification | #site_description# | Description of the website |
-| New Job Application, Owner Job Application Notification | #site_link# | Link to the website. Subject of the website will be used as the link title |
-
+    Placeholders are dynamic data that can be added to the email and SMS content. Different Placeholders are available based on the Hook selected. For example, the name of the person who sends the contact request by the contact form. Use the #placeholders# in the notification content and subject (title). Change the Hook to see each one’s specific placeholders.
+    
+    | Hook | Placeholder | Definition |
+    | --- | --- | --- |
+    | Contact Owner | #name# | Name field of the contact form |
+    | Contact Owner | #email# | Email field of the contact form |
+    | Contact Owner | #phone# | Phone field of the contact form |
+    | Contact Owner | #message# | Sent message |
+    | Contact Owner | #listing_link# | Link to the listing |
+    | Contact Owner | #date# | The current date while sending |
+    | Contact Owner | #time# | The current time while sending |
+    | Contact Owner | #datetime# | Current date & time while sending |
+    | Contact Owner | #admin_email# | Email of the website admin |
+    | Contact Owner | #site_name# | The subject of the website |
+    | Contact Owner | #site_url# | Home URL of the website |
+    | Contact Owner | #site_description# | Description of the website |
+    | Contact Owner | #site_link# | Link to the website. The subject of the website will be used as the link title |
+    | New Listing | #listing_status# | Status of new listing |
+    | New Listing | #listing_date# | Listing creation date |
+    | New Listing | #listing_title# | Title to the listing |
+    | New Listing | #owner_name# | Name of listing owner |
+    | New Listing | #owner_email# | Email or listing owner |
+    | New Listing | #listing_link# | Link to the listing |
+    | New Listing | #admin_link# | Link to the listing manage page in WordPress backend |
+    | New Listing | #date# | Current date while sending |
+    | New Listing | #time# | Current time while sending |
+    | New Listing | #datetime# | Current date & time while sending |
+    | New Listing | #admin_email# | Email of the website admin |
+    | New Listing | #site_name# | Subject of the website |
+    | New Listing | #site_url# | Home URL of the website |
+    | New Listing | #site_description# | Description of the website |
+    | New Listing | #site_link# | Link to the website. Subject of the website will be used as the link title |
+    | Listing Status Changed | #previous_status# | Previous Status |
+    | Listing Status Changed | #listing_status# | New Status |
+    | Listing Status Changed | #listing_date# | Listing creation date |
+    | Listing Status Changed | #listing_title# | Title to the listing |
+    | Listing Status Changed | #owner_name# | Name of listing owner |
+    | Listing Status Changed | #owner_email# | Email or listing owner |
+    | Listing Status Changed | #listing_link# | Link to the listing |
+    | Listing Status Changed | #date# | Current date while sending |
+    | Listing Status Changed | #time# | Current time while sending |
+    | Listing Status Changed | #datetime# | Current date & time while sending |
+    | Listing Status Changed | #admin_email# | Email of the website admin |
+    | Listing Status Changed | #site_name# | Subject of the website |
+    | Listing Status Changed | #site_url# | Home URL of the website |
+    | Listing Status Changed | #site_description# | Description of the website |
+    | Listing Status Changed | #site_link# | Link to the website. Subject of the website will be used as the link title |
+    | Abuse Report | #name# | Name field of abuse form |
+    | Abuse Report | #email# | Email field of abuse form |
+    | Abuse Report | #phone# | Phone field of abuse form |
+    | Abuse Report | #message# | Sent message |
+    | Abuse Report | #listing_link# | Link to the listing |
+    | Abuse Report | #date# | Current date while sending |
+    | Abuse Report | #time# | Current time while sending |
+    | Abuse Report | #datetime# | Current date & time while sending |
+    | Abuse Report | #admin_email# | Email of the website admin |
+    | Abuse Report | #site_name# | Subject of the website |
+    | Abuse Report | #site_url# | Home URL of the website |
+    | Abuse Report | #site_description# | Description of the website |
+    | Abuse Report | #site_link# | Link to the website. Subject of the website will be used as the link title |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_amount# | Offer Amount |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_email# | Offer Email |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_status# | Status of Offer |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_comment# | Offer Comment |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_datetime# | Offer Submission Date and Time |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_id# | Offer ID |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #listing_title# | Title of the listing |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #listing_link# | Link to the listing |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #date# | Current date while sending |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #time# | Current time while sending |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #datetime# | Current date & time while sending |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #admin_email# | Email of the website admin |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_name# | Subject of the website |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_url# | Home URL of the website |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_description# | Description of the website |
+    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_link# | Link to the website. Subject of the website will be used as the link title |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #name# | Name of booker |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #phone# | Phone of booker |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #email# | Email of booker |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #message# | Booking Message |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_status# | Status of booking |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_datetime# | Booking Submission Date and Time |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_items# | Booked Item(s) |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_id# | Booking ID |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_price# | Booking Price |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_payable# | Booking Payable Amount |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_payment_status# | Booking Payment Status |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_invoice_url# | Booking Invoice URL |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_start# | Event Start |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_end# | Event End |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_capacity# | Event Capacity |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkin# | Checkin Date |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkin_datetime# | Checkin Date and Time |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkout# | Checkout Date |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkout_datetime# | Checkout Date and Time |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #listing_title# | Title of the listing |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #listing_link# | Link to the listing |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #date# | Current date while sending |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #time# | Current time while sending |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #datetime# | Current date & time while sending |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #admin_email# | Email of the website admin |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_name# | Subject of the website |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_url# | Home URL of the website |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_description# | Description of the website |
+    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_link# | Link to the website. Subject of the website will be used as the link title |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #name# | Name field of claim form |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #email# | Email field of claim form |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #phone# | Phone field of claim form |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #message# | Sent message |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_message# | Admin Message (Normally used for rejection) |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #listing_title# | Title of the claimed listing |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #listing_link# | Link to the listing |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #attachment_link# | Link to the attached claim document. |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #claim_link# | Link to the claim page on frontend so users can pay or see the current status of their claim |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_link# | Link to the claim manage page in WordPress backend |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #date# | Current date while sending |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #time# | Current time while sending |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #datetime# | Current date & time while sending |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_email# | Email of the website admin |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_name# | Subject of the website |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_url# | Home URL of the website |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_description# | Description of the website |
+    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_link# | Link to the website. Subject of the website will be used as the link title |
+    | New Job Application, Owner Job Application Notification | #name# | Name of applicant |
+    | New Job Application, Owner Job Application Notification | #mobile# | Mobile of applicant |
+    | New Job Application, Owner Job Application Notification | #email# | Email of applicant |
+    | New Job Application, Owner Job Application Notification | #message# | Applicant Message |
+    | New Job Application, Owner Job Application Notification | #application_status# | Status of Application |
+    | New Job Application, Owner Job Application Notification | #application_datetime# | Application Submission Date and Time |
+    | New Job Application, Owner Job Application Notification | #application_date# | Application Submission Date |
+    | New Job Application, Owner Job Application Notification | #application_time# | Application Submission Time |
+    | New Job Application, Owner Job Application Notification | #application_id# | Application ID |
+    | New Job Application, Owner Job Application Notification | #resume# | Resume Link |
+    | New Job Application, Owner Job Application Notification | #cover# | Cover Link |
+    | New Job Application, Owner Job Application Notification | #code# | Application Code |
+    | New Job Application, Owner Job Application Notification | #listing_title# | Title of the listing |
+    | New Job Application, Owner Job Application Notification | #listing_link# | Link to the listing |
+    | New Job Application, Owner Job Application Notification | #date# | Current date while sending |
+    | New Job Application, Owner Job Application Notification | #time# | Current time while sending |
+    | New Job Application, Owner Job Application Notification | #datetime# | Current date & time while sending |
+    | New Job Application, Owner Job Application Notification | #admin_email# | Email of the website admin |
+    | New Job Application, Owner Job Application Notification | #site_name# | Subject of the website |
+    | New Job Application, Owner Job Application Notification | #site_url# | Home URL of the website |
+    | New Job Application, Owner Job Application Notification | #site_description# | Description of the website |
+    | New Job Application, Owner Job Application Notification | #site_link# | Link to the website. Subject of the website will be used as the link title |
 4. **Recipients**  
-Each hook has an “Original Recipient”. This recipient varies according to the Hook selected. For example, the Original Recipient of the “Contact Owner” Hook is the owner of the listing. You can disable this option and add some arbitrary email addresses.
-
-| Hook | Original Recipient |
-| --- | --- |
-| Contact Owner | Listing Owner |
-| New Listing | Site Admin(s) |
-| Listing Status Changed | Listing Owner |
-| Abuse Report | Site Admin(s) |
-| New Offer | Offer Submitter |
-| Owner Offer Notification | Listing Owner |
-| Offer Accepted | Offer Submitter |
-| Offer Unaccepted | Offer Submitter |
-| New Booking | Booker (the user who created the booking) |
-| Owner Booking Notification | Listing Owner |
-| Booking Approved | Booker (the user who created the booking) |
-| Booking Rejected | Booker (the user who created the booking) |
-| Booking Canceled | Booker (the user who created the booking) |
-| New Claim | Site Admin(s) |
-| Claim Approved | Claim Owner |
-| Claim Rejected | Claim Owner |
-| Claim Waiting Payment | Claim Owner |
-| Claim Paid | Claim Owner |
-| New Job Application | Applicant (The user who applied for the job) |
-| Owner Job Application Notification | Listing Owner |
-
-You can add custom recipients to the email using CC and BCC options. CC and BCC serve different purposes. CC is best for providing transparency about who is being informed. BCC is best for keeping addresses private on mail lists. while a CC recipient can see a list of the recipients who have received this email, the BCC recipient does not.
-
+    Each hook has an “Original Recipient”. This recipient varies according to the Hook selected. For example, the Original Recipient of the “Contact Owner” Hook is the owner of the listing. You can disable this option and add some arbitrary email addresses.
+    
+    | Hook | Original Recipient |
+    | --- | --- |
+    | Contact Owner | Listing Owner |
+    | New Listing | Site Admin(s) |
+    | Listing Status Changed | Listing Owner |
+    | Abuse Report | Site Admin(s) |
+    | New Offer | Offer Submitter |
+    | Owner Offer Notification | Listing Owner |
+    | Offer Accepted | Offer Submitter |
+    | Offer Unaccepted | Offer Submitter |
+    | New Booking | Booker (the user who created the booking) |
+    | Owner Booking Notification | Listing Owner |
+    | Booking Approved | Booker (the user who created the booking) |
+    | Booking Rejected | Booker (the user who created the booking) |
+    | Booking Canceled | Booker (the user who created the booking) |
+    | New Claim | Site Admin(s) |
+    | Claim Approved | Claim Owner |
+    | Claim Rejected | Claim Owner |
+    | Claim Waiting Payment | Claim Owner |
+    | Claim Paid | Claim Owner |
+    | New Job Application | Applicant (The user who applied for the job) |
+    | Owner Job Application Notification | Listing Owner |
+    
+    You can add custom recipients to the email using CC and BCC options. CC and BCC serve different purposes. CC is best for providing transparency about who is being informed. BCC is best for keeping addresses private on mail lists. while a CC recipient can see a list of the recipients who have received this email, the BCC recipient does not.
 5. **SMS**  
-By enabling the SMS status, an SMS with the desired content will be sent anytime the event occurs. HTML codes and shortcodes are not allowed in the SMS content but you can use the placeholders.
-
-To learn more about the SMS settings, read the Listdom SMS Add-on documentation.
-
-<Aside type="note">
-The SMS notifications are available in the Listdom SMS Add-on.
-</Aside>
-
+    By enabling the SMS status, an SMS with the desired content will be sent anytime the event occurs. HTML codes and shortcodes are not allowed in the SMS content but you can use the placeholders.
+    
+    To learn more about the SMS settings, read the Listdom SMS Add-on documentation.
+    
+    <Aside type="note">
+    The SMS notifications are available in the Listdom SMS Add-on.
+    </Aside>
 6. **Publish**  
-It’s the final option you must get to. After finishing all of the configurations of the notification, click on the publish button to be able to use the shortcode. Other options in this section are:
-
-- **Save draft:** Before publishing the notification, you can save it as a draft and get back to it later.
-- **Status:** choose the status of the shortcode to be Published (available after the shortcode is published.), Draft, and Pending Review. If you want to disable a notification, you can change its status.
-- **Visibility:** Select the visibility condition. Available options are:
-  - **Public:** The default, viewable to all.
-  - **Password protected:** Clicking this radio button followed by “OK” causes a further text box to appear, into which you can enter a password.
-  - **Private:** This option hides the content from the public completely.
-- **Published on / Published immediately:** Select the publish date and time.
+    It’s the final option you must get to. After finishing all of the configurations of the notification, click on the publish button to be able to use the shortcode. Other options in this section are:
+    
+    - **Save draft:** Before publishing the notification, you can save it as a draft and get back to it later.
+    - **Status:** choose the status of the shortcode to be Published (available after the shortcode is published.), Draft, and Pending Review. If you want to disable a notification, you can change its status.
+    - **Visibility:** Select the visibility condition. Available options are:
+      - **Public:** The default, viewable to all.
+      - **Password protected:** Clicking this radio button followed by “OK” causes a further text box to appear, into which you can enter a password.
+      - **Private:** This option hides the content from the public completely.
+    - **Published on / Published immediately:** Select the publish date and time.
 </Steps>
 
 ## How To Disable a Notification
