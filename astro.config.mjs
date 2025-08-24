@@ -53,6 +53,7 @@ export default defineConfig({
               collapsed: true
             }, 
             { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
+            { label: 'Skin Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
             {
               label: 'Settings',
               items: [
