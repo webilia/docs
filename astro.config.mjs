@@ -73,9 +73,9 @@ export default defineConfig({
             { label: 'Shortcodes', autogenerate: { directory: 'listdom/shortcodes' }, collapsed: true },
             { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },
             { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
-            { label: 'Frontend Dashboard', link: '/listdom/frontend-dashboard/how-to-create-the-listdom-frontend-dashboard/' },
-            { label: 'Notifications', link: '/listdom/notifications/listdom-notifications/' },
-            { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },         
+            { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },
+            { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
+            { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },
             {
               label: 'Listdomer Theme',
               items: [
