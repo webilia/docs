@@ -1,0 +1,96 @@
+---
+title: Single Map View shortcode
+description: Configure the Single Map skin to display listings as map markers with clustering, search, and advanced map features.
+order: 3
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Listdom Single Map view lets you show the listings based on their location on the map. Each listing appears as a marker on the map. The map styles, functionalities, and settings are mostly common in the skins that support maps e.g. Grid view, List view, Half Map view, etc.
+
+## Configuration Guide
+
+First, let’s create the shortcode to show the listings in the Singla Map view. In your WordPress admin panel navigate to **Listdom → Shortcodes**. Press the Add Shortcode button.
+
+Now on the “Add New Shortcode” page, we can build our needed shortcode. Let’s start:
+
+Let’s review the options:
+
+<Steps>
+<ol>
+  <li>
+    <p><strong>Skin:</strong> Select the skin type. Here we choose Single Map.</p>
+  </li>
+  <li>
+    <p><strong>Map Provider:</strong> Select the map provider you want to use. Available options are Google Maps and Leaflet (OpenStreetMap).</p>
+    <Aside type="note">The Leaflet is only available on Listdom Pro Addon.</Aside>
+    <p>If the Leaflet is selected, then the Map Style, Bubbles, and Map Search options are disabled.</p>
+  </li>
+  <li>
+    <p><strong>Map Style:</strong> You can change the default style of the Google Maps.</p>
+    <p>Default Style<br/>
+    Apple Maps Esque<br/>
+    Blue Essence<br/>
+    Blue Water<br/>
+    CDO<br/>
+    Facebook<br/>
+    Intown Map<br/>
+    Light Dream<br/>
+    Midnight<br/>
+    Pale Down<br/>
+    Shades of Grey<br/>
+    Subtle Grayscale<br/>
+    Ultra Light</p>
+    <Aside type="note">Custom Styles can be added with the Listdom Advanced Map Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Clustering:</strong> This feature, when enabled, groups markers on the map into clusters when viewed from a zoomed-out perspective. Each cluster displays a number, indicating the count of markers it contains. As you zoom in on a cluster, the count decreases and individual markers begin to emerge. Zooming out regroups the markers back into clusters.</p>
+  </li>
+  <li>
+    <p><strong>Bubbles:</strong> changes the style of the cluster bubbles. It has three classic, modern, and clean styles.</p>
+    <Aside type="note">The Clean style is available in the Listdom Advanced Map Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Marker/Shape On Click:</strong> This setting configures the response when a user clicks on the listing icons on the map.</p>
+    <p>Open Info Window: Displays a summary of the listing item in a map popup.<br/>
+    Redirect to Single Listing: Navigates to the detailed page of the listing.<br/>
+    Open Listing Details in Lightbox: Presents the full details of the listing in a lightbox (without page reload).<br/>
+    None: No action is taken.</p>
+  </li>
+  <li>
+    <p><strong>Map Search:</strong> Provide the ability to filter listings based on the current map position. The user can determine the desired location on the map and the listings around that place will be filtered in the other column automatically.</p>
+  </li>
+  <li>
+    <p><strong>Connected Shortcodes:</strong> You can connect multiple shortcodes to a single map. This allows the listings associated with those shortcodes to be filtered based on the map’s position. By dragging or changing the map’s viewport, the available listings in that area will be filtered and displayed across all connected shortcodes. You can select up to three searchable skin shortcodes, such as List, Grid, Masonry, List+Grid, Half Map, Side By Side, and others.</p>
+    <Aside type="note">The Map Search and Connected Shortcodes features are only available on Listdom Pro Addon.</Aside>
+  </li>
+  <li>
+    <p><strong>Advanced Map add-on features:</strong> The following 5 features are added by the Listdom Advanced Map Add-on.</p>
+    <ul>
+      <li>Marker Type</li>
+      <li>Infowindow Style</li>
+      <li>External Direction Link</li>
+      <li>Global Restrict Bounds</li>
+      <li>Auto GPS</li>
+    </ul>
+    <Aside type="note">Install and activate the Listdom Advanced Map Add-on to use these features.</Aside>
+  </li>
+  <li>
+    <p><strong>KML Layers:</strong> Select the KML layers added to the site. Learn more.</p>
+    <Aside type="note">The KML Layers are available in the Listdom KML Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Limit:</strong> Determine the number of the listing items shown on the map. If you increase the limit to more than 300, then the page may load pretty slowly. We suggest you use filter options to filter only the listings that you want to show.</p>
+  </li>
+</ol>
+</Steps>
+
+The other options on the page are common between different types of skins shortcodes. You can read about [Skins Shortcodes Common Settings](./skins-shortcodes-common-settings.mdx).
+
+Finally, press the Publish button.
+
+To use this shortcode and show the listings in Single Map View, you can put the shortcode anywhere on your site.
+
