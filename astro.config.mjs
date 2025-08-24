@@ -42,7 +42,54 @@ export default defineConfig({
           label: 'Listdom',
           items: [
             { label: 'Overview', link: '/listdom/' },
-            { label: 'Getting Started', autogenerate: { directory: 'listdom/getting-started' } },
+            { label: 'Installation & Activation', autogenerate: { directory: 'listdom/installation-and-activation' }, collapsed: true },
+            {
+              label: 'Managing Listings',
+              items: [
+                { label: 'All Listings Menu', link: '/listdom/managing-listings/all-listings-menu/' },
+                { label: 'Add/Edit Listing', link: '/listdom/managing-listings/add-edit-listing/' },
+                { label: 'Taxonomies', autogenerate: { directory: 'listdom/managing-listings/taxonomies' }, collapsed: true },
+                { label: 'Custom Fields', autogenerate: { directory: 'listdom/managing-listings/custom-fields' }, collapsed: true },
+              ],
+              collapsed: true
+            }, 
+            { label: 'Skins Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
+            { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
+            {
+              label: 'Settings',
+              items: [
+                { label: 'General', link: '/listdom/settings/general/' },
+                { label: 'Customizer', link: '/listdom/settings/customizer/' },
+                { label: 'Frontend Dashboard', link: '/listdom/settings/frontend-dashboard/' },
+                { label: 'Users', link: '/listdom/settings/users/' },
+                { label: 'Single Listing', link: '/listdom/settings/single-listing/' },
+                { label: 'Advanced', link: '/listdom/settings/advanced/' },
+                { label: 'AI', link: '/listdom/settings/ai/' },
+                { label: 'API', link: '/listdom/settings/api/' },
+              ],
+              collapsed: true
+            }, 
+            { label: 'Map Setup', autogenerate: { directory: 'listdom/map-setup' }, collapsed: true },
+            { label: 'Shortcodes', autogenerate: { directory: 'listdom/shortcodes' }, collapsed: true },
+            { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },
+            { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
+            { label: 'Frontend Dashboard', link: '/listdom/frontend-dashboard/' },
+            { label: 'Notifications', link: '/listdom/notifications/' },
+            { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },         
+            {
+              label: 'Listdomer Theme',
+              items: [
+                { label: 'Installation Setup', link: '/listdom/listdomer-theme/installation-setup/' },
+                { label: 'Demo Import', link: '/listdom/listdomer-theme/demo-import/' },
+                { label: 'Settings', link: '/listdom/listdomer-theme/settings/' },
+                { label: 'Widgets', link: '/listdom/listdomer-theme/widgets/' },
+                { label: 'Page Templates', link: '/listdom/listdomer-theme/page-templates/' },
+                { label: 'Troubleshooting', link: '/listdom/listdomer-theme/troubleshooting/' },
+              ],
+              collapsed: true
+            }, 
+            { label: 'How tos', autogenerate: { directory: 'listdom/how-tos' }, collapsed: true },
+            { label: 'Troubleshooting', autogenerate: { directory: 'listdom/troubleshooting' }, collapsed: true },
           ],
         },
         {

@@ -1,0 +1,39 @@
+---
+title: "reCAPTCHA codes are not working"
+description: Fix the issue where reCAPTCHA keys return 'Invalid Key type' in Listdom.
+sidebar:
+  order: 2
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Problem
+
+**Why the Recaptcha site and security keys are not working?**  
+I got a message like: **ERROR for site owner: Invalid Key type.**
+
+## Answer
+
+If you encounter an error while using the reCAPTCHA, it’s most likely because you’re using the wrong version. **Listdom uses reCAPTCHA version 2**, and if you have the keys for version 3, you’ll get an error. To resolve this, ensure you’re using the correct reCAPTCHA key type for your website.
+
+## How to Fix
+
+<Steps>
+1. **Check Your Keys**  
+   Ensure that you have correctly used both the site and security keys on your website. The keys must be entered in the **Listdom → Settings** section.  
+
+2. **Add the Correct Domain**  
+   - Go to the reCAPTCHA management page and log in with your Google account.  
+   - Select the correct site key from the dropdown list.  
+   - Under **Domains**, add the correct domain associated with your website.  
+
+3. **Verify Key Type**  
+   Make sure you are using the appropriate reCAPTCHA key type (version 2) for your website.  
+</Steps>
+
+---
+
+By following these steps, your issue should be resolved. If you continue to experience problems, please provide more detailed error information; we’ll be happy to assist further!

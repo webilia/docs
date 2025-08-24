@@ -1,0 +1,49 @@
+---
+title: "Elementor Template Not Showing in Listdom’s Details Page Settings"
+description: Fix the issue where Elementor templates do not appear in Listdom’s Details Page settings.
+sidebar:
+  order: 7
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## Problem
+
+**I created an Elementor template for listings, but it’s not appearing in the Details Page settings of Listdom. What’s going wrong?**
+
+## Answer
+
+To ensure your Elementor template shows up in Listdom’s Details Page settings, the templates should be created within **Listdom → Elementor Styles**.  
+If you’ve built the template using Elementor’s default theme builder, it won’t be recognized or available in the Listdom settings.
+
+<Aside type="note">
+Listdom’s custom integration with Elementor is required. Templates created in Elementor’s default Theme Builder are not linked to Listdom and will not appear in Listdom settings.
+</Aside>
+
+## How to Fix It
+
+<Steps>
+1. **Create Templates in Listdom → Elementor Styles**  
+   - Go to your WordPress dashboard.  
+   - Navigate to **Listdom → Elementor Styles**.  
+   - Create your template here.  
+   - Once saved, these templates become selectable in the **Details Page settings** of Listdom.  
+
+   **Why it Matters:** Templates made in Elementor’s default Theme Builder aren’t linked to Listdom’s functionality, which is why you won’t see them in Listdom settings. By using Listdom’s Elementor integration, the templates will be available for listings, subscriptions, and more.  
+
+2. **Assign Templates to Different Levels**  
+   - **Details Page Setting:** Go to **Listdom → Settings → Single Listing**, and assign a default template for all listings.  
+   - **Category Level:** Head to the category settings and assign a specific Elementor style to listings within that category. Useful if you have a paid subscription category with a different design.  
+   - **Individual Listings:** When adding or editing a listing, you can choose a unique Elementor style for that listing only. This allows complete flexibility for special cases.  
+</Steps>
+
+## Best Practices for Managing Elementor Templates in Listdom
+
+- **Template Organization:** Keep your templates organized by naming them based on their purpose (e.g., *Paid Subscription Template*, *Free Subscription Template*).  
+- **Testing Templates:** Before applying templates to live listings, test them on a staging site to ensure they display correctly across categories and listing types.  
+- **Design Flexibility:** Use Elementor’s advanced features like dynamic content, custom CSS, and responsive options to fine-tune your templates.  
+
+For more details, see the [Listdom Elementor Add-on Documentation](/listdom/addons/elementor/).

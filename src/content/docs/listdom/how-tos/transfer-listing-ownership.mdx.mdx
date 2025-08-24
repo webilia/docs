@@ -1,0 +1,69 @@
+---
+title: How to Transfer Listing Ownership and Sync with Membership Packages?
+description: Learn how to transfer ownership of listings in Listdom and sync them with membership packages for a seamless transition.
+sidebar:
+  order: 40
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+If you're looking to transfer ownership of listings to new authors in Listdom, here's a step-by-step guide to help you through the process. This guide will also cover how to sync these listings with your existing membership packages to ensure a seamless transition for your users.
+
+## Step 1: Transferring Ownership of Listings
+
+To make a user the author of a specific listing, you have two primary methods:
+
+### 1. Import Users and Assign Listings (For Limited Usages)
+
+**Import Users:** First, you need to import the old site’s users into your new WordPress site. Ensure all user information, including email addresses, is accurately imported.  
+
+**Assign Authors:** After importing the users, go to each listing in Listdom and manually select the new author from the list of imported users.
+
+### 2. Use a CSV or Excel File (For Bulk Usages)
+
+**Prepare Your Data:** Create a CSV or Excel file containing your listings with a column dedicated to the email addresses of the new owners. You can create this file by exporting the listings from the old site or your current Listdom-based site and add the emails column.  
+
+**Import with Listdom Add-ons:** Utilize the Listdom CSV Add-on or Listdom Excel Add-on to import this data. During the import process, map the email addresses to the **listing owner** field to automatically assign ownership.  
+
+<Aside type="note">
+The CSV and Excel import options are available through the Listdom Add-ons.
+</Aside>
+
+## Step 2: Enabling Users to Manage Their Listings
+
+Once the ownership has been transferred, the new authors will need the ability to manage their listings:
+
+**User Dashboard Access:** Ensure that the users can log in to their dashboard. From there, they should be able to view and edit their listings seamlessly.  
+
+**Assign Roles Appropriately:** Ensure that the users have the appropriate “Listdom Author” or “Listdom Publisher” role to manage their listings. To assign roles, navigate to **User → All Users** and select the users you want. Then find the **Change Role to** field above the users table and select **Listdom Author** or **Listdom Publisher**. Hit the change button to apply the new role to the selected users.
+
+### What Is the Difference Between Listdom Author and Listdom Publisher Roles?
+
+**Listdom Publisher:** Listings of users with this role will be published automatically.  
+
+**Listdom Author:** Listings of users with this role will remain in pending status unless the site admin publishes them.
+
+## Step 3: Syncing Listings with Membership Packages
+
+If your site utilizes membership packages to manage listings, here’s how to sync the transferred listings with their respective packages:
+
+**Create Packages in Listdom:** Set up the necessary packages in Listdom, ensuring they match the ones available on your previous website. To do that you need to install the Listdom Subscription addon.  
+
+<Aside type="note">
+Membership packages and subscription syncing are available via the Listdom Subscription Add-on.
+</Aside>
+
+**Assign Subscriptions Manually:** For each user, manually create a subscription in Listdom and link it to the corresponding package. This will generate a related WooCommerce order, ensuring the package is correctly assigned. If your previous site had recurring payments, you can install a WooCommerce subscription plugin to handle ongoing billing cycles, adjusting them as needed to reflect the original settings.  
+
+## Additional Tips
+
+**Contact WooCommerce Support:** Since a significant portion of this process involves WooCommerce for managing payments, consider reaching out to their support team and documentation for guidance on importing payment history and managing billing cycles. This ensures all financial data is transferred accurately and continues to function as expected.  
+
+**Automation:** Consider using automation tools or plugins if you have a large volume of listings to transfer, which can streamline the process and reduce manual effort.  
+
+---
+
+By following these steps, you can efficiently transfer ownership of listings in Listdom while ensuring that your membership packages remain in sync. This process will not only make it easier for your users to manage their listings but also ensure a smooth transition from your old site to your new setup.

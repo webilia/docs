@@ -1,0 +1,76 @@
+---
+title: How to Configure Schema Types and Properties in Listdom?
+description: Learn how to configure schema types and properties in Listdom to improve SEO and provide detailed information for your listings.
+sidebar:
+  order: 30
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The Schema Type feature in Listdom allows you to define the "Schema Item Type" for your listings according to the standards set by Schema.org. This helps search engines better understand and present your listings, improving SEO and user experience. Additionally, with Listdom Pro, you can define specific Schema Properties for features, attributes, and categories, enhancing the detail and accuracy of your listings.
+
+## What Are Schema Types and Properties?
+
+**Schema Types**  
+Schema Types define the overall category or type of your listing. For instance, Restaurant, Event, or JobPosting. It provides a broad classification that helps search engines understand the kind of content on your site.
+
+**Schema Properties**  
+Schema Properties are specific attributes related to the schema type. For example, for the Event schema type, properties might include startDate, location, and organizer. These properties offer detailed information about the listing.
+
+## Step-by-Step Guide to Configuring Schema Types
+
+### Step 1: Accessing Schema Types
+<Steps>
+1. Visit Schema.org: Navigate to Schema.org.  
+2. Explore the Types: Browse the list of schema types to find one that matches your listings.  
+3. Read the Documentation: Click on the schema type to understand its properties and usage.  
+</Steps>
+
+### Step 2: Selecting the Appropriate Schema Type
+<Steps>
+1. Identify Your Listing Category: Determine the main category or industry your listings belong to.  
+2. Search for the Schema Type: Use the search bar on Schema.org to find relevant schema types.  
+3. Choose the Best Fit: Select a schema type that closely matches your listings.  
+</Steps>
+
+## Configuring Schema Types and Properties in Listdom
+
+### Prerequisites
+<Aside type="note">
+The Schema feature in Listdom is available in the Listdom Pro Add-on.
+</Aside>
+
+### Step 1: Navigating to the Schema Settings
+<Steps>
+1. Log into WordPress Admin: Access your WordPress dashboard.  
+2. Go to Listings: Navigate to **Listings →** <a href="/listdom/managing-listings/taxonomies/categories/">Categories</a>, <a href="/listdom/managing-listings/taxonomies/features/">Features</a>, or <a href="/listdom/managing-listings/custom-fields/">Custom Fields</a>.  
+</Steps>
+
+### Step 2: Defining Schema Types and Properties
+<Steps>
+1. Create or Edit an Item: Select a category, feature, or attribute to create or edit.  
+2. Insert Schema Type for Categories: In the category settings, find the field to enter the “Schema Item Type”. Input the chosen schema type URL from Schema.org, e.g. `https://schema.org/LocalBusiness`.  
+3. Insert Schema Properties for Features and Attributes: In the feature or attribute settings, find the field to define “Schema Properties”. Input the relevant property values based on the schema type, e.g. `brand`.  
+</Steps>
+
+## Example
+
+**Example of a Real Estate Directory:**  
+- Schema Type: RealEstateAgent  
+- Properties: Department, founder, telephone, openingHours  
+
+**How to Implement:**  
+<Steps>
+1. Log into WordPress Admin: Access the WordPress dashboard.  
+2. Go to Listings: Navigate to **Listings →** <a href="/listdom/managing-listings/taxonomies/categories/">Categories</a>.  
+3. Select Real Estate Category: In the categories section, choose Real Estate.  
+4. Enter Schema Type: Input `https://schema.org/RealEstateAgent` as the schema type.  
+5. Define Properties: Assign relevant schema properties like `department`, `founder`, etc., to the features and attributes.  
+</Steps>
+
+## Conclusion
+
+By properly configuring both schema types and properties, you can significantly enhance the SEO and user experience of your directory site, ensuring that search engines and users alike can easily understand and navigate your listings. With Listdom Pro, you have the tools to make your listings detailed, accurate, and more appealing to search engines, ultimately driving more traffic and engagement to your site.

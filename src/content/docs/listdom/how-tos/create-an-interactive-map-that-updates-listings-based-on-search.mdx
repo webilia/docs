@@ -1,0 +1,42 @@
+---
+title: How to Create an Interactive Map That Updates Listings Based on Search Criteria in Listdom?
+description: Learn how to create an interactive map in Listdom that dynamically updates listings based on search filters using the APS Add-on.
+sidebar:
+  order: 50
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Creating an interactive map that dynamically updates based on search criteria can greatly enhance user experience on your classified or directory website. Here’s a step-by-step guide on how to set this up using Listdom:
+
+## Step 1: Create a Single Map Shortcode
+
+Start by creating a Single Map shortcode in Listdom. This shortcode will display a map on your website that can be customized to show different listings based on user interactions.
+
+**How to Create a Map Shortcode?**  
+Follow the instructions on creating a [Single Map Shortcode](/listdom/skins-shortcodes/single-map-view-shortcode/). This step involves setting up the map’s appearance, the default location, and the type of listings that will be displayed.
+
+## Step 2: Associate a Search Form with the Map
+
+Next, you need to associate a search form with the map. This allows users to filter listings based on their search criteria, which will then be dynamically updated on the map.
+
+**Setting Up a Search Form**  
+Create a search form that users can interact with. Instructions on how to create a search form are available in the [Search and Filter Builder guide](/listdom/search-filtering/). Customize the form fields according to the criteria that are relevant to your listings, such as location, category, price range, etc.
+
+## Step 3: Implement AJAX or On-the-Fly Search with Listdom APS Add-on
+
+To make the map interactive and responsive, you’ll need to implement AJAX or on-the-fly search functionality using the Listdom APS (Advanced Product Search) Add-on. This feature ensures that listings on the map update automatically as users refine their search criteria.
+
+**Using Listdom APS Add-on**  
+Install and configure the Listdom APS Add-on, which adds the capability for real-time search updates without requiring a page reload. This is crucial for providing a seamless user experience, as the map will refresh listings based on the search parameters entered by the user.
+
+<Aside type="note">
+The AJAX-based interactive search is available via the Listdom APS (Advanced Portal Search) Add-on.
+</Aside>
+
+---
+
+By following these steps, you can create a dynamic and interactive map on your Listdom-powered website that enhances usability and helps users find the listings they’re looking for more efficiently.
