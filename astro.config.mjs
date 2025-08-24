@@ -74,7 +74,7 @@ export default defineConfig({
             { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },
             { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
             { label: 'Frontend Dashboard', link: '/listdom/frontend-dashboard/' },
-            { label: 'Notifications', link: '/listdom/notifications/' },
+            { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
             { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },         
             {
               label: 'Listdomer Theme',
