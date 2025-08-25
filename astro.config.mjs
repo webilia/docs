@@ -48,13 +48,12 @@ export default defineConfig({
               items: [
                 { label: 'All Listings Menu', link: '/listdom/managing-listings/all-listings-menu/' },
                 { label: 'Add/Edit Listing', link: '/listdom/managing-listings/add-edit-listing/' },
-                { label: 'Taxonomies', autogenerate: { directory: 'listdom/managing-listings/taxonomies' }, collapsed: true },
-                { label: 'Custom Fields', autogenerate: { directory: 'listdom/managing-listings/custom-fields' }, collapsed: true },
+                { label: 'Custom Fields', link: '/listdom/managing-listings/custom-fields/' },
               ],
               collapsed: true
             }, 
-            { label: 'Skins Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
             { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
+            { label: 'Skin Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
             {
               label: 'Settings',
               items: [
@@ -69,13 +68,10 @@ export default defineConfig({
               ],
               collapsed: true
             }, 
-            { label: 'Map Setup', autogenerate: { directory: 'listdom/map-setup' }, collapsed: true },
-            { label: 'Shortcodes', autogenerate: { directory: 'listdom/shortcodes' }, collapsed: true },
-            { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },
             { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
-            { label: 'Frontend Dashboard', link: '/listdom/frontend-dashboard/' },
-            { label: 'Notifications', link: '/listdom/notifications/' },
-            { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },         
+            { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },
+            { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
+            { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },
             {
               label: 'Listdomer Theme',
               items: [
@@ -104,7 +100,6 @@ export default defineConfig({
                 { label: 'Site & Navigation', autogenerate: { directory: 'vertex/widgets/site-navigation' }, collapsed: true },
                 { label: 'Content & Layout', autogenerate: { directory: 'vertex/widgets/content-layout' }, collapsed: true },
                 { label: 'Media & Interactivity', autogenerate: { directory: 'vertex/widgets/media-interactivity' }, collapsed: true },
-                { label: 'Dynamic Posts & Templates', autogenerate: { directory: 'vertex/widgets/dynamic-posts-templates' }, collapsed: true },
                 { label: 'Data & Maps', autogenerate: { directory: 'vertex/widgets/data-maps' }, collapsed: true },
                 { label: 'Forms & Accounts', autogenerate: { directory: 'vertex/widgets/forms-accounts' }, collapsed: true },
                 { label: 'Carousels & Timelines', autogenerate: { directory: 'vertex/widgets/carousels-timelines' }, collapsed: true },

@@ -1,0 +1,102 @@
+---
+title: Create a Search and Filter Form
+description: Build and customize search and filter forms to help users find listings.
+order: 1
+header_button:
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
+---
+
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+Advance search on your listings. The Listdom listing plugin has a powerful search builder. You can use it to apply different settings for better usage and better compatibility with the Custom Fields of your listings.
+
+Create search and filter forms to use with the listings. Listdom provides a powerful search and filter builder that allows you to create forms as your business needs.
+
+## Where To Start
+
+To create your first form, go to Listdom → Search and filter builder. If it’s the first time you open it, then you should press the Create your first search and filter form.
+
+Or if you want to add a new form or edit the already created forms, again head over to Listdom → Search and filter builder. In this article, we will overview the available options and explain each one in detail.
+
+1. **Add a new form:** To make a new search and filter form click this button.
+2. **Search:** Search the created forms.
+3. **Forms status:** It shows the count of published, trashed, etc. forms.
+4. **Bulk actions:** Select the forms from the table below and apply an action on all of them at once. You can edit the forms or move them to the trash.
+5. **Filter:** Filter the forms by date created.
+6. **Forms table:** Each form you create is added to this table. There is a shortcode column in the table that you can use to display the form on any page. If you don’t see some of the columns, click on the “Screen Options” on the top right of the screen and mark the needed column names to display them. To edit a form, click on its title. Also, you can use the options under the title to Edit, Quick Edit, Trash, or Duplicate the form.
+
+## Add a New Search and Filter Form
+
+To create or edit a form just hit the buttons discussed above. There are several available options on this page. Here we have a quick review of them and then explain them completely.
+
+<Steps>
+1. **Add Title**  
+   Enter a name for this form.
+2. **Fields**  
+   Create the form fields and sections with drag and drop here.
+3. **Form**  
+   In this section, you can define the style of the search form. Also here are some options to connect the form to a set of listings called a skin shortcode.
+4. **Shortcode**  
+   The final shortcode of the form that you can use anywhere that you want.
+5. **Publish**  
+   It contains several options to publish or update the form.
+</Steps>
+
+Let’s review the sections in detail:
+
+### Fields
+
+1. **Rows:** To create the form first you need to make a row. A row will include the available fields. By default, one row is made and you can put the fields in that. You can create as many rows as you like and put any number of the fields in each row.
+2. **Add Row:** You can hit this button to add more rows to the form.
+3. **Move and Delete:** With these options, you can move the rows or delete them completely. To delete a row, hit the trash can icon twice.
+4. **Available Fields:** You can drag and drop fields into rows to create the form. When you add a field to a search form, you can choose how it will be displayed. For example, you can select that categories should be shown as a drop-down list or as a checkbox. Read more about the [Search and Filter Form Available Fields](./search-and-filter-form-available-fields.mdx).
+5. **Search Button:** The search button of the form can be placed in each row. To enable that, just turn on this option in the desired row.
+A form with two rows and the search button on the second row.
+6. **More Options:** When you click this button, a new section will be added between the rows. Any row that is placed after this new row will be shown as “More Options” in the frontend. This means that the user must click on the “More Options” button to see the rows that are placed under this row.
+A form with a “More Options” section.
+
+### Forms
+
+Form Options allow you to define the style of the search form in the frontend. Also, you can define which page and which shortcode should show the result.
+
+**Style:** There are two styles that you can use for your search form.
+
+- The Default style shows the form in a multi-column base for each row. It means that several fields can be next to each other.
+- The Sidebar style shows each field on a single row. This structure will reduce the form width and make it appropriate to be on a sidebar.
+
+**Result Page:** By default, the results are displayed on the same page where the form shortcode is inserted. If you want to see the results on any other page, select the page in this field. The page should include a Listdom skin shortcode.
+
+**Target Shortcode:** If there are multiple shortcodes/widgets on the result page, then you should specify the Target Shortcode too. Otherwise, all of the shortcodes/widgets will be filtered.
+
+<Aside type="note">
+**Note:** Another way to connect this form to a skin shortcode is to choose this form on the desired shortcode search setting.
+</Aside>
+
+**Display Criteria:** Enabling this option displays the selected filters as text under the form. This is especially useful for providing visual confirmation that the desired filters have been applied to the search results.
+
+<Aside type="note">
+**Note:** The Display Criteria works only for the category, location, and label fields.
+</Aside>
+
+### Shortcode
+
+There are three ways to show the created search and filter form on the website pages.
+
+- The first way is to select the form in the skin shortcodes search setting.
+- The second way is to use the search widget to show the search form.
+- Finally, the third way is to use the form shortcode. After creating the search and filter form, you can see the Shortcode box.
+
+You can copy the shortcode and paste it anywhere on the website pages to show the form. For example on the homepage hero section, archive sidebar, etc.
+
+### Publish
+
+It’s the final option that you need to get to. After finishing all of the configurations of the shortcode, click on the publish button to be able to use the shortcode. Other options in this section are:
+
+- **Save draft:** Before publishing the shortcode, you can save it as a draft and get back to it later.
+- **Status:** choose the status of the shortcode to be Published (available after the shortcode is published.), Draft, and Pending Review.
+- **Visibility:** Select the visibility condition. Available options are:
+  - **Public:** The default, viewable to all.
+  - **Password protected:** Clicking this radio button followed by “OK” causes a further text box to appear, into which you can enter a password.
+  - **Private:** This option hides the content from the public completely.
+- **Published on / Published immediately:** Select the publish date and time.

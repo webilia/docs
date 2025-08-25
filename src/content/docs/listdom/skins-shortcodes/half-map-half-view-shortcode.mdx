@@ -1,41 +1,155 @@
 ---
-title: Page Title
-description: Short description of this page.
-sidebar:
-  order: 1
+title: Half Map / Half View Shortcode
+description: Configure the Half Map skin to display listings alongside a map with customizable layout and map options.
+order: 2
 header_button:
-  label: View Demo
-  url: https://demo.webilia.com/page/
+  label: View Listdom Demo
+  url: https://demo.webilia.com/
 ---
 
 import { Aside, Steps } from '@astrojs/starlight/components';
 
-# Page Title
+Half Map skin enables you to have the directories list on one column and the map on the other column. This view is suitable for those directories that are location-based. The listings can be in List View or in Grid View and the user can switch between them.
 
-Intro paragraph goes here. Briefly explain what this section covers.
+## Configuration Guide
 
-## How to Use
+Like any of the other Listdom skins, to use the Half Map / Half View skin on your site, first, you should make the appropriate shortcode and then you can put that shortcode anywhere on your site.
+
+In your WordPress admin panel navigate to **Listdom → Shortcodes**. Press the Add Shortcode button.
+
+Now on the “Add New Shortcode” page, we can make a shortcode to show the listings in half map view. Also, any of the other Listdom skins shortcodes can be generated here.
+
+Let’s review the options:
 
 <Steps>
-1. **Step One:** Explain the first step here.
-2. **Step Two:** Explain the second step here.
-3. **Step Three:** Explain the third step here.
+<ol>
+  <li>
+    <p><strong>Add Title:</strong> Type a name for this shortcode.</p>
+  </li>
+  <li>
+    <p><strong>Skin:</strong> Select the skin type. Here we choose Half Map / Split View.</p>
+  </li>
+  <li>
+    <p><strong>Style:</strong> Choose between 3 available styles for listing cards.</p>
+  </li>
+  <li>
+    <p><strong>Map Provider:</strong> Select the source of the skin map between Google Maps and Leaflet (OpenStreetMap).</p>
+    <Aside type="note">The Leaflet is only available in the Listdom Pro Add-on.</Aside>
+    <p>If the Leaflet is selected, the Map Style, Bubbles, and Map Search options are disabled.</p>
+  </li>
+  <li>
+    <p><strong>Map Style:</strong> You can change the default style of the Google Maps. Here you can choose one of these choices:</p>
+    <ul>
+      <li>Default Style</li>
+      <li>Apple Maps Esque</li>
+      <li>Blue Essence</li>
+      <li>Blue Water</li>
+      <li>CDO</li>
+      <li>Facebook</li>
+      <li>Intown Map</li>
+      <li>Light Dream</li>
+      <li>Midnight</li>
+      <li>Pale Down</li>
+      <li>Shades of Grey</li>
+      <li>Subtle Grayscale</li>
+      <li>Ultra Light</li>
+    </ul>
+    <p>You can see the different map styles on Listdom demo.</p>
+    <Aside type="note">Custom Styles can be added with the Listdom Advanced Map Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Clustering:</strong> When you activate this feature, as the map is in a zoomed-out view, the markers on the map are grouped and displayed as a cluster with a numerical value. This value signifies the number of markers within that cluster. Observe that when you zoom into any cluster locations, the numerical value on the cluster reduces, and the individual markers start to appear on the map. Zooming out of the map regroups the markers into clusters once more.</p>
+  </li>
+  <li>
+    <p><strong>Bubbles:</strong> changes the style of the cluster bubbles. It has three classic, modern, and clean styles.</p>
+    <Aside type="note">The Clean style is available in the Listdom Advanced Map Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Marker/Shape On Click:</strong> This option determines the action after clicking the listing icons on the map.</p>
+    <ul>
+      <li><strong>Open Info Window:</strong> Shows summarized info about the listing item in a popup on the map.</li>
+      <li><strong>Redirect to Single Listing:</strong> Redirect to the Single Listing.</li>
+      <li><strong>Open Single Listing in Lightbox:</strong> Shows the listing’s complete information in a lightbox (without reloading the page).</li>
+      <li><strong>None:</strong> Does nothing</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Map Search:</strong> The ability to filter listings based on the current map position. The user can determine the desired location on the map and the listings around that place will be filtered in the other column automatically.</p>
+    <Aside type="note">The Map Search feature is only available in the Listdom Pro Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Map Limit:</strong> It’s the number of the listing items on the map. If you increase it to more than 300, then the page may load pretty slowly. We suggest you use filter options to filter only the listings that you want to show.</p>
+  </li>
+  <li>
+    <p><strong>Map Position:</strong> Determines the map position to be on the right or left of the listings.</p>
+  </li>
+  <li>
+    <p><strong>Map Height:</strong> Maps height in pixels. Don’t insert any unit like px, etc.</p>
+  </li>
+  <li>
+    <p><strong>Advanced Map add-on features:</strong> The following 5 features are added by the Listdom Advanced Map add-on. Learn more about these features.</p>
+    <ul>
+      <li>Marker Type</li>
+      <li>Infowindow Style</li>
+      <li>External Direction Link</li>
+      <li>Global Restrict Bounds</li>
+      <li>Auto GPS</li>
+    </ul>
+    <Aside type="note">Install and activate the Listdom Advanced Map Add-on to use these features.</Aside>
+  </li>
+  <li>
+    <p><strong>KML Layers:</strong> Select the KML layers added to the site. Learn more.</p>
+    <Aside type="note">The KML Layers are available in the Listdom KML Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Default View:</strong> Select the default view of the listings. Here you can choose between the List view and the Grid view. The user can toggle the view in the front end.</p>
+  </li>
+  <li>
+    <p><strong>Listings Per Row:</strong> Select the number of listings per row for Grid view.</p>
+  </li>
+  <li>
+    <p><strong>Limit:</strong> Number of Listings before loading more. It should be a multiple of Listings Per Row option. For example, if Listings Per Row is set to 3, you should set the limit to 3, 6, 9, 12, 30, etc. It helps to have a better look after loading more listings.</p>
+  </li>
+  <li>
+    <p><strong>Pagination Method:</strong> By default, the listings count is limited to the amount you’ve set. Then you can select how you want to show more items.</p>
+    <ul>
+      <li><strong>Load More Button:</strong> Adds the Load More button at the end of the list of items</li>
+      <li><strong>Infinite Scroll:</strong> Loads more items by scrolling down.</li>
+      <li><strong>Disabled:</strong> Does not add any item to the directories list.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Listing Link:</strong> Select the destination of the listings links:</p>
+    <ul>
+      <li><strong>Same Window:</strong> Opens the Single Listing on the same browser window.</li>
+      <li><strong>New Window:</strong> Opens the Single Listing on a new window.</li>
+      <li><strong>Open in Lightbox:</strong> Shows the Single Listing in a lightbox.</li>
+      <li><strong>Disabled:</strong> Disables the link.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Display Image:</strong> Deactivate the listing image.</p>
+    <Aside type="note">The Listing Link and Display Image features are only available in the Listdom Pro Add-on.</Aside>
+  </li>
+  <li>
+    <p><strong>Image Method:</strong> If the listing has an image gallery, this option can show the gallery instead of the feature image. it shows a slider with navigation arrows on the card.</p>
+  </li>
+  <li>
+    <p><strong>Display Labels:</strong> Determine whether to display the listing labels on the image or not.</p>
+  </li>
+  <li>
+    <p><strong>Display Share Buttons:</strong> By activating this option a share icon will be displayed on each listing card. By hovering this icon the share buttons appear.</p>
+  </li>
+  <li>
+    <p><strong>Display Matched Bookables:</strong> This option shows the Matched Bookables. Learn more.</p>
+    <Aside type="note">The Display Matched Bookable Option is available in the Listdom Booking Add-on.</Aside>
+  </li>
+</ol>
 </Steps>
 
-## Notes
+The other options on the page are common between different types of skins shortcodes. You can read about [Skins Shortcodes Common Settings](./skins-shortcodes-common-settings.mdx).
 
-<Aside type="note">
-This is a note. Use it for helpful extra info.
-</Aside>
+Finally, press the Publish button.
 
-<Aside type="tip">
-This is a tip. Use it for best practices or recommendations.
-</Aside>
+To use this shortcode and show the listings in Half Map / Half View, you can put the shortcode anywhere on your site.
 
-<Aside type="caution">
-This is a caution. Use it for warnings about potential mistakes.
-</Aside>
-
-<Aside type="danger">
-This is a danger alert. Use it for critical issues.
-</Aside>
