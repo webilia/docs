@@ -1,8 +1,67 @@
 ---
 title: Post Terms
-description: TODO
+description: "The Post Terms widget dynamically lists the taxonomy terms (categories, tags, etc.) associated with the current post, with options for choosing the taxonomy, separator, and link styling."
 sidebar:
   order: 10
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Terms** widget allows you to display a list of taxonomy terms associated with the current post. Common use-cases are showing the **categories** or **tags** a post belongs to. Instead of manually adding categories in your template, this widget pulls them from the post's data and updates automatically. You can choose which taxonomy to show (e.g., if your post type has custom taxonomies), whether those terms should link to their archive pages, and how to separate multiple terms (commas, bullets, etc.).
+
+## Key Features
+
+- **Choose Taxonomy:** Select which taxonomy's terms to display. For blog posts, this is often **Categories** or **Tags**. If you have a custom post type with a custom taxonomy, those will appear as options too.
+- **Automatic Term Listing:** The widget will list all the terms (for the chosen taxonomy) that the current post has. For example, if a post has Category A and Category B, it will output both.
+- **Separator Control:** Define the character or text used to separate multiple terms. By default, a comma and space (", ") is common, but you can change it to a pipe (" | "), bullet (" • "), or even a phrase (like " and ").
+- **Link Terms:** Option to hyperlink each term to its respective archive (e.g., clicking a category term would go to that category's archive page). You can toggle linking on or off depending on if you want users to navigate via those terms.
+- **Prefix/Label:** Optionally add a label before the list, e.g., “Categories: ” or “Tags: ” to clarify what the list is.
+- **HTML Tags & Container:** Wrap the whole list in a span/div or even list (depending on how the widget is implemented, sometimes it might output them in an inline text, other times as list items).
+- **Styling:** Control the text style of the terms, and if linked, the hover styles. Also control spacing (especially margin after each term if needed).
+
+## How to Configure Post Terms Widget
+
+<Steps>
+1. **Place the Widget:** Drag **Post Terms** into your template, typically in a post meta section (for example, below the title or at the bottom of the post, depending on your design).
+2. **Content Options (Content Tab):**
+   - **Taxonomy:** Choose which taxonomy to display. For a standard blog post, you might select “Category” or “Tag”. The dropdown will list all registered taxonomies for posts (including any custom ones).
+   - **Separator:** Enter the symbol or text to separate terms. Default might be “, ” (comma and space). You can change to anything:
+     - For example, type “ | ” to get Category1 | Category2.
+     - Or enter a longer separator like " / " or even an HTML entity if needed. If you leave it empty or just space, terms will butt together (not recommended).
+   - **Link:** Toggle on if you want each term to be a clickable link to its archive. Usually, **yes** for categories/tags because it aids navigation - users can click a category to see similar posts.
+   - **Before:** Text to show before the list. Common usage:
+     - If showing categories: you might put “Categories: ” as a prefix.
+     - If showing tags: “Tags: ”.
+     - You could also use an icon by inserting an icon HTML or Unicode (if allowed) before, e.g., a tag symbol.
+   - **After:** Text to show immediately after the list. Not often needed, but you could do something like a period "." at the end if it's part of a sentence.
+   - **Fallback:** If no terms are found, optionally display some text. E.g., “Uncategorized” or “No tags”. If left blank, the area will just be empty (which might be fine).
+   - The widget will then output something like: *Categories: Term1, Term2, Term3* (each linking to their archives if link enabled).
+3. **Style Tab:**
+   - **Alignment:** If the terms are in their own block, you can align left/center/right. Usually left or inline with other meta.
+   - **Color & Typography:** Set the text color and font styling for the terms (and prefix text).
+     - You might want these to match other meta info (like date/time text style).
+     - If links are enabled, you'll have normal and hover states to style:
+       - *Normal:* term link color (maybe a standard link color or same as text).
+       - *Hover:* term link hover color (maybe slightly darker or an underline if desired).
+     - If you want an **icon** or something before each term (like a tag icon before tags), that's more complex - you'd usually include that in prefix or via custom CSS for list-style.
+   - **Spacing:** There might be control for spacing between terms beyond the separator (though typically the separator and any spaces handle that). If terms are wrapped in elements (like list items or spans), you could adjust margin between them.
+   - If the prefix (Before text) needs styling differently (e.g., bold “Categories:” label), you might need to use custom CSS or wrap it differently, as the widget likely styles all text uniformly. However, since it's part of the same text flow, it probably shares the style.
+   - **List Style:** In some implementations, terms could be output as a list. If so, you could have controls for removing list-style dots, etc., but likely Vertex outputs as a simple text string separated by your chosen separator.
+4. **Advanced Tab (if needed):**
+   - For instance, you might add a class if you want to specifically style the prefix differently: e.g., assign a class and then in your site CSS do `.yourClass:before { font-weight: bold; content:"Categories:" }` as an advanced method, but that's usually overkill.
+   - Adjust margins if you need to move the whole block a bit (e.g., a little space above or below the terms line).
+</Steps>
+
+<Aside type="tip">
+If you want to display multiple taxonomies (say, both Categories and Tags) in one line, you might need to add two Post Terms widgets (one for categories, one for tags) and style them with a separator in between. Alternatively, use a single widget twice with different labels, maybe separated by a divider. Plan the design so it doesn't get confusing for the reader.
+</Aside>
+
+## Example Scenarios
+
+- **Under Post Title Meta:** “Posted in **Travel, Photography** on March 5, 2025” - Here, "Travel, Photography" could be generated by Post Terms (Category) widget, with prefix "Posted in " and separator ", ". The date is separate. Terms linking enabled to let readers click those categories.
+- **Tagged List at Bottom:** At the bottom of a post, you might have “Tags: beach, summer, tips” via Post Terms (Tags) widget, with each tag linking to its tag archive page.
+- **Custom Taxonomy Example:** If you have a custom taxonomy like “Difficulty” for a recipe, you could use Post Terms to display something like “Difficulty: Easy” if each recipe is tagged with a difficulty level.
+
+## Conclusion
+
+The Post Terms widget is a convenient way to dynamically list categories, tags, or any taxonomy related to your post without manual input. This ensures your template stays up-to-date as you change the taxonomy terms on posts. By customizing the separator and style, you can integrate the term list smoothly into your post's meta information or content area. It encourages user engagement by providing quick navigation to related content (especially when links are enabled on terms). Be sure to use clear labeling (via prefix text) so users know what the list represents (categories, tags, etc.), and maintain a consistent style with your site's design.

@@ -1,8 +1,98 @@
 ---
 title: Post Comments
-description: TODO
+description: "Displays the number of comments on the current post, with customizable singular/plural text and an option to link to the comments section."
 sidebar:
   order: 17
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Post Comments** widget displays the comment count for the current post in a flexible text format. This widget is essentially a dynamic counter that shows how many comments a post has, and it can automatically adjust its wording for zero, one, or multiple comments. It's commonly used in post meta sections (e.g., alongside the post date and author) to give readers a quick indication of how much discussion a post has generated. By default, the text is also a link that anchors down to the comments section of the post for easy navigation.
+
+<Aside type="note">
+This widget only displays the number of comments; it does not show the comments themselves. To display the actual comments and a form, use the Comments Form. **Post Comments** is best used as a small badge or text in a post's metadata.
+</Aside>
+
+<LinkCard title="Comments Form Widget" href="../comments-form" />
+
+## Usage
+
+<Steps>
+1. Edit your **Single Post** template with Elementor (or a blog post page).
+2. In the widget panel, search for **Post Comments** (it might be listed under *Post* or *Theme* elements).
+3. Drag the **Post Comments** widget into the desired location. Often, this is placed near the top of the post, in a meta information line that might include author name, date, etc. For example, you might have a Text element like "By Jane Doe on January 1, 2025 -" and then place Post Comments widget after that to show "3 Comments".
+4. The widget will automatically display the current post's comment count on the frontend. In the editor, you'll see a placeholder text (like "No Comments" if using a sample post with no comments).
+5. (Optional) If you do not want the comment count to be clickable, you can turn off the link in the widget's settings (see below). By default, it's on, meaning the text will act as a link to the comments section.
+6. Style the comment count text to match your post meta style (font, color, etc.). It typically looks good as a small, slightly muted text next to the date/author info.
+</Steps>
+
+## Settings
+
+In the **Content** tab, the Post Comments widget offers a few fields to customize the text displayed for different comment counts:
+
+- **No Comments Format:** The text to display when there are zero comments. The default placeholder is "No Comments". You can change this to something like "0 Comments", "No comments yet", or even a call-to-action like "Be the first to comment" (though that might be longer text). This field accepts plain text; keep it concise.
+- **One Comment Format:** The text to display when there is exactly one comment on the post. Default is "Comment". This might display as just "Comment" (often you'd prepend a number, but since it's singular, you might prefer "1 Comment"). You can customize it if you want it to explicitly say "1 Comment" or maybe "One Comment".
+- **Many Comments Format:** The text for when there are multiple comments (2 or more). The default is "\{number\} Comments". The **\{number\}** token will be replaced by the actual number of comments. For example, if there are 5 comments, and this format is "\{number\} Comments", it will display "5 Comments". You can change this format string - for instance, some people might prefer "\{number\} Comments" vs "\{number\} comments" (capitalization), or maybe add text like "\{number\} Comments on this post".
+  
+  Make sure to include the **\{number\}** placeholder somewhere in this text, otherwise the number of comments won't show up.
+- **Link:** A Yes/No toggle (often shown as a switch or checkbox labeled "Link"). When enabled (the default "Yes"), the output text will be wrapped in a link pointing to the comments section of the post. This typically means it links to the same page URL with a `#comments` anchor (or wherever the comments form is). If you disable this, the comment count will be plain text, not clickable.
+  
+  Leaving it linked is useful for user experience: readers can click the comment count and jump straight down to read comments or leave one. If the design or context doesn't need it clickable (for instance, you're using it in a place where a link would be redundant), you can turn it off.
+
+<Aside type="tip">
+If you want the singular "Comment" to display with the number (like "1 Comment" instead of just "Comment"), simply edit the **One Comment Format** to include the number placeholder and text, e.g., "\{number\} Comment". The widget doesn't do this by default, possibly to avoid double "1 1 Comment" scenarios, but it's in your control.
+</Aside>
+
+## Dynamic Output
+
+This widget automatically updates the text based on the actual comment count:
+<CardGrid>
+  <Card title="0 Comments">
+    If a post has no comments, it will display the **No Comments Format** text. By default, that is **"No Comments"**.
+  </Card>
+  <Card title="1 Comment">
+    If there is exactly one comment, it will use the **One Comment Format**. By default: **"Comment"** (which would appear as just the word "Comment"). If you customized it to "\{number\} Comment", it would show **"1 Comment"**.
+  </Card>
+  <Card title="Multiple Comments">
+    If there are multiple comments (2, 5, 50, etc.), it uses **Many Comments Format**. For example, with 5 comments and the default format, it shows **"5 Comments"**.
+  </Card>
+</CardGrid>
+
+This logic ensures grammatically correct output without you needing to manually adjust anything when the comment count changes.
+
+Additionally, if the Link option is on, all these outputs will be inside an `<a>` tag linking to the comments section on the post. If off, they'll just be text (e.g., a `<span>`).
+
+## Styling
+
+Styling the Post Comments output is akin to styling a piece of text (like a label or part of post meta). You'll find styling options in the **Style** tab:
+- **Text Color:** Choose the color of the comment count text. Often this might be a secondary color (gray or muted tone) to match other meta info.
+- **Typography:** Set the font size, weight, and style. Typically, comment count is not as prominent as headings; you might use a smaller size or same size as post meta. For example, 14px, normal weight looks good in many themes.
+- **Hover Color:** If linking is enabled, you might want to set a hover color for the link (maybe the same as your theme's link hover color). This way, when users hover over the comment count, it gives a visual cue that it's clickable.
+- **Spacing:** If the Post Comments widget is part of a larger block of text (like "Jan 1, 2025 | 3 Comments"), you might control its spacing via margin or padding. You can add a little left margin to separate it from a preceding element (like a date). This could also be done by simply typing a separator in a Text widget, but you have the option to adjust spacing here as well.
+- **Alignment:** In case you place it in its own container or column, you can align the text left/center/right. However, in many cases, it's in line with other meta info, so alignment isn't individually adjusted.
+
+Since this widget's output is short, you might even combine it with other text by using multiple widgets in one section (like an Inner Section or Container with horizontal layout). Ensure your styling (margin especially) leaves proper gaps between items.
+
+<Aside type="note">
+If you need an icon (like a comment icon) alongside the text, that isn't built into this widget, but you can achieve it by adding an **Icon** widget or using an **Icon List**. For example, use an Icon List with a single item: icon = comment, text = dynamic Post Comments. Or simply place an icon widget and the Post Comments widget next to each other.
+</Aside>
+
+## Example Use Cases
+
+<CardGrid>
+  <Card title='Blog Post Meta'>
+  At the top of a blog post, you have: *“By Jane Doe on January 1, 2025 - 5 Comments”*. Here, the "5 Comments" part is the Post Comments widget. It's set with Many Comments Format = "\{number\} Comments", One = "\{number\} Comment" (so it would show "1 Comment" properly), No = "No Comments". The Link is on, so if a user clicks "5 Comments", they jump to the comment section below.
+  </Card>
+  <Card title='Comment Badge Below Title'>
+  Some designs place the comment count right below the post title as a sort of badge. You could center the Post Comments widget under a post title, style it perhaps in uppercase small text like "3 Comments". It provides immediate feedback that the post is engaging. In this case, you might turn it into a <Badge text="3 Comments" variant="note" /> style via custom CSS, or just style the text distinctively.
+  </Card>
+  <Card title='Forum or Discussion Indicator'>
+  If you had a custom post type for discussions, you could use Post Comments to show how many replies a thread has. The wording could be customized (e.g., "No Replies", "1 Reply", "\{number\} Replies"). This shows how versatile the format fields are - you can change "Comments" to any term that fits your content.
+  </Card>
+</CardGrid>
+
+## Pro Tip
+
+Because the Post Comments widget relies on WordPress's comment count, it will include all comment types (comments and trackbacks/pingbacks) in that number. Usually, that's fine as pingbacks are rare and often also counted as comments. Just be aware that "No Comments" truly means no feedback of any kind. If you receive pingbacks and want to exclude them, that would require custom code beyond the widget's scope.
+
+Also, consider placement: if a post has a lot of comments, some site owners choose to put "Join the discussion - 50 comments so far" at the top to encourage reading them. You can creatively use this widget as part of a sentence in a Text widget by concatenating via Elementor's dynamic tags in a Text Editor widget as well.

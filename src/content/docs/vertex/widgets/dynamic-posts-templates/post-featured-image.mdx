@@ -1,8 +1,70 @@
 ---
 title: Post Featured Image
-description: TODO
+description: "The Post Featured Image widget dynamically displays the current post's featured image in your Elementor template, with controls over image size, alignment, caption, and styling."
 sidebar:
   order: 11
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Featured Image** widget pulls in the **featured image** of the current post or page and displays it within your Elementor design. This is essential for blog post templates where you want the post's main image to appear automatically. The widget is essentially an image element that is pre-configured to fetch the featured image dynamically. You have the ability to set the output size (thumbnail, medium, full, etc.), choose whether it links to anything, and style its appearance (borders, corners, etc.) just like a regular image.
+
+## Key Features
+
+- **Dynamic Image Source:** Automatically displays the Featured Image of the post. If a post doesn't have a featured image, the widget will show nothing (or a placeholder if you set one up).
+- **Image Size Selection:** Choose which size of the image to use - thumbnail, medium, large, full, or any registered size. This lets you optimize for your layout (using a smaller size for a small thumbnail in an archive vs full size on a header).
+- **Alignment & Layout:** Align the image left, right, center, or stretch it full width (depending on container). You can also set caption alignment if a caption is displayed.
+- **Caption Support:** If the image has a caption set in WordPress, you can choose to display it. Some implementations show caption when using the Image widget. You might have an option to toggle caption on/off.
+- **Link Options:** Decide if the image should be clickable:
+  - No link (just a static image).
+  - Link to **Media File** (opens the full image in lightbox if lightbox enabled).
+  - Link to **Attachment Page** (not commonly used).
+  - Or a custom URL (though typically, you'd not link the featured image to anything on a single post - on an archive you might link it to the post itself).
+- **Styling:** Full range of image styling: set a border radius (for rounded images), add a border or shadow, control width (set a specific % or px width if not auto), and CSS filters (grayscale, blur, etc.) if desired for effects.
+- **Responsive Behaviors:** You can choose different image sizes or styles on different breakpoints if needed (though usually just ensure it scales well).
+
+## How to Use the Post Featured Image Widget
+
+<Steps>
+1. **Add the Widget:** Drag **Post Featured Image** into your template. Often, this is placed at the top of a post (like a hero image above or below the title) or aligned to the side if doing a different layout.
+2. **Content Tab Settings:**
+   - **Image Size:** Select the image resolution to use. For a full header banner, choose **Full**. For smaller placements, you might choose **Large** or a custom size. The sizes correspond to what WordPress generates. Using the appropriate size helps with performance.
+   - **Alignment:** If the image is not full-width, you can align it left, center, or right within its column. For example, in a narrow column, centering might look nice.
+   - **Caption:** Depending on the widget, you might see an option like "Caption: None/Attachment Caption/Custom". If you want to show the image's caption (as entered in the media library for that image), choose attachment caption. This will typically overlay or show below the image. If not needed, keep it off.
+   - **Link To:** Choose if image is clickable.
+     - None: (default for single post usage; image is just static).
+     - Media File: Often used if you want a lightbox effect; clicking image opens the full image in a lightbox (ensure lightbox feature is enabled in Elementor settings).
+     - Attachment Page: rarely used page that just has the image.
+     - Custom URL: Could be used to link the image to the post itself (in case you were using this widget in an Archive card template). On a single post page, you typically wouldn't set a custom link.
+   - If "Custom URL" is chosen, you can set dynamic link to something else (but again, likely unnecessary in single template).
+   - **Alt Text:** The widget will automatically use the image's alt text from the media library. There usually isn't an option to set alt text here manually since it's dynamic. Ensure your images have appropriate alt text for accessibility/SEO when uploading them.
+3. **Style Tab:**
+   - **Width:** By default, the image will display at 100% of its container width (if using full or large size). You can manually adjust width (%) or max-width if needed. For example, you might restrict a very large image to a max width of say 800px in a text column for better reading layout.
+   - **Height:** Usually you leave this auto for images to keep aspect ratio. But you could set a specific height (not common unless you want to crop via CSS).
+   - **Opacity:** Adjust opacity for effect (e.g., a faint image background).
+   - **CSS Filters:** You can add grayscale, blur, saturation adjustments if the design calls for it (like making a faded background image).
+   - **Border Type & Radius:** Add a border (solid, dashed, etc.) and color if you want a frame around the image. Set the border width. Use border radius to round the corners (for example, 10px radius for slightly rounded or 50% for a circular image if the image is square).
+   - **Box Shadow:** Apply a shadow under the image for depth. Customize color, blur, spread, etc.
+   - **Caption Style:** If caption is enabled, you might have controls for caption text typography, color, and alignment (e.g., center the caption under the image, make it smaller italic text).
+   - **Hover Animation:** Some image widgets let you choose a hover animation (like zoom in on hover or hover tilt). If appropriate, you can set one for interactive effect.
+   - Ensure to preview on different device modes. A large featured image might need to be full-bleed on mobile but maybe in a container on desktop etc., you can adjust alignment or margin accordingly.
+4. **Advanced Tab:**
+   - Typical advanced options like margin, padding (you might, for instance, give the image a bottom margin to space it from text below if needed).
+   - Responsive: You could hide the image on certain devices (not common - usually you show it on all).
+   - Custom CSS: If you need to overlay text or something fancy, but generally not needed for basic usage.
+</Steps>
+
+<Aside type="note">
+If you want to conditionally hide the featured image if a post has none (to avoid an empty spot), you might use Elementor's *Display Conditions* or *Dynamic Visibility* features (if available) to only show this widget when the featured image exists. However, by default, if no image, the widget just won't output anything visible, so it may not break the layout.
+</Aside>
+
+## Example Design Patterns
+
+- **Hero Banner:** Place the Post Featured Image at the very top of the template, full column width. Set image size to Full. Maybe give it a fixed height with CSS cover (though that might require custom CSS or a section background approach for truly responsive cropping). This shows a big banner image for each post.
+- **Inline Featured Image:** Place it left-aligned next to the first paragraph of the post content (common in magazine styles). You could put the Post Content widget in one column and the Post Featured Image in a smaller column to the left, or simply insert the image widget above content and align left with text wrap via custom CSS.
+- **Thumbnail in Meta:** Not typical for single templates, but if this widget were used in an Archive card template, you might use a smaller size, align left, and have title/excerpt to the right.
+
+## Conclusion
+
+The Post Featured Image widget ensures that each post's lead image is automatically displayed in your custom layout, eliminating the need to manually add images per post template. It keeps your design consistent while letting the content (images) vary per post. Always pay attention to the size you choose to balance quality and load speed. Also consider mobile design - large images should be scaled or maybe hidden if they're purely decorative and take too much space. With styling options, you can give your images a unique look that matches your site's aesthetic (such as adding uniform rounded corners or drop shadows to all featured images).
+

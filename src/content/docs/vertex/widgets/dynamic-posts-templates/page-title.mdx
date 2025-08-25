@@ -1,8 +1,79 @@
 ---
 title: Page Title
-description: TODO
+description: "Displays the title of the current page (or post) dynamically, with options to include context like the post type and to hide on the blog homepage."
 sidebar:
   order: 14
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Page Title** widget dynamically displays the title of the current page or post. This widget is primarily used in templates for static pages (like About Us, Contact, etc.) or as a general solution to show the title of whatever content is being viewed. Unlike the Archive Title (for archive pages) or Post Title (for singular posts), the Page Title widget is a more general-purpose title element that can work in many contexts, including pages, posts, and even archives, adjusting its output accordingly.
+
+<Aside type="note" title='When to use'>
+Use Page Title in page templates or when you need a catch-all title that works for various content types. For single blog posts, you would typically use the dedicated **Post Title** widget (which outputs the post title without any prefix). For archive pages, use **Archive Title**. Page Title is versatile but make sure you're using the widget best suited for your template for optimal control.
+</Aside>
+
+## Usage
+
+<Steps>
+1. If using Elementor Theme Builder, create or edit a **Single Page** template (for regular WordPress pages). You can also use Page Title on single post templates if needed, or anywhere you want a dynamic title.
+2. In the Elementor editor, search for **Page Title** in the widgets panel (under *Theme Elements* or *Site* elements).
+3. Drag the **Page Title** widget into your design where you want the page's title to appear (commonly at the top of the page content area).
+4. The widget will automatically pull the title of the current page/post when viewed on the live site. In edit mode, it may show a sample title or the title of the template's preview content.
+5. Set the appropriate **HTML Tag** for the title. By default, it might be an `<h2>`, but if this is the main title on the page, you may want to set it as `<h1>`. Choose a tag that fits the hierarchy of your design.
+6. Customize alignment and style as needed (center it, make it bold, etc., under the Style tab).
+</Steps>
+
+![Page Title Widget](https://cdn.webilia.com/u/d/2025/08/vertex-widget-page-title.png)
+
+## Features and Behavior
+
+- **Dynamic Title Rendering:** The widget will display the exact title of the current page or post. If placed on a normal WordPress page, it shows that page's title. If placed on a blog post, it will show the post title. If placed on an archive or special page, it will fall back to showing the archive title (though using Archive Title widget is recommended for those cases).
+- **Include Context:** Page Title has an option to include context similar to Archive Title. When *Include Context* is enabled (the default is “Yes”), the widget may prepend the post type or context to the title. For example, on a regular page it might show "Page: About Us", or on a post it could show "Post: How to Bake Bread". If you prefer to show just the title without any prefix, you can disable this:
+  
+  <Badge text="Tip" variant="tip"/> To remove the prefix, click on the dynamic tag icon next to the title field in the widget's settings and turn **Include Context** to “No”. In most cases for pages, you will likely turn this off, since seeing "Page: About Us" is not usually desired on the frontend.
+- **Show Home Title:** A special setting for the blog index (home) page. If your site's homepage is set to display latest posts (the blog feed), WordPress calls this the "home". Often, that page doesn't have an obvious title. By default, the Page Title widget will **not** show anything on the blog home unless you enable **Show Home Title**. If you set *Show Home Title* to “Yes,” and you are on the main blog page, it will display a title (which would be the word "Home" or the page title if a page is assigned). If you leave it off (default), the widget will output nothing on the blog listing page. This option is useful if you want a heading like "Blog" or "All Posts" at the top of your blog feed - in such a case, you can create a page titled "Blog" as your posts page, and enable Show Home Title to display it.
+- **Link & URL:** Unlike some other dynamic text widgets, Page Title by default does not turn the title into a link (since it's the title of the current page). The widget's logic has linking disabled (the assumption is you don't link to the page you're already on). So there's no need to set any link; it will render as plain text in a heading tag.
+
+<Aside type="tip">
+If you want a linked title for some reason (for example, a clickable logo text using Page Title to show site name), consider using a different approach. Typically, Page Title is meant for static display of the title.
+</Aside>
+
+## Styling
+
+Styling the Page Title is straightforward and similar to styling any heading:
+
+- **Alignment:** Align the title left, center, or right. Many page designs center the page title (especially for landing or informational pages), but choose what's appropriate.
+- **Typography:** Control the font family, size, weight, and other typography settings. You might want a large font size for the main page title. If this widget is used for different content types, ensure the styling works generally (for example, if using it for both pages and posts, the size might need to be flexible).
+- **Text Color:** Set the color of the title text. This might be a global heading color or a custom one depending on your design. You can also set a **Hover Color** if you anticipate using the title as a link somewhere (though typically not needed if it's not clickable).
+- **HTML Tag Styling:** If you change the HTML tag, remember to adjust styling accordingly. For instance, if you set it to `<h1>`, some themes have default styles for h1 that you might override here. The widget allows direct styling regardless of the tag.
+- **Shadow / Blend Mode:** Under advanced typography or style, you might find text-shadow or blend mode options to create special effects (like an outline or an overlay effect for hero images).
+- **Spacing:** Use margin or padding options to position the title within your layout. For example, add extra bottom margin to space it away from content below, or top margin if needed.
+
+<Aside type="note">
+When designing, consider consistency: All your page titles (using this widget) should have a uniform style site-wide. It's good to decide on a style (font size, color, alignment) and apply it to every instance of the page title for cohesiveness. Utilizing the Global Fonts & Colors in Elementor can help maintain this consistency.
+</Aside>
+
+## Examples
+
+- On a standard **About Us** page, dropping in the Page Title widget will display **“About Us”**. If Include Context was on, it might show **“Page: About Us”**, but you'd likely turn that off for a cleaner look.
+- If you create a template for a **Custom Post Type** (say "Portfolio"), and you use Page Title there, it could show **“Project: Project Name”** if context is on (where "Project" is the singular name of that post type). With context off, it would just show the project's title. This can be useful if you want to remind users of the content type.
+- On the blog **home page** (latest posts page) - if you have a page set as posts page named "Blog", enabling *Show Home Title* will display **“Blog”** as the title at the top of the posts list. If you leave it disabled, no title text will appear (which is often fine, as many blogs don't have a visible title on the main posts page).
+
+<CardGrid>
+  <Card title="Regular Page">
+    **Contact Us** - The widget simply shows the page title. (No prefix, since context is typically disabled for pages.)
+  </Card>
+  <Card title="Custom Post Type">
+    **Recipe: Chocolate Cake** - On a recipe custom post, if context is on, it could show the post type name. This tells users "this is a Recipe". If you prefer just **Chocolate Cake**, turn context off.
+  </Card>
+  <Card title="Blog Home">
+    **Blog** - If you named your posts page "Blog", the widget can show this heading on the main blog archive when Show Home Title is enabled.
+  </Card>
+</CardGrid>
+
+## Tips
+
+- If you find that the Archive Title or Post Title widget better suits a particular template (due to their specialized options), use them in those cases. For example, in a blog post template, Post Title will simply output the title with no extra fuss, whereas Page Title could inadvertently include "Post:" if context wasn't disabled.
+- The Page Title widget is very handy for page templates where you want the title managed automatically. If a client or editor changes a page title in WordPress, the Elementor template using Page Title will reflect that change immediately.
+- Remember to set the correct heading level. For main titles on pages, `<h1>` is generally recommended (and you should only have one h1 per page). If your header (logo or site title) already uses h1, consider using h2 for the page title. It all depends on your site structure and SEO considerations.
