@@ -43,33 +43,11 @@ export default defineConfig({
           items: [
             { label: 'Overview', link: '/listdom/' },
             { label: 'Installation & Activation', autogenerate: { directory: 'listdom/installation-and-activation' }, collapsed: true },
-            {
-              label: 'Managing Listings',
-              items: [
-                { label: 'All Listings Menu', link: '/listdom/managing-listings/all-listings-menu/' },
-                { label: 'Add/Edit Listing', link: '/listdom/managing-listings/add-edit-listing/' },
-                { label: 'Custom Fields', link: '/listdom/managing-listings/custom-fields/' },
-              ],
-              collapsed: true
-            }, 
-            { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
+            { label: 'Managing Listings', autogenerate: { directory: 'listdom/managing-listings' }, collapsed: true },
             { label: 'Skin Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
-            {
-              label: 'Settings',
-              items: [
-                { label: 'General', link: '/listdom/settings/general/' },
-                { label: 'Customizer', link: '/listdom/settings/customizer/' },
-                { label: 'Frontend Dashboard', link: '/listdom/settings/frontend-dashboard/' },
-                { label: 'Users', link: '/listdom/settings/users/' },
-                { label: 'Single Listing', link: '/listdom/settings/single-listing/' },
-                { label: 'Advanced', link: '/listdom/settings/advanced/' },
-                { label: 'AI', link: '/listdom/settings/ai/' },
-                { label: 'API', link: '/listdom/settings/api/' },
-              ],
-              collapsed: true
-            }, 
-            { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
-            { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },
+            { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
+            { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },            
+            { label: 'Settings', autogenerate: { directory: 'listdom/settings' }, collapsed: true },
             { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
             { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },
             {
@@ -86,6 +64,8 @@ export default defineConfig({
             }, 
             { label: 'How tos', autogenerate: { directory: 'listdom/how-tos' }, collapsed: true },
             { label: 'Troubleshooting', autogenerate: { directory: 'listdom/troubleshooting' }, collapsed: true },
+            { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
+
           ],
         },
         {
