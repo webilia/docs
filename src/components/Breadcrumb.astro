@@ -1,23 +1,23 @@
 ---
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const route = Astro.locals.starlightRoute;
 const { entry } = route;
 // If breadcrumb explicitly disabled in frontmatter, do not render anything.
-const { breadcrumb } = entry.data;
+// Extend entry data with optional `breadcrumb` property.
+const { breadcrumb } = entry.data as { breadcrumb?: boolean };
 if (breadcrumb === false) return;
 
-const docsRoot = fileURLToPath(new URL('../content/docs', import.meta.url));
+const docsRoot = path.resolve(process.cwd(), 'src', 'content', 'docs');
 
-const toTitle = (slug) =>
+const toTitle = (slug: string) =>
   slug
     .split('-')
-    .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
+    .map((s: string) => s.charAt(0).toUpperCase() + s.slice(1))
     .join(' ');
 
-const hasIndex = (segs) =>
+const hasIndex = (segs: string[]) =>
   existsSync(path.join(docsRoot, ...segs, 'index.mdx'));
 
 const segments = Astro.url.pathname.split('/').filter(Boolean);
