@@ -1,0 +1,172 @@
+---
+title: "API"
+sidebar_label: "API Reference"
+description: "Developer API reference for Listdom, including authentication tokens and endpoints for login, registration, listing retrieval, image upload, and listing management."
+sidebar:
+  order: 8
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdom provides a RESTful API for developers to integrate its listing functionality into external applications and services. The API allows secure operations such as user authentication, retrieving listings, uploading images, and adding or updating listings programmatically. All requests require a valid API token, and many also require a user session token.
+
+<Aside type="note">
+The API features are available in Listdom Pro. Ensure you have the Pro plugin active to use these endpoints.
+</Aside>
+
+## Main Variables
+
+- **Base URL**: The base endpoint for all calls is `https://your-site.com/wp-json/listdom/v1/`. All endpoints below are relative to this base URL.
+- **API Token (`lsd-token` header)** <Badge text="Required" />: An API authentication key that must be included in the headers of every request. You can manage tokens in **Listdom > Settings > API**.
+- **User Token (`lsd-user` header)**: A session token for a logged-in user, required for user-specific actions (like adding a listing). This token is obtained by calling the `Login` or `Register` endpoints.
+- **Content Type**: All requests and responses use JSON format (`Content-Type: application/json`), except for file uploads which use `multipart/form-data`.
+- **Encoding for Credentials**: For security, sensitive fields like passwords in the `Login` and `Register` endpoints must be Base64-encoded.
+
+## Login
+
+The Login API allows a user to authenticate and retrieve a session token.
+
+- **Endpoint**: `POST /login`
+- **Description**: Logs in a user with a username and password.
+- **Required Headers**: `lsd-token` (API token).
+- **Request Body**: JSON with the following fields:
+    - `username`: The user's username or email, Base64-encoded.
+    - `password`: The user's password, Base64-encoded.
+- **Response**: On success, returns an object with `success: 1`, the user's `id`, and a `token` string. This token must be sent as the `lsd-user` header in subsequent requests.
+
+### One-Time Login Key (Optional)
+This mechanism allows for seamless web authentication from an external app.
+- **Generate Key**: `POST /login/key` (requires `lsd-token` and `lsd-user` headers). Returns a one-time use `key`.
+- **Redirect Endpoint**: `GET /login/redirect/{key}?redirect_url={URL}`. Use this URL to log the user into the WordPress site in a browser. The key is single-use and expires after use.
+
+## Register
+
+The Register API allows creating a new user account.
+
+- **Endpoint**: `POST /register`
+- **Description**: Registers a new user and returns a login token.
+- **Required Headers**: `lsd-token`.
+- **Request Body**: JSON with the following fields:
+    - `name`: (Optional) The display name of the user, Base64-encoded.
+    - `email`: The user's email address, Base64-encoded.
+    - `password`: The user's chosen password, Base64-encoded.
+- **Response**: On success, returns `success: 1`, the new user's `id`, and a `token`. The user is effectively logged in via the API upon registration.
+
+## Languages
+
+Retrieves active language codes if a compatible multilingual plugin (WPML, Polylang) is active.
+
+- **Endpoint**: `GET /languages`
+- **Required Headers**: `lsd-token`.
+- **Response**: An object containing `success: 1` and a `languages` array of language codes (e.g., `["en", "fr"]`).
+
+## Taxonomies (Categories, Locations, etc.)
+
+These endpoints provide the terms for Listdom's taxonomies.
+
+- **Endpoint**: `GET /taxonomies/{taxonomy_slug}`
+- **Description**: Fetches a hierarchical list of terms for a given taxonomy.
+- **Examples**:
+    - **Listing Categories**: `GET /taxonomies/listdom-category`
+    - **Listing Locations**: `GET /taxonomies/listdom-location`
+    - **Listing Tags**: `GET /taxonomies/listdom-tag`
+    - **Listing Features**: `GET /taxonomies/listdom-feature`
+- **Required Headers**: `lsd-token`.
+- **Response**: An array of term objects, each containing fields like `id`, `name`, `slug`, `parent`, and a `childs` array for sub-terms.
+- **Query Parameters**: You can refine the query with parameters like `hide_empty=1` (to exclude terms with no listings) and `parent={id}` (to fetch only children of a specific term).
+
+## Get Listings
+
+### Search Listings
+Retrieves a list of public listings with support for filtering and pagination.
+
+- **Endpoint**: `GET /search`
+- **Required Headers**: `lsd-token`.
+- **Query Parameters**:
+    - **Text Search**: `s={keyword}`
+    - **Taxonomy Filters**: `listdom-category[]={id}`, `listdom-location[]={id}`, etc.
+    - **Ordering**: `orderby=title&order=ASC`
+    - **Pagination**: `page={number}` and `limit={number}`
+- **Response**: An object with `success: 1`, a `listings` array, and a `pagination` object.
+
+### Current User's Listings
+Retrieves listings belonging to the currently authenticated user.
+
+- **Endpoint**: `GET /my-listings`
+- **Required Headers**: `lsd-token` and `lsd-user`.
+- **Response**: Returns all listings submitted by the user, regardless of status (including draft, pending, etc.).
+
+### Single Listing by ID
+Retrieves the details of a specific listing.
+
+- **Endpoint**: `GET /listings/{id}`
+- **Required Headers**: `lsd-token`.
+- **Response**: An object with `success: 1` and a `listing` object containing the listing's full data. This action increments the listing's view count.
+
+## User Profile
+
+### Get Logged-in User Information
+- **Endpoint**: `GET /profile`
+- **Required Headers**: `lsd-token` and `lsd-user`.
+- **Response**: An object with `success: 1` and a `user` object containing profile data (ID, username, email, contact info, social links, roles, etc.).
+
+### Update Profile
+- **Endpoint**: `PUT /profile`
+- **Required Headers**: `lsd-token` and `lsd-user`.
+- **Request Body**: A JSON object with any of the profile fields you want to update (e.g., `first_name`, `phone`, `description`).
+- **Response**: The updated `user` object.
+
+## Listing Management
+
+### Get Add Listing Form Fields
+- **Endpoint**: `GET /listings/fields`
+- **Description**: Returns a structured JSON object detailing all available sections and fields for the "Add Listing" form. This is useful for dynamically building a submission UI.
+- **Required Headers**: `lsd-token`.
+
+### Upload Image
+- **Endpoint**: `POST /images`
+- **Description**: Uploads an image file to the WordPress media library and returns its attachment ID.
+- **Required Headers**: `lsd-token` and `lsd-user`.
+- **Request**: Must be a `multipart/form-data` request with the file field named `image`.
+- **Response**: An object containing `success: 1` and an `image` object with the `id`, `url`, and `thumbnail_url`. Use this `id` when adding/updating listings.
+
+### Add Listing
+- **Endpoint**: `POST /listings`
+- **Description**: Creates a new listing.
+- **Required Headers**: `lsd-token` and `lsd-user`.
+- **Request Body**: A JSON object with listing data. At minimum, `title` and `listing_category` (a valid category ID) are required. Other fields like `content`, `taxonomies`, `featured_image` (using an ID from the upload endpoint), and `gallery` can be included.
+- **Response**: A confirmation `message` and the newly created `listing` object. The listing status will be `pending` or `publish` depending on the user's permissions.
+
+### Update Listing
+- **Endpoint**: `PUT /listings`
+- **Description**: Edits an existing listing.
+- **Required Headers**: `lsd-token` and the `lsd-user` token of the listing owner or an admin.
+- **Request Body**: A JSON object containing the `id` of the listing to update, plus any other fields you want to change.
+- **Response**: The updated `listing` object.
+
+### Deleting Listings
+- **Trash Listing**: `DELETE /listings/{id}/trash` - Moves the listing to the trash (soft delete).
+- **Delete Listing**: `DELETE /listings/{id}` - Permanently deletes the listing (hard delete).
+- **Required Headers**: `lsd-token` and `lsd-user` of an authorized user.
+
+## Examples
+
+<CardGrid>
+  <Card title="Mobile App Integration">
+    A mobile app uses the API to let users register, log in, browse, and submit listings. It calls `/login` to get a user token, `/search` to display listings, and `/listings` (POST) to create new entries, providing a seamless, real-time experience synced with the WordPress backend.
+  </Card>
+  <Card title="Headless Website">
+    A developer builds a React front-end using WordPress as a headless CMS. The app calls Listdom's API to fetch all data: `/search` for listing loops, `/taxonomies` for filter menus, and `/listings/{id}` for detail pages, while handling user authentication via the API.
+  </Card>
+  <Card title="Third-Party Integration">
+    A script automates content updates by fetching data from an external system and using the Listdom API to add or update listings. It uses a service account to log in, gets a user token, and then calls `POST` and `PUT` on the `/listings` endpoint to sync content daily.
+ </Card>
+</CardGrid>
+
+<LinkCard
+  href="https://developer.wordpress.org/rest-api/"
+  title="WordPress REST API Handbook"
+  description="Learn more about the WordPress REST API, authentication methods, and best practices for making API calls."
+/>

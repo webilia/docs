@@ -1,0 +1,90 @@
+---
+title: Advanced
+sidebar_label: Advanced
+description: "Configure Listdom's advanced settings including asset loading optimization, custom CSS, component activation, and importing or exporting plugin settings."
+sidebar:
+  order: 6
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Advanced settings in Listdom let you fine-tune how the plugin loads assets, add custom CSS, enable or disable certain listing features, and back up or restore your configuration. These options help optimize performance and tailor Listdom to your needs beyond the basic settings.
+
+## Optimize Assets Loading
+
+This section allows you to control where Listdom's JavaScript and CSS files are loaded to improve site performance. By default, Listdom loads its assets on every page; you can restrict this to specific pages to reduce unnecessary resource usage.
+
+- **Load Assets Everywhere**: Toggle to globally load Listdom's CSS/JS on all pages of your site. When disabled, Listdom will only load assets on the specific content configured below. (Default: On)
+- **Load for all `{Post Type}`**: For each post type (e.g., `Posts`, `Pages`), this switch allows assets to load on all items of that type. Disabling it lets you select specific entries where assets should load. (Visible only if "Load Assets Everywhere" is off)
+- **Load for all `{Taxonomy}`**: For each taxonomy (e.g., `Categories`, `Tags`), you can enable or disable global asset loading. Disabling it lets you pick individual terms where Listdom assets will load. (Visible only if "Load Assets Everywhere" is off)
+- **Font Awesome Status**: Toggle to include or exclude Listdom's icon font (Font Awesome). If your theme already loads Font Awesome, you can disable this to prevent duplicate loading. (Default: Enabled)
+
+## Custom Styles
+
+This option provides a way to add your own CSS for Listdom elements without editing theme files.
+
+- **Custom CSS Code**: A text area to enter your custom CSS rules, which will be output in the site's header. You do not need to include `<style>` tags. This is update-safe. (Default: Empty)
+
+## Components
+
+Deactivating components you don't need can simplify the interface and improve performance.
+
+<Aside type="note">
+Disabling any listing component removes its related fields, filters, and views throughout Listdom.
+</Aside>
+
+- **Map & Address**: Controls the location map and address module. Disabling this removes all map displays and address fields. (Default: Enabled)
+- **Pricing**: Controls the price module for listings. When disabled, all price-related fields are hidden. (Default: Enabled)
+- **Work Hours**: Controls the working hours module. Disabling this removes the "Work Hours" section from listing pages and submission forms. (Default: Enabled)
+- **Visibility**: Controls the visibility and expiration date feature for listings. Disabling it removes any "Visible Until" fields or related controls. (Default: Enabled)
+- **Related Listings**: Controls the related listings section on single listing pages. When disabled, the plugin will not display related listings. (Default: Enabled)
+- **Social Networks**: Controls social media links and sharing buttons for listings. Disabling this removes social media fields from submission forms and hides share buttons. (Default: Enabled)
+
+## Import/Export
+
+This section allows you to back up all your Listdom settings or restore them on another site.
+
+### Import
+Use the Import feature to restore a previously exported Listdom settings file in JSON format. Select the `.json` file from your computer and click Import.
+
+<Aside type="danger">
+Caution: Importing a settings file will overwrite all your current Listdom configurations. Consider backing up your current settings via Export before importing.
+</Aside>
+
+### Export
+The Export feature lets you download all your current Listdom settings as a JSON file. Simply click the **Export** button to download a file, which can be used as a backup or for migration.
+
+## Admin Dashboard Access
+
+Listdom blocks some user roles from accessing the WP Admin dashboard by default, redirecting them to the frontend. These settings are internal and not exposed in the UI.
+
+- **Block Admin Access (Subscriber)**: Prevents users with the Subscriber role from visiting WP admin pages. (Default: Enabled)
+- **Block Admin Access (Contributor)**: Prevents users with the Contributor role from accessing wp-admin. (Default: Enabled)
+- **Block Admin Access (Listdom Author)**: Blocks the Listdom Author role from WP admin, so they must manage listings via the frontend. (Default: Enabled)
+- **Block Admin Access (Listdom Publisher)**: Blocks the Listdom Publisher role from the WP admin area. (Default: Enabled)
+
+<Aside type="tip">
+These blocking settings ensure directory users use the user-friendly frontend dashboard. They are on by default for better security and user experience.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Selective Asset Loading for Faster Pages">
+    An administrator disables "Load Assets Everywhere" and configures assets to load only on pages with listings. As a result, regular blog pages load faster, while directory pages still work flawlessly.
+  </Card>
+  <Card title="Customizing Listdom Appearance with CSS">
+    A site owner uses the Custom CSS Code field to match Listdom's look to their branding, for example, changing the listing card background color. The custom styles persist even after plugin updates.
+  </Card>
+  <Card title="Disabling Unneeded Listing Features">
+    A site owner disables the "Pricing" and "Map & Address" components. The corresponding fields disappear from all forms and pages, making the submission process shorter and the listing pages cleaner.
+  </Card>
+</CardGrid>
+
+<LinkCard
+  href="https://wordpress.org/plugins/listdom"
+  title="Listdom Plugin on WordPress.org"
+  description="Visit the official WordPress plugin page for Listdom to see details, reviews, and additional information."
+/>

@@ -1,0 +1,167 @@
+---
+title: Users
+sidebar_label: Users
+description: "Manage all user-related settings in Listdom, including login & registration forms, user profiles, and access restrictions for different roles."
+sidebar:
+  order: 4
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Users settings allow you to control how users interact with your directory, from authentication forms (login, registration, password reset) to user profile pages and admin area access. This section is crucial for configuring the user experience on your Listdom-powered site, including customizing form labels/placeholders, default pages, auto-login behavior, password policies, and role-based access rules.
+
+<Aside type="tip">
+The Listdom authentication shortcodes can be restricted to specific roles using the `role` parameter (accepted roles: `subscriber`, `contributor`, `listdom_author`, `listdom_publisher`). For example, using `[listdom-auth role="listdom_author"]` will display the login/registration form only for the Listdom Author role.
+</Aside>
+
+## Authentication
+
+This subsection configures the combined Authentication form (`[listdom-auth]` shortcode), which typically displays Login, Register, and Forgot Password forms together.
+
+### Labels
+These options set the text labels for the tabs in the combined Auth form:
+- **Login Tab**: The label for the login tab. (Default: "Login")
+- **Register Tab**: The label for the registration tab. (Default: "Register")
+- **Forgot Password Tab**: The label for the password reset tab. (Default: "Forgot Password")
+
+### Links
+If using link-style navigation instead of tabs:
+- **Login Link**: The text prompt for existing users to log in. (Default: "Already a member? Login.")
+- **Register Link**: The text prompt for new users to register. (Default: "Not a member? Register.")
+- **Forgot Password Link**: The text for the "forgot password" link. (Default: "Forgot your password?")
+
+### Forms
+These settings control the style and visibility of the forms:
+- **Form Switcher**: Choose how the forms are presented. Options are `Both` (tabs and links), `Tabs`, or `Links`. (Default: `Both`)
+- **Hide Login**: Hides the Login form in the combined auth shortcode. (Default: Off)
+- **Hide Register**: Hides the Registration form. (Default: Off)
+- **Hide Forgot Password**: Hides the Forgot Password form. (Default: Off)
+
+### Change Default Pages
+Override the built-in forms with your own dedicated pages.
+- **Login**: Enable to use a custom page for user login. This page should contain the `[listdom-login]` shortcode. (Default: Off)
+- **Register**: Enable to use a custom registration page. This page should include the `[listdom-register]` shortcode. (Default: Off)
+- **Forgot Password**: Enable to use a custom page for the password reset process. This page should have the `[listdom-forgot-password]` shortcode. (Default: Off)
+
+<Aside type="note">
+By selecting custom pages, links in Listdom will redirect to those pages site-wide. If left disabled, Listdom will use its own default forms.
+</Aside>
+
+## Login
+
+Settings for the standalone login form (`[listdom-login]` shortcode).
+
+- **Username**: Label for the username/email input field. (Default: "Username")
+- **Password**: Label for the password input field. (Default: "Password")
+- **Remember me**: Label for the "remember me" checkbox. (Default: "Remember Me")
+- **Button**: Label for the login submission button. (Default: "Log In")
+
+### Placeholders
+- **Username**: Placeholder text inside the username/email field. (Default: "Enter your username")
+- **Password**: Placeholder text for the password field. (Default: "Enter your password")
+
+### Redirect
+Define where users are sent after logging in.
+- **After Login Redirect Page**: Select the page users land on after a successful login. (Default: Front Page)
+
+#### Redirection Per User Role
+Set role-specific redirects to override the global setting.
+- **Subscriber**: Set a custom redirect for the Subscriber role.
+- **Contributor**: Set a custom redirect for the Contributor role.
+- **Listdom Author**: Set a specific redirect page for the Listdom Author role.
+- **Listdom Publisher**: Set a specific redirect page for the Listdom Publisher role.
+
+## Register
+
+Controls the user registration form (`[listdom-register]` shortcode).
+
+- **Username**: Label for the username field. (Default: "Username")
+- **Password**: Label for the password field. (Default: "Password")
+- **Email**: Label for the email address field. (Default: "Email")
+- **Button**: Label for the registration submit button. (Default: "Register")
+
+### Placeholders
+- **Username**: Placeholder text for the username field. (Default: "Enter your username")
+- **Password**: Placeholder text for the password field. (Default: "Enter your password")
+- **Email**: Placeholder text for the email field. (Default: "Enter your email address")
+
+### Auto Login
+Determines what happens immediately after a new user registers.
+- **Auto Login**: If enabled, new users are automatically logged in. (Default: Enabled)
+- **After Register Redirect Page**: If Auto Login is enabled, select the page to redirect new users to. (Default: Front Page)
+
+#### Auto Login Per User Role
+Specify different post-registration redirects for each role (only applies if Auto Login is on).
+- **Subscriber**: Custom redirect for new Subscriber users.
+- **Contributor**: Custom redirect for new Contributor users.
+- **Listdom Author**: Custom redirect for new Listdom Author users.
+- **Listdom Publisher**: Custom redirect for new Listdom Publisher users.
+
+### Password Policy
+Enforce a strong password policy during registration.
+- **Strong Password**: Enable to require strong passwords. (Default: On)
+- **Password Length**: Minimum required password length. (Default: 8 characters)
+- **Contain Uppercase**: Requires at least one uppercase letter. (Default: Enabled)
+- **Contain Lowercase**: Requires at least one lowercase letter. (Default: Enabled)
+- **Contain Numbers**: Requires at least one numeral. (Default: Enabled)
+- **Contain Special Characters**: Requires at least one special symbol. (Default: Enabled)
+
+## Forgot Password
+
+Applies to the password reset form (`[listdom-forgot-password]` shortcode).
+
+- **Email**: Label for the email input field. (Default: "Email")
+- **Button Label**: Label for the submit button. (Default: "Reset Password")
+
+### Placeholders
+- **Email**: Placeholder text for the email field. (Default: "Enter your Email Address")
+
+## Profile & User Directory
+
+Deals with user profile pages and the directory of user profiles.
+
+### User Profile
+- **Profile Page**: Select the page that serves as the user profile page (should contain the `[listdom-profile]` shortcode).
+- **Author Listings Shortcode**: Choose the listing view shortcode (archive skin) to display a user's listings on their profile. (Default: "list")
+
+### User Directory
+Use the `[listdom-users]` shortcode on any page to create a user directory.
+- **List Style**: `[listdom-users style="list" limit="24"]`
+- **Grid Style**: `[listdom-users style="grid" limit="12" columns="3"]`
+
+The directory only includes users who have created listings.
+
+## Logged In Users
+
+Settings that affect behavior for users who are already logged in.
+
+- **Redirect After Logout Page**: Specify where to send users after they log out. (Default: Front Page)
+- **Account URL**: Set the page for the user's account/dashboard link, which should typically contain the `[listdom-dashboard]` shortcode. (Default: Front Page)
+
+## Block Admin Access
+
+Prevent certain user roles from accessing the WordPress admin dashboard.
+- **Subscriber, Contributor, Listdom Author, Listdom Publisher**: Each role has a checkbox. Checked means that role is blocked from WP Admin. By default, all are checked (blocked).
+
+<Aside type="caution">
+Use this feature carefully. When a role is blocked, users cannot access any WP admin screens. Ensure you have set up the Frontend Dashboard so those users can manage their listings.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Custom Login & Registration Page">
+    Create dedicated pages for login (`[listdom-login]`) and registration (`[listdom-register]`). Then, in Users → Authentication → Change Default Pages, enable and select your new pages to provide a branded user experience.
+  </Card>
+  <Card title="Enforcing Strong Passwords">
+    To improve security, go to Users → Register → Password Policy and ensure **Strong Password** is enabled. Adjust requirements like minimum length or required character types to reduce the risk of weak passwords.
+  </Card>
+  <Card title="Frontend-Only Listing Management">
+    To keep users out of the WP Admin, go to Users → Block Admin Access and ensure all listing roles (Author/Publisher) are checked. This forces them to use the frontend dashboard to manage their listings.
+  </Card>
+</CardGrid>
+
+<LinkCard title="WordPress Roles and Capabilities" href="https://wordpress.org/support/article/roles-and-capabilities/" />
