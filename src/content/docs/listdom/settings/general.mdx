@@ -1,0 +1,126 @@
+---
+title: General
+sidebar_label: General
+description: "Configure general options settings for Listdom, including date/time formats, map providers, listing slugs, and more."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The General settings menu in Listdom provides various global configuration options for listings and site behavior. This includes date and time formats, currency display, map provider settings, social network integrations, archive page templates, URL slugs, Google reCAPTCHA, and third-party integrations.
+
+## General Settings
+
+- **Date Picker Format**: Select the format for date pickers across Listdom. Options include `YYYY-MM-DD` (default), `DD-MM-YYYY`, `YYYY/MM/DD`, `DD/MM/YYYY`, `YYYY.MM.DD`, and `DD.MM.YYYY`.
+
+- **Time Picker Format**: Choose the time format for time pickers. Options are `24 Hours` (default) or `12 Hours` (AM/PM).
+
+- **Currency Position**: Define where the currency symbol appears relative to prices. Options are `Before ($100)` (default), `Before With Space ($ 100)`, `After (100$)`, or `After With Space (100 $)`.
+
+- **Default Currency**: Set the default currency code used for pricing in listings (e.g., `USD`, `EUR`). (Default: `USD`)
+
+- **Listing Custom Link**: Toggle to enable (`On`, default) or disable (`Off`) the Custom Link field on listing submissions, which allows owners to provide an external URL.
+
+- **Include Featured Image in Gallery**: Choose whether the featured image of a listing should also appear in its image gallery. (Default: `Always include`)
+
+- **Address Placeholder**: Customize the placeholder text that appears in address input fields. (Default: “123 Main St, Unit X, City, State, Zipcode”)
+
+- **No Listing Message**: Define the message shown when a search or archive yields no results. You can include text, HTML, or shortcodes. (Default: empty, which shows “No Listing Found!”)
+
+## Map Module
+
+This section controls the integrated map features for listings.
+
+- **Default Map Provider**: Select the mapping service. Options include `OpenStreetMap (Leaflet)` (default) or `Google Maps`. OpenStreetMap works out-of-the-box, while Google Maps requires an API key.
+
+- **Google Maps API Key**: Enter your Google Maps JavaScript API key here (visible only when Google Maps is selected). This is required for Google Maps to function.
+
+- **Mapbox Access Token**: To use high-quality Mapbox tiles with OpenStreetMap, enter your access token here. If left blank, default OSM tiles are used.
+
+- **Default Zoom Level**: Set the initial zoom level for maps in the backend Add Listing editor. (Default: `6`)
+
+- **GPS Zoom Level**: Adjusts how the map zooms when using the "Locate via GPS" feature. It consists of a threshold and a target zoom level to ensure a closer view of the user's location.
+
+- **Default Latitude & Longitude**: Specify default coordinates for the center of maps in the backend to make pinning locations quicker.
+
+- **Shape Display Options**: Customize the appearance of drawn shapes (polygons or circles) on maps, including Fill Color, Fill Opacity, Border Color, Border Opacity, and Border Weight.
+
+- **Geo-point (Address Geocoding)**: Provide a Google Geocoding API Key to improve address-to-coordinate conversion accuracy. By default, Listdom uses OpenStreetMap’s service.
+
+## Price Components
+
+<Aside type="note">
+The Price Components section can be modified only in the <Badge text="Pro" /> version.
+</Aside>
+
+This section lets you toggle various parts of the pricing feature on or off.
+- **Currency**: Show or hide the currency selection field. (Default: Enabled)
+- **Price Max**: Enable a "max price" field for price ranges. (Default: Enabled)
+- **Price Description**: Enable a description field after the price (e.g., "/month"). (Default: Enabled)
+- **Price Class**: Enable price categorization (e.g., cheap, moderate, expensive). (Default: Enabled)
+
+## Social Networks
+
+Manage which social networks are available for sharing and on profiles. You can re-order networks and toggle them on/off for different locations:
+- **Author Profile**: Display on user profile pages.
+- **Listing Card**: Show on listing cards in grids or lists.
+- **Single Listing**: Show on the single listing detail page.
+- **Listing Contact**: Include in the contact section.
+
+## Archive Pages
+
+Override your theme's default taxonomy archive pages with Listdom's templates by selecting a custom archive skin (layout).
+- **Location Archive**: Choose the layout for location taxonomy pages.
+- **Category Archive**: Choose the layout for category taxonomy pages.
+- **Tag Archive**: Choose the layout for tag taxonomy pages.
+- **Feature Archive**: Choose the layout for feature taxonomy pages.
+- **Label Archive**: Choose the layout for label taxonomy pages.
+
+## Slugs
+
+Configure URL slugs for listings and taxonomies.
+
+#### Listings
+- **Listings Prefix**: Customize the base slug for single listing URLs. (Default: `listings`)
+
+- **Advanced Slug**: Available in <Badge text="Pro" />, this allows you to define a pattern for listing URLs using placeholders to include taxonomy terms. (Default: Off)
+
+- **Pattern**: If Advanced Slug is on, enter a custom URL structure using placeholders:
+  - `%category%` – The listing’s primary category slug.
+  - `%categories%` – The primary category and all parent category slugs.
+  - `%location%` – The listing’s first location slug.
+  - `%locations%` – The first location and its parent location slugs.
+
+<Aside type="tip">
+After changing slug settings, you may need to go to **WordPress Permalinks** and click **Save** to flush rewrite rules and ensure the new URLs work correctly.
+</Aside>
+
+#### Taxonomies
+- **Location Slug**: Customize the URL slug for the Location taxonomy. (Default: `listing-location`)
+- **Category Slug**: Customize the URL slug for the Listing Category taxonomy. (Default: `listing-category`)
+- **Tag Slug**: Set the slug for Listing Tag archives. (Default: `listing-tag`)
+- **Feature Slug**: Set the slug for Listing Feature archives. (Default: `listing-feature`)
+- **Label Slug**: Set the slug for Listing Label archives. (Default: `listing-label`)
+
+## Google reCAPTCHA
+
+Protect your forms from spam by integrating Google reCAPTCHA v2.
+- **Status**: Toggle to `Enable` reCAPTCHA protection on Listdom’s forms.
+- **Site Key**: Enter your Google reCAPTCHA Site Key (public key).
+- **Secret Key**: Enter your Google reCAPTCHA Secret Key (private key).
+
+## Integrations
+
+### Block Editor
+- **Enable Block Editor for Listings**: Toggle to `On` to use the WordPress Block Editor (Gutenberg) for editing listings. (Default: `Off`)
+
+### Mailchimp
+Integrate with Mailchimp to add a newsletter opt-in on listing contact forms.
+- **Enable Mailchimp Integration**: Toggle to `Enable` to add a Mailchimp signup checkbox.
+- **API Key**: Enter your Mailchimp API Key.
+- **List ID (Audience ID)**: Provide the ID of the Mailchimp Audience you want to add subscribers to.
+- **Checked by Default**: Decide if the opt-in checkbox should be pre-checked.
+- **Subscribe Message**: Customize the label text next to the checkbox. (Default: “Subscribe to our newsletter.”)

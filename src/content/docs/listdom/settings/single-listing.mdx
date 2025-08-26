@@ -1,0 +1,87 @@
+---
+title: Single Listing
+sidebar_label: Single Listing
+description: "Configure the layout and elements of the Listdom single listing page, including style selection, custom design builder options, and per-category or per-listing display settings."
+sidebar:
+  order: 5
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Single Listing settings allow you to control how each listing's detail page is displayed. In this section, you can choose a layout style, toggle which content elements appear, and even assign different designs per category or per individual listing.
+
+## General
+
+- **Style Category**: Select the overall method for designing single listing pages. You can choose `Pre-Made Styles` (default), `Design Builder`, or page builders like `Elementor` or `Divi` if their respective add-ons are active.
+- **Style**: Choose the specific layout template, which depends on the Style Category selected:
+    - If `Pre-Made Styles` is selected, you can choose from built-in layouts like `Style 1 - Basic` (default), `Style 2 - Sidebar`, etc.
+    - If `Design Builder` is selected, you can use the drag-and-drop builder interface.
+    - If `Elementor` or `Divi` is selected, you can choose a saved custom template created with those builders.
+- **Theme Layout**: Select a specific theme page template for single listing pages. If unsure, keep `Default Layout` (default), which uses your theme's standard single post layout.
+- **Comments**: Toggle whether to enable the standard WordPress commenting system on listing pages. (Default: On)
+
+<Aside type="note">
+**Add-on Required**: The `Elementor` and `Divi` options for Style Category will appear only if the Listdom Elementor or Divi add-ons are installed and activated.
+</Aside>
+
+## Display Options
+
+- **Display Options Per Category** <Badge text="Pro" />: Allows assigning a unique single listing style to each listing category. (Default: Disabled)
+- **Display Options Per Package**: Allows assigning a unique style per membership package. This is visible only if the Listdom Subscription add-on is installed. (Default: Disabled)
+- **Display Options Per Listing** <Badge text="Pro" />: Allows authorized users to override the design for individual listings. Options are:
+    - `Disabled`: Per-listing control is off.
+    - `Admin Only`: Only administrators can customize the layout for each listing.
+    - `Admin & Listing Owner`: Both admins and listing owners can customize their listing's layout.
+
+<Aside type="note">
+**Listdom Pro Required**: The "Display Options Per Category" and "Display Options Per Listing" features are available in Pro only.
+</Aside>
+
+## Elements
+
+Enable or disable various content elements that appear on listing detail pages.
+
+- **Listing Labels**: Displays special labels like "Featured". (Default: Enabled)
+- **Featured Image**: Shows the listing's main image. (Default: Enabled)
+- **Featured Video** <Badge text="Pro" />: Embeds a featured video for the listing. (Default: Disabled)
+- **Listing Title**: Displays the listing's name. (Default: Enabled)
+- **Categories**: Shows the listing's categories, which can link to the category archive. (Default: Enabled)
+- **Price**: Displays the listing's price or price range. (Default: Enabled)
+- **Tags**: Lists the tags assigned to the listing, which can link to the tag archive. (Default: Enabled)
+- **Listing Content (Description)**: Shows the main detailed description of the listing. (Default: Enabled)
+- **Image Gallery**: Displays additional images. Options include:
+    - **Lightbox**: Open images in a lightbox overlay. (Default: Enabled)
+    - **Style**: Choose `List` (grid), `Slider`, or `Linear Gallery`. (Default: `List`)
+- **Embed** <Badge text="Pro" />: Allows embedding external content via an embed code (e.g., a virtual tour). (Default: Disabled)
+- **Custom Fields**: Displays the listing's custom attributes. You can toggle icons and titles. (Default: Enabled)
+- **Features**: Shows the listing's features or amenities. You can configure icons, links, and layout. (Default: Enabled)
+- **Contact Information**: Displays contact details like phone and email. You can toggle icons and labels. (Default: Enabled)
+- **Owner's Note (Remark)**: Shows an additional note from the listing owner. (Default: Enabled)
+- **Locations**: Displays the listing's location terms, which can link to the location archive. (Default: Enabled)
+- **Address**: Shows the listing's full text address. (Default: Enabled)
+- **Breadcrumb**: Displays a navigation trail like `Home / Category / Listing Name`. (Default: Disabled)
+- **Map**: Displays a map showing the listing's location. You can configure provider, zoom level, controls (Zoom, Map Type, Street View), and more. (Default: Enabled)
+- **Working Hours**: Shows the listing's business hours schedule. (Default: Enabled)
+- **Owner (Listing Owner Profile)**: Displays an author box with the listing owner's details. You can toggle which info appears (Avatar, Name, Bio, Socials, Contact Form, etc.). (Default: Enabled)
+- **Share (Social Sharing)**: Displays social share buttons (Facebook, Twitter, etc.). (Default: Enabled)
+- **Related Listings**: Shows a list of similar listings at the bottom of the page. You can configure how relatedness is determined (by taxonomy or location radius) and the layout skin. (Default: Disabled)
+- **Report Abuse**: Adds a "Report Abuse" link or button for visitors to report inappropriate listings. (Default: Disabled)
+- **Listing Excerpt**: Displays a short summary of the listing's content, auto-generated from the description. (Default: Disabled)
+
+<Aside type="note">
+Some elements will only appear on the fronend if the corresponding feature is active and data is provided. For example, the Map requires a valid address, and Price requires a price to be set.
+</Aside>
+
+## Design Builder
+
+If you select `Design Builder` as the style, you can create a completely custom layout. The builder interface is divided into sections (Header, Column, Footer) where you can drag and drop enabled elements.
+
+- **Layout**: Arrange elements into up to nine sections (Header 1-3, Column 1-3, Footer 1-3).
+- **Section Width**: Control the layout by setting widths for each section (e.g., $1/4$, $2/4$, $3/4$). For example, you can create a two-column layout by setting two column sections to a width of $2/4$ each.
+- **Box Method**: Controls how container boxes are applied around your content. Options include `Whole Box`, `Row Box`, `Section Box`, `Element Box`, or `No Box` for different visual groupings.
+
+<Aside type="tip">
+You don't need to use all sections. An element will not appear if it's disabled in the main Elements configuration. The Map element can only be used once on a page.
+</Aside>

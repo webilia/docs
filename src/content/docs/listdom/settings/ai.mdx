@@ -1,0 +1,61 @@
+---
+title: AI
+sidebar_label: AI
+description: "Configure and manage AI profiles in Listdom to enable content generation, auto-mapping of fields, and other AI-powered features."
+sidebar:
+  order: 7
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdom's AI menu allows you to integrate powerful AI capabilities into your directory site. Here you can create multiple AI Profiles, each with a specific model and API key. By managing profiles, you can choose a low-cost AI for simple tasks like field mapping and a more advanced model for complex tasks such as generating listing descriptions. This flexibility ensures you use the right AI model for the right job.
+
+<Aside type="note">
+To use Listdom's AI features, you must obtain an API key from the AI provider (currently OpenAI). Entering a valid OpenAI API Key is required for each profile.
+</Aside>
+
+## Creating and Managing AI Profiles
+
+- **Add New Profile**: Click the **Add New Profile** button to create a new AI profile. Each new profile is initialized with a default name ("New Profile") and the default model (`OpenAI GPT 4.1 Nano`).
+- **Remove Profile**: To delete an AI profile, click the trash bin icon next to that profile's name. You'll be prompted to confirm the deletion.
+
+<Steps>
+1. Navigate to **Listdom → Settings → AI** in your WordPress dashboard.
+2. Click **Add New Profile**. A new profile entry will appear.
+3. Enter a **Descriptive Name** for the profile, select a **Model**, and input the **API Key**.
+4. Click **Save The Changes** to store your new AI profile.
+</Steps>
+
+## Profile Settings
+
+Each AI profile has a few simple settings:
+
+- **Descriptive Name**: A name to identify this profile. Choose a meaningful name (e.g., "Mapping AI" or "Content Generator") so you can recognize its purpose.
+- **Model**: Select which AI model this profile will use. Options include:
+    - `OpenAI GPT 4.1 Nano` - A fast, cost-efficient model suitable for lightweight tasks (this is the default).
+    - `OpenAI GPT 40 Mini` - A more advanced model ideal for detailed content.
+    - `OpenAI GPT 5 Mini` - A next-generation model for high-quality, complex content.
+    - `OpenAI GPT 5 Nano` - An efficient next-generation model for balanced performance and cost.
+- **API Key**: The API key from your AI provider. For OpenAI models, enter your Secret API Key here. This field is required for the profile to function.
+
+<Aside type="caution">
+Ensure your API Key is kept private. Never share API keys publicly, as anyone with access could use your AI credits.
+</Aside>
+
+## Where AI Profiles Are Used in Listdom
+
+Once set up, you can leverage AI profiles in various features:
+
+- **Auto-Mapping CSV/Excel Fields**: When importing listings, you can select an AI profile to automatically map your file's columns to the correct listing fields, drastically speeding up the import process.
+
+- **Listing Text Content Generation**: In the listing editor, an AI button appears above the description field, Remark (Owner Message). Clicking this allows you to choose an AI profile and enter a prompt to generate engaging listing content automatically.
+
+- **Working Hours Parsing**: An AI button next to the "Work Hours" section allows you to paste or type unstructured hours (e.g., "Mon-Fri 9am-5pm, Sat off"). The AI will parse this text and automatically fill in each day's opening and closing times.
+
+- **Other AI-Powered Features**: The profiles you create now will also work with any future AI-driven features as they are introduced, such as image suggestions or enhanced search.
+
+<Aside type="tip">
+If you have only one AI profile, Listdom will automatically use it for all AI tasks. If you have multiple, you will be prompted to select the intended profile for each task.
+</Aside>

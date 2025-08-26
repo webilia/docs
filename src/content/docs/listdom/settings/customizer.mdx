@@ -1,0 +1,372 @@
+---
+title: Customizer
+sidebar_label: Customizer
+description: "Customize the appearance of Listdom elements such as colors, fonts, buttons, forms, single listings, dashboards, and profiles."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Customizer settings let you fine-tune Listdom's visual style—from global colors and fonts to the appearance of buttons, forms, single listing pages, frontend dashboards, and profile layouts. These options help ensure Listdom matches your site's branding and design needs.
+
+<Steps>
+1. In your WordPress dashboard, go to Listdom → Settings → Customizer to open the Listdom Customizer panel.
+2. Select a section tab (e.g. General, Buttons, Forms, etc.) to view its customization options.
+3. Adjust the available options as needed. After making changes, click Save Changes to apply the new styles on your site.
+</Steps>
+
+## General
+
+The General section defines the primary colors, fonts, and spacing used throughout Listdom.
+
+### Colors
+- **General Color**: The primary accent color used across Listdom elements for highlights, icons, buttons, etc. (Default: `#33c6ff`)
+
+### Fonts
+- **Primary Font**: The main font family for Listdom's text elements. Choose a font family to override the default. (Default: `Poppins`)
+
+### Gaps
+- **Base Gap (Pixels)**: Specifies a base spacing unit in pixels. The system automatically generates a range of spacing values (margins/padding) from this base to keep layouts consistently scaled. (Default: `8px`)
+
+## Buttons
+
+The Buttons section controls the styling of Listdom's buttons, such as search, pagination, and call-to-action buttons. All button styles can optionally inherit settings from the General button style for consistency.
+
+<Aside type="tip">
+You can enable `Inherit from General Button` on specific button styles (Search, Pagination, Light, Solid) to reuse the `General Button` settings. By default, each button has independent styling (inheritance is off).
+</Aside>
+
+### General Button
+This is the base style for buttons, used as the default for other button types if inheritance is enabled.
+
+#### Normal
+Defines the button's appearance in its normal (default) state:
+- **Background Color 1**: Primary background color of the button. (Default: `#33c6ff`)
+- **Background Color 2**: Secondary background color, used for gradients. (Default: `#306be6`)
+- **Text Color**: The button label text color. (Default: `#ffffff`)
+- **Border**: The button's border style and radius. By default, no visible border (`0px` on all sides, style `none`) is applied, with a subtle rounded corner (`5px` radius).
+- **Padding**: Inner spacing of the button. (Default: `6px` top/bottom and `20px` left/right)
+- **Typography**: Font settings for the button text. By default, the text is centered with an inherited font, `15px` size, and `32px` line height.
+
+#### Hover
+Defines the button's appearance on hover:
+- **Background Color 1**: Hover-state primary background color. (Default: `#306be6`)
+- **Background Color 2**: Hover-state secondary background color. (Default: `#306be6`)
+- **Text Color**: Hover-state text color. (Default: `#ffffff`)
+- **Border**: Hover-state border color and style. By default, this remains `none`.
+
+*(The General Button's hover state inherits the same padding and typography as the Normal state.)*
+
+### Search Button
+The Search button style applies to search form submit buttons. It is independent by default but can inherit from the General Button.
+
+#### Normal
+- **Background Color 1**: Main background color for the search button.
+- **Background Color 2**: Secondary background color for the search button.
+- **Text Color**: Text color of the search button label. (Default: `#ffffff`)
+- **Border**: Border style for the search button. (Default: `none`)
+- **Padding**: Inner spacing for the search button. (Default: `9px` top/bottom and `20px` left/right)
+- **Typography**: Font settings for the search button text. (Inherits defaults from the General Button)
+
+#### Hover
+- **Background Color 1**: Hover-state background color. (Default: `#306be6`)
+- **Background Color 2**: Secondary hover background color. (Default: `#306be6`)
+- **Text Color**: Hover-state text color. (Default: `#ffffff`)
+- **Border**: Hover-state border color/style. (Default: `none`)
+
+*(Hover state uses the same padding and typography as the Normal state for the Search button.)*
+
+### Pagination Button
+This style is used for "Load More" and paginated navigation buttons. It can inherit from the General Button.
+
+#### Normal
+- **Background Color 1**: Background color for pagination buttons. (Default: `#e6f7ff`)
+- **Background Color 2**: Secondary background color. (Default: `#e6f7ff`)
+- **Text Color**: Text color for pagination button labels. (Default: `#0ab0fe`)
+- **Border**: Border style and color. (Default: `1px` solid border with color `#bceaff` and `4px` radius)
+- **Padding**: Inner spacing for the button. (Default: `6px` top/bottom, `20px` left/right)
+- **Typography**: Font settings for the pagination button text. (Inherits general defaults)
+
+#### Hover
+- **Background Color 1**: Hover-state background color. (Default: `#306be6`)
+- **Background Color 2**: Secondary hover background color. (Default: `#306be6`)
+- **Text Color**: Hover-state text color. (Default: `#ffffff`)
+- **Border**: Hover-state border. By default, the `1px` solid border with `#bceaff` color is applied on hover.
+
+*(Padding and typography remain consistent between Normal and Hover states.)*
+
+### Light Button
+A secondary button style with a lighter appearance. It can inherit from the General Button.
+
+#### Normal
+- **Background Color 1**: Light button background color. (Default: `#e6f7ff`)
+- **Background Color 2**: Secondary background color. (Default: `#e6f7ff`)
+- **Text Color**: Text color for Light buttons. (Default: `#0ab0fe`)
+- **Border**: Border style and color. (Default: `1px` solid border with color `#bceaff` and `4px` corner radius)
+- **Padding**: Padding for Light buttons. (Default: `6px` top/bottom, `20px` left/right)
+- **Typography**: Font settings. (Inherits base defaults from General Button)
+
+#### Hover
+- **Background Color 1**: Hover-state background color. (Default: `#306be6`)
+- **Background Color 2**: Secondary hover background color. (Default: `#306be6`)
+- **Text Color**: Hover-state text color. (Default: `#ffffff`)
+- **Border**: Hover-state border style/color. (Remains `1px` solid `#bceaff` by default)
+
+### Solid Button
+A prominent call-to-action style button. It can inherit from the General Button.
+
+#### Normal
+- **Background Color 1**: Background color for Solid buttons. (Default: `#33c6ff`)
+- **Background Color 2**: Secondary background color. (Default: `#33c6ff`)
+- **Text Color**: Text color on Solid buttons. (Default: `#ffffff`)
+- **Border**: Border style and color. (Default: no border, `4px` corner radius)
+- **Padding**: Inner spacing. (Default: `6px` top/bottom, `20px` left/right)
+- **Typography**: Font settings. (Inherits defaults from General Button)
+
+#### Hover
+- **Background Color 1**: Hover-state background color. (Default: `#29a6e1`)
+- **Background Color 2**: Secondary hover background color. (Default: `#29a6e1`)
+- **Text Color**: Hover-state text color. (Default: `#eeeeee`)
+- **Border**: Hover-state border. (Default: no border)
+
+*(Typography and padding carry over from the Normal state.)*
+
+## Forms
+This section styles input forms used in Listdom, including fields, containers, and icons.
+
+### General Forms
+Applies to basic form fields and inputs across the plugin.
+
+#### Inputs
+Customize standard input fields (text fields, textareas, selects):
+
+##### Normal
+- **Background Color**: The input field's background color. (Default: `#ffffff`)
+- **Text Color**: Color of the input text. (Default: `#000000`)
+- **Placeholder Color**: Color of placeholder text within inputs. (Default: `#a4a8b5`)
+- **Border**: The input's border style, color, and radius. (Default: `1px` solid border with color `#f4f5f7` and `10px` radius)
+- **Typography**: Font settings for input text. (Default: `12px` size with a `26px` line height)
+
+##### Hover/Focus
+- **Background Color**: Background color when the input is hovered or focused. (Default: `#ffffff`)
+- **Border**: Border color on hover/focus. (Default: `#306be6`)
+
+### Search Forms
+Styles specific to Listdom’s search bar and search filters.
+
+#### Form
+- **Background Color**: The background color of the overall search form container. (Default: `#ffffff`)
+
+#### Icon
+- **Icon Color**: The color of icons used in the search form. (Default: `#33c6ff`)
+
+#### Inputs
+Customize the search form’s input field styles:
+
+##### Normal
+- **Background Color**: Input background color in search forms. (Default: `#ffffff`)
+- **Text Color**: Input text color. (Default: `#000000`)
+- **Placeholder Color**: Placeholder text color for search inputs. (Default: `#a4a8b5`)
+- **Border**: Border style for search inputs. (Defaults to `1px` solid `#f4f5f7` with `10px` radius)
+- **Typography**: Font settings for search input text. (Default: `12px` size, `26px` line height)
+
+##### Hover/Focus
+- **Background Color**: Input background on hover/focus. (Default: `#ffffff`)
+- **Border**: Border color on focus. (Default: `#306be6`)
+
+### Authentication Forms
+Styles for user authentication forms (login/register).
+
+#### Box
+- **Background Color**: Background color of the authentication form wrapper. (Default: transparent)
+- **Padding**: Padding inside the auth form box. (Default: `0px` on all sides)
+- **Border**: Border around the form box. (Default: `none`)
+
+#### Tabs
+For forms with tabbed navigation (e.g., Login/Register):
+
+##### Normal
+- **Background Color 1**: Tab background color. (Default: `#ffffff`)
+- **Background Color 2**: Secondary tab background color. (Default: `#ffffff`)
+- **Text Color**: Tab text color when not active. (Default: `#306be6`)
+- **Border**: Tab border. (Default: `1px` solid `#306be6` with `4px` radius)
+- **Padding**: Padding around the tab label. (Default: `0px` top/bottom and `16px` left/right)
+- **Typography**: Font settings for tab labels. (Default: medium weight, `14px` size, `38px` line height)
+
+##### Hover
+- **Background Color 1**: Hover/active tab background. (Default: `#306be6`)
+- **Background Color 2**: Secondary hover/active tab background. (Default: `#306be6`)
+- **Text Color**: Hover/active tab text color. (Default: `#ffffff`)
+- **Border**: Hover/active tab border. (Defaults to the `1px` solid style)
+
+##### Active
+- **Background Color 1**: Active tab background. (Default: `#33c6ff`)
+- **Background Color 2**: Secondary active tab background. (Default: `#306be6`)
+- **Text Color**: Active tab text color. (Default: `#ffffff`)
+- **Border**: Active tab border. (Default: `none`)
+
+#### Labels
+- **Text Color**: Color of form field labels (e.g., "Username"). (Default: `#000000`)
+- **Typography**: Font settings for labels. (Default: `12px` size, `26px` line height, left-aligned)
+
+## Single Listing
+Customizes the layout and style of individual listing pages.
+
+### Features
+Customize how listing Features (amenities or attributes) are displayed.
+
+#### Icons
+- **Icon Background Color**: Background color for feature icons. (Default: `#e6f7ff`)
+- **Icon Text Color**: Color of the feature icon itself. (Default: `#0ab0fe`)
+
+### Reviews
+Customize the appearance of the Reviews section.
+
+<Aside type="note">
+These options only have an effect if the Listdom Reviews add-on is active.
+</Aside>
+
+#### Tabs
+For tab navigation in the Reviews section:
+
+##### Normal
+- **Background Color 1**: Reviews tab background. (Default: `#ffffff`)
+- **Background Color 2**: Secondary reviews tab background. (Default: `#ffffff`)
+- **Text Color**: Reviews tab text color when not active. (Default: `#306be6`)
+- **Border**: Tab border in normal state. (Default: `1px` solid `#306be6` with `4px` radius)
+- **Padding**: Padding for review tabs. (Default: `0px` top/bottom, `16px` left/right)
+- **Typography**: Font settings for review tab text. (Default: `14px` size, centered)
+
+##### Hover / Active
+- **Background Color 1**: Tab background when hovered or active. (Default: `#0ab0fe`)
+- **Background Color 2**: Secondary background when hovered/active. (Default: `#0ab0fe`)
+- **Text Color**: Tab text color on hover/active. (Default: `#ffffff`)
+- **Border**: Border for hover/active tab, continuing the `1px` solid style.
+
+### Price
+Customize the display style of the listing Price element.
+
+#### Price
+
+##### Normal
+- **Background Color**: Background color of the price badge/label. (Default: `#0ab0fe`)
+- **Text Color**: Text color of the price amount. (Default: `#e6f7ff`)
+- **Typography**: Font settings for the price text. (Default: `16px` size, `25px` line height)
+- **Border**: Border around the price label. (Default: no border, `27px` radius)
+- **Padding**: Padding around the price text. (Default: `6px` top/bottom and `20px` left/right)
+
+##### Hover
+- **Background Color**: Background color on hover. (Default: `#0ab0fe`)
+- **Text Color**: Text color on hover. (Default: `#e6f7ff`)
+- **Border**: Border on hover. (Defaults to no border, `27px` radius)
+- **Padding**: Padding on hover. (Defaults to `6px` by `20px`)
+
+### Breadcrumb
+Style the breadcrumb navigation on single listing pages.
+
+#### Home
+- **Icon Gap (Pixels)**: Spacing between the home icon and text. (Default: `6px`)
+- **Text Color**: Text color for the "Home" link. (Default: `#0ab0fe`)
+- **Icon Color**: Color of the home icon. (Default: `#0ab0fe`)
+- **Typography**: Font settings for the Home link. (Default: `Poppins`, `16px` size, `25px` line height)
+
+#### Taxonomy
+- **Text Color**: Text color for the category/taxonomy link. (Default: `#0ab0fe`)
+- **Typography**: Font settings for taxonomy text. (Default: `Poppins`, `16px` size, `25px` line height)
+
+#### Current
+- **Text Color**: Text color for the current page item (the listing title). (Default: `#444444`)
+- **Typography**: Font settings for the current item. (Default: `Poppins`, bolder weight, `16px` size, `25px` line height)
+
+#### Separator
+- **Text Color**: Color of the breadcrumb separator character (e.g., "/"). (Default: `#999999`)
+
+## Frontend Dashboard
+Customizes the appearance of the front-end user dashboard.
+
+### Menu
+Styles the sidebar menu or navigation items in the dashboard.
+
+#### Normal
+- **Container Background Color**: Background of the menu container panel. (Default: `#0ab0fe`)
+- **Background Color**: Background of individual menu items. (Default: `#0ab0fe`)
+- **Text Color**: Color of the menu item text. (Default: `#ffffff`)
+- **Icon Color**: Color of icons next to menu text. (Default: `#ffffff`)
+- **Border**: Border style for menu items. (Default: `1px` solid `#0ab0fe`, `5px` radius)
+- **Typography**: Font settings for menu text. (Default: `14px` size, `26px` line height)
+
+#### Hover/Focus
+- **Background Color**: Background color on hover or for the active menu item. (Default: `#24b7ff`)
+- **Text Color**: Text color on hover/active. (Default: `#ffffff`)
+- **Border**: Border color on hover/active. (Default: `#ffffff29`)
+
+## Profile
+Styles the front-end user profile page and the user directory.
+
+### Profile Page
+Styles for the user’s "My Profile" view.
+
+#### Sections
+
+##### Container
+- **Container Background Color**: Background color of profile page sections. (Default: `#ffffff`)
+- **Border**: Border around the section container. (Default: no border, `5px` radius)
+- **Padding**: Inner spacing for each profile section container. (Default: `30px` on all sides)
+
+##### Title
+- **Text Color**: Color of section titles (e.g., "About Me"). (Default: `#000000`)
+- **Typography**: Font for section titles. (Default: `Poppins`, `23px` size, `32px` line height, medium weight)
+
+#### Content
+
+##### Author Name
+- **Text Color**: Color of the profile author’s name. (Default: `#000000`)
+- **Typography**: Font settings for the author name. (Default: `Poppins`, `23px` size, `26px` line height, medium weight)
+
+##### Job Title
+- **Text Color**: Color of the profile author’s job title. (Default: `#000000`)
+- **Typography**: Font settings for the job title. (Default: `Poppins`, `16px` size, regular weight)
+
+##### Count
+- **Text Color**: Color for count numbers (e.g., number of listings). (Default: `#7e8086`)
+- **Icon Color**: Color of icons associated with counts. (Default: `#0ab0fe`)
+- **Typography**: Font settings for count text. (Default: `Poppins`, `16px` size, `32px` line height, medium weight)
+
+##### Contact Info
+- **Text Color**: Color of the contact information text. (Default: `#333333`)
+- **Icon Color**: Color of contact info icons. (Default: `#000000`)
+- **Social Icon Color**: Color of social media icons. (Default: `#000000`)
+- **Typography**: Font settings for contact info text. (Default: `Poppins`, `16px` size, `32px` line height)
+
+##### Bio
+- **Text Color**: Color of the biography/description text. (Default: `#7e8086`)
+- **Typography**: Font settings for the bio text. (Default: `Poppins`, `16px` size, `25px` line height, justified)
+
+### Users
+Styles for the User Directory page (list of user profile cards).
+
+#### Cards
+
+##### Item
+- **Container Background Color**: Background color of each user card. (Default: `#ffffff`)
+- **Border**: Border of the user card. (Default: `1px` solid `#eeeeee`, `30px` radius)
+- **Padding**: Inner padding of the card. (Default: `20px` on all sides)
+
+##### Author Name
+- **Text Color**: Color of the user’s name on the card. (Default: `#000000`)
+- **Typography**: Font for the name. (Default: `Poppins`, `18px` size, `25px` line height, medium weight)
+
+##### Job Title
+- **Text Color**: Color of the user’s job title on the card. (Default: `#666666`)
+- **Typography**: Font for the job title. (Default: `Poppins`, `16px` size, `25px` line height)
+
+##### Contact Info
+- **Icon Color**: Color of contact info icons on the user card. (Default: `#333333`)
+
+##### Bio
+- **Text Color**: Color of the short bio on the user card. (Default: `#666666`)
+- **Typography**: Font for the bio snippet. (Default: `Poppins`, `14px` size, `25px` line height, justified)

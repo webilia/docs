@@ -1,0 +1,93 @@
+---
+title: "Frontend Dashboard"
+sidebar_label: "Frontend Dashboard"
+description: "Configure pages, menus, guest submission, fields, restrictions, and modules for the Listdom frontend dashboard."
+sidebar:
+  order: 3
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdom provides a practical, easy-to-use Frontend Dashboard through which users can create and manage listings without needing access to the WordPress admin area. In this dashboard, users can submit listings and (with the appropriate add-ons) even manage things like subscriptions, bookings, or applications related to their listings.
+
+Once you have created a page for the dashboard, head over to **Listdom → Settings → Frontend Dashboard** to configure its options. The settings in this section allow you to control the pages used, the dashboard menus, guest submission behavior, required fields, content restrictions, and which listing form modules are enabled.
+
+## Pages
+
+- **Dashboard Page**: Select the page that contains your frontend dashboard. First, create a WordPress page and insert the shortcode `[listdom-dashboard]` into it. Then choose that page here.
+
+- **Independent Add Listing Form** <Badge text="Pro" />: Enable this option for a standalone "Add Listing" page, separate from the full dashboard. After enabling, insert the `[listdom-add-listing]` shortcode on a page of your choice and select that page in this setting.
+
+## Dashboard Menus <Badge text="Pro" />
+
+This section allows you to customize the frontend dashboard's menu items. You can rearrange the order by dragging and dropping them.
+
+- **Add Custom Menu**: Click this button to create a new menu item. For each custom menu, you can configure:
+    - **Label**: The title of the menu item.
+    - **Slug**: A unique slug for the menu, used in the URL.
+    - **Icon**: The icon displayed next to the menu title.
+    - **Content**: The content to display when the menu is selected. You can include text, images, or shortcodes from third-party plugins (e.g., Elementor, Divi, WooCommerce).
+
+## Guest Submission <Badge text="Pro" />
+
+These settings control whether non-logged-in visitors can submit listings.
+
+- **Status**: Toggle this on to allow guest submissions. By default, this is disabled. When disabled, you can enable **Redirect to Login** to send users to the WordPress login page instead of showing Listdom's login prompt.
+
+- **User Registration**: Determine if and when a new user account is created for a guest submitter.
+    - **Once Approved**: (Default) The guest is registered as a new user only after their listing is approved. The submission form collects their Email and Full Name.
+    - **Once Submitted**: The guest is registered immediately upon submission. The form includes Password and Full Name fields for instant account creation.
+    - **Disabled**: No user account is created. The listing is submitted as a one-time action.
+
+### The Best User Roles for Listdom
+When you install Listdom, it adds two new user roles: `Listdom Author` and `Listdom Publisher`. It's recommended to use these roles for users submitting listings via the frontend.
+
+- **Listdom Publisher**: Users with this role can have their listings published immediately without review.
+- **Listdom Author**: Users with this role will have their submitted listings marked as "Pending Review," requiring an admin to publish them.
+
+## Fields
+
+Configure how certain fields appear on the Add Listing form.
+
+- **Locations**: Choose whether this selection is presented as `checkboxes` (default) or a `dropdown`.
+- **Features**: Choose whether this selection is presented as `checkboxes` (default) or a `dropdown`.
+- **Tags**: Choose how the tags field is presented. Options are `Text Input` (default), `Checkboxes`, or `Dropdown`.
+- **Gallery Method**: Select how users upload gallery images. Options are `WordPress Media` (default) or `Simple Uploader`.
+
+### Terms Builder
+Allow users to create new taxonomy terms (Categories, Locations, etc.) directly from the frontend form. For each taxonomy, you can set it to:
+- **Disabled**: (Default) Users can only select from existing terms.
+- **Express**: Users can quickly add a new term by entering a name.
+- **Detailed**: Users can add a new term with a more detailed interface (e.g., adding a description or icon).
+
+### Required Fields
+Mark which fields on the Add Listing form are mandatory. The following fields are always required by the system:
+- **Listing Title**
+- **Category**
+- **Guest Email** (when guest submission is used)
+- **Guest Password** (when using the "Once Submitted" guest registration method)
+
+## Restrictions
+
+Impose limits on certain inputs. Leave blank or zero for unlimited values.
+
+- **Maximum Gallery Images**: Set the maximum number of images a user can upload to a gallery.
+- **Maximum Image Size Allowed**: Set the size limit in kilobytes (KB) for each uploaded image (e.g., `2048` for 2 MB).
+- **Maximum Description Length**: Set the maximum number of characters allowed in the listing description.
+- **Maximum Number of Tags**: Set how many tags a user can add to a single listing.
+
+## Modules
+
+Determine which elements of the listing submission form are displayed. For each module, you can set its visibility to:
+- **Enabled**: Visible to all users who can add listings.
+- **Editor + Admin**: Only visible to site administrators and editors.
+- **Disabled**: Completely removed from the Add Listing form for everyone.
+
+This allows you to fine-tune which features are available. For instance, you could disable the Price module if your site doesn't use pricing, or restrict it to admins only.
+
+<Aside type="note">
+The listing title, category, and description are core fields that cannot be disabled. Features from certain add-ons may also not appear here.
+</Aside>
