@@ -1,6 +1,5 @@
 ---
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const route = Astro.locals.starlightRoute;
@@ -10,7 +9,7 @@ const { entry } = route;
 const { breadcrumb } = entry.data as { breadcrumb?: boolean };
 if (breadcrumb === false) return;
 
-const docsRoot = fileURLToPath(new URL('../content/docs', import.meta.url));
+const docsRoot = path.resolve(process.cwd(), 'src', 'content', 'docs');
 
 const toTitle = (slug: string) =>
   slug
