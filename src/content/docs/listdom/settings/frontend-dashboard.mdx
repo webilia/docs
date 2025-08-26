@@ -13,10 +13,6 @@ import { Aside, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/compo
 
 Listdom provides a practical, easy-to-use Frontend Dashboard through which users can create and manage listings without needing access to the WordPress admin area. In this dashboard, users can submit listings and (with the appropriate add-ons) even manage things like subscriptions, bookings, or applications related to their listings.
 
-<Aside type="note">
-The frontend dashboard is available in the Listdom Pro add-on.
-</Aside>
-
 Once you have created a page for the dashboard, head over to **Listdom → Settings → Frontend Dashboard** to configure its options. The settings in this section allow you to control the pages used, the dashboard menus, guest submission behavior, required fields, content restrictions, and which listing form modules are enabled.
 
 ## Pages
@@ -25,7 +21,7 @@ Once you have created a page for the dashboard, head over to **Listdom → Setti
 
 - **Independent Add Listing Form** <Badge text="Pro" />: Enable this option for a standalone "Add Listing" page, separate from the full dashboard. After enabling, insert the `[listdom-add-listing]` shortcode on a page of your choice and select that page in this setting.
 
-## Dashboard Menus
+## Dashboard Menus <Badge text="Pro" />
 
 This section allows you to customize the frontend dashboard's menu items. You can rearrange the order by dragging and dropping them.
 
@@ -35,7 +31,7 @@ This section allows you to customize the frontend dashboard's menu items. You ca
     - **Icon**: The icon displayed next to the menu title.
     - **Content**: The content to display when the menu is selected. You can include text, images, or shortcodes from third-party plugins (e.g., Elementor, Divi, WooCommerce).
 
-## Guest Submission
+## Guest Submission <Badge text="Pro" />
 
 These settings control whether non-logged-in visitors can submit listings.
 
@@ -95,19 +91,3 @@ This allows you to fine-tune which features are available. For instance, you cou
 <Aside type="note">
 The listing title, category, and description are core fields that cannot be disabled. Features from certain add-ons may also not appear here.
 </Aside>
-
-## Examples
-
-<CardGrid>
-  <Card title="Enabling Guest Listing Submissions">
-    To allow visitors to submit listings without registering, go to **Guest Submission**, turn **Status** on, and set **User Registration** to `Once Submitted`. This lets guests post listings easily while creating an account for them automatically.
-  </Card>
-  <Card title="Adding a Custom Support Page">
-    To add a "Support" menu, go to **Dashboard Menus** and click **Add Custom Menu**. Set the label to "Support," choose an icon, and paste a contact form shortcode into the Content area. Now users can contact you directly from their dashboard.
-  </Card>
-  <Card title="Restricting Price Input to Admins Only">
-    To ensure only staff can assign prices, go to **Modules**, find the **Price Options** module, and set it to `Editor + Admin`. The price fields will now only appear on the Add Listing form for users with Editor or Administrator roles.
-  </Card>
-</CardGrid>
-
-<LinkCard title="Learn more about WordPress user roles and capabilities" href="https://wordpress.org/documentation/article/roles-and-capabilities/" />

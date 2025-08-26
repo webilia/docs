@@ -149,19 +149,3 @@ Prevent certain user roles from accessing the WordPress admin dashboard.
 <Aside type="caution">
 Use this feature carefully. When a role is blocked, users cannot access any WP admin screens. Ensure you have set up the Frontend Dashboard so those users can manage their listings.
 </Aside>
-
-## Examples
-
-<CardGrid>
-  <Card title="Custom Login & Registration Page">
-    Create dedicated pages for login (`[listdom-login]`) and registration (`[listdom-register]`). Then, in Users → Authentication → Change Default Pages, enable and select your new pages to provide a branded user experience.
-  </Card>
-  <Card title="Enforcing Strong Passwords">
-    To improve security, go to Users → Register → Password Policy and ensure **Strong Password** is enabled. Adjust requirements like minimum length or required character types to reduce the risk of weak passwords.
-  </Card>
-  <Card title="Frontend-Only Listing Management">
-    To keep users out of the WP Admin, go to Users → Block Admin Access and ensure all listing roles (Author/Publisher) are checked. This forces them to use the frontend dashboard to manage their listings.
-  </Card>
-</CardGrid>
-
-<LinkCard title="WordPress Roles and Capabilities" href="https://wordpress.org/support/article/roles-and-capabilities/" />

@@ -10,7 +10,7 @@ header_button:
 ---
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-Listdom's AI menu allows you to integrate powerful AI capabilities into your directory site <Badge text="New" />. Here you can create multiple AI Profiles, each with a specific model and API key. By managing profiles, you can choose a low-cost AI for simple tasks like field mapping and a more advanced model for complex tasks such as generating listing descriptions. This flexibility ensures you use the right AI model for the right job.
+Listdom's AI menu allows you to integrate powerful AI capabilities into your directory site. Here you can create multiple AI Profiles, each with a specific model and API key. By managing profiles, you can choose a low-cost AI for simple tasks like field mapping and a more advanced model for complex tasks such as generating listing descriptions. This flexibility ensures you use the right AI model for the right job.
 
 <Aside type="note">
 To use Listdom's AI features, you must obtain an API key from the AI provider (currently OpenAI). Entering a valid OpenAI API Key is required for each profile.
@@ -50,7 +50,7 @@ Once set up, you can leverage AI profiles in various features:
 
 - **Auto-Mapping CSV/Excel Fields**: When importing listings, you can select an AI profile to automatically map your file's columns to the correct listing fields, drastically speeding up the import process.
 
-- **Listing Description Generation**: In the listing editor, an AI button appears above the description field. Clicking this allows you to choose an AI profile and enter a prompt to generate engaging listing content automatically.
+- **Listing Text Content Generation**: In the listing editor, an AI button appears above the description field, Remark (Owner Message). Clicking this allows you to choose an AI profile and enter a prompt to generate engaging listing content automatically.
 
 - **Working Hours Parsing**: An AI button next to the "Work Hours" section allows you to paste or type unstructured hours (e.g., "Mon-Fri 9am-5pm, Sat off"). The AI will parse this text and automatically fill in each day's opening and closing times.
 
@@ -59,21 +59,3 @@ Once set up, you can leverage AI profiles in various features:
 <Aside type="tip">
 If you have only one AI profile, Listdom will automatically use it for all AI tasks. If you have multiple, you will be prompted to select the intended profile for each task.
 </Aside>
-
-## Examples
-
-<CardGrid>
-  <Card title="Automated Field Mapping with AI">
-    You have a CSV of 1000 listings. Instead of manually mapping each column, you click the "Auto Map with AI" button. The AI instantly suggests mappings (e.g., matching "Address" to the Location field). You review, adjust if needed, and import, saving significant time.
-  </Card>
-  <Card title="Generating a Listing Description">
-    When adding a new restaurant, you click the AI button in the description editor, select your "Content AI" profile, and type a prompt: "Describe this as a family-friendly Italian restaurant." A full paragraph appears, creating a professional description in seconds.
-  </Card>
-  <Card title="Quickly Filling Work Hours">
-    A business owner gives you their hours: "Open weekdays 9 to 6, closed Sundays." You hit the AI button by Work Hours, paste that text, and the AI populates each weekday with "9 AM - 6 PM" and marks Sunday as off, ensuring the schedule is perfectly formatted.
-  </Card>
-</CardGrid>
-
-<LinkCard href="https://demo.webilia.com/listdom/">
-  Explore the Listdom live demo to see how AI features can enhance your directory site in real time.
-</LinkCard>

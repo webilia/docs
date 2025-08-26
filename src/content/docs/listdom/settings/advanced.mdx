@@ -18,7 +18,6 @@ This section allows you to control where Listdom's JavaScript and CSS files are 
 
 - **Load Assets Everywhere**: Toggle to globally load Listdom's CSS/JS on all pages of your site. When disabled, Listdom will only load assets on the specific content configured below. (Default: On)
 - **Load for all `{Post Type}`**: For each post type (e.g., `Posts`, `Pages`), this switch allows assets to load on all items of that type. Disabling it lets you select specific entries where assets should load. (Visible only if "Load Assets Everywhere" is off)
-- **Load for all `{Taxonomy}`**: For each taxonomy (e.g., `Categories`, `Tags`), you can enable or disable global asset loading. Disabling it lets you pick individual terms where Listdom assets will load. (Visible only if "Load Assets Everywhere" is off)
 - **Font Awesome Status**: Toggle to include or exclude Listdom's icon font (Font Awesome). If your theme already loads Font Awesome, you can disable this to prevent duplicate loading. (Default: Enabled)
 
 ## Custom Styles
@@ -68,23 +67,3 @@ Listdom blocks some user roles from accessing the WP Admin dashboard by default,
 <Aside type="tip">
 These blocking settings ensure directory users use the user-friendly frontend dashboard. They are on by default for better security and user experience.
 </Aside>
-
-## Examples
-
-<CardGrid>
-  <Card title="Selective Asset Loading for Faster Pages">
-    An administrator disables "Load Assets Everywhere" and configures assets to load only on pages with listings. As a result, regular blog pages load faster, while directory pages still work flawlessly.
-  </Card>
-  <Card title="Customizing Listdom Appearance with CSS">
-    A site owner uses the Custom CSS Code field to match Listdom's look to their branding, for example, changing the listing card background color. The custom styles persist even after plugin updates.
-  </Card>
-  <Card title="Disabling Unneeded Listing Features">
-    A site owner disables the "Pricing" and "Map & Address" components. The corresponding fields disappear from all forms and pages, making the submission process shorter and the listing pages cleaner.
-  </Card>
-</CardGrid>
-
-<LinkCard
-  href="https://wordpress.org/plugins/listdom"
-  title="Listdom Plugin on WordPress.org"
-  description="Visit the official WordPress plugin page for Listdom to see details, reviews, and additional information."
-/>
