@@ -71,12 +71,12 @@ export default defineConfig({
         {
           label: 'Vertex Addons',
           items: [
-            { label: 'Overview', autogenerate: { directory: 'vertex/overview' } },
+            { label: 'Overview', link: '/vertex/' },
             { label: 'Getting Started', autogenerate: { directory: 'vertex/getting-started' } },
             {
               label: 'Widgets',
               items: [
-                { label: 'Widgets Overview', link: '/vertex/widgets/' },
+                { label: 'Overview', link: '/vertex/widgets/' },
                 { label: 'Site & Navigation', autogenerate: { directory: 'vertex/widgets/site-navigation' }, collapsed: true },
                 { label: 'Content & Layout', autogenerate: { directory: 'vertex/widgets/content-layout' }, collapsed: true },
                 { label: 'Media & Interactivity', autogenerate: { directory: 'vertex/widgets/media-interactivity' }, collapsed: true },
