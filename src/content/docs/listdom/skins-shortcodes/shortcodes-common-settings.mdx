@@ -1,0 +1,196 @@
+---
+title: "Shortcodes"
+sidebar_label: Shortcodes
+description: "Create and configure Listdom shortcodes to display listings with custom skins, filters, and layouts."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Shortcodes in Listdom allow you to define how listings are displayed on your site. Each shortcode is a saved set of display settings, layout options, and filters that you can insert into pages via a `[listdom id="<ID>"]` code. The Shortcodes menu lets you manage all shortcode configurations in one place, making it easy to reuse listing layouts across your site.
+
+## All Shortcodes Overview
+
+The Shortcodes page shows a table of all defined shortcodes. For each shortcode entry, you will see:
+
+-   **Title**: The name of the shortcode (for your reference).
+-   **Shortcode**: The actual code snippet to insert in pages, e.g. `[listdom id="123"]`. You can click the **Copy** button to copy this shortcode.
+-   **Skin**: The display skin chosen for that shortcode (e.g. Grid View, List View, etc.).
+-   **Date**: The date the shortcode was created or last modified.
+
+At the top of the table, a **Skin** filter dropdown allows you to show shortcodes of a specific skin type. Each shortcode row has actions that appear when you hover over it:
+-   **Edit**: Open the shortcode settings to modify it.
+-   **Duplicate**: Create a copy of the shortcode (as a new draft) to quickly start with the same settings.
+-   **Trash**: Delete the shortcode if it's no longer needed.
+
+<Aside type="note">
+Duplicating a shortcode preserves all its settings (display options, filters, etc.), so you can modify the duplicate without affecting the original.
+</Aside>
+
+## Adding or Editing a Shortcode
+
+To create a new shortcode, click **Add Shortcode**. To edit an existing one, click its **Edit** action. This opens the shortcode editor where you can configure how your listings should appear.
+
+Start by entering a **Title** for your shortcode at the top (e.g., "Homepage Grid of Cars"). The main configuration is split into sections with tabs. Below is a breakdown of each tab.
+
+### Skin
+
+Under the Skin tab, choose the overall layout for displaying listings. You will see a gallery of skin options with preview images. Click one to select it. Skins include:
+
+-   **List View**: A vertical list of listings.
+-   **Grid View**: A grid layout with multiple columns.
+-   **List + Grid View**: A hybrid layout allowing users to toggle between views.
+-   **Half Map / Split View**: Listings on one side and a map on the other.
+-   **Single Map**: A full map view with listings plotted as markers.
+-   **Table View**: Listings in a tabular format.
+-   **Masonry View**: A Pinterest-style masonry grid.
+-   **Carousel**: A carousel slider of listings.
+-   **Slider**: A single listing slider.
+-   **Cover View**: A large featured listing style.
+-   **Side by Side View**: Listings with image and details side-by-side.
+-   **Accordion View**: Listings shown as collapsible accordion panels.
+-   **Mosaic View**: Listings in a mosaic/tiled layout.
+
+<Aside type="note">
+Skins involving maps (like Single Map or Half Map) require the map component to be enabled. If you have disabled Map in Listdom components or have not configured a map provider, these skin options will not be available.
+</Aside>
+
+### Style
+
+The Style tab lets you refine the appearance and elements shown for the selected skin.
+
+**Select the Style**: Choose a style variation for the skin if available (e.g., Style 1, Style 2). By default, the first style is applied.
+
+**Listing Elements Display**: Toggle various listing elements on or off for the listing cards.
+
+-   **Title**: Show the listing title. (Default: Enabled)
+-   **Claim Status**: Show an indicator if a listing is claimed or verified. (Default: Enabled)
+-   **Listing Labels**: Show any labels/badges assigned to the listing. (Default: Disabled)
+-   **Image**: Display the featured image of the listing. (Default: Enabled)
+-   **Contact Info**: Display contact icons (phone, email). (Default: Enabled)
+-   **Location**: Show the listing's location name. (Default: Enabled)
+-   **Address**: Show the listing's physical address text. (Default: Enabled if Map component is on)
+-   **Price Class**: Show the listing's price category (e.g., $, $$, $$$). (Default: Enabled)
+-   **Price**: Show the listing's price or price range. (Default: Enabled)
+-   **Categories**: Show the listing's category tags. (Default: Enabled)
+-   **Availability**: Show the listing's open/closed status. (Default: Enabled if Working Hours component is on)
+-   **Description**: Show a short description excerpt. (Default: Enabled)
+-   **Description Length**: Limit the excerpt length in words. (Default: 12)
+-   **Content Type**: Choose to display an Excerpt or Full Content. (Default: Excerpt)
+-   **Read More Button**: Show a "Read More" button linking to the full listing page. (Default: Enabled)
+-   **Favorite Icon**: Show the "Add to Favorites" heart icon. (Default: Enabled)
+-   **Compare Icon**: Show the "Compare" scale icon. (Default: Enabled)
+-   **Share Buttons**: Display social share buttons on each listing. (Default: Disabled)
+-   **Review Stars**: Display the listing's average rating as star icons. (Default: Enabled)
+-   **Slider Arrows**: Show navigation arrows on Carousel/Slider skins. (Default: Enabled for applicable skins)
+
+<Aside type="note">
+The Favorite and Compare features require the corresponding Listdom add-ons to be fully functional.
+</Aside>
+
+### Map
+
+If your chosen skin supports maps, use the Map tab to configure them.
+
+#### Map Options
+-   **Map Provider**: Choose between Leaflet (OpenStreetMap) or Google Maps. (Default: Leaflet)
+-   **Map Style**: Select the style of the map tiles (e.g., roadmap vs. satellite).
+-   **Clustering**: Toggle whether nearby listings are grouped into cluster markers. (Default: Enabled)
+-   **Listings on Map Limit**: Set a limit on how many markers to show on the map for performance.
+-   **Map Position Relative to Listings**: Choose where the map appears (e.g., Left, Right, Top).
+
+#### Map Controls
+Toggle various interactive controls on or off to customize the map interface.
+-   **Zoom Control**: Displays +/- zoom buttons. (Default: Enabled)
+-   **Map Type Control**: Allows users to switch map types (map vs. satellite). (Default: Enabled)
+-   **Street View Control**: Shows the Pegman icon for Google Street View. (Default: Enabled for Google Maps)
+-   **Draw Controls**: Enables tools for users to draw a shape on the map to filter listings. (Default: Enabled)
+-   **GPS Control**: Adds a button to find the user's location and show nearby listings. (Default: Enabled)
+-   **Scale Control**: Shows a scale bar indicating distance. (Default: Disabled)
+-   **Camera Control**: Provides a combined control for panning and zooming. (Default: Enabled)
+-   **Fullscreen Control**: Adds a button to toggle the map to full-screen mode. (Default: Enabled on mobile)
+
+### Layout
+
+Use the Layout tab to adjust limits, columns, and pagination.
+
+-   **Listings Limit**: Set the maximum number of listings to display per page. (Default: 10)
+-   **Number of Columns**: For grid skins, choose the number of columns. (Default: 3 on desktop)
+-   **Pagination Style**: Choose how users load more listings.
+    -   **Load More button**: Loads the next set of listings via AJAX.
+    -   **Infinite Scroll**: Listings load automatically as the user scrolls.
+    -   **Numeric Pagination**: Traditional page numbers.
+    -   **Disabled**: No pagination.
+    (Default: Load More button)
+
+<Aside type="note">
+If you have created custom single listing templates or use Listdom Pro features, you might see additional layout options here. For example, Listdom <Badge text="Pro" /> allows assigning a specific single listing design per category or per listing, but those settings are managed elsewhere.
+</Aside>
+
+### Sort
+
+The Sort tab controls the default sorting of listings and which options are available to visitors.
+
+#### Default Sort
+Set how listings are sorted by default. Options include sorting by Date, Title, Views, Price, Rating, Random, or Distance.
+-   **Default Sort By**: Select the default sorting field. (Default: Date)
+-   **Default Order**: Set the direction (e.g., Ascending or Descending).
+
+#### Sort Options
+Determine which sorting choices the user can toggle on the front-end.
+-   **Display Sort Bar**: Toggle whether to show sort controls to users. (Default: Enabled)
+-   **Sort Style**: Choose how sort options are presented (e.g., Default Style bar or Drop Down menu).
+-   **Available Sort Criteria**: Check the box for each sort type (Date, Title, Price, etc.) that you want to make available to users.
+
+<Aside type="tip">
+For a clean interface, enable only the sort options that make sense for your listing data. Too many options can overwhelm users.
+</Aside>
+
+### Search
+
+The Search tab lets you attach a search form to the shortcode, allowing users to filter listings in real-time.
+
+-   **Searchable**: A toggle to enable or disable the search bar for this shortcode. (Default: On)
+-   **Search Form**: If searchable, choose a pre-made search form from the dropdown. You must create search forms separately under the **Search and Filter Forms** menu.
+-   **Search Form Position**: Choose where the search form will appear (e.g., Top, Bottom, Left, Right). (Default: Top)
+-   **AJAX Search (Live Search)**: Enable this to update search results without a page reload.
+
+<Aside type="note">
+The AJAX search feature is available if you have Listdom Pro or the appropriate add-on. <Badge text="Pro" />
+</Aside>
+
+### Filter Options
+
+The Filter Options tab lets you pre-define which listings should be shown by this shortcode, acting as fixed conditions.
+
+-   **Categories to Include/Exclude**: Select categories to show or hide.
+-   **Locations to Include/Exclude**: Filter by specific location terms.
+-   **Labels to Include/Exclude**: Filter by listing labels (e.g., show only "Featured" listings).
+-   **Tags to Include/Exclude**: Filter by listing tags.
+-   **Features to Include/Exclude**: Filter by specific amenities or attributes.
+-   **Author(s) to Include/Exclude**: Show or hide listings from specific authors/vendors.
+-   **Custom Fields/Attributes Filter**: Set conditions on custom fields (e.g., "Price > 100"). This is typically available with Listdom Pro.
+
+<Aside type="note">
+Filter options apply before any user search. For example, if you include only Category A, users will only ever see listings from Category A, even if they try to search other categories.
+</Aside>
+
+## Examples
+
+<CardGrid>
+    <Card>
+        **Featured Cars Grid**: Create a shortcode that includes only listings labeled "Featured" and in the "Cars" category. Choose the Grid View skin with 3 columns, enable the Favorite icon, and use "Load More" pagination. Place this on your homepage to showcase featured cars.
+    </Card>
+    <Card>
+        **Restaurant Map Directory**: Use the Half Map skin and include only the "Restaurants" category. Attach a search form that filters by cuisine and price range. In Map Controls, turn on Draw Controls and GPS Control so visitors can find restaurants in a specific area.
+    </Card>
+    <Card>
+        **Agent Listings List**: For an agent's page, create a shortcode that includes only that author's listings. Use the List View skin and disable pagination to show all their listings at once. This will output a simple list of all properties by that agent.
+    </Card>
+</CardGrid>
+
+<LinkCard href="https://demo.webilia.com/listdom/" target="_blank" title="Explore more shortcode examples and live demos on the Listdom demo site." />
