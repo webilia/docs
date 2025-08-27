@@ -1,0 +1,96 @@
+---
+title: Categories
+sidebar_label: Categories
+description: "Manage listing categories in Listdom, including category names, icons, colors, images, and hierarchy options."
+sidebar:
+  order: 3
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listing Categories in Listdom are used to organize and classify your listings. The Categories menu (found under Listings in the WordPress dashboard) allows you to create, edit, and manage all listing categories. You can define category names and descriptions, assign icons or images to represent categories, choose marker colors for map display, and (with add-ons) enable advanced features like hierarchical categories and multiple category assignments.
+
+<Aside type="note">
+By default, each listing can have one primary category. The <Badge text="Pro" /> version of Listdom enables hierarchical categories (parent/child relationships), and the Multiple Categories add-on allows assigning more than one category per listing.
+</Aside>
+
+## Adding a New Category
+
+You can add new listing categories from the Listings Categories screen. Use the form to create a category and specify its details:
+
+<Steps>
+1.  Navigate to **Listings → Categories** in your WordPress dashboard. You will see the Add New Category form.
+2.  Enter the **Name** of the category (e.g., "Restaurants"). This is the public name displayed on your site.
+3.  Optionally enter a **Slug** for the category URL, or leave it blank to have one generated automatically.
+4.  If you have Listdom <Badge text="Pro" />, you can select a **Parent Category** to create a subcategory. (In Listdom Lite, categories are non-hierarchical and this option is not shown.)
+5.  Provide a **Description** for the category (optional). This text may appear on category archive pages or in tooltips, depending on your theme or setup.
+6.  Choose an **Icon** for the category. Click the icon picker field to select an icon (e.g., a map marker or symbol representing this category).
+7.  If you want to hide the icon for this category, toggle **Disable Icon** to on. When enabled, this category will not display any icon in markers or lists.
+8.  Pick a **Color** for the category's marker/icon. By default, the color is #1d7ed3 (a shade of blue). This color is used for map markers and other visual indicators for listings in this category.
+9.  (Optional) Upload or select an **Image** to represent the category. This image can be used in category listing views or shortcodes (for example, if you display a grid of categories on a page, each category's image will show).
+10. If you have Listdom <Badge text="Pro" />, enter a **Schema Type URL** for this category (e.g., https://schema.org/LocalBusiness). This setting adds an SEO schema item type for listings in this category. (If left blank, it defaults to LocalBusiness schema.)
+11. Click **Add New Category** to save. The new category will appear in the category list on the right.
+</Steps>
+
+## Category Fields and Options
+
+Each category in Listdom has several fields you can configure. Below is a summary of all available options (including those added by add-ons):
+
+-   **Name**: The name of the category (required). This is what will display on the site wherever categories are shown (e.g. listing details, category lists).
+-   **Slug**: The URL-friendly version of the name. If you don't manually set this, WordPress will generate one from the name. The slug is used in category page URLs.
+-   **Parent Category** <Badge text="Pro" />: Assign a parent to create a hierarchy. This field is visible only if you have Listdom Pro (which allows hierarchical categories). Choosing a parent category makes the current category a child/subcategory. (In Listdom Lite, categories have no parent relationship.)
+-   **Description**: A text description of the category. This is optional and may be shown on category archive pages or in certain widgets/shortcodes, depending on your theme or Listdom view settings.
+-   **Icon**: Select an icon to represent this category. The icon is used for listing map markers and in some category display sections. For example, on map views, listings in this category will use this icon as their marker (unless the icon is disabled).
+-   **Disable Icon**: A toggle (on/off) to hide the icon for this category. If set to Yes/On, any icon chosen for the category will be suppressed. Use this if you don't want a marker icon to appear for listings of this category (the listing might then use a default or color dot as a marker).
+-   **Color**: Choose a color for the category's marker or label. By default this is set to #1d7ed3. This color will apply to the category's icon/marker on maps and possibly category labels or badges in listing cards. Picking distinct colors for each category can help visually differentiate listing types on maps and lists.
+-   **Image**: An image representative of the category. You can upload or choose from the media library. Category images are used in certain views or shortcodes - for instance, if you display a grid of categories on a page, each category's image will show as a thumbnail.
+-   **Schema Type** <Badge text="Pro" />: (Pro only) A Schema.org Item Type URL for the category. This allows you to define the schema type for SEO structured data. For example, a category for businesses might use https://schema.org/LocalBusiness (the default suggestion). Note: This field only appears if Listdom Pro is active. In the free version, Schema Type is not available.
+
+<Aside type="note">
+The Parent Category and Schema Type options require Listdom Pro. Users of the free Listdom plugin will not see these fields in the Categories screen.
+</Aside>
+
+## Assigning Multiple Categories to a Listing
+
+By default, each listing can only be assigned one category (the primary category). With the Listdom Multiple Categories add-on, you can allow listings to have more than one category:
+
+<Aside type="note">
+The ability to assign multiple categories is only available if the Listdom Multiple Categories add-on is installed and activated.
+</Aside>
+
+When the Multiple Categories add-on is active, the listing submission form (both in the admin and frontend dashboard) lets you select additional categories beyond the primary one. You will still choose one Primary Category from the dropdown (this remains the main category for the listing), and then you can select one or more Additional Categories as well (typically via checkboxes or a multi-select field).
+
+All categories (primary and additional) are saved with the listing. By default, Listdom continues to highlight the primary category for each listing (for example, on listing cards or pages, usually only the primary category is shown). However, the add-on introduces an option to display all assigned categories:
+
+-   **Display Multiple Categories**: This setting is found under **Listdom → Settings → Addons → Categories** when the add-on is active. If you enable Display Multiple Categories, the front-end will show all of a listing's categories alongside the primary one. This means on listing cards, single listing pages, and other views, users can see every category the listing belongs to, rather than just the primary category.
+
+Using multiple categories can be useful if your listings naturally belong to more than one category. For example, a single listing could be categorized as both Restaurant and Live Music if it fits both. With the add-on, that listing will appear under both the "Restaurant" category and the "Live Music" category archives, making it easier for users to find.
+
+## Examples
+
+<CardGrid>
+    <Card>
+        **Custom Icons and Colors per Category**
+
+        Imagine you run a directory with different types of businesses. You create a Hotels category with a bed icon and blue color, and a Restaurants category with a cutlery icon and red color. Now, when viewing the map, hotel listings show a blue bed icon marker, while restaurant listings show a red cutlery icon. This visual distinction (using the Icon and Color fields) helps users instantly recognize the listing type on the map.
+    </Card>
+    <Card>
+        **Hierarchical Categories for Better Organization** <Badge text="Pro" />
+
+        With Listdom Pro, you can establish parent-child relationships between categories. For example, you might have a parent category Food & Dining and create subcategories like Italian, Mexican, and Chinese under it. In the Categories screen, select Food & Dining as the Parent Category when adding Italian. On your site, you could display these as nested categories, and users can filter listings by broad categories or drill down into specific cuisines.
+    </Card>
+    <Card>
+        **Assigning Multiple Categories to a Listing**
+
+        Using the Multiple Categories add-on, consider a listing that is both a Cafe and a Bookstore. Normally, you'd have to choose one category as primary. With the add-on, you assign the listing to Cafe (primary) and also check Bookstore as an additional category. If you enable Display Multiple Categories, the listing card on your site will show both Cafe and Bookstore labels. Moreover, the listing will be discoverable under both the Cafe and Bookstore category pages, increasing its visibility.
+    </Card>
+</CardGrid>
+
+<LinkCard
+    href="https://wordpress.org/support/article/posts-categories/"
+    title="WordPress Category Management Documentation"
+    description="Learn more about how WordPress categories work in general on the official WordPress documentation."
+/>
