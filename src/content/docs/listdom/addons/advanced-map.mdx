@@ -1,0 +1,124 @@
+---
+title: Advanced Map Addon
+sidebar_label: Advanced Map Addon
+description: "Enhance Listdom’s mapping capabilities with custom map styles, marker customization, infowindow layouts, and user direction features."
+sidebar:
+  order: 4
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Advanced Map Addon** extends the map functionality of Listdom with a suite of advanced features. It lets you define custom map styles, choose how listing markers are displayed (by category icon, price, etc.), customize the infowindow design, restrict map bounds, exclude certain listings from maps, and even enable a direction link for users to get navigational guidance. These options allow for a highly tailored map experience in your directory.
+
+## Marker Type
+
+This addon introduces a **Marker Type** setting to control what content appears as the marker on maps. By default, Listdom uses category-based markers (often an icon or pin). With Advanced Map, you can choose from several marker styles:contentReference[oaicite:15]{index=15}:
+
+- **Category:** Displays the listing’s primary category icon or symbol inside the map marker (this is the default behavior, similar to Listdom core). It helps differentiate types of listings by their category image or color.
+- **Label:** Uses the listing’s Label taxonomy (if any) as the marker. The marker will show the text of the label or a small badge colored with the label’s color:contentReference[oaicite:16]{index=16}:contentReference[oaicite:17]{index=17}. For example, if you use “Featured” labels, the marker could show a colored badge with the label name.
+- **Price:** Shows the listing’s price (typically the formatted price value) inside the marker:contentReference[oaicite:18]{index=18}. This is great for directories like real estate or rentals – each property’s map pin can display its price, giving immediate context.
+- **Square (Category Icon):** A unique style that shows a square marker containing the category’s icon on a colored background:contentReference[oaicite:19]{index=19}:contentReference[oaicite:20]{index=20}. This stands out on the map and is useful for emphasizing category via iconography.
+- **Listing ID:** Displays the listing’s ID number in the marker:contentReference[oaicite:21]{index=21}:contentReference[oaicite:22]{index=22}. This can be useful for internal reference or when you want a neutral identifier on the map pins.
+
+You can set the global default Marker Type via *Listdom Settings → Addons → Advanced Map → Marker Type*. Additionally, when creating a shortcode or map display, you have the option to override the marker type for that specific map (there will be a “Marker Type” option in the shortcode builder, with an *Inherit* default). 
+
+<Aside>
+type="tip">Pairing Marker Types with custom icons/colors can improve user experience. For example, if using **Price** markers, ensure your price format is short (like “$250K”) so it fits nicely in the pin.
+</Aside>
+
+## Infowindow Style
+
+The **infowindow** is the popup box that appears when a user clicks on a map marker, showing details about the listing. The Advanced Map Addon provides an **Infowindow Style** setting to change its design:contentReference[oaicite:23]{index=23}:
+
+- **Style 1:** The default Listdom infowindow style (a simple layout, usually listing title and maybe thumbnail).
+- **Style 2:** An alternative layout provided by the addon. Style 2 offers a different design, perhaps larger or with additional info. Enabling Style 2 will use a template specifically crafted for a richer info popup:contentReference[oaicite:24]{index=24}:contentReference[oaicite:25]{index=25}. For example, it might include extra details like price or address in the popup.
+- **Custom (Builder Template):** The addon can integrate with page builders (Elementor/Divi) to allow a fully custom infowindow design. In the Infowindow Style dropdown, any saved custom infowindow layouts will appear (usually as numeric IDs or names). Selecting one will use that design for your map’s infowindows:contentReference[oaicite:26]{index=26}. This means you can design an infowindow as a small card using your page builder and have it show for each listing.
+
+Set the default style via *Advanced Map settings → Infowindow Style*. Like markers, this can also be overridden per shortcode/map. So you could use Style 2 on one page’s map and Style 1 on another, depending on your design needs.
+
+<Aside>
+type="note">If you choose a **Custom Builder** infowindow (for example, an Elementor template), make sure that template is designed to display dynamic listing content. The addon adds “Infowindow” as a layout context in supported builders, so you can create a template with Listing dynamic fields and assign it here.
+</Aside>
+
+## Leaflet Tile Server
+
+For maps using **Leaflet (OpenStreetMap)** as the provider, the addon allows a custom tile server script. This is an advanced feature for those who want to use a specific map tile source or style (like a custom OSM tile theme). In *Advanced Map settings → Leaflet Tile Server*, you can enter a JavaScript function that defines a tile layer:contentReference[oaicite:27]{index=27}:contentReference[oaicite:28]{index=28}.
+
+- **Custom Map Tiles:** By default, Listdom’s Leaflet uses standard OpenStreetMap tiles. If you want to use something like Mapbox tiles, Thunderforest, or any XYZ tile URL, you can insert the code here. The placeholder in the settings provides a template function to get you started.
+- **Usage:** The code should call `L.tileLayer(...)` with your URL template and any options, then add it to the map object. The addon will inject this function into the Leaflet map initialization.
+- **When to Use:** Only if you need specialized map styles for Leaflet. Google Maps styling is handled differently (via JSON styles, see *Map Styles* below). Leaflet tile server is specifically for choosing a different tile source altogether.
+
+If you’re not familiar with tile server code, you may leave this blank. The default OSM tiles will continue to be used if no custom script is provided.
+
+## Exclude Categories from Map
+
+Advanced Map Addon adds a feature to **exclude certain listings from maps** based on category. In the settings (Advanced Map → *Map Exclude*), you can check off specific categories under “Select the categories to remove from the map.”:contentReference[oaicite:29]{index=29}. Any listing belonging to an excluded category will not be shown on any map views.
+
+- **Use Case:** Suppose your directory has a category that isn’t location-based or you simply don’t want those listings appearing on maps (e.g., “Online Only” listings). By excluding that category, those items won’t clutter or appear on map results.
+- **How to Configure:** The settings page presents a checklist of all listing categories. Tick the categories you want to hide on maps. Save the settings. The effect is global – all map shortcodes and views will honor this and omit those categories’ listings.
+- **Multiple Categories:** If a listing has multiple categories and at least one is excluded, that listing will be excluded from maps. Keep this in mind if using multi-category listings.
+
+<Aside>
+type="tip">Use the exclude feature sparingly – it’s generally better to include as many relevant listings on the map as possible for user completeness. Only exclude categories that truly don’t make sense on a map or are meant to be hidden.
+</Aside>
+
+## Restricting Map Bounds
+
+The addon provides **Map Bounds** controls to limit the area users can pan or zoom to on your maps. In settings, under *Bounds → Restrict Bounds*, you can enter a **South West** and **North East** latitude/longitude to define the bounding box:contentReference[oaicite:30]{index=30}:contentReference[oaicite:31]{index=31}.
+
+- **Purpose:** This is useful if your directory is focused on a specific region. For example, if your site only lists places in California, you can restrict the map so users can’t scroll far beyond California. It keeps the map focused and prevents seeing empty areas.
+- **How to Set:** Input the lat/long of the South-West corner (bottom-left) and North-East corner (top-right) of the region you want to confine the map to. A tool like **latlong.net** can help find coordinates:contentReference[oaicite:32]{index=32}. Once set, users will be unable to pan outside this box; the map will “bounce” them back if they try.
+- **Zoom Consideration:** You might also want to set an appropriate default zoom or max zoom in Listdom’s map settings to complement the bounds. The bounds ensure they can’t go outside; you can still allow zoom in/out as needed within that box.
+
+If you leave these fields empty, the map will have no movement restrictions (default behavior). Partially filled bounds will be ignored, so ensure you have both SW and NE coordinates.
+
+## Custom Map Styles (Google Maps Styling)
+
+For Google Maps users, the addon enables adding unlimited **Map Styles** (e.g., Snazzy Maps JSON styles). In *Advanced Map settings*, there’s a **Map Styles** section where you can create styled map presets:contentReference[oaicite:33]{index=33}:contentReference[oaicite:34]{index=34}.
+
+- **Adding a Style:** Click **“Add Style”** in the Map Styles section. This will create a new entry where you can provide a Title (for your reference, e.g., “Night Mode Map”) and a JSON style snippet:contentReference[oaicite:35]{index=35}:contentReference[oaicite:36]{index=36}. The JSON should be the styling rules for Google Maps (commonly sourced from Google’s style tool or SnazzyMaps).
+- **Multiple Styles:** You can add several styles and save. Each style will be saved under the title you give.
+- **Using Styles:** When you create a listings map (via shortcode or widget), you will now have an option to choose a map style. Your saved styles appear by the title. Selecting one applies those JSON rules to that particular map. This means you can easily switch the look and feel of maps (e.g., a dark mode map on one page, a retro style on another) without hard-coding anything.
+- **Default Style:** If you want one of your custom styles to be the default for all maps, simply choose it in the shortcode builder each time or possibly set it as default in a global config (Listdom core default style remains the standard until overridden per map).
+
+<Aside>
+type="note">Map style JSON affects visual aspects like color, road visibility, points of interest, etc., on Google Maps. It does not impact the data. Always validate your JSON format. A missing bracket can prevent the style from applying. Use online tools or Google’s Style wizard to obtain valid JSON, then paste it into the JSON field for a style.
+</Aside>
+
+## Geo Direction Features
+
+The Advanced Map Addon also introduces **Geo Direction** enhancements, helping users get directions to listing locations:
+
+- **Internal Direction Module:** In settings, a toggle **“Internal Module”** can be turned on:contentReference[oaicite:37]{index=37}. When enabled, the listing detail page will show an interactive directions interface (for example, a text box for the user to enter their starting location or a “Get Directions” button). This uses Google’s Direction API behind the scenes. Users can generate a route from their location (or entered address) to the listing’s address without leaving your site. <Aside> type="caution" title="Google API Key">Using the internal directions requires that you have enabled the **Google Directions API** on your Google Cloud project and provided a valid API key in Listdom’s settings:contentReference[oaicite:38]{index=38}. Without this, the feature may not function.</Aside>
+- **Infowindow Direction Link:** Another setting, **“Infowindow Link”**, if switched on, adds a direct link or button inside the infowindow (Style1 and Style2) that says something like “Directions”:contentReference[oaicite:39]{index=39}. Clicking this could open Google Maps in a new tab with the destination pre-filled to the listing’s location (so the user can quickly get directions via Google Maps app/website).
+- **Listing Address Link:** The **“Link Address”** option will turn the listing’s displayed address on the listing page into a clickable link to Google Maps directions:contentReference[oaicite:40]{index=40}. Essentially, if a user clicks the address, it will open an external Google Maps page showing the route from their current location (if available) to that address. This is a simpler alternative to the full internal module if you prefer not to embed route functionality.
+
+You can enable any or all of these features depending on the user experience you want. They work together – for example, you might enable the infowindow link and the address link for convenience, even if you don’t use the full internal module.
+
+<Aside>
+type="tip">The **infowindow link** and **address link** do not require heavy setup beyond having a Google Map on the page, since they essentially redirect to Google Maps. These are quick wins for user experience if you don’t want to set up the full directions API. The internal module is more interactive but needs the API key.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Styled Night Mode Map">
+    A city directory wants a dark theme map to match their site’s aesthetic. The admin uses Advanced Map to add a **“Night Mode”** JSON style (from SnazzyMaps) in Map Styles. They then apply it to their homepage map shortcode. Now the map renders in dark mode, which looks sleek on the site’s dark background.
+  </Card>
+  <Card title="Property Prices on Map">
+    A real estate listings page uses the **Price** marker type. Each property’s map pin now shows its price (e.g., “$1.2M”) rather than a generic pin. Users can scan the map and immediately see prices, making it easier to compare property values by location.
+  </Card>
+  <Card title="Restricted Region for Niche Directory">
+    A hiking trails directory is limited to trails in the Alps. The admin sets map bounds to the SW and NE corners of the Alps region. Visitors dragging the map cannot scroll beyond Europe. This keeps the focus on the area of interest and avoids showing irrelevant parts of the world.
+  </Card>
+  <Card title="Get Directions Integration">
+    A user finds a restaurant on the directory and clicks the **“Get Directions”** button (enabled via the Internal Module). A route planner pops up right on the listing page; the user enters their address and sees turn-by-turn directions to the restaurant without leaving the site. Alternatively, another user clicks the restaurant’s address (with “Link Address” on <Badge text="Pro" />) and it opens Google Maps in a new tab with the destination set.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/products/listdom-advanced-map-addon" title="Advanced Map Addon Documentation">
+  See the official Advanced Map Addon documentation for code examples of custom map styles and further guidance on Google Maps API setup.
+</LinkCard>

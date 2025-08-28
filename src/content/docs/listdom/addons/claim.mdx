@@ -1,0 +1,57 @@
+title: Claim Addon
+sidebar_label: Claim Addon
+description: "Allow businesses to claim listings. Users can submit claim requests to become the owner of a listing, with admin approval and optional payment for verification."
+sidebar:
+  order: 4
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Claim Addon <Badge text="Pro" /> enables a feature for directory sites: letting business owners claim their listings. A “Claim Listing” button appears on unclaimed listings. Users submit a claim, admins review it, and if approved, the listing is assigned to that user’s account. You can also charge a fee for claims.
+
+<Aside type="caution">
+For paid claim verification, **WooCommerce** must be installed and active. Without it, you can still allow claims but cannot collect a payment.
+</Aside>
+
+## Features Overview
+- **Claim Button on Listings**: Unclaimed listings display a “Claim This Listing” button. Claimed listings show a “Verified” label instead.
+- **Claim Form**: A form where users can submit their name, contact info, a message, and optional file uploads (as proof).
+- **Admin Review Queue**: Submitted claims are stored in **Listdom > Claims** for admin review, with a status of Pending, Approved, or Rejected.
+- **Approval Workflow**: Admins can approve a claim, which automatically transfers ownership of the listing to the claimant.
+- **Notifications**: Automated emails are sent for claim submission, approval, rejection, and payment reminders.
+- **Paid Claims (WooCommerce Integration)**: Require claimants to pay a fee to claim a listing. You can set the payment to be required before or after admin approval.
+- **Verified Badge**: A visual “Verified” badge appears on listings that have been successfully claimed, building user trust.
+
+## Settings
+Go to **Listdom > Settings > Add-ons > Claim** to configure the system.
+
+- **Show "Verified" Label**: Toggle to display a label on claimed listings (default: Enabled).
+- **Comment (Helper Text)**: Provide instructional text for claimants on the claim form.
+- **File**: Enable an upload field in the claim form for supporting documents (default: Disabled).
+- **Agreement Checkbox**: Require claimants to check a terms/consent box (default: Disabled).
+- **WooCommerce Products**: Select a WooCommerce product to use as the claim fee. Leave blank for free claims.
+- **Payment Time**: Choose when payment is taken: `While sending claim form` (before approval) or `After claim approval by admin` (default).
+
+## Using the Claim Addon
+<Steps>
+1. **Mark Listings as Claimable**: By default, all listings are considered unclaimed. A "Claim Listing" button will appear on them.
+2. **Configure Claim Settings**: Decide if you want to require evidence (file uploads), an agreement, and if you will charge a fee.
+3. **User Fills Claim Form**: A user clicks the "Claim Listing" button and fills out the form with their details and any required proof.
+4. **Admin Reviews Claim**: The admin receives a notification and reviews the pending claim in **Listdom > Claims**.
+5. **Approve or Reject the Claim**: If the claim is legitimate, the admin sets the status to "Approved." If payment is required, a payment link is sent to the user. If not, ownership is transferred immediately. If the claim is invalid, it is "Rejected."
+6. **Post-Claim Management**: Once a claim is approved and paid (if applicable), the new owner can edit and manage the listing.
+</Steps>
+
+## Examples
+<CardGrid>
+  <Card title="Restaurant Claims Its Page">
+    The owner of "Pasta Palace" finds her business on the directory and clicks “Claim this listing.” She uploads her business license and pays the $20 claim fee. The admin verifies the documents and approves the claim. The listing is transferred to her account and now displays a “Verified” badge.
+  </Card>
+  <Card title="Multiple Claims, One Approved">
+    Two users claim the same popular listing. The admin reviews both submissions and sees that one has provided a recent utility bill as proof. The admin approves the valid claim and rejects the other. The correct manager now controls the listing.
+  </Card>
+  <Card title="Free Claim, Quick Turnaround">
+    A community directory offers free claims. A boutique owner claims her shop. The admin quickly approves the request, and the listing is reassigned to the owner's account. The “Verified” label appears, enhancing the directory’s credibility.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Knowledge Base" description="See more about verifying and managing listings in the Listdom plugin documentation." />

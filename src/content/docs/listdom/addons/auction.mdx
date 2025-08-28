@@ -1,0 +1,66 @@
+---
+title: Auction Addon
+sidebar_label: Auction Addon
+description: "Enable an offers (bidding) system for listings, allowing buyers to submit bids and listing owners to accept offers."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Auction Addon <Badge text="Pro" /> allows listing owners to receive and manage offers (bids) on their listings. Users can submit monetary offers on a listing’s detail page, and the listing owner or site admin can accept one of the offers as the winning bid. This addon adds a new Offers management section in Listdom and integrates with Listdom’s notification system to keep all parties informed.
+
+## Features Overview
+
+- **Offer Submission Form**: Adds an “Auction” section to each listing’s single page where users can submit offers with an amount and an optional comment. Offers from logged-out visitors can be allowed or disallowed via settings.
+- **Offers Management**: Provides an admin menu **Listdom > Offers** to review all offers (custom post type `listdom-offer`). Each offer record stores the bidder’s email, offer amount, comment, and status.
+- **Accept/Reject Offers**: Listing owners or admins can accept an offer. Accepting an offer automatically marks any previously accepted offer as not accepted. Only one offer per listing can be accepted at a time.
+- **Notifications**: Automatic email notifications are set up for key events: when a new offer is received, when a listing owner receives a new offer, when an offer is accepted, and when an accepted offer is unaccepted.
+- **Guest Offers**: Optionally allow guest users (not logged in) to submit offers on listings. If disabled, only logged-in users can bid.
+- **Elementor Widget**: If you use Elementor, an “Auction” widget is included for designing listing templates, so you can place the Auction offer form in custom layouts.
+
+<Aside type="note">
+The Auction features are only available on listings if the Auction Addon is installed and activated. Make sure to enable the **Auction** element in the Listdom single listing page settings to display the offer form on listing pages.
+</Aside>
+
+## Settings
+After activating the Auction Addon, go to **Listdom > Settings > Add-ons > Auction** to configure its options.
+
+- **Guest Offer**: Allow offers from guests. If Enabled (default: disabled), visitors who are not logged in can submit offers. If disabled, the “Auction” section will prompt users to log in.
+- **Offer Comment**: Allow bidders to include a message with their offer. If Enabled (default: enabled), an optional comment textarea appears in the offer form.
+- **Sort Offers By**: Choose the default sort order for the offers list on the listing page. Options are `Amount` or `Date`. (Default: `Amount`)
+
+## Using the Auction Addon
+
+<Steps>
+1. **Enable the Auction Section**: Ensure that the “Auction” element is enabled in your listing detail page layout (via **Listdom > Appearance > Single Listing Page**).
+2. **Configure Auction Options**: In the Add-on settings, set whether guest users can bid and if comments are allowed.
+3. **Users Submit Offers**: On a listing page, buyers will see an Auction section with a form to submit an offer amount. They must provide their email. The addon validates input and uses Google reCAPTCHA for spam protection.
+4. **Offer Received Notification**: When an offer is submitted, the system creates a new Offer record and triggers notifications. The listing owner receives an email about the new offer.
+5. **Review Offers**: The site admin or listing owner can review all offers for a listing in **Listdom > Offers**. On the listing edit screen, an Auction metabox also lists offers with radio buttons to select an offer to accept.
+6. **Accept an Offer**: To accept a bid, edit the listing and locate the Auction/Offers metabox. Select the desired offer’s radio button and update the listing. When an offer is accepted, its status changes and it triggers an "Offer Accepted" email to that bidder.
+7. **Notify Bidder and Others**: Upon acceptance, the winning bidder is notified via email. If a previously accepted offer is unaccepted, the addon sends an “offer unaccepted” notification to that bidder as well.
+8. **Complete the Transaction (Offline)**: The Auction Addon does not handle payments. After an offer is accepted, it’s up to the listing owner and bidder to arrange payment or further steps offline.
+</Steps>
+
+<Aside type="tip">
+The Auction Addon adds a **Listing Offers Count** meta field that can be displayed to show the number of offers on each listing.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Real Estate Auction">
+    A property listing is marked for auction. Multiple interested buyers submit offers. The agent accepts the highest one. The Auction Addon sends an email to the winning bidder, and the listing now shows the accepted offer price.
+  </Card>
+  <Card title="Car Listing with Guest Bidders">
+    A car dealer enables guest offers. Visitors can place bids by providing an email. The dealer sees two bids in **Offers** and, after verifying contact info, accepts the guest’s offer. The guest gets an email to proceed with payment offline.
+  </Card>
+  <Card title="Competitive Bidding Process">
+    An antiques marketplace uses the addon for premium items. If a better offer comes in after one was accepted, the seller can switch to the higher offer by accepting it – the addon automatically notifies the previously accepted bidder.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org" description="Learn more about the Listdom directory plugin that the Auction Addon extends." />
