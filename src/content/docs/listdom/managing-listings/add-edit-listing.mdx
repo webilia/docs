@@ -35,7 +35,7 @@ Listdom organizes listings with several taxonomy options: Categories, Locations,
 
 Each of these taxonomy options helps users filter and find listings on the front-end. All taxonomy meta boxes are usually shown in the right sidebar of the Add/Edit Listing screen by default (similar to how WordPress shows Categories and Tags for blog posts).
 
-## Custom Fields
+## Custom Fields (Listing Information)
 
 If you have defined custom listing fields, those will appear in the Listing Information section when adding a listing. Custom fields are extra fields (such as text, number, select, checkbox, etc.) that capture additional information not covered by the default fields. For example, if you run a real estate directory, you might add custom fields for Bedrooms, Bathrooms, or Square Footage. Each custom attribute will be shown with its field input here.
 
@@ -62,38 +62,84 @@ Listdom supports both Google Maps and OpenStreetMap for the map display. If you 
 
 ## Details
 
-The Details meta box is a comprehensive section where you configure pricing, contact info, and various other listing-specific details. This section contains several groups of fields:
+This meta box contains several groups of fields for pricing, contact info, and other details.
 
 ### Price Options
-
-If your listings involve pricing (for example, listing the price of an item or service), use the Price Options fields:
-
-- **Price**: The primary price value for the listing. This is typically a number (you can enter the amount without a currency symbol). For example, 100 or 299.99. If the listing is free or you don't want to show a price, you can leave it as 0.
-- **Price (Max)**: An optional maximum price, used if you want to show a price range. For instance, if a property rents between \\$500 and \\$700, you could put Price $=500$ and Price (Max) $=700$ Leave this blank or 0 if not applicable.
-- **Price After**: A unit or term that appears after the price to clarify the pricing basis. For example, you might enter "per night" or "per person" in this field. This text will display immediately after the price. (E.g. "\$100 per night"). The placeholder suggests examples like "Per night, Per cup, ..." - you can put any unit or term that makes sense for the listing.
-- **Price Class**: A price category indicator that reflects how expensive the listing is. This is typically shown as one or more dollar signs (or other symbols). There are four classes by default:
-  - **\$ (Cheap)** - Price Class 1
-  - **\$\$ (Normal)** - Price Class 2 (default)
-  - **\$\$\$ (High)** - Price Class 3
-  - **\$\$\$\$ (Ultra High)** - Price Class 4
-  Select the appropriate class from the dropdown to label the listing's general price level. This might be used in certain skins to show an icon or classify listings by cost.
-- **Currency**: The currency for the price. By default, this will use the global currency setting (e.g., USD, EUR) if you leave it unchanged. However, you can override it per listing. Select the currency code or symbol that the price is in (for example, USD for US Dollars, GBP for British Pounds, etc.). This allows you to list prices in different currencies on a per-listing basis if needed. (The default currency comes from Listdom settings.)
+- **Price**: The primary price value for the listing (e.g., `100` or `299.99`).
+- **Price (Max)**: An optional maximum price, used to show a price range.
+- **Price After**: A unit or term that appears after the price (e.g., "per night").
+- **Price Class**: An indicator of how expensive the listing is, typically shown as dollar signs. The options are:
+    - `$` (Cheap)
+    - `$$` (Normal)
+    - `$$$` (High)
+    - `$$$$` (Ultra High)
+- **Currency**: The currency for the price (e.g., `USD`, `EUR`). You can override the global default on a per-listing basis.
 
 ### Contact Details
-
-Use Contact Details to provide contact information for the listing. These details are typically displayed on the single listing page so that visitors can reach out or find more info:
-
-- **Email**: A contact email address for this listing. This could be the business email or owner's email. It will be shown as a contact link (and may be used for the contact form if enabled). Enter a valid email if you want users to contact the listing via email.
-- **Phone**: A contact phone number for the listing. Include area codes as needed. This will be displayed as text (and on mobile, it may become a tap-to-call link). Use whatever format is standard in your region (e.g., +1 234 567 8901).
-- **Website**: The URL of the listing's website or relevant page. For example, the business's official website or a social media page. Enter the full URL (including https://). The interface provides a placeholder (https://yourwebsite.com) to guide you. If provided, this will appear as a clickable link on the listing page.
-- **Contact Address**: If the listing has a mailing address or an address different from the main location, you can put it here. This field is often used for a contact or office address for correspondence. It may or may not be the same as the physical Location address. If it's the same, you can repeat it or leave this blank. (This Contact Address displays in the listing's contact info section on the front-end.)
-
-All contact fields are optional fill in the ones that are relevant for the listing. If a field is left empty, that contact method simply won't show up for that listing.
+- **Email**: A contact email address for this listing.
+- **Phone**: A contact phone number for the listing.
+- **Website**: The URL of the listing's website.
+- **Contact Address**: A mailing or office address if different from the main location.
 
 ### Working Hours (Availability)
+- **Working Hours Entry**: Input the operational hours for the listing in a text area, such as `Mon-Fri 9 AM-5 PM, Sat 10 AM-2 PM, Sun Off`. An AI-powered **Generate** button may be available to help format this information.
 
-If you want to display when a business or listing is open or available, you can use the Availability (Working Hours) module:
+### Listing Custom Link
+- **Custom Link URL**: Specify an optional URL that, when filled, will cause the listing's title to link to that URL instead of its own detail page. This is useful for affiliate offers or directing users to an external booking page.
 
-Here you can input the operational hours or availability schedule for the listing. There isn't a complex UI here; instead, Listdom expects a specific format or uses a text area to list hours and off-days. Typically, you might input a schedule in a structured format, or use the Generate button (if available) to help create it.
+### Remark (Owner Message)
+- **Remark**: A special message or note that will be shown in a highlighted style on the listing page. Use this for announcements or taglines like "20% off for first-time visitors!".
 
-- **Working Hours Entry**: You can list each day's hours. For example:
+## Gallery
+
+Add multiple photos to showcase a listing.
+- **Add Images**: Click the **Add Images** button to open the WordPress media library, where you can select or upload multiple images for the gallery.
+
+## Embed Codes (Videos & Media)
+
+Embed external media like videos or virtual tours into listings.
+- **Embed Items**: Click **Add** to create a new entry where you can paste an embed code (e.g., an `<iframe>`) or a direct URL (e.g., from YouTube).
+- **Multiple Embeds**: You can add multiple embed entries for several media items, like a video tour and a 360° panorama.
+- **Featured Video**: You can mark one embed item as "featured," which may cause it to replace the featured image or appear prominently at the top of the listing.
+
+<Aside type="note">
+**Pro Feature**: The ability to add multiple embed codes is available in Listdom <Badge text="Pro" />.
+</Aside>
+
+## Related Listings
+
+Manually select other listings to show in the "Related" section, overriding the automatic suggestions. Start typing a listing title in the field to search for and add related items.
+
+## Submitter Information (Front-end Submissions)
+
+If a listing was submitted from the frontend, a **Submitter Request** section will display the original submitter's name and message for the admin's reference. These fields are read-only.
+
+## Display Options <Badge text="Pro" />
+
+This Pro feature allows you to override the global design settings for an individual listing.
+- **Style**: Choose a specific display style for this listing's detail page, overriding the global, category, or package default.
+- **Elements**: Individually turn elements (like the Gallery, Map, or Contact Form) on or off just for this listing.
+
+## Booking Options (Add-on)
+
+If the **Listdom Booking** add-on is installed, a **Booking** meta box will appear, allowing you to configure the listing to accept reservations.
+- **Enable Booking**: Mark the listing as a bookable item.
+- **Bookables (Items/Tickets)**: Add one or more bookable items, each with a title, price, and description (e.g., "Double Room", "VIP Tour Package").
+- **Check-in / Check-out**: Define start and end times for date-based bookings.
+- **Availability Calendar**: Manage availability by blocking dates or setting special pricing for specific date ranges.
+
+## Examples
+
+<CardGrid>
+  <Card title="Restaurant Listing with Hours and Gallery">
+    You're adding "Pasta Palace." You assign it to the `Restaurants` category, set its location, and mark its price class as `$$` (Normal). Under Working Hours, you enter its schedule, and in the Gallery, you upload several photos of the interior and dishes.
+  </Card>
+  <Card title="Real Estate Listing with Video Tour and External Link">
+    For a "Modern Family Home" listing, use **Embed Codes** to include a YouTube video tour and mark it as the Featured Video. In **Listing Custom Link**, enter the URL to the external property page to direct visitors there.
+  </Card>
+  <Card title="Tour Package with Booking Enabled">
+    For a "Sunset Sailing Tour," install the Booking add-on. In the **Booking** section, enable booking and create a bookable item named "Evening Sail - 2 hours" with a price. Use the availability settings to mark the tour as available only on Fridays and Saturdays.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://developers.google.com/maps/documentation/javascript/get-api-key" title="Google Maps Platform: Get an API Key (Official Guide)" />
