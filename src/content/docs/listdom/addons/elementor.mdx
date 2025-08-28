@@ -3,15 +3,13 @@ title: Elementor Addon
 sidebar_label: Elementor Addon
 description: "Full Elementor integration for Listdom – design single listing pages, listing cards, and map info windows visually with Elementor."
 sidebar:
-  order: 4
+  order: 15
 header_button:
   label: View Demo
   url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
-
-<HeaderButton />
 
 The **Listdom Elementor Addon** empowers you to build and style Listdom listing layouts using **Elementor’s live page builder**. With this addon, you can create custom templates for single listings, listing cards in archive pages, and even map infowindows – all without coding. It introduces dedicated Elementor **widgets** for Listdom elements (title, content, gallery, etc.) and a special “Elementor Styles” post type in wp-admin to manage these templates. Whether or not you have Elementor Pro, this addon makes it possible to achieve a completely custom design for your directory’s listings.
 
@@ -109,13 +107,13 @@ Using Theme Builder vs. the Elementor Styles CPT yields the same front-end resul
 ## Example Workflow
 
 <Steps>
-**1. Design a Single Listing:** An admin creates a “Single Listing” Elementor Style and, with Elementor, builds a template: top section with a large Listing Image background, the Listing Title overlaid, followed by a two-column section (left: Listing Content, right: Listing Details like price, features, and a Contact button). They style it to match their theme.
+1. Design a Single Listing:** An admin creates a “Single Listing” Elementor Style and, with Elementor, builds a template: top section with a large Listing Image background, the Listing Title overlaid, followed by a two-column section (left: Listing Content, right: Listing Details like price, features, and a Contact button). They style it to match their theme.
 
-**2. Assign and Preview:** The admin saves the template. Immediately, all listing pages adopt this new layout. They preview several listings — each shows the title, images, and info in the exact design configured. No two listings are the same in content, but the template applies uniformly.
+2. Assign and Preview:** The admin saves the template. Immediately, all listing pages adopt this new layout. They preview several listings — each shows the title, images, and info in the exact design configured. No two listings are the same in content, but the template applies uniformly.
 
-**3. Custom Archive Cards:** The admin also adds a “Listing Card” template, choosing to show just a thumbnail, title, and price. After enabling this, the homepage’s [listdom] shortcode grid now uses the custom Elementor card design, which is more visual and branded than the default skin.
+3. Custom Archive Cards:** The admin also adds a “Listing Card” template, choosing to show just a thumbnail, title, and price. After enabling this, the homepage’s [listdom] shortcode grid now uses the custom Elementor card design, which is more visual and branded than the default skin.
 
-**4. Map Infowindow:** With the Advanced Map addon, they decide to customize the map infowindow. Using Elementor, they design a tiny popup with the listing’s thumbnail and title. Now, when a user clicks a map marker, the infowindow matches the site’s style and provides a quick glance at the listing (picture and name) consistent with the overall design.
+4. Map Infowindow:** With the Advanced Map addon, they decide to customize the map infowindow. Using Elementor, they design a tiny popup with the listing’s thumbnail and title. Now, when a user clicks a map marker, the infowindow matches the site’s style and provides a quick glance at the listing (picture and name) consistent with the overall design.
 </Steps>
 
 ## Examples
