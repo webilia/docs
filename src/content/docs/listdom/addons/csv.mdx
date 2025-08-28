@@ -1,0 +1,94 @@
+---
+title: CSV Addon
+sidebar_label: CSV Addon
+description: "Advanced CSV Importer/Exporter for Listdom – bulk import and export listings using CSV files with field mapping."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+<HeaderButton />
+
+The **Listdom CSV Addon** provides powerful tools to **bulk import** and **export** your listings using CSV files. It extends Listdom’s Import/Export interface with a CSV-specific workflow: you can upload CSV files, map their columns to listing fields, import hundreds of listings at once, and export your existing listings to a CSV for backup or editing in spreadsheet software. This addon is essential for quickly seeding your directory with data or migrating listings from other sources:contentReference[oaicite:37]{index=37}.
+
+<Aside type="note">
+CSV Import/Export features become available under **Listdom → Import & Export** once the CSV Addon is activated. Make sure to install and activate this addon, as CSV import/export is not included in the core Listdom plugin.
+</Aside>
+
+## Importing Listings via CSV
+
+After activation, navigate to **Listdom → Import & Export** in your WordPress dashboard. Click the **CSV** tab on this page to access the CSV import interface:contentReference[oaicite:38]{index=38}. The import process is interactive:
+
+1. **Upload a CSV File:** Use the file uploader to select your CSV file of listings. After selecting a file, it’s uploaded via AJAX and prepared for mapping:contentReference[oaicite:39]{index=39}:contentReference[oaicite:40]{index=40}. The addon will then enable the **Import** button and display the **Mapping** form:contentReference[oaicite:41]{index=41}.
+2. **Field Mapping:** The CSV Addon reads the header row of your CSV to get column names. It then lists all Listdom listing fields (Title, Description, Category, Location, Price, etc.) and lets you **map** each one to a column from your file:contentReference[oaicite:42]{index=42}:contentReference[oaicite:43]{index=43}. For each Listdom field, choose the corresponding CSV column from the dropdown. If a certain field isn’t present in your CSV, you can leave it unmapped or provide a **Default Value** (the interface provides inputs for defaults):contentReference[oaicite:44]{index=44}:contentReference[oaicite:45]{index=45}.
+3. **Mapping Templates:** Optionally, enter a name and **save this field mapping as a template** for future imports. If you’ve saved templates before, you can select a **Mapping Template** from the dropdown to auto-fill the mappings:contentReference[oaicite:46]{index=46}:contentReference[oaicite:47]{index=47}. This is useful if you regularly import CSVs with the same format.
+4. **Run the Import:** Click the **Import** button to start importing listings:contentReference[oaicite:48]{index=48}. The addon processes the CSV in chunks to avoid timeouts (by default, 20 rows per batch, which you can adjust by changing the “Import Size”):contentReference[oaicite:49]{index=49}:contentReference[oaicite:50]{index=50}. A progress message “Please wait…” will appear, and the system will iteratively import all rows:contentReference[oaicite:51]{index=51}:contentReference[oaicite:52]{index=52}.
+5. **Completion:** When done, you’ll see a success message indicating all listings have been imported:contentReference[oaicite:53]{index=53}. The new listings will now appear in your **Listings** page in wp-admin.
+
+During import, the CSV Addon ensures large files are handled smoothly by splitting the job into multiple AJAX calls (you’ll see the progress updating after each chunk):contentReference[oaicite:54]{index=54}. If an error occurs mid-way (for example, a server timeout or a malformed row), an error message will be shown and the import will pause:contentReference[oaicite:55]{index=55}:contentReference[oaicite:56]{index=56}. You can then fix the issue and retry.
+
+<Aside type="tip">
+Prepare your CSV with proper data types. For example, use category IDs or slugs as defined in Listdom for the Category column, boolean values (like 0/1) for checkboxes, etc. The CSV Addon will try to match text to existing taxonomy terms (categories, locations, features) – if they don’t exist, it will create them. Always double-check a few imported listings to ensure everything mapped correctly.
+</Aside>
+
+## Field Mapping Templates
+
+The **Mapping Templates** feature lets you save your column-to-field mapping for reuse. When you import a CSV and map fields, you’ll see an input to name the template (e.g., “Agency CSV Format”):contentReference[oaicite:57]{index=57}:contentReference[oaicite:58]{index=58}. After import, this template is saved.
+
+Next time you import a CSV with the same structure, choose your saved template from the **Load Template** dropdown. The addon will instantly fill in all the column mappings for you:contentReference[oaicite:59]{index=59}:contentReference[oaicite:60]{index=60}, saving time and ensuring consistency. You can manage saved templates in the **Mapping Templates** sub-tab on the CSV page:
+
+- Go to **Listdom → Import & Export → CSV → Mapping Templates**.
+- Here you’ll see a list of saved mapping templates. You can delete any template that’s no longer needed (use the trash icon or **Remove** link next to a template):contentReference[oaicite:61]{index=61}:contentReference[oaicite:62]{index=62}.
+
+Using templates is highly recommended if you import frequently from the same source. It also reduces mapping errors.
+
+## Automatic CSV Import Jobs
+
+One standout feature of the CSV Addon is **Auto Import** for CSV feeds. In the CSV tab, click on **Auto Import** (next to Import, Mapping Templates, Export):contentReference[oaicite:63]{index=63}:contentReference[oaicite:64]{index=64}. This section allows you to set up a scheduled import that runs periodically:
+
+- **Feed URL:** Provide the URL to a CSV file accessible online (for example, a Google Sheets CSV export link, or any publicly reachable CSV):contentReference[oaicite:65]{index=65}:contentReference[oaicite:66]{index=66}.
+- **Field Mapping:** Select a saved mapping template to apply to this feed:contentReference[oaicite:67]{index=67}. (If you don’t have one, you’ll need to perform a manual import once to define and save the mapping.)
+- **Interval:** Choose how often the import should run: Hourly, Twice a Day, Daily, or Weekly:contentReference[oaicite:68]{index=68}.
+- **Import Size:** Set the batch size for each run (default 100 listings per batch):contentReference[oaicite:69]{index=69}. For large feeds, it will import in increments of this size each cron execution until all entries are imported.
+
+Click **Add Import Job** to save the scheduled job:contentReference[oaicite:70]{index=70}. The CSV Addon will then schedule WP-Cron events to fetch the CSV at the given interval and import new or updated listings automatically. Existing jobs will be listed under **Existing Jobs**, where you can monitor or remove them:contentReference[oaicite:71]{index=71}.
+
+<Aside type="note">
+Auto import relies on WordPress cron. Ensure your site gets regular traffic or set up a cron job so imports occur on schedule. The feed URL must be reachable without requiring login. This feature is excellent for keeping your directory in sync with an external data source.
+</Aside>
+
+You can remove an auto-import job at any time by clicking the **Remove** link next to the job in the Existing Jobs list. Under the hood, removing a job unschedules the associated cron events:contentReference[oaicite:72]{index=72}.
+
+## Exporting Listings to CSV
+
+Exporting is straightforward. In the CSV tab, click **Export** (sub-tab):contentReference[oaicite:73]{index=73}:contentReference[oaicite:74]{index=74}. You’ll see a brief description and an **Export** button. Clicking this button will generate a CSV file of *all* your listings and prompt a download:contentReference[oaicite:75]{index=75}:contentReference[oaicite:76]{index=76}. The export includes all standard listing fields (title, content, categories, locations, custom fields, etc.) in a structured format.
+
+Some notes on CSV export:
+
+- It will export the data according to your current listings in the database. If you have hundreds of listings, the CSV will contain hundreds of rows.
+- The exported CSV’s first row is the header with field names, matching the format expected by the import. You can use this exported file as a template to re-import (for instance, exporting, making edits in Excel, then re-importing).
+- For taxonomy fields (Categories, Locations, etc.), multiple values will be separated by commas within the cell.
+- The export operation is on-demand (no scheduling). It happens when you click the button, and uses a nonce for security:contentReference[oaicite:77]{index=77} to ensure only authorized users initiate it.
+
+<Aside type="tip">
+Use **Export** before making bulk edits. This gives you a backup CSV of your current listings. If anything goes wrong during import, you can re-import the original CSV to revert changes.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Migrating from Another Directory">
+    You have listings data from another directory plugin or an Excel sheet. Using the CSV Addon, you format the data into the provided CSV template, upload and map fields, then import everything in one go. In minutes, your new Listdom site is populated with hundreds of listings that would have taken hours to enter manually.
+  </Card>
+  <Card title="Automated Feed Import">
+    A car dealership directory receives a daily CSV feed of new listings from a third-party service. With <strong>Auto Import</strong>, the admin sets the feed URL and a Daily interval. Every day, the addon fetches the latest CSV and adds new car listings or updates prices automatically, keeping the site up-to-date without manual effort.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org">
+  Get more information and support on the official Listdom plugin page.
+</LinkCard>

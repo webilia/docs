@@ -1,0 +1,76 @@
+---
+title: "Compare Addon"
+sidebar_label: "Compare Addon"
+description: "Allow users to select multiple listings and compare them side by side. Configure the Compare page, displayed fields, and restrictions for Listdom's Compare Add-on."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Listdom Compare add-on allows visitors to select multiple listings and view them side by side in a comparison table. This is useful for helping users evaluate listings (e.g. properties, products, services) by comparing their key details at a glance. Once the Compare add-on is installed and activated, a compare button will appear on listing cards, enabling users to add or remove listings from their personal compare list.
+
+<Steps>
+1.  **Activate the Compare Add-on**: When you activate Listdom Compare, it automatically creates a new page titled "Comparison" and inserts the `[listdom-compare]` shortcode into it.
+2.  **Verify or Create the Compare Page**: You can use the auto-created Comparison page or create a custom page. In either case, ensure the page's content includes the `[listdom-compare]` shortcode.
+3.  **Select the Compare Page in Settings**: Go to **Listdom → Settings → Add-ons → Compare** and select the page that contains the compare shortcode as the **Compare Page** option.
+4.  **Save Changes**: Click **Save The Changes**. Your site is now ready to let users compare listings on the designated page.
+</Steps>
+
+## Compare Page & Fields
+
+**Compare Page**: Choose the WordPress page that will display the comparison results. This page should have the `[listdom-compare]` shortcode in its content. By default, the plugin creates a "Comparison" page with this shortcode on activation. You may select that page or any other page where you've placed the shortcode.
+
+**Fields to Display**: Toggle which listing details are shown as rows in the comparison table. By default, all the following fields are enabled:
+
+-   **Image** - Displays each listing's featured image, along with a remove icon that allows the user to remove that listing from the compare list.
+-   **Title** - Displays the listing title. If a listing has been claimed and verified, a small verified checkmark icon will appear next to the title.
+-   **Category** - Shows the listing's category (or categories, if multiple).
+-   **Price** - Shows the listing's price or cost value.
+-   **Address** - Shows the listing's address or location.
+-   **Working Hours** <Badge text="Pro" /> - Shows the listing's working hours or availability schedule.
+-   **Features** - Shows the listing's features or amenities.
+-   **Tags** - Shows any listing tags that have been assigned.
+-   **Labels** - Shows any listing labels or badges assigned to the listing.
+
+<Aside type="note">
+The Working Hours field is only available if the working-hours component is enabled (this feature is included in Listdom Pro <Badge text="Pro" />). If you are using Listdom Lite without working hours, this field will not appear in the compare table.
+</Aside>
+
+<Aside type="note">
+Any custom listing attributes you have added (for example, extra specification fields created via the Advanced Portal Search add-on <Badge text="Pro" />) will also be included as additional rows in the compare table. Each custom attribute will display as a separate row for easy comparison.
+</Aside>
+
+<Aside type="tip">
+If the Listdom Claim add-on is active, listings that have been claimed and verified will display a verification checkmark icon next to their Title in the comparison table. This helps users identify verified listings at a glance.
+</Aside>
+
+## Restrictions
+
+**Maximum Items on Compare List**: Set the maximum number of listings a user can add to their compare list at one time. The default is 5. If the user tries to add more listings beyond this number, they will be prevented and shown a message. If you leave this field blank, the compare list will allow an unlimited number of items.
+
+**Exceed Max Items Message**: Customize the notice shown to users who attempt to add more listings to compare than the allowed maximum. By default, this message reads: "You have reached the maximum number of items allowed in the compare list."
+
+## Examples
+
+<CardGrid>
+    <Card>
+        ### Comparing Listings Side by Side
+        Jane enables the Compare add-on on her directory site. Visitors can now click the compare icon on any listing to add it to their compare list. When they navigate to the Comparison page, they see all the selected listings laid out in a table, with rows for each field (image, title, price, etc.) so they can review differences and similarities at a glance. This makes it easier for users to decide which listing best fits their needs.
+    </Card>
+    <Card>
+        ### Restricting the Number of Comparisons
+        Mike wants to keep the comparison table readable, so he sets **Maximum Items on Compare List** to 3. Now, if a visitor already has 3 listings in their compare list and tries to add a fourth, they will see a notification: "You have reached the maximum number of items allowed in the compare list." This way, the table never grows beyond 3 columns.
+    </Card>
+    <Card>
+        ### Customizing Compared Fields
+        Lisa is building a real estate directory and decides to simplify comparisons. In **Fields to Display**, she turns off **Tags** and **Labels**, focusing the compare table only on essential fields like Image, Title, Price, and Features. As a result, when users compare properties, the table only shows those key details, making comparisons cleaner and more relevant.
+    </Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/products/listdom-compare-addon" icon="external">
+    Learn more about the Listdom Compare Add-on on the official website.
+</LinkCard>
