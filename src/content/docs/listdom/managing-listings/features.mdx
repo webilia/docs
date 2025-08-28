@@ -1,0 +1,105 @@
+---
+title: Features
+sidebar_label: Features
+description: "Define and manage listing features (amenities or attributes) for your listings, including setting icons and optional SEO schema properties."
+sidebar:
+  order: 6
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Features allow you to highlight special attributes or amenities that listings offer. For example, a real estate listing might have features like "Swimming Pool" or "Free Wi-Fi". You can assign multiple features to each listing to inform users about what is included. This section explains how to add and manage features, configure their options (such as icons and schema properties), and how features are used on your site.
+
+## Managing Features
+
+To access Features in the WordPress dashboard, navigate to **Listings → Features**. On this page, you can add new features and manage existing ones.
+
+<Steps>
+1.  Go to **Listings → Features** in your WordPress dashboard. You will see the "Add New Feature" form on the left and a list of existing features on the right.
+2.  In the "Add New Feature" form, enter the **Name** of the feature (e.g., "Free Wi-Fi").
+3.  Optionally enter a **Slug** for the feature (or leave it blank to auto-generate one based on the name).
+4.  You may add a **Description** for this feature (details about the feature).
+5.  Select an **Icon** to represent the feature by clicking the icon picker dropdown and choosing an icon.
+6.  If you have the Listdom <Badge text="Pro" /> add-on activated, you can also fill in the **Schema Property** field for SEO (otherwise this field is unavailable).
+7.  Click the **Add New Feature** button to save the feature.
+</Steps>
+
+After adding features, they will appear in the features list on the right side of the screen. From the list, you can manage existing features:
+
+-   **Edit a Feature**: Click on a feature's name or the "Edit" link that appears when hovering over it. This opens the feature edit screen, where you can modify the Name, Slug, Description, Icon, and (with Pro) Schema Property.
+-   **Quick Edit**: You can also use the Quick Edit option to quickly change a feature's Name or Slug inline. (Note that Icon and Schema Property cannot be edited via Quick Edit.)
+-   **Delete a Feature**: Use the "Delete" link under a feature to remove it. Deleting a feature will unassign it from all listings, but it will not delete the listings themselves.
+
+<Aside type="tip">
+**Quick Edit Limitations**: The Quick Edit feature only allows editing the feature's name and slug. To assign or change an icon or schema property for a feature, use the full Edit Feature screen.
+</Aside>
+
+The Features list table includes an Icon column so you can see the icon associated with each feature at a glance, as well as columns for Name, Slug, and Count (how many listings have that feature).
+
+## Feature Fields and Options
+
+When adding or editing a feature, you have several fields and options to configure:
+
+### Name
+
+The Name is the primary label of the feature. This field is required. Choose a clear, concise name that describes the feature (for example, "Air Conditioning", "Pet Friendly", etc.). The name you set here will be displayed on the front-end wherever this feature is shown (such as on listing pages or in filters).
+
+### Slug
+
+The Slug is the URL-friendly version of the name. It's used in the feature's archive page URL (if feature archives are enabled). Typically, the slug is lowercase and contains only letters, numbers, and hyphens. If you leave this field blank, WordPress will automatically generate a slug based on the feature name. You usually do not need to modify this, but you can customize it if needed for readability or SEO. (For example, a feature named "Free Wi-Fi" might automatically get the slug `free-wi-fi`.)
+
+### Description
+
+The Description is an optional field where you can write a brief detail about the feature. This can be used to provide additional information or notes about what the feature entails. By default, Listdom does not display the feature description on the front-end listing pages; it is mainly for administrative reference. However, some themes or custom templates might show this description on feature archive pages or tooltips. It's a good place to clarify the feature's meaning if needed.
+
+### Icon
+
+The Icon field allows you to assign an icon to the feature. Clicking on this field opens an icon picker where you can select an icon from a library of icons (powered by Font Awesome). The chosen icon will be displayed on the website front-end next to the feature name wherever the feature is shown. For example, you might pick a Wi-Fi icon for the "Free Wi-Fi" feature, or a paw print icon for a "Pet Friendly" feature. Using icons helps users quickly recognize features visually. If you do not select an icon, the feature will be displayed by name only (no icon).
+
+### Schema Property <Badge text="Pro" />
+
+<Aside type="note">
+The Schema Property option is only available if the Listdom <Badge text="Pro" /> Add-on is installed and activated.
+</Aside>
+
+The Schema Property field lets you specify a Schema.org item property for this feature, which can enhance your SEO with structured data. This field is intended to map the feature to a property in Schema.org vocabulary. By default, the placeholder suggests `additionalProperty`, a generic schema property for extra features or amenities. You can enter a different property name if a more specific one fits your feature.
+
+When this is set (and you are using Listdom Pro), the feature will be output in the listing's HTML with a corresponding `itemprop` attribute for search engines. For example, if you set the schema property to `additionalProperty`, each feature will include `itemprop="additionalProperty"` in the code. If you leave this field empty, no schema item property is added for the feature. This option helps search engines better understand the listing's attributes, potentially improving rich search results.
+
+## Using Features in Listings
+
+Once you have created some features, you can start assigning them to your listings. Each listing can have any number of features. To assign features to a listing, edit the listing (from **Listings → All Listings**, then edit a specific listing), and locate the **Features** meta box. This meta box usually appears in the right sidebar of the edit screen (similar to Categories or Tags).
+
+All your available features will be listed there. By default, Features are a non-hierarchical taxonomy (similar to tags), and the selection interface in the listing edit screen or front-end submission form will allow multiple selection. Typically, you will see a list of checkboxes for each feature. Check the box next to each feature that applies to the listing. For example, if you're editing a hotel listing that has free breakfast and a pool, you might check "Free Breakfast" and "Swimming Pool" in the Features box.
+
+On the front-end, the features assigned to a listing are displayed on that listing's page. Listdom will usually show features in a list format, often near the listing details or amenities section. Each feature is shown by its Name, and if you assigned an Icon, the icon will appear right next to the name. This provides a quick visual indication of the feature.
+
+The feature names can also link to a feature archive page. If feature archives are enabled in your Listdom settings, clicking a feature on the front-end will take the user to a page that lists all listings having that feature. This is a great way for users to find similar listings by a specific feature.
+
+In addition to being shown on listing pages, features can be used as filters in search and directory views. Listdom's shortcodes and widgets allow you to include feature-based filtering. For example, you might add a search form that includes a "Features" filter, letting users tick checkboxes for features they want and then see only listings that have those features.
+
+## Examples
+
+<CardGrid>
+    <Card>
+        **Using Features as Amenities**
+
+        A rental property listing includes features such as Free Wi-Fi, Air Conditioning, and Parking Available. Each feature is displayed on the listing's page with a recognizable icon (e.g. a Wi-Fi symbol, a snowflake for AC, and a car icon for parking). This visual list of amenities helps users quickly identify what the property offers.
+    </Card>
+    <Card>
+        **Filtering Listings by Features**
+
+        On a car dealership website, visitors can filter car listings by specific features. The search form includes checkboxes for Sunroof, Bluetooth, and Navigation System. A user can check the features they want, and Listdom will narrow down the results to only show cars that have all the selected features.
+    </Card>
+    <Card>
+        **SEO Boost with Schema Properties**
+
+        A travel directory site uses the Listdom <Badge text="Pro" /> add-on to enhance SEO. They assign a Schema.org property to features like "Free Breakfast" and "Airport Shuttle". On each hotel listing page, those features are output with `itemprop="additionalProperty"` in the HTML. This tells search engines about the hotel's amenities, potentially leading to richer search results.
+    </Card>
+    <LinkCard href="https://demo.webilia.com/listdom/" title="Explore on Live Demo">
+        Visit the Listdom live demo site to see listing features in action, including how icons are displayed and how features can be used to filter listings.
+    </LinkCard>
+</CardGrid>

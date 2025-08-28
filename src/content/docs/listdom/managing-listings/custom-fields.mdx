@@ -1,0 +1,121 @@
+---
+title: Custom Fields
+sidebar_label: Custom Fields
+description: "Define and manage custom listing fields (attributes) for your directory listings."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdom Custom Fields (also known as Attributes) allow you to add extra fields to your listings beyond the default fields provided by the plugin. Using the Custom Fields menu (under Listings in WordPress admin), you can create various types of input fields for listing data text boxes, dropdowns, checkboxes, images, and more. These custom fields can be made category-specific, set as required or optional, and even integrated into search and filtering forms. This flexibility helps you capture specialized information (e.g. amenities, features, specifications) and display it on listing pages.
+
+<Steps>
+1.  Navigate to **Listings > Custom Fields** in your WordPress dashboard. This will open the Custom Fields management page.
+2.  To add a new field, enter a **Field Name** (e.g. "Amenities" or "Color") in the Add New Field form. This name will be the label shown to users.
+3.  Select a **Field Type** from the dropdown. Configure any additional options that appear (like providing Values for certain field types).
+4.  (Optional) If this field should only apply to specific listing categories, uncheck **All Categories** and select the relevant categories.
+5.  Adjust other settings like **Required** (if the field must be filled out), enabling **Rich Editor** (for textareas), adding a **Link Label** (for URL/Email/Tel fields), etc., as needed.
+6.  Click the **Add New Field** button to save your custom field. It will now appear in the list of fields and be available in listing submission forms.
+</Steps>
+
+## Custom Field Options
+
+When adding or editing a custom field, you have several options to configure its behavior and presentation. Each option is detailed below:
+
+### Field Name (Label)
+
+This is the name of the custom field as shown to users. Enter a concise, descriptive label (e.g. "Price Range", "Opening Hours"). The Field Name will appear on listing submission forms and listing detail pages as the field's label. (A slug is automatically generated based on the name; you can edit the slug if needed, but usually the default is fine.)
+
+### Field Type
+
+Choose the type of input or data format for this field. Listdom provides a variety of field types to cover common needs:
+
+-   **Text Input**: A single-line text box for short text. Ideal for titles, small descriptions, or any free-form text.
+-   **Number Input**: An HTML5 number field for numeric input. Use this for quantities, amounts, or any numeric data. It ensures only numbers can be entered.
+-   **Email Input**: A text field specifically for email addresses. Displays as an email input and can be used to mail the address (will be formatted as a clickable "mailto" link on the front-end if a Link Label is set).
+-   **Tel Input**: A telephone number input field. Use for contact phone numbers. This can be clicked to dial on mobile devices (formatted as a "tel:" link if a Link Label is provided).
+-   **URL Input**: A field for website URLs. Users should enter a full URL (including http:// or https://). You can provide a custom Link Label to display instead of the raw URL on the listing page.
+-   **Textarea**: A multi-line text area for longer text input (e.g. a detailed description, terms, or notes). By default it's a plain text box, but you can enable Rich Editor for WYSIWYG capabilities (see Rich Editor option below).
+-   **Radio**: A set of radio buttons allowing one selection from multiple options. You must define the choices in the Values field (comma-separated). Only one radio option can be selected by the user.
+-   **Checkbox**: A checkbox input. When provided with multiple comma-separated Values, this will display as a list of checkboxes (allowing multiple selections). If you provide only one value (e.g. "Yes"), it acts as a single yes/no checkbox.
+-   **Dropdown**: A select dropdown field. Define the choices in Values (comma-separated). Users can choose one option from the dropdown list.
+-   **Image**: Allows an image upload/selection. This field lets users pick or upload an image via the WordPress media library in the listing form. Use it for things like a logo, certification image, or any additional image related to the listing.
+-   **Separator**: A non-input field used to group or separate fields visually. This will insert a labeled divider in the form. The Field Name of a Separator is displayed as a section title or separator text, and no value is collected for it.
+
+<Aside type="tip">
+Tip: Use a Separator field to organize long submission forms into sections. For example, you might add a separator called "Contact Information" to visually group contact-related fields together.
+</Aside>
+
+<Aside type="note">
+The Advanced Custom Fields (ACF) Integration add-on (requires Listdom Pro license <Badge text="Pro" />) lets you use additional field types not available by default. For instance, you can create date pickers, color pickers, or other advanced field types via the ACF plugin, and Listdom will handle them as listing attributes. If you need a field type (such as a date selector) that isn't in the list above, consider using the ACF add-on (along with the free ACF plugin) to extend your custom fields.
+</Aside>
+
+### Values (Choices)
+
+This option appears when the Field Type is Dropdown, Radio, or Checkbox. Here you define the list of choices that will be available for that field. Enter the options as a comma-separated list. For example, for a "Status" dropdown you might enter: Active, Sold, Waiting. Each comma-separated item will become one option in the select list (or one radio button/checkbox).
+
+-   **Dropdown/Radio**: The first value in the list can serve as a default. Only one of the provided values can be selected by the user.
+-   **Checkbox (multiple)**: Users can tick multiple checkboxes. Each value you list will be a separate checkbox label. (If you list only one value, a single checkbox will be shown for a yes/no style field.)
+
+### Related Categories
+
+Every custom field can either apply to all listings or only to specific categories. By default, the All Categories checkbox is checked, meaning the field will appear for listings in every category. If you want the field to be category-specific, uncheck All Categories, and a list of your listing Categories will appear. You can then select one or multiple categories that this field should be associated with.
+
+-   When one or more categories are selected here, the field will only be shown in the submission form (and on the listing) if the listing belongs to those categories. This is useful to create fields that only certain listing types need. For example, a field like "Mileage" might be relevant only for listings in a "Vehicles" category, so you would select Vehicles and similar categories and leave others unchecked.
+-   If All Categories remains checked, the field is treated as global and will appear for all listings regardless of category.
+
+### Required
+
+Toggle this option On if the field must be filled out by users when they submit or edit a listing. A required custom field will be marked with an asterisk () on forms, and the form cannot be submitted without providing a value for it. By default, this is set to Off (not required). You can make most field types required, ensuring you always collect that information.
+
+Note: If you enable Rich Editor for a Textarea field (see below), that field cannot be set as required. The system will automatically treat rich text fields as optional (the reasoning is to avoid validation issues with HTML content).
+
+### Rich Editor (WYSIWYG)
+
+(This setting is only applicable to the Textarea field type.) When turned on, the Textarea field will use WordPress's rich text editor instead of a plain text box. This means users will have formatting controls (bold, lists, links, etc.) and the ability to add media in that field, just like editing a WordPress post content. Use this for fields where rich formatting or HTML content is needed (for example, a "Detailed Description" or "Terms and Conditions" section in the listing). By default, Rich Editor is Off, meaning the Textarea is a simple multi-line text box.
+
+Important: A rich text field cannot be marked as Required. Once Rich Editor is enabled, the Required option for that field will be ignored (the system will not force input for it).
+
+### Link Label
+
+(Applicable to URL, Email, and Tel field types.) This optional setting lets you specify a text label to display instead of the raw value. If you fill in a Link Label, the listing detail page will show that text as a clickable link (using the field's value as the target) rather than showing the actual URL, email address, or phone number.
+
+For example, if you have an Email field and you set the Link Label to "Contact Seller", the listing page will show "Contact Seller" as a mailto link (clicking it opens the user's email client to send an email to the address provided). Similarly, a Tel field could use a label like "Call Now", or a URL field might use "Visit Website". If Link Label is left empty, the actual value (the phone number, email, or URL) will be displayed by default.
+
+### Index (Order)
+
+The Index is a numeric value (you can use integers or decimals) that determines the ordering of this field relative to other custom fields when they are displayed. Lower index numbers appear first (i.e., a field with index 1.00 will be listed above a field with index 5.50). By default, new fields get an index of 99.00, which effectively places them at the bottom. You can adjust the index to re-order fields; for instance, to make an important field show up toward the top of the listing details or submission form, give it a small number like 1 or 2. It's okay to use decimal increments (e.g., 2.50) if you need to position a field between others.
+
+### Icon
+
+You can assign an icon to each custom field. Clicking in the Icon field opens an icon picker (Listdom uses a built-in icon set, including Font Awesome icons). Select an icon that represents your field's content (for example, a \$ icon for a price field, a phone icon for a contact number, etc.). The chosen icon may be displayed alongside the field label or value on the single listing page or search results, depending on your theme or Listdom's design settings. This can make listing information more visual and easy to scan. (If you prefer not to use an icon, you can leave this blank.)
+
+### Schema Property
+
+If you want to integrate your custom field with SEO structured data, you can specify a Schema.org property name here. Schema properties help search engines understand the data on your listing pages. For example, if your custom field is an amenity rating, you might map it to a schema property like "ratingValue" under an appropriate schema type. By default, Listdom suggests additional Property (a generic property for extra attributes in Schema.org). You can enter any valid schema property relevant to the field's meaning. This setting is optional and primarily for SEO if you're not sure, you can leave it as the default or empty. (For more information, see the Schema.org documentation on properties for various item types.)
+
+## Examples
+
+Below are a few examples of how you can use custom fields in Listdom to enhance your directory listings:
+
+<CardGrid>
+    <Card>
+        Category-Specific Field - Vehicle Mileage: You run a multi-category directory and want a Mileage field for vehicle listings only. You create a custom field named "Mileage" as a Number Input and uncheck All Categories, selecting only the "Vehicles" category. Sellers listing a vehicle will now see a Mileage field (in kilometers or miles, as you instruct) on the submission form. This field won't appear for listings in other categories (like Real Estate or Services). By using a category-specific field, each listing type has relevant attributes without cluttering others.
+    </Card>
+    <Card>
+        Multiple Choice Amenities: Suppose you have a Rental Properties directory and want to list amenities. You add a field "Amenities" with Field Type Checkbox and enter values: WiFi, Parking, Pool, Pet Friendly. In the submission form, these appear as multiple checkboxes, and listers can check all that apply. On the listing page, the selected amenities will be displayed (often as a list or inline text). This multi-select approach lets users filter listings by amenities in search (since Listdom's search builder can include custom fields as filters), improving the usability of your site.
+    </Card>
+    <Card>
+        Additional Image Field - Logo: Imagine you want businesses to upload their logo separately from the listing's main gallery. Create a custom field "Company Logo" of type Image. Keep All Categories checked (so it applies to all listings, or limit it to a "Business" category if appropriate). A new image upload option labeled "Company Logo" will appear on the frontend listing submission form. Users can upload an image file, and that logo can be displayed on the listing detail page (for example, at the top of the listing or in a sidebar) alongside other listing details, giving extra visual identity to the listing.
+    </Card>
+</CardGrid>
+
+<LinkCard
+    href="https://demo.webilia.com/listdom/"
+    title="Listdom Live Demo Custom Fields in Action"
+    description="Explore the Listdom demo site to see how custom fields (attributes) are used in real directory listings."
+/>

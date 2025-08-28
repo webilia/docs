@@ -1,108 +1,145 @@
 ---
-title: Add / Edit a Listing
-description: Create and edit listings in Listdom step by step.
+title: "Add or Edit Listing"
+sidebar_label: Add/Edit Listing
+description: "Guide to all options available when adding a new listing or editing an existing listing in Listdom."
 sidebar:
-  order: 2
+  order: 1
 header_button:
-  label: View Listdom Demo
-  url: https://demo.listdom.com
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
 ---
 
-import { Aside, Steps } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-## Introduction
-List items simply with Listdom. Now, it’s time to create a listing. Creating a listing with the Listdom WordPress plugin is straightforward.
+Adding a new listing (or editing an existing one) in Listdom is done through the Add/Edit Listing screen in the WordPress dashboard. This interface lets you enter all the details for a listing, from basic title and description to categories, location on the map, pricing, contact info, and more. This page will walk you through each option available on the Add/Edit Listing page, including standard fields and those enabled by Listdom addons.
 
-The listings (also known as directories) are the main part of Listdom. A listing can be a job position, a house ad, a service provider, etc. To add a new listing (directory) in Listdom just go to **Listings → Add Listing**.  
-There are several sections on this page and we will investigate them individually.
+## Title and Description
 
----
-
-## 1. Add Title
-Enter a name for this listing.
-
-## 2. Listing Description
-The description of this listing. A description can include any information about the listing that the users will need.
-
-## 3. Locations
-The locations are useful for categorizing listings according to different regions.  
-
-There are two ways to make a new location and use it for this listing:  
-- You can use the **Listdom Location taxonomy menu** to configure more details of the location. This way the made location will appear on this list and you can use it. (Reload the page to see new locations in the list.)  
-- Or make the location directly on this page. Hit **+Add New Location**, enter a name, and select the parent location. Parent Location is useful for hierarchical relationships (e.g., Country → City → Zone). Finally, press **Add New Location** and it will be created and marked as selected.  
-
-A listing can have several locations. Select them from the **All Locations** list or use the **Most Used** tab to find them quickly.
-
-## 4. Tags
-A tag is a useful taxonomy for grouping the listings with the same options (e.g., 24/7). Tags appear on the single listing page and in some listing card styles.  
-
-Add new tags by typing and pressing Enter, or choose existing tags. You can also add multiple tags at once separated by commas.
-
-## 5. Features
-Features specify specific capabilities of a listing (e.g., Free Wifi, Parking Lot). Adding features works the same way as tags.
-
-## 6. Labels
-Labels highlight a listing by showing a special badge (e.g., “Recommended”). Labels can be created directly or via the **Labels menu**.
-
-## 7. Featured Image
-Select a featured image for this listing. It will be shown on both the single listing page and listing cards.
-
-## 8. Categories
-The categories are the main taxonomy of Listdom listings. Each listing must have a primary category, but you can also assign additional categories.
-
-👉 The **Additional Categories** feature comes from the **Listdom Multiple Categories Add-on**.
-
-## 9. Price Options
-Define the price for each listing. Options include:
-- **Currency**
-- **Price**
-- **Price (Max)**
-- **Price Description** (e.g., “per night”)
-- **Price Class** ($, $$, $$$, $$$$)
-
-## 10. Work Hours
-Specify work hours and off days for each day (e.g., 9 AM – 9 PM). Marking a day as “off” means the listing does not work on that day.
-
-## 11. Contact Details
-Add information like email, phone, and social networks. These appear in the “Contact Info” section of the listing and cards.
-
-## 12. Listing Link
-Enter a custom link (e.g., affiliate URL). Activate this option in settings.
-
-## 13. Remark
-Owner message displayed on the single listing page.
-
-## 14. Gallery
-Add multiple images as a slider/gallery on the single listing page or carousel on cards.
-
-## 15. Embed
-Add embed codes (e.g., YouTube videos). Mark one embed as **Featured Video**.
-
-👉 This feature is available in the **Listdom Pro Add-on**.
-
-## 16–31. Other Sections
-- **Ads** → Requires Listdom Ads Add-on  
-- **Auction** → Requires Listdom Auction Add-on  
-- **Claimed** → Requires Listdom Claim Add-on  
-- **Listing Parent** → Requires Listdom Franchise Add-on  
-- **Listing Rank** → Requires Listdom Rank Add-on  
-- **Listing Team** → Requires Listdom Team Add-on  
-- **Visible Until** → Built-in (was Visibility Add-on)  
-- **Location (Map)** → Default + Advanced Map Add-on  
-- **Attributes** → Custom fields (Pro Add-on)  
-- **ACF Fields** → Requires Listdom ACF Add-on  
-- **Slug** → URL slug for listing  
-- **Discussion** → Enable/disable comments  
-- **Author** → Select author from WP users  
-- **Booking Options** → Requires Listdom Booking Add-on  
-- **Display Options** → Layout customization (Pro Add-on)  
-- **Publish** → Save Draft, Pending Review, Published, Expired, On Hold, Offline, etc.
-
----
-
-## Publishing
-Once all settings are complete, click **Publish**. Other options include **Save Draft** or scheduling for later.
+When creating or editing a listing, start with the basic Title and Description fields. These are the standard WordPress post title and editor for the listing content. Use the title to name the listing (e.g. the property name or business name), and the description for full details about the listing. The description field supports the rich text editor so you can format text, add media, etc. If Excerpt support is enabled, you will also have a Short Description field (Excerpt) to provide a brief summary of the listing. This short description may be used in listing cards or previews.
 
 <Aside type="tip">
-Remember: Always assign a category before publishing. Without it, the listing won’t display correctly.
+If you have the Listdom AI Assistant enabled, you might see a Generate button near the editor. This can help automatically create content for your listing description using AI.
 </Aside>
+
+## Categories and Taxonomies
+
+Listdom organizes listings with several taxonomy options: Categories, Locations, Labels, Tags, and Features. These help classify and filter listings.
+
+- **Listing Category**: Every listing must belong to one category (e.g. Restaurants, Real Estate, Events). On the Add Listing screen, choose a category from the available list. Categories are hierarchical, so you can select sub-categories if applicable. By default, only one category can be assigned as the primary category for a listing.
+  <Aside type="note">By default a listing can have one category. With the Multiple Categories add-on installed, you can assign multiple categories to a single listing.</Aside>
+  The selected category is required and will be saved as the listing's primary category.
+- **Listing Location**: If your listings are organized by location (e.g. city or region), you can assign one or more Locations to the listing. Locations are a taxonomy (hierarchical) that you can manage (e.g. New York, California). On the Add Listing page, use the Locations meta box to check or select the appropriate location terms. This is optional; you can leave it blank if the listing is not location-specific.
+- **Listing Labels**: Labels are taxonomy terms used to tag listings with special labels or statuses. For example, you might have labels like Featured, New, Open Now, etc. You can assign any number of labels to the listing. Labels are optional-if your site uses them, you'll see a Labels meta box where you can choose existing labels or add new ones.
+- **Listing Tags**: Tags are another way to add keywords to a listing. Tags in Listdom work like post tags they are free-form keywords. You can enter multiple tags separated by commas (for example: Italian, Pizza, Live Music for a restaurant listing). Tags are optional and mainly used for search filtering or grouping similar listings.
+- **Listing Features**: Features represent specific amenities or attributes of the listing (for example, Free Wi-Fi, Parking Available, Pet Friendly). Features are a taxonomy (non-hierarchical or hierarchical depending on setup) where you can check off all applicable features for the listing. In the Add Listing form, you'll find a Features meta box listing all predefined features - simply tick the ones that apply. These will show on the listing page as a list of amenities.
+
+Each of these taxonomy options helps users filter and find listings on the front-end. All taxonomy meta boxes are usually shown in the right sidebar of the Add/Edit Listing screen by default (similar to how WordPress shows Categories and Tags for blog posts).
+
+## Custom Fields (Listing Information)
+
+If you have defined custom listing fields, those will appear in the Listing Information section when adding a listing. Custom fields are extra fields (such as text, number, select, checkbox, etc.) that capture additional information not covered by the default fields. For example, if you run a real estate directory, you might add custom fields for Bedrooms, Bathrooms, or Square Footage. Each custom attribute will be shown with its field input here.
+
+- **Custom Fields**: These will display as input fields labeled by the attribute name. Fill in each attribute as needed. Some custom fields might allow multiple selections or file uploads depending on their type. For instance, an attribute defined as an image field will let you upload an image for that listing, and a multi-select attribute will let you choose multiple options.
+
+- **Required Custom Fields**: Administrators can configure certain fields as required. Required fields are indicated with a red asterisk (*). You must provide values for any required attribute before you can publish the listing.
+
+## Location
+
+The Location meta box lets you specify the listing's geographic location and how it's shown on the map.
+
+- **Address**: Enter the address or general location of the listing. This is a text field (e.g. street address, city, or any descriptive location). It's used for display and for geocoding the map location.
+- **Map and Coordinates**: Below the address field, you'll see an interactive map. You can place a marker on the map to pinpoint the exact location of the listing. By default, a Marker is used to represent the listing's location. As you move the marker or enter an address, the Latitude and Longitude coordinates will be automatically set (you typically won't need to manually enter lat/long, but they are stored for precision). You can also adjust the map zoom level if needed.
+- **Marker vs. Shape**: Listdom allows two modes for location display:
+  - **Marker**: A single point location (default). Use this for most listings - simply drop the marker at the listing's location.
+  - **Shape**: An area on the map. If you select Shape, you can draw a shape (such as a circle or polygon) on the map to cover a region. When Shape is selected, additional options appear:
+    - **Shape Type**: Choose the type of shape (for example, a circle or polygon).
+    - **Shape Coordinates/Radius**: Define the shape. For a circle, you set the center (by dragging on the map) and a radius. For a polygon, you can draw the polygon by clicking on the map to set vertices. The coordinates or radius are saved for that shape. Switching back to Marker will remove any drawn shape and use a single pin.
+- **Map Center & Zoom**: The map may show Map Center Latitude and Longitude fields (usually pre-filled with default values). These fields control the initial center point of the map in the admin (they default to values set in Listdom settings). Generally, you won't edit these for individual listings; they're just for reference. The Zoom Level is typically handled automatically, but you can adjust it if needed (to zoom in closer or out).
+
+<Aside type="caution">
+Listdom supports both Google Maps and OpenStreetMap for the map display. If you wish to use Google Maps, make sure you have entered a Google Maps API Key in the Listdom Settings before adding listings. Otherwise, the map may not load Google data. If no Google API key is provided, Listdom will default to OpenStreetMap for mapping.
+</Aside>
+
+## Details
+
+This meta box contains several groups of fields for pricing, contact info, and other details.
+
+### Price Options
+- **Price**: The primary price value for the listing (e.g., `100` or `299.99`).
+- **Price (Max)**: An optional maximum price, used to show a price range.
+- **Price After**: A unit or term that appears after the price (e.g., "per night").
+- **Price Class**: An indicator of how expensive the listing is, typically shown as dollar signs. The options are:
+    - `$` (Cheap)
+    - `$$` (Normal)
+    - `$$$` (High)
+    - `$$$$` (Ultra High)
+- **Currency**: The currency for the price (e.g., `USD`, `EUR`). You can override the global default on a per-listing basis.
+
+### Contact Details
+- **Email**: A contact email address for this listing.
+- **Phone**: A contact phone number for the listing.
+- **Website**: The URL of the listing's website.
+- **Contact Address**: A mailing or office address if different from the main location.
+
+### Working Hours (Availability)
+- **Working Hours Entry**: Input the operational hours for the listing in a text area, such as `Mon-Fri 9 AM-5 PM, Sat 10 AM-2 PM, Sun Off`. An AI-powered **Generate** button may be available to help format this information.
+
+### Listing Custom Link
+- **Custom Link URL**: Specify an optional URL that, when filled, will cause the listing's title to link to that URL instead of its own detail page. This is useful for affiliate offers or directing users to an external booking page.
+
+### Remark (Owner Message)
+- **Remark**: A special message or note that will be shown in a highlighted style on the listing page. Use this for announcements or taglines like "20% off for first-time visitors!".
+
+## Gallery
+
+Add multiple photos to showcase a listing.
+- **Add Images**: Click the **Add Images** button to open the WordPress media library, where you can select or upload multiple images for the gallery.
+
+## Embed Codes (Videos & Media)
+
+Embed external media like videos or virtual tours into listings.
+- **Embed Items**: Click **Add** to create a new entry where you can paste an embed code (e.g., an `<iframe>`) or a direct URL (e.g., from YouTube).
+- **Multiple Embeds**: You can add multiple embed entries for several media items, like a video tour and a 360° panorama.
+- **Featured Video**: You can mark one embed item as "featured," which may cause it to replace the featured image or appear prominently at the top of the listing.
+
+<Aside type="note">
+**Pro Feature**: The ability to add multiple embed codes is available in Listdom <Badge text="Pro" />.
+</Aside>
+
+## Related Listings
+
+Manually select other listings to show in the "Related" section, overriding the automatic suggestions. Start typing a listing title in the field to search for and add related items.
+
+## Submitter Information (Front-end Submissions)
+
+If a listing was submitted from the frontend, a **Submitter Request** section will display the original submitter's name and message for the admin's reference. These fields are read-only.
+
+## Display Options <Badge text="Pro" />
+
+This Pro feature allows you to override the global design settings for an individual listing.
+- **Style**: Choose a specific display style for this listing's detail page, overriding the global, category, or package default.
+- **Elements**: Individually turn elements (like the Gallery, Map, or Contact Form) on or off just for this listing.
+
+## Booking Options (Add-on)
+
+If the **Listdom Booking** add-on is installed, a **Booking** meta box will appear, allowing you to configure the listing to accept reservations.
+- **Enable Booking**: Mark the listing as a bookable item.
+- **Bookables (Items/Tickets)**: Add one or more bookable items, each with a title, price, and description (e.g., "Double Room", "VIP Tour Package").
+- **Check-in / Check-out**: Define start and end times for date-based bookings.
+- **Availability Calendar**: Manage availability by blocking dates or setting special pricing for specific date ranges.
+
+## Examples
+
+<CardGrid>
+  <Card title="Restaurant Listing with Hours and Gallery">
+    You're adding "Pasta Palace." You assign it to the `Restaurants` category, set its location, and mark its price class as `$$` (Normal). Under Working Hours, you enter its schedule, and in the Gallery, you upload several photos of the interior and dishes.
+  </Card>
+  <Card title="Real Estate Listing with Video Tour and External Link">
+    For a "Modern Family Home" listing, use **Embed Codes** to include a YouTube video tour and mark it as the Featured Video. In **Listing Custom Link**, enter the URL to the external property page to direct visitors there.
+  </Card>
+  <Card title="Tour Package with Booking Enabled">
+    For a "Sunset Sailing Tour," install the Booking add-on. In the **Booking** section, enable booking and create a bookable item named "Evening Sail - 2 hours" with a price. Use the availability settings to mark the tour as available only on Fridays and Saturdays.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://developers.google.com/maps/documentation/javascript/get-api-key" title="Google Maps Platform: Get an API Key (Official Guide)" />

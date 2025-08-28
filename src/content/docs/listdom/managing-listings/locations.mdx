@@ -1,0 +1,75 @@
+---
+title: Locations
+sidebar_label: Locations
+description: "Manage geographic or custom locations for your listings. Locations are a hierarchical taxonomy in Listdom that lets you organize listings by area (like country, city, neighborhood) with support for parent/child hierarchy and custom images."
+sidebar:
+  order: 4
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Locations menu in Listdom allows you to create and manage location terms for your listings. Locations are a hierarchical taxonomy (similar to categories) that you can use to group listings by geographic areas or any classification you choose. For example, you might create locations for countries, states, cities, or neighborhoods to help users filter and find listings by region. Each Location can have a parent (e.g. a state as a child of a country), and you can optionally assign an image to each location for visual enhancement in your site's design.
+
+## Adding New Locations
+
+To add a new location term (such as a city or region) in Listdom, follow these steps:
+
+<Steps>
+1.  **Navigate to the Locations page**: In your WordPress dashboard, go to **Listings > Locations**. This will open the Locations management screen, which shows an "Add New Location" form on the left and the list of existing locations on the right.
+2.  **Enter the Name**: In the form, provide the name of the location as it will appear on your site (e.g., "New York City").
+3.  **Enter the Slug (Optional)**: This is the URL-friendly version of the name. If you leave this blank, it will be generated automatically.
+4.  **Select a Parent Location**: If this location is a sub-location of another (e.g., a city within a state), select the parent location from the dropdown. Leave this as "None" if the location is top-level.
+5.  **Add a Description (Optional)**: You can add a description for the location, which can provide additional info about the area. This is generally for administrative reference.
+6.  **Choose an Image (Optional)**: Click the "Choose Image" field to upload or select an image for this location. This image can be displayed in certain layouts or shortcodes.
+7.  **Add the Location**: Once you have filled in the details, click the **Add New Location** button. The new location will appear in the list and can now be assigned to listings.
+</Steps>
+
+After adding a location, it appears in the list on the right, which shows the Image, Name, Slug, and a count of how many listings are assigned to it.
+
+## Location Fields and Options
+
+Each location term has a set of properties you can configure:
+
+-   **Name**: The human-friendly name of the location, displayed on your site. This is required.
+-   **Slug**: The unique URL identifier for the location, used in its archive URL (e.g., `your-site.com/location/los-angeles`). If not provided, Listdom will auto-generate one.
+-   **Parent Location**: Allows you to nest locations under a broader location to create a hierarchy (e.g., setting "California" as the parent of "Los Angeles"). Hierarchical locations let users drill down from a country to a state to a city.
+-   **Description**: An optional text field to describe the location. By default, Listdom doesn't prominently display this on the front-end, but it can be used by your theme or custom code.
+-   **Image**: An optional image for the location. This is great for creating a visual "Browse by Location" grid or gallery on your site using Listdom's shortcodes or widgets. If no image is set, a placeholder or default icon will be shown instead.
+
+## Editing or Deleting Locations
+
+To edit an existing location, hover over it in the list and click **Edit**. This will take you to a screen where you can modify all its details, including the image. You can also use **Quick Edit** to change the Name, Slug, and Parent inline, but this option does not allow you to change the image or description.
+
+To delete a location, hover over it and click **Delete**. Be aware that this will not delete the listings in that location; it will only unassign the location from them. If a deleted location had child locations, they will become top-level locations.
+
+<Aside type="note">
+Pro Feature <Badge text="Pro" />: Listdom Pro provides an enhanced way for users to select locations on the front-end. With the Pro add-on activated, you can enable a multi-dropdown location selector in your front-end listing submission form instead of the default checkbox list. This means users can choose a parent location and then see a filtered dropdown of child locations (e.g. select a state, then pick a city from that state) for more intuitive location selection. This feature is available only if the Listdom <Badge text="Pro" /> addon is installed and activated.
+</Aside>
+
+## Tips for Using Locations
+
+-   **Planning Hierarchy**: Plan your location hierarchy before adding many terms. Decide if you want a structure like Country > State > City, and set up the top-level locations first.
+-   **Using Location Images**: Adding images to locations can make your directory more visually appealing. You could upload a skyline photo for a city or a flag for a country to be used in Listdom's location listing shortcodes.
+-   **Filtering Listings by Location**: Once locations are set up, you can assign them to listings. Visitors can then filter or search for listings by location, which is especially useful for directories covering multiple regions.
+
+## Examples
+
+<CardGrid>
+    <Card>
+        **Global Directory with Hierarchical Locations**: A travel site organizes listings by country, state/province, and city. This hierarchy allows visitors to drill down from "Canada" to "Ontario" and then to "Toronto," making it easy to browse listings by region.
+    </Card>
+    <Card>
+        **"Browse by City" Section with Images**: A restaurant directory uses a Listdom shortcode to display a grid of major cities on its homepage. Each city has a representative image (e.g., a skyline photo). Clicking on a city takes the visitor to an archive page showing all restaurants in that location.
+    </Card>
+    <Card>
+        **User Submission with Location Selection**: On a classifieds site, users submitting a listing can select its location from a series of dropdowns: first Country, then State, then City. This ensures all user-submitted content is properly organized geographically.
+    </Card>
+</CardGrid>
+
+<LinkCard
+    href="https://wordpress.org/plugins/listdom/"
+    title="Explore the official Listdom plugin page on WordPress.org for more information, FAQs, and support resources."
+/>

@@ -1,0 +1,94 @@
+---
+title: Labels
+sidebar_label: Labels
+description: "Use labels to tag and highlight listings with color-coded badges. This guide covers creating and managing labels, label options, and premium label features via add-ons."
+sidebar:
+  order: 7
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Labels in Listdom are a type of custom taxonomy used to tag and highlight listings with colored badges. Labels are similar to tags: they are non-hierarchical (no parent/child relationships) and each listing can have multiple labels. You might use labels for special statuses or attributes like "New", "Open Now", "Featured", etc., to draw attention to certain listings with a visual marker.
+
+## Adding and Managing Labels
+
+To manage labels, navigate to **Listings > Labels** in your WordPress dashboard. On this screen, you can add new labels and see a list of all existing labels.
+
+<Steps>
+1.  Go to your WordPress admin menu and click **Listings > Labels**. This will open the Labels management page.
+2.  Under "Add New Label", enter the label details:
+    -   **Name** - the name of your label (e.g., *New* or *Featured*).
+    -   **Slug** - the URL-friendly version (leave blank to auto-generate from the name).
+    -   **Description** - (optional) details about the label for your reference.
+    -   **Color** - pick a color for this label's badge.
+3.  Click the **Add New Label** button. The new label will appear in the list of labels on the right.
+</Steps>
+
+Once a label is created, you can **Edit** or **Delete** it from the labels list (hover over a label to see the edit links). Editing a label lets you change its name, slug, description, or color. Deleting a label will remove it from all listings (the listings themselves won't be deleted).
+
+## Label Fields and Options
+
+Each label has several options and settings available:
+
+### Name
+
+The label's name as it will appear on your site. Choose a short, descriptive name (for example, "New", "Sale", or "Verified"). This field is required when adding a label.
+
+### Slug
+
+The URL-friendly version of the name, used in label archive URLs. If left empty, WordPress will generate a slug from the name. The slug defaults to lowercase and hyphens (for example, a label named "Open Now" might get the slug `open-now`). By default, label archive pages use the prefix `listing-label` in the URL. For instance, a label "New" would have an archive at `your-site.com/listing-label/new/`. You can customize this slug prefix in the Listdom General Settings if needed.
+
+### Description
+
+An optional text description for the label. This is for internal use and is usually not displayed on the front-end. You might use it to note what the label is used for. By default, this field can be left blank.
+
+### Color
+
+The highlight color for this label's badge. When you add or edit a label, you can select a color using a color picker. The default color for new labels is a medium blue `#1d7ed3` (if you don't choose another color). The color you set will be used as the background color when the label is displayed on listing cards or pages, making the label stand out visually. The text color of the label will automatically adjust for readability (light or dark, depending on the background color).
+
+<Aside type="tip">
+Using distinct colors for each label is recommended. Choose colors that contrast well with your site's background and with each other, so users can easily differentiate labels at a glance.
+</Aside>
+
+### Product <Badge text="Pro" />
+
+(Premium feature) Associate a WooCommerce product with this label. This option allows you to require a purchase for using the label on a listing. For example, you might create a "Featured" label linked to a WooCommerce product owners would need to buy that product to apply the "Featured" label to their listing. In the label add/edit form, the Product field lets you search and select one WooCommerce product (only one product can be linked per label).
+
+<Aside type="note">
+The Product field for labels is available only if the Listdom Labelize add-on is installed (part of Listdom Pro) and WooCommerce is active. This add-on integration enables monetizing labels by tying them to WooCommerce products.
+</Aside>
+
+## Using Labels on Listings
+
+Once labels are created, you can assign them to individual listings:
+
+-   **In WordPress Admin**: When editing or creating a listing (Listdom Listing post), you'll find a **Labels** meta box. Since labels behave like tags, this meta box allows you to type in labels or select from existing ones. You can add multiple labels to a listing. For example, a single listing could have both "New" and "Verified" labels at the same time.
+-   **Front-end Submission Form**: If you allow users to submit listings via a front-end form, Listdom includes a **Labels** field in the submission form by default. Submitters can choose one or more labels from the existing list. By default, users cannot create brand new label terms from the front-end; they can only select labels that an admin has predefined. However, with Listdom Pro, the administrator can enable a "term builder" for labels, allowing users to add new labels during submission.
+
+On the front-end, labels assigned to a listing typically appear as colored badges on listing cards or the listing detail page. These label badges will show the label name with the background color you set. They can also function as filters or links - clicking a label badge can take users to that label's archive page, showing all listings that have the same label.
+
+## Examples
+
+<CardGrid>
+    <Card>
+        ### Highlighting New Listings
+        Imagine you want to draw attention to recently added listings. You create a label called **New** and give it a bright color (e.g., orange). Whenever a new listing is published, you (or your vendors) assign the **New** label to it. On the site, these listings display a "New" badge, instantly letting visitors know which listings are fresh.
+    </Card>
+    <Card>
+        ### Premium Featured Label
+        With the *Labelize* add-on, you set up a special **Featured** label tied to a WooCommerce product. You charge a fee for this label. Listing owners can purchase the Featured Label product to mark their listing as featured. Once purchased, the listing gets a prominent, colored "Featured" badge. This monetization encourages owners to pay for extra visibility.
+    </Card>
+    <Card>
+        ### Multiple Labels on One Listing
+        Labels are not limited to one per listing. For example, a property listing could have both **New** and **VERIFIED** labels. You might use **Verified** (with a distinct color) to indicate you have verified the listing's details. The listing would show two badges, helping convey multiple pieces of key info at a glance.
+    </Card>
+</CardGrid>
+
+<LinkCard
+    href="https://wordpress.org/support/article/taxonomies/"
+    title="WordPress Taxonomies Overview"
+    description="Learn more about how WordPress categories, tags, and custom taxonomies like labels work."
+/>

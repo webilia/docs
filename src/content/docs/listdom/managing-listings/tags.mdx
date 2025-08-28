@@ -1,0 +1,96 @@
+---
+title: "Tags"
+sidebar_label: Tags
+description: "Organize listings with tags flexible keywords that help filter and group listings by specific attributes."
+sidebar:
+  order: 5
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Tags in Listdom are free-form keywords you can assign to listings. They allow you to label listings with specific terms (e.g. "Pet-Friendly", "New Arrival") for more granular filtering and grouping across your site. Unlike categories, tags are non-hierarchical there are no parent/child relationships, and you can assign multiple tags to a single listing.
+
+<Aside type="note">
+**Categories vs Tags:** Listing Categories can be structured hierarchically (with sub-categories available in Listdom <Badge text="Pro" />), but Tags remain a flat taxonomy in all versions. Each tag stands alone with no parent tags.
+</Aside>
+
+## Adding New Tags
+
+You can create and manage tags from the **Listings > Tags** menu in WordPress admin. Use tags to highlight specific features or themes of your listings. For example, you might tag certain listings as "Featured" or "Seasonal" to help users find them via filters or tag cloud widgets.
+
+<Steps>
+1.  **Navigate to Listings > Tags**: In your WordPress dashboard, go to Listings (Listdom's menu) and click on Tags. You'll see the "Add New Tag" form on the left and a list of existing tags on the right.
+2.  **Fill in Tag details**: Enter the **Name** of your tag (e.g. "Pet-Friendly"). Optionally, specify a custom **Slug** (URL keyword) and a **Description** for the tag.
+3.  **Add the Tag**: Click the **Add New Tag** button. The new tag will appear in the tags list on the right, ready to be assigned to listings.
+</Steps>
+
+### Tag Fields
+
+When adding or editing a tag, you will encounter the following options:
+
+-   **Name**: The tag's name as it will appear on your site. This is typically a short word or phrase (e.g. "Pet-Friendly"). Name must be unique among all tags.
+-   **Slug**: The URL-friendly version of the name. If you leave this blank, it will be generated from the name. Slugs are lowercase and contain only letters, numbers, and hyphens (e.g. a Pet-Friendly tag might get the slug "pet-friendly"). The slug forms part of the tag archive URL (for example, `your-site.com/listing-tag/pet-friendly/` by default).
+-   **Description**: An optional description for the tag. This can explain the tag's purpose or usage. Note that not all themes display tag descriptions on the site, but it can be useful for internal reference or SEO purposes.
+
+<Aside type="note">
+Tags do not have additional fields like icons, colors, or images in Listdom. Those customizations are available for some other taxonomies (e.g. Category icons or Label colors), but Tags are kept simple as text labels.
+</Aside>
+
+## Editing and Deleting Tags
+
+After creating tags, you can manage them in the Tags list table (under **Listings > Tags**). This table shows each tag's Name, Description, Slug, and a Count of how many listings use that tag. Hover over a tag in the list to reveal action links:
+
+-   **Edit**: Opens the Edit Tag screen, where you can modify the tag's name, slug, or description.
+-   **Quick Edit**: Allows inline editing of the Name and Slug directly in the tags list for a faster tweak.
+-   **Delete**: Permanently deletes the tag. (Deleting a tag will not remove any listings - those listings will simply have one less tag.)
+
+<Aside type="caution">
+Deleting a tag does not delete the listings associated with it. It only removes the tag from those listings. The listings themselves remain published in their categories.
+</Aside>
+
+You can also perform bulk actions on tags: to delete multiple tags at once, check their boxes and use the **Bulk actions** dropdown above the table. Use the search box or column sorting to quickly find a specific tag if your list is long.
+
+<Aside type="tip">
+In the **Count** column, the number is a quick link. Clicking a tag's count will filter your Listings list to show only listings that have that tag. This is a handy way to review or manage all listings labeled with a particular tag.
+</Aside>
+
+## Assigning Tags to Listings
+
+Once tags are created, you can assign them to individual listings:
+
+-   **In WP Admin**: When editing or adding a Listing (in the WordPress admin), use the **Tags** meta box (usually on the right side). Click into the text field and type to add tags. You can select an existing tag from suggestions or type a new tag name and press Enter. (Multiple tags should be separated by commas or by pressing Enter after each tag name.)
+-   **On the Front-end Submission Form**: If you allow front-end listing submissions (e.g. via the Listdom dashboard or add-listing shortcode), there will be a **Tags** field for users to enter tags for their listing. By default, users can pick from existing tags as they type, and they may also create new tags by entering new keywords. Administrators can limit or control this behavior via settings (see Terms Builder below).
+
+**Tag limits**: By default, there's no hard limit to how many tags can be attached to a listing. As the site admin, you can optionally set a limit on the number of tags per listing. In **Listdom > Settings > Frontend Dashboard > Restrictions**, the **Maximum Number of Tags** option lets you define the maximum tags a user can add to one listing (leave it blank for unlimited).
+
+<Aside type="note">
+**Allowing new tags from the front-end**: In Listdom's settings, you can enable the Terms Builder for Tags to let users create new tag terms while submitting a listing. Go to **Listdom > Settings > Frontend Dashboard > Terms Builder** and set Tags to **Express** (quick one-field add) or **Detailed** (allows entering a name and description). This feature gives your users the flexibility to add tags on the fly.
+</Aside>
+
+## Tag Archive Pages
+
+Every tag has its own archive page that displays all listings labeled with that tag. When a visitor clicks on a tag (for example, on a listing's detail page or a tag cloud), they are taken to the tag archive showing all relevant listings.
+
+By default, the appearance of the tag archive depends on your theme. To ensure a consistent design, Listdom allows you to use one of its built-in listing layouts for tag archives:
+
+-   **Custom Tag Archive Layout**: Navigate to **Listdom > Settings > Archive Pages**. In the **Tag** dropdown, you can select one of your pre-designed Listing Shortcode skins (archive skins) to use for the tag archive page. For example, you might choose a grid or list layout that you've configured. If set, Listdom will use that layout to display the tag's listings. If you leave this setting to **Current Theme Style**, your theme's default archive template will be used instead.
+-   **Tag URL Prefix (Slug)**: You can customize the URL structure for tag pages. By default, Listing Tag archives use the prefix "listing-tag" in the URL (e.g. `yourwebsite.com/listing-tag/your-tag-slug/`). To change this, go to **Listdom > Settings > Archive & Slugs** and find the **Tag slug** option. For instance, you could change the slug to "topics", resulting in URLs like `.../topics/your-tag/`. After changing slug settings, be sure to re-save your WordPress permalinks for changes to take effect.
+
+## Examples
+
+<CardGrid>
+    <Card>
+        **Highlighting Unique Features with Tags**: A real estate directory uses tags like "Ocean View" and "Pet-Friendly" on listings. This way, visitors can click a "Pet-Friendly" tag to see all properties allowing pets, even if those listings belong to different categories or locations.
+    </Card>
+    <Card>
+        **Flexible Grouping Across Categories**: In a restaurant listing site, you might categorize listings by cuisine (Italian, Mexican, etc.) and use tags for specific attributes like "Live Music" or "Outdoor Seating". A user can filter all restaurants with "Outdoor Seating" by clicking that tag, regardless of cuisine category.
+    </Card>
+    <Card>
+        **Using Tag Archives in Navigation**: Suppose you run an event directory. You create a tag called "Free Admission" for events. You could add a menu link pointing to the "Free Admission" tag archive page. When clicked, it shows all events that have free entry, offering a convenient curated view for your users.
+    </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/documentation/article/posts-tags-screen/" title="WordPress Documentation: Posts Tags Screen" />
