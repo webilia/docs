@@ -80,6 +80,7 @@ export default defineConfig({
                 { label: 'Site & Navigation', autogenerate: { directory: 'vertex/widgets/site-navigation' }, collapsed: true },
                 { label: 'Content & Layout', autogenerate: { directory: 'vertex/widgets/content-layout' }, collapsed: true },
                 { label: 'Media & Interactivity', autogenerate: { directory: 'vertex/widgets/media-interactivity' }, collapsed: true },
+                { label: 'Dynamic Posts & Templates', autogenerate: { directory: 'vertex/widgets/dynamic-posts-templates' }, collapsed: true },
                 { label: 'Data & Maps', autogenerate: { directory: 'vertex/widgets/data-maps' }, collapsed: true },
                 { label: 'Forms & Accounts', autogenerate: { directory: 'vertex/widgets/forms-accounts' }, collapsed: true },
                 { label: 'Carousels & Timelines', autogenerate: { directory: 'vertex/widgets/carousels-timelines' }, collapsed: true },
