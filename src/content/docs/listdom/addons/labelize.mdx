@@ -1,0 +1,49 @@
+title: Labelize Addon
+sidebar_label: Labelize Addon
+description: "Monetize listing labels by selling special labels (e.g. Featured) to listing owners via WooCommerce integration."
+sidebar:
+  order: 5
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Labelize Addon <Badge text="Pro" /> allows you to monetize listing labels (e.g., "Featured", "Verified") by integrating with WooCommerce. You can attach a price to these labels and let listing owners purchase them for their listings.
+
+<Aside type="caution">
+The Labelize addon requires WooCommerce to be installed and activated.
+</Aside>
+
+## Settings
+Go to **Listdom > Settings > Addons > Labelize**:
+- **Auto Order Complete**: Toggle whether WooCommerce orders for label purchases should be automatically marked as "Completed." (Default: Yes)
+
+## Setup for Selling Labels
+<Steps>
+1. **Create Listing Labels**: In **Listdom > Listings > Labels**, add the labels you plan to sell (e.g., "Featured", "Highlighted").
+2. **Create WooCommerce Products**: For each label you want to sell, create a corresponding WooCommerce product and set a price.
+3. **Assign Products to Labels**: Go back to **Listdom > Listings > Labels**, edit a label, and use the new field to assign its corresponding WooCommerce product.
+4. **Verify Auto Complete Setting**: Ensure "Auto Order Complete" is enabled if you want orders to complete instantly.
+</Steps>
+
+## Purchasing Labels (Listing Owners)
+Once set up, listing owners can purchase labels for their listings via the front-end dashboard.
+
+- In the "Labels" section of the listing edit form, they will see available purchasable labels with their prices.
+- They can select the labels they want and click **Add to Cart**.
+- They are then directed to the standard WooCommerce checkout to complete the purchase.
+- If "Auto Order Complete" is on, the purchased labels are automatically assigned to the listing as soon as payment is successful.
+
+<Aside type="note">
+Purchased labels remain on the listing indefinitely unless removed manually. The Labelize addon does not expire labels automatically.
+</Aside>
+
+## Examples
+<CardGrid>
+  <Card title="Featured Listing Upsell">
+    A real estate directory sells a "Featured" label for $20. An agent purchases it for their property, and after payment, the listing automatically gets a bright "Featured" ribbon on its thumbnail, increasing its visibility.
+  </Card>
+  <Card title="Verified Badge via Purchase">
+    A services marketplace monetizes its "Verified" badge by charging $5. Service providers pay the fee through their dashboard. Once the order completes, the addon attaches the "Verified" label, which appears as a checkmark icon on their profile.
+  </Card>
+</CardGrid>
+
+<LinkCard title="Listdom Documentation" href="https://api.webilia.com/go/listdom-docs/" />

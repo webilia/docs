@@ -1,0 +1,69 @@
+---
+title Stats Addon
+sidebar_label Stats Addon
+description Display detailed listing statistics such as views and contacts on listing detail pages.
+sidebar
+  order 1
+header_button
+  label View Demo
+  url [httpsdemo.webilia.comlistdom](httpsdemo.webilia.comlistdom)
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojsstarlightcomponents';
+
+HeaderButton href=httpsdemo.webilia.comlistdom text=View Demo 
+
+The Listdom Stats Addon introduces a Stats section to listing detail pages, allowing you to show key engagement metrics for each listing. Once enabled, the Stats section can display how many times a listing has been viewed, how many inquiries it received, and other interactions. This addon helps listing owners and site visitors gauge a listing’s popularity at a glance.
+
+## Enabling the Stats Section
+
+After installing the Stats addon, you need to enable the Stats section in the listing detail page options. By default, this section is disabled so it won’t appear until turned on. To enable it, go to the Listdom settings for the single listing (detail page) layout. In the Listing Elements configuration, find Stats and toggle it on (set Enabled to “Yes”). You can also choose whether to show a section title (defaults to Off). If showing the title, you can customize the title text (default is Stats) and alignment.
+
+Aside type=note
+The Stats section is only visible on the individual listing detail page. It will not appear on listing cards or archive pages.
+Aside
+
+### Stats Section Options
+
+Once the Stats element is enabled, you have several options to configure which statistics to show and how to display them. All of these settings are accessible in the single listing page configuration when editing the Stats element
+
+- If Zero Determine whether to display stats that have a value of zero. By default this is set to Display, meaning even zero counts (e.g. 0 views) will be shown. You can change it to Hide to omit any stat category that is currently zero.
+- Visits Toggle whether to show the total number of views (visits) the listing has received. (Default Yes – display the visit count.)
+- Contacts Toggle whether to show the number of contacts or inquiries sent to the listing owner. (Default Yes – show the contacts count, which counts uses of the listing’s contact form or contact button.)
+- Offers Toggle display of the number of offersbids the listing has received. (Default Yes – show offers count.) Badge text=Pro  
+- Bookings Toggle display of the number of bookings made for the listing. (Default Yes – show bookings count.) Badge text=Pro 
+- Reviews Toggle display of the number of reviews the listing has received from users. (Default Yes – show reviews count.) Badge text=Pro 
+- Comments Toggle display of the number of comments on the listing. (Default Yes – show comments count.)
+
+Aside type=note
+The Offers stat requires the Listdom Auction add-on to be installed (to track bidsoffers) Badge text=Pro . The Bookings stat only applies if the Listdom Booking add-on is active Badge text=Pro . Likewise, Reviews will show the count from the Listdom Reviews add-on, if installed. If these addons are not present, those specific stats won’t be available in the Stats section.
+Aside
+
+Each statistic that is toggled On will be displayed in the Stats section. For example, if Visits, Contacts, and Reviews are enabled, the listing detail page will show the total number of views, the count of contact inquiries, and the number of reviews for that listing. If a particular stat is disabled, it will be omitted from the section entirely.
+
+When If Zero is set to Hide, any stat category with a zero value will not be shown on the front-end. For instance, a brand new listing with 0 contacts and 0 reviews would, in that case, show only the visits count until those other values become non-zero.
+
+## How Listing Stats are Tracked
+
+Once the Stats addon is activated, Listdom automatically starts tracking certain engagement metrics for each listing
+
+- Visits Each time a listing’s detail page is viewed by a user, a visit counter for that listing is incremented. This count reflects the total number of views.
+- Contacts If a visitor uses the listing’s contact form or reveals the contact information (depending on your theme’s functionality), Listdom counts that as a contact. The Stats addon will display the total number of times users have attempted to contact the listing owner.
+- OffersBookingsReviews These counts are pulled from their respective addon data. For example, if using the Auction addon, every bid or offer on the listing will contribute to the Offers count. Bookings made via the Booking addon will increment the Bookings stat. Approved user reviews from the Reviews addon contribute to the Reviews count.
+- Comments This stat reflects the number of WordPress comments on the listing’s detail page (if comments are enabled on listings). It will update automatically as users leave comments.
+
+These metrics are stored with each listing and updated in real-time. The listing owner does not need to do anything special – the Stats addon works behind the scenes. Site administrators can also view these values in the back-end (for example, the Listing Visits and Listing Contacts Count may appear as custom fields or meta information for the listing in the admin area).
+
+Aside type=tip
+Encourage listing owners to enable the Stats section so they can monitor their listing’s performance. It provides social proof to visitors (e.g., This property has 120 views) and gives owners feedback on how their listing is doing.
+Aside
+
+## Examples
+
+CardGrid
+  Card title=Monitor Listing Performance description=A property owner enables the Stats section to track how popular their listing is. They can see it has 150 Visits and 10 Contacts, indicating strong interest from buyers. 
+  Card title=Combined with Reviews description=Using Stats alongside the Reviews addon, a restaurant listing shows 85 Visits and 5 Reviews. New visitors can quickly gauge both the popularity and customer feedback for the restaurant. 
+  Card title=Offers on Auction Listings description=On a car listing that uses the Auction addon, the Stats section displays Visits, Contacts, and Offers. The seller sees 20 Offers Badge text='Pro'  and knows there is active bidding competition on their vehicle. 
+CardGrid
+
+LinkCard href=httpsdemo.webilia.comlistdom title=Live Demo – Listdom Stats description=See a live listing example with the Stats addon enabled to understand how engagement metrics are displayed. 

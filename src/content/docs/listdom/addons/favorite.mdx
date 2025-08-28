@@ -1,0 +1,51 @@
+title: Favorite Addon
+sidebar_label: Favorite Addon
+description: "Allow users to save listings as favorites, view their saved listings, and display favorite counts."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Favorite Addon <Badge text="Pro" /> adds wishlist-style functionality to Listdom. It lets users mark listings as "favorites" so they can easily save and revisit them. This addon provides a favorite icon/button, shortcodes to display favorited listings, and integration with user dashboards.
+
+## Settings
+Go to **Listdom > Settings > Addons > Favorites** to configure options:
+
+- **Status**: Enable or disable the Favorites feature (enabled by default).
+- **Access**: Determine who can save favorites. Options are `Guest Users` (default) or `Only Loggedin Users`.
+- **Shortcodes**: Use `[listdom-favorites]` to display a user's favorite listings and `[listdom-favorites-count]` to show the number of favorites.
+- **Show in Dashboard**: Toggle whether a "Favorites" section appears in the user's front-end dashboard (enabled by default).
+- **Target Shortcode**: If "Show in Dashboard" is on, select a listing archive shortcode to control the layout of the favorites list in the dashboard.
+
+<Aside type="note">
+If **Access** is set to `Only Loggedin Users`, visitors will be prompted to log in. If set to `Guest Users`, favorites for non-logged-in users are tracked via browser cookies or IP.
+</Aside>
+
+## Using the Favorite Addon
+When active, every listing will display a favorite icon (usually a heart).
+
+- **Adding a Favorite**: Clicking the icon saves the listing to the user's favorites, and the icon's style changes to indicate it's favorited.
+- **Removing a Favorite**: Clicking the icon again removes the listing from favorites.
+
+Users can view their saved favorites in two main ways:
+1.  **Favorites Dashboard Tab**: In their front-end dashboard, a "Favorites" tab will list all saved items.
+2.  **Favorites Shortcode Page**: You can create a dedicated page (e.g., "My Favorites") and insert the `[listdom-favorites]` shortcode to display the user's saved listings.
+
+<Aside type="tip">
+Consider placing a Favorites count in your menu or header. For example, add an icon with `[listdom-favorites-count]` next to it, so users can always see how many listings they've saved.
+</Aside>
+
+## Examples
+<CardGrid>
+  <Card title="Personal Wishlist">
+    A user browsing a real estate site clicks the heart on multiple properties. Later, they visit their Favorites page to review all saved properties in one place, making it easier to track interesting listings.
+  </Card>
+  <Card title="Favorites Counter in Header">
+    A directory site adds a heart icon in the navigation bar showing "Favorites (3)" using the count shortcode. This gives users a constant, visible update on their saved items and improves engagement.
+  </Card>
+</CardGrid>
+
+<LinkCard title="Listdom Documentation" href="https://api.webilia.com/go/listdom-docs/" />

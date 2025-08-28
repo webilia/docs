@@ -1,0 +1,44 @@
+title: KML Addon
+sidebar_label: KML Addon
+description: "Overlay KML/GPX map layers on Listdom maps, define custom map regions and paths for your directory."
+sidebar:
+  order: 4
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The KML Addon <Badge text="Pro" /> allows you to add custom map layers to your Listdom maps using KML or GPX files. These file formats can define boundaries, shapes, routes, or points of interest on a map.
+
+## Settings
+Go to **Listdom > Settings > Addons > KML** to find the setting:
+- **Display in Single Listing**: If enabled (default), KML/GPX layers will be displayed on individual listing pages' maps.
+
+## Creating Map Layers
+<Steps>
+1. Go to **Listdom > Map Layers** in your WordPress dashboard.
+2. Click **Add New Layer** and give it a title.
+3. **Upload a File**: Choose your `.kml` or `.gpx` file.
+4. **Select Type**: Choose the file type, either `KML` or `GPX`.
+5. **Optional - Feed URL**: If your file is hosted remotely, paste the URL in the `Feed` field.
+6. **Click Publish** to save the layer.
+</Steps>
+
+## Adding Layers to Listing Maps
+You can display your created layers on Listdom maps:
+- **Listing Archive Maps**: In the Listdom shortcode generator, you'll find a **KML Layers** field where you can pick one or more layers to overlay on that map.
+- **Single Listing Page Map**: If "Display in Single Listing" is enabled, the map on each listing's page will show all available KML/GPX layers by default.
+
+<Aside type="caution">
+Using many or very complex KML layers can impact map performance. It's best to include only the layers you need for a given view.
+</Aside>
+
+## Examples
+<CardGrid>
+  <Card title="Service Area Overlay">
+    A home services directory uploads a KML file for each company, outlining their service region. On the map, a translucent polygon shows the boundary of a company's service area, helping users find businesses that cover their location.
+  </Card>
+  <Card title="Trail Maps on Listings">
+    An outdoor activities site lists hiking trails. Using a GPX file for each trail, the admin creates layers that trace the exact path. On a trail's listing page, the map displays the GPX route overlaying the terrain for hikers to follow.
+  </Card>
+</CardGrid>
+
+<LinkCard title="Listdom Documentation" href="[https://api.webilia.com/go/listdom-docs/](https://api.webilia.com/go/listdom-docs/)" />
