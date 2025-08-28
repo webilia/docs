@@ -1,9 +1,39 @@
 ---
 title: Dynamic Posts & Templates
-description: TODO
+description: "Learn about Vertex Addons' Dynamic Posts & Templates widgets, which enable you to build dynamic post and archive templates in Elementor."
 sidebar:
   label: Overview
   order: 1
 ---
 
-Content coming soon.
+import { Aside, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+**Dynamic Posts & Templates Widgets**  
+Vertex Addons for Elementor provides a set of **Dynamic Posts & Templates** widgets that help you create custom blog layouts, post templates, and archive pages with ease. These widgets dynamically pull content from your posts and pages, allowing you to design templates that automatically update with your content. Whether you want to display a post's title, featured image, metadata, or even an entire list of posts, these widgets give you the flexibility to build it visually in Elementor.
+
+<Aside type="note" title="What Are Dynamic Widgets?">
+“Dynamic” widgets fetch content from your WordPress site automatically (e.g., the current post's data). This means you can design one template and use it for many posts or archives without manually updating the content each time.
+</Aside>
+
+## Widgets in This Category
+
+<CardGrid>
+  <LinkCard title="Dynamic Archive Posts" href="./dynamic-archive-posts/" description="Display a list of posts for the current archive (category, tag, etc.) with customizable layout and styling." />
+  <LinkCard title="Dynamic Grid/Carousel" href="./dynamic-grid-carousel/" description="Show posts or custom post types in a grid or carousel format, with advanced query, filtering, and animation options." />
+  <LinkCard title="Template" href="./template/" description="Embed saved Elementor templates anywhere in your layout, allowing you to reuse design sections dynamically." />
+  <LinkCard title="Post Title" href="./post-title/" description="Display the current post's title dynamically with full control over HTML tag, styling, and optional links." />
+  <LinkCard title="Post Excerpt" href="./post-excerpt/" description="Show the post's excerpt (summary) dynamically, with options to adjust its length and style." />
+  <LinkCard title="Post Content" href="./post-content/" description="Insert the full content of the current post into your template, maintaining all formatting and allowing custom heading styling." />
+  <LinkCard title="Post Date" href="./post-date/" description="Display the publication date of the post in any format you choose, with various styling options." />
+  <LinkCard title="Post Time" href="./post-time/" description="Show the publish time of the post dynamically, and style its appearance to match your design." />
+  <LinkCard title="Post Terms" href="./post-terms/" description="List the categories, tags, or other taxonomy terms of the post, with separator and link settings." />
+  <LinkCard title="Post Featured Image" href="./post-featured-image/" description="Display the post's featured image dynamically, with control over size, alignment, and styling." />
+  <LinkCard title="Post Navigation" href="./post-navigation/" description="Add Previous/Next post navigation links to your single post template, allowing readers to navigate between posts." />
+  <LinkCard title="Author Box" href="./author-box/" description="Show the post author's information (name, avatar, bio, etc.) in a styled box, with options for layout and links." />
+  <LinkCard title="Page Title" href="./page-title/" description="Dynamically display the title of the current page (or post) with advanced typography and optional prefix text for archives." />
+  <LinkCard title="Archive Title" href="./archive-title/" description="Display the title of the current archive page (e.g., category or tag name) automatically, including context labels like 'Category:'." />
+  <LinkCard title="Comments Form" href="./comments-form/" description="Embed a WordPress comments form in your post template, with full control over form fields and submit button styling." />
+  <LinkCard title="Post Comments" href="./post-comments/" description="Display the list of comments on the post within your template, with styling controls for avatars, text, and layout." />
+</CardGrid>
+
+*Using these widgets, you can construct entire **single post templates** and **archive templates** in Elementor's Theme Builder. Mix and match them to decide exactly what post information appears and how it's styled.* Each widget's page (linked above) provides detailed instructions and options for configuration.

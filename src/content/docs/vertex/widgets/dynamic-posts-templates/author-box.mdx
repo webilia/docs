@@ -1,8 +1,99 @@
 ---
 title: Author Box
-description: TODO
+description: "Displays the post author's information (avatar, name, bio, and link) in a stylized box, either for the current post's author or a custom author."
 sidebar:
   order: 13
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Author Box** widget showcases author information for a post in an attractive box layout. It typically appears at the end of blog posts or in author archive pages, providing readers with details about the post's author. This widget can display the author's profile picture (avatar), name, biography, and an optional link to the author's posts or website.
+
+<Aside type="note" title='Use Case'>
+Adding an Author Box at the bottom of your blog posts helps personalize your content. It gives readers context about who wrote the post and can increase engagement by connecting posts to an author's profile or other content.
+</Aside>
+
+## Usage
+
+<Steps>
+1. Edit your **Single Post** template (or the page where you want to show author info) with Elementor.
+2. In the widget panel, search for **Author Box** (you'll find it under *Theme Elements* or *Single Post* widgets).
+3. Drag **Author Box** into your design, typically below the post content or at the sidebar (wherever an author bio section is desired).
+4. By default, the widget will pull in the **Current Author** of the post being viewed. If you are designing a template for posts, this will automatically show each post's respective author.
+5. Adjust the content options as needed (toggle on/off avatar, name, bio, etc., or switch to **Custom** mode to input specific info).
+6. Style the Author Box under the **Style** tab - you can set typography for the name and bio, spacing, alignment, colors, and more to match your site's design.
+</Steps>
+
+![Author Box Widget](https://cdn.webilia.com/u/d/2025/08/vertex-widget-author-box.png)
+
+## Content Options
+
+When the Author Box is selected, you have a variety of options in the **Content** tab to configure what information to show and where it comes from:
+
+- **Source:** Choose **Current Author** (default) to dynamically use the author of the current post, or **Custom** to enter author details manually. Using *Current Author* is ideal for post templates - it will automatically show each post's actual author. The *Custom* option is useful if you want to showcase a specific person (e.g., for a static page or if the post author info is unavailable).
+- **Profile Picture (Avatar):** Toggle **Show Avatar** on or off. When enabled (default “Yes” for current author), the author's profile picture will display. For *Current Author*, it uses the author's WordPress avatar (typically from Gravatar). You can set the **Picture Size** (in pixels) to control how large the avatar appears. If using *Custom* source, you can upload an image under **Profile Picture** (this field appears only when Custom is selected).
+- **Name:** Toggle **Display Name** on or off. When enabled, the author's name will be shown. For *Custom* source, an input for **Name** appears, allowing you to set a custom name (default placeholder “John Doe”). You can also choose the **HTML Tag** for the name (h1-h6, div, span) - by default it's an `<h4>` for a nice subheading size, but you can change it depending on your design hierarchy.
+- **Link:** Control what happens when users click on the author's name or avatar. For *Current Author* source, the **Link** dropdown offers:
+  - *None*: No link (the name/avatar will not be clickable).
+  - *Website*: Link to the author's personal website (as set in their WordPress profile).
+  - *Posts Archive*: Link to the author's archive page (listing all posts by that author).
+  
+  If you choose Website or Posts Archive, then on the live site the author's name and picture will be clickable, taking visitors to the respective URL. For *Custom* source, you can provide any URL in the **Author Website** field to link the name and avatar (for example, link to an external profile or custom page).
+- **Biography:** Toggle **Biography** on or off. When enabled, the author's biographical info is displayed. For *Current Author*, this pulls from the author's **Biographical Info** in their WordPress profile. For *Custom*, a **Bio** text area will appear for you to enter any text or HTML for the author description. Use this to give a short introduction or credentials for the author.
+- **Archive Button:** Toggle **Archive Button** on or off. This option (for *Current Author*) adds a call-to-action button linking to the author's posts archive. When enabled, a button (often labeled "All Posts" by default) will show, which viewers can click to see all posts by that author. For *Custom* source, you can provide a specific URL in **Posts URL** (perhaps linking to a category or an external page) and customize the **Archive Text** (the button label, default "All Posts").
+- **Layout:** Choose the layout of the author box. Options are **Left**, **Above**, **Right**, indicating the position of the avatar relative to the text:
+  - *Left*: Avatar to the left, with name and bio to the right of it.
+  - *Above*: Avatar on top, with name and bio below (stacked vertically).
+  - *Right*: Avatar to the right, with text on the left.
+  
+  Selecting a layout adds a prefix class (like `afeb-author-box-layout-image-left`) which arranges the content accordingly.
+- **Alignment:** Set the overall alignment of the content within the Author Box container (Left, Center, Right). For instance, you might center-align an above-layout author box, or left-align one with the avatar on left.
+
+<Aside type="tip">
+If an author does not have a Gravatar set, the avatar may show a default image. You can install a plugin or allow custom avatars if you want to manage author images directly. For a **Custom** author box (e.g., on a page), simply upload any image as the avatar.
+</Aside>
+
+## Styling Options
+
+Switch to the **Style** tab to fine-tune the appearance of the Author Box. You'll find sections for **Image**, **Content**, **Name**, **Biography**, and **Button** styling (the exact sections may depend on which elements are enabled):
+
+- **Image Style:** Control the avatar's appearance. Adjust the border radius (to make it circular or rounded square), add a border or box-shadow around the image, and set spacing:
+  - *Vertical Align:* If the layout is left or right, you can align the avatar to the top or middle relative to the text.
+  - *Size:* Although you set a pixel size in content, you can further refine it responsively here or ensure it's 100% of that pixel size.
+  - *Gap:* Set the spacing between the avatar and the text (useful when the avatar is beside the text).
+- **Name Style:** Customize the author name's typography (font family, size, weight, etc.) and color. You can make the name stand out as a mini-heading. There's also a **Hover Color** if you enabled the link - for example, you might underline or color the name on hover when it's clickable.
+- **Bio Style:** Style the biography text. Options include text color, typography (you might choose a slightly smaller or italic font for the bio), and spacing (margins) around the bio paragraph.
+- **Button Style:** If the Archive Button is enabled, you will have controls to style it much like a regular button - text color, background color, hover colors, typography, padding, border radius, etc. This lets you ensure the "All Posts" (or custom labeled) button matches your theme's buttons.
+- **Spacing & Alignment:** Additional controls allow you to tweak padding inside the author box, margin outside it, and alignment of elements. For example, you can add padding to create a card-like background effect or adjust vertical spacing between avatar, name, and bio.
+- **Background & Border:** You might also find options to set a background color for the author box container or add a border. This can be used to create a distinct box or callout style around the author info (e.g., a light grey background with rounded corners).
+
+<Aside type="note">
+The Author Box inherits global text styles by default. For consistency, ensure the name and bio typography align with your site's font choices. You can override these in the widget's style settings as needed.
+</Aside>
+
+## Example Scenario
+
+Imagine you have a blog post written by *Jane Doe*. At the bottom of the post, you insert the Author Box widget. With **Source** = Current Author, the widget will automatically display Jane's information:
+
+<CardGrid>
+  <Card title="Avatar & Name">
+    Jane's profile picture (avatar) appears on the left, and her name **Jane Doe** is shown as a heading. If you set <Badge text="Link: Posts Archive" variant="note" /> for the name, clicking "Jane Doe" takes readers to all posts by Jane.
+  </Card>
+  <Card title="Bio">
+    Below the name, a short bio like *"Jane Doe is a travel blogger who has visited 30+ countries..."* is displayed. This text comes from Jane's WordPress user profile bio.
+  </Card>
+  <Card title="Archive Button">
+    If enabled, a button labeled **"All Posts"** follows the bio. Clicking it goes to Jane's author archive page where all her blog posts are listed.
+  </Card>
+</CardGrid>
+
+In this example, the Author Box creates a personalized touch on the post, with everything updating dynamically if a different author writes another post.
+
+<Aside type="tip">
+For single-author blogs (where you might not need to highlight different authors), you could still use Author Box in a custom way - for example, always showing a certain profile or a blog description by using the **Custom** source option.
+</Aside>
+
+## Additional Notes
+
+- If you use the Author Box in an **Author Archive** template (an archive page listing posts by author), setting **Source** to Current Author will show that archive's author info. This is a great way to create a dedicated author page with a hero section containing the Author Box.
+- The widget's script ensures that in the Elementor editor, you can preview all fields (like name, email in Comments Form - not applicable here). For Author Box, just note that in the editor you might see placeholder info (e.g., John Doe) when in custom mode or if no author data is present, but on the live site it will show the real data.

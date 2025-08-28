@@ -1,8 +1,65 @@
 ---
 title: Post Title
-description: TODO
+description: "The Post Title widget dynamically displays the current post's title in your template, with options for HTML tag level, text before/after, linking, and full styling control."
 sidebar:
   order: 5
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Title** widget is an essential element for building single post templates. It automatically pulls in the title of the current post (or page) and displays it in your Elementor design. With this widget, you can ensure every post or page shows its title in a consistent style and location, without having to type it manually for each. The widget also provides formatting options like choosing the heading level (H1-H6), adding additional text before/after the title, and even linking the title if needed.
+
+## Key Features
+
+- **Dynamic Title Display:** Automatically shows the title of the current post or page when used in a template. No manual updates needed when the post title changes.
+- **Custom HTML Tag:** Choose the heading level (H1, H2, H3, etc.) for the title, ensuring proper SEO hierarchy. For example, in a single post template, you might set the Post Title as an H1.
+- **Before/After Text:** Optionally add text that appears before or after the title. This is useful for adding consistent labels or punctuation. *(E.g., prefix every title with the word “Interview:” for a certain post type.)*
+- **Fallback Text:** Provide a fallback title to display if, for some reason, the post has no title. This ensures your design doesn't break on untitled posts.
+- **Link Options:** You can make the title a clickable link. Commonly, you might not link the title on the post page itself (since you're already on that post), but if you use this widget in something like a custom loop item design, you could link the title to the post URL.
+- **Full Styling Control:** Design the title's appearance: font, size, color, alignment, hover effects, and more. This widget's style options let you match the title to your theme's typography guidelines.
+- **Supports Dynamic Tags:** The widget is inherently a dynamic tag itself (for the title), but it also allows integration with Elementor's dynamic and conditional features if needed.
+
+## How to Use the Post Title Widget
+
+<Steps>
+1. **Add the Widget:** Drag the **Post Title** widget into your Elementor canvas (ideally within a template for single posts or pages). Upon placing, it will display a sample title (or the actual title if you're previewing a specific post in the editor).
+2. **Content Options (Content Tab):**
+   - **Title Source:** Typically, this will default to the current post's title and doesn't require adjustment. (Vertex automatically uses the dynamic tag for post title.)
+   - **Before Text:** (Optional) Enter any text to appear immediately *before* the title. For example, you could put *“Recipe:”* so the output becomes “Recipe: Banana Bread”.
+   - **After Text:** (Optional) Similarly, add text to appear right *after* the title. This could be something like a punctuation or a symbol.
+   - **Fallback:** If provided, this text will show if the post/page has no title. This is rarely needed (WordPress requires a title for posts, typically), but you might set something like “(No Title)” as a safeguard.
+   - **Link:** Toggle to enable linking the title. If turned on, you'll get the standard link options (URL field, dynamic URL selection, etc.). 
+     - If you choose **“Post URL”** from dynamic tags, it will link to the current post itself (which on a single post page is redundant, but in a loop context it's how you'd link to the post page).
+     - You can also link to another page or leave it unlinked. Usually, **keep this off** in single post templates.
+   - **HTML Tag:** Select the appropriate HTML tag for the title element. Commonly:
+     - H1 for the main title of a page (on single posts, you'd use H1 for the post title).
+     - In other contexts (like a post list widget using Post Title in a loop), you might use H2 or H3 for each item's title to maintain hierarchy.
+3. **Style Options (Style Tab):** Under the Style tab, you'll find a **Title** section to customize the appearance:
+   - **Text Color:** Choose the color of the title text. You might use a dark color for light backgrounds, or white for dark backgrounds.
+   - **Typography:** Set the font family, size, weight, transform (uppercase/lowercase), style (italic/normal), and line-height/letter-spacing. This gives you full control to match your site's heading style.
+   - **Text Shadow:** Optionally apply a shadow behind the text to make it pop over backgrounds. You can adjust the blur and color to subtlety.
+   - **Text Stroke:** (If available) Add an outline stroke to the text for creative effects.
+   - **Alignment:** Align the title left, center, right, or justified. (Often centered for page titles, or left for blog post titles depending on design.)
+   - **Spacing/Margins:** There might be a setting for margin or padding around the title, or you can use the Advanced tab. Ensure there's appropriate spacing between the title and other elements (like the meta info or content below).
+   - **Hover/Interaction:** If you enabled a link on the title, you can set a hover color for the text in the Hover state subsection.
+4. **Advanced Tab:** Use standard advanced settings if needed:
+   - Add motion effects (maybe fade in the title on page load).
+   - Set responsive visibility (though you'd almost never hide a title on mobile, for example, but the option exists).
+   - Custom positioning or CSS if your layout calls for it.
+</Steps>
+
+![Post Title Widget](https://cdn.webilia.com/u/d/2025/08/vertex-widget-post-title.png)
+
+<Aside type="tip" title='SEO Tip'>
+Use the appropriate heading level for the post title. For single posts, an H1 is recommended as the page's main title (ensure you only have one H1 on the page). Using the Post Title widget with H1 helps search engines identify the main topic of the page.
+</Aside>
+
+## Example
+
+If you're creating a blog post template, you might place the Post Title widget at the top of your design, set it to H1, style it with your brand's typography, and maybe add a **Before Text** like “Blog: ” if you want every title prefixed (though usually that's not needed). Underneath, you could place the Post Meta (via Post Terms, Post Date, etc.) for a nice cohesive header section.
+
+In contrast, if you use the Post Title widget inside a custom loop item template (for a posts grid), you might use H3 for titles and enable linking, so each title in the grid is clickable to that post.
+
+## Conclusion
+
+The Post Title widget ensures that every post or page shown with your Elementor templates will display its title consistently and beautifully. It removes the need for manually adding titles and prevents mistakes (like forgetting to change a heading when reusing templates). By styling the Post Title widget to match your theme, you maintain visual consistency site-wide. This widget, combined with others like Post Excerpt and Featured Image, is fundamental in building out dynamic post layouts in Elementor.

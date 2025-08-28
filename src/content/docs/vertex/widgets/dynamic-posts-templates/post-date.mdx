@@ -1,8 +1,64 @@
 ---
 title: Post Date
-description: TODO
+description: "The Post Date widget displays the published date of the current post in your template, with customizable format, prefixes, and styling options."
 sidebar:
   order: 8
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Date** widget dynamically shows the date on which the current post was published (or last updated, depending on configuration). It's commonly used in post meta sections, such as under a post title, to inform readers when the content was posted. With this widget, you can format the date in various ways (e.g., full date vs. short date), add custom text like “Published on”, and style it to match your site's design.
+
+## Key Features
+
+- **Dynamic Date Retrieval:** Automatically pulls the post's publish date. (Some setups might allow showing the last updated date instead, but by default it's the publish date.)
+- **Custom Date Format:** Choose how the date is displayed - e.g., “March 5, 2025”, “05/03/2025”, “2025-03-05”, or any format supported by WordPress date formatting. You can pick from presets or use PHP date format tokens for a custom format.
+- **Before/After Text:** Add text before or after the date. For example, prefix with “Published on ” so it reads “Published on March 5, 2025”, or suffix with a label like “ (EST)” for a timezone note.
+- **Link Option:** Decide if the date should be clickable (for example, linking to the archive of that date). Usually, dates are not linked (except in some themes where clicking the date goes to a daily archive or calendar page).
+- **HTML Tag Choice:** Wrap the date in a specific HTML tag (span, div, paragraph, etc.) depending on your semantic needs. Often it's fine as a `<span>` within a meta paragraph or list.
+- **Styling Controls:** Full control over typography (font, size, style) and color of the date text. You can also style the surrounding text if you included a “Published on” prefix.
+- **Consistency with Meta:** Use the Post Date widget in combination with Post Time, Author, etc., and style them uniformly.
+
+## How to Configure the Post Date Widget
+
+<Steps>
+1. **Drag the Widget:** Place the **Post Date** widget into your design, typically near the Post Title or in a post meta block (like alongside author name and comments count).
+2. **Content Tab Settings:**
+   - **Format:** Choose the date format. You might see options like:
+     - *Default* (often the WordPress default format as set in Settings -> General).
+     - *June 1, 2025* (an example of a long format).
+     - *01/06/2025* (numeric short format).
+     - *Custom* - if you choose custom, a field appears where you can enter a format string (e.g., `F j, Y` for June 1, 2025 or `Y-m-d` for 2025-06-01). If you're not sure, using a preset is simplest.
+   - **Include Time:** If relevant, some widgets allow toggling whether to include the time as part of the date. However, since there's a separate Post Time widget, usually Post Date focuses on the date only.
+   - **Before Text:** Enter any text to appear immediately before the date. Common usage: *Published:* or *Posted on *. If you fill this, it will prepend like “Published: March 5, 2025”.
+   - **After Text:** Text to appear right after the date. Less commonly used, but you could add something like “(Friday)” if you wanted to specify the weekday or an abbreviation like “UTC”.
+   - **Link:** If you want the date to be a hyperlink, you can toggle this on and set a URL or dynamic link. A dynamic option might be “Post Date Archive” (which would link to an archive page of that date - but that's rarely useful for most sites). In most cases, keep this off (date is just text).
+   - **HTML Tag:** Choose the HTML wrapper tag for the date text. This could be `<span>` (default, good for inline text), or if you want it as a block, `<p>` or `<div>`. If the date is part of a sentence or a meta line, `<span>` is appropriate. If it's on its own line, `<p>` might be fine.
+3. **Style Tab:**
+   - **Typography:** Set the font and style for the date. You might want it smaller or lighter than body text. For example, if your body font is 16px, you might set the date to 14px, and maybe italic or a different color.
+   - **Text Color:** Choose a color for the date text. Many designs use a muted color (gray or secondary color) for meta info like dates.
+   - **Spacing:** If the widget includes options like spacing or indent, adjust as needed. E.g., add a bit of margin on the right if you plan to put time or author after it on the same line.
+   - **Alignment:** If the date is on its own line or element, you can align it left/center/right. Typically, though, dates are inline with other meta info or left-aligned by default.
+   - **Before/After Text Style:** Usually, the before/after text will inherit the same style as the date itself (they are rendered together). If you want the prefix “Published on” in a different style (say bold), you might need to wrap it in a separate HTML or use custom CSS.
+   - Check responsive settings here too - maybe on mobile you want the meta (date) text a bit smaller or differently spaced. You can adjust font size per device if needed.
+4. **Advanced Tab:** Standard advanced settings:
+   - If the date is part of a larger meta info section, you might be combining it with other widgets inside a Container or inner section. Sometimes you'll group date, author, etc., in one text block instead of separate widgets to control spacing precisely. But if using separate widgets, you might need to tweak margins in the Advanced tab to space them (e.g., give the Post Date widget a right margin to put a gap before the Post Author widget that follows).
+   - Add a CSS class if you plan to do additional custom styling.
+</Steps>
+
+<Aside type="tip" title='Last Updated Date'>
+The Post Date widget by default shows the published date. If you want to show “Last updated” date instead (common for articles that get revised), Vertex might not have a direct toggle for that unless using dynamic tags. One workaround: use Elementor's dynamic tags with the Theme Builder's Post Info widget or in a custom text field. But if Vertex Addons has a “Post Modified Date” dynamic tag, you could possibly use that. Check Vertex Dynamic Tags - they might have one for Modified Date. If so, you could insert it via a Text element.
+</Aside>
+
+## Example Usage
+
+- In a post's meta line under the title, you could have something like:
+  
+  *[icon] John Doe — March 5, 2025 — 2 Comments*
+
+  To achieve the date part “March 5, 2025”, you'd use the Post Date widget, format set to “F j, Y” (which gives March 5, 2025). No before text (or maybe a middot • as before text if you use that for separation). Styled in a smaller, secondary font.
+- If you design an Archive card that includes the date, you might use Post Date to show when each post was published, perhaps in a shorter format like “05 Mar 2025”.
+
+## Conclusion
+
+The Post Date widget adds important context to your blog posts by telling readers *when* the content was published. It's easy to set up and ensures consistency (you never have to type a date manually in your design). By customizing the format and style, you can integrate it seamlessly into your post meta. Don't forget to use a format that fits your audience's expectations (for international audience, a full month name avoids confusion between day/month order, for example). With the Post Date widget in place, your posts will always proudly display their publication date.

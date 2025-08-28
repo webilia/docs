@@ -1,8 +1,58 @@
 ---
 title: Post Content
-description: TODO
+description: "The Post Content widget dynamically inserts the full content of the current post/page into your Elementor design, allowing custom headings and styling for the content area."
 sidebar:
   order: 7
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Content** widget displays the **full content** of the current post or page within an Elementor template. It's a critical widget when building a Single Post template in Theme Builder - it pulls in whatever you have written in the WordPress editor for that post (including text, images, etc.) and shows it on the front end. This ensures that your Elementor template can include the main post body content at the appropriate spot. The widget provides options to add a custom heading above the content (useful if you want a section title like "Description" or similar) and basic styling controls for that heading.
+
+## Key Features
+
+- **Dynamic Full Content:** Automatically loads all the content from the post/page. This includes paragraphs, images, lists, and any other elements added in the post editor (Gutenberg or Classic editor output).
+- **Custom Heading Option:** You can prepend a heading or label before the content. For example, you might want to insert a title like “Story:” or “Article” above the content area.
+- **Before/After Text:** Beyond a heading, you have fields to add text immediately before or after the content. However, typically this is less used because you usually manage content in the editor itself.
+- **Fallback Content:** If for some reason there is no content (e.g., the post is empty), you can define a fallback message to display.
+- **Full Width Control:** The widget will take the full width of whatever container you place it in, making it flexible for various layouts (one column, with a sidebar, etc.).
+- **Styling for Heading/Text:** While the actual post content inherits styles from global settings (since it's essentially the text editor output), the widget allows styling of the optional heading (font, color, etc.) and some spacing.
+
+## How to Use the Post Content Widget
+
+<Steps>
+1. **Place the Widget in Your Template:** Drag the **Post Content** widget into your single post template structure at the spot where the main article text should go. Typically, this is under the Post Title and Post Meta, and above the Author Box or Comments.
+2. **Configure Heading (Content Tab):** In the widget's Content settings:
+   - **Title (Heading):** If you want a heading to appear above the content, enter it here. For example, you could write "Article" or "Blog Content". If you leave it blank, no extra heading is added (the content will just start).
+   - **Before Text / After Text:** These options allow you to insert small text or characters right before or after the main content. 
+     - *Before Text* might be used for something like an opening quotation mark or icon. 
+     - *After Text* could be used for a closing mark or some symbol after the content. In most cases, these are left blank.
+   - **Fallback:** If the post has no content at all (very unlikely in normal use), you can set a fallback message, e.g., "No content available." This would display instead of a blank area.
+   - Essentially, the key setting here is the Title if you want an introductory label; otherwise, the widget just outputs the content.
+3. **No Post Selection Needed:** The widget automatically knows to pull the content of the current post being displayed (when the template is applied). There's no option to pick which post - it's always the one in context.
+4. **Style Options (Style Tab):** The style controls often focus on the heading (title) you optionally added:
+   - **Heading Typography:** Set the font and style for the heading text (if you entered a Title in content options). You can adjust size, weight, color, etc.
+   - **Heading Alignment:** Align the heading left, center, or right.
+   - **Spacing:** Control the spacing below the heading or above the content (some widgets have a slider for spacing after the heading).
+   - For the content itself: There typically aren't individual style controls for the post content paragraphs here. That content is usually styled by the theme's or Elementor's global styles (e.g., global body text style). If you need to style the content text (paragraphs, etc.), use Elementor's **Theme Style** or add custom CSS.
+   - If needed, you can target elements inside post content via custom CSS in the Elementor template's Custom CSS (Pro feature) or your site's stylesheet. For example, you could write CSS to style `p` or `h2` inside the Post Content area.
+5. **Advanced Tab:** Manage advanced layout if needed:
+   - Add padding/margin around the content container.
+   - Set motion effects (maybe fade in the content).
+   - Responsive: Typically, you will always show post content on all devices (you wouldn't hide it!), but you might adjust margins for mobile, etc.
+   - Custom CSS: If you want to fine-tune the content styling, you can add a class to this widget and write CSS. For instance, `.post-content p { font-size: 1.1em; }` to adjust paragraph size slightly.
+</Steps>
+
+<Aside type="note" title='Styling the Post Content'>
+The text and images within the post content will use default styles (from your theme or Elementor global settings). If you want to globally adjust how post content looks (paragraph font, link colors, etc.), use **Site Settings > Theme Style > Typography** in Elementor. The Post Content widget will reflect those styles.
+</Aside>
+
+## Best Practices
+
+- **Don't Duplicate Content:** Only use one Post Content widget per template (there's usually no reason to have it multiple times). It outputs everything in the post content field. If you put two Post Content widgets, you'd repeat the whole post content twice.
+- **Optional Heading Usage:** Some prefer to not use the widget's Title at all, and instead handle any section headings manually in the post editor or via separate widgets. For example, if every post should start with a certain phrase or header, you might include it in the template. But the Title field offers a way to do it dynamically across all posts.
+- **Interaction with Theme:** If you have Elementor Pro's Theme Styles or a theme that styles post content (like setting link colors, blockquote styles, etc.), those will affect how content inside this widget looks. Always preview with a real post loaded to see actual content (like headings, lists, etc.) and adjust your global styles accordingly.
+
+## Conclusion
+
+The Post Content widget is what brings your actual article or page content into the Elementor template. It's mostly a “set and forget” element - once placed, you typically don't have to configure it often except to style an optional heading. It ensures that when you or your editors add content in the WordPress editor, that content appears in your designed layout exactly where it should. Using this widget along with dynamic headers (Post Title, Featured Image, etc.) gives you a complete and dynamic post layout that updates automatically for each post.

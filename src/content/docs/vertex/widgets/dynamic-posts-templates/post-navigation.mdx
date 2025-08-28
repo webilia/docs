@@ -1,8 +1,67 @@
 ---
 title: Post Navigation
-description: TODO
+description: "The Post Navigation widget provides Previous/Next post links on single post pages, allowing readers to navigate sequentially through your posts with customizable labels and styling."
 sidebar:
   order: 12
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Navigation** widget adds “Previous” and “Next” post links to your single post template. This allows readers to easily move to the older or newer post relative to the one they're viewing, which can increase engagement on blogs or chronological content. The widget typically displays two links - one linking to the previous post and one to the next post - often with the titles of those posts. You can customize the labels (e.g., the text "Previous" and "Next"), include arrow icons, and style the appearance to match your theme.
+
+## Key Features
+
+- **Previous/Next Links:** Automatically fetches the titles (or set text) of the adjacent posts in chronological order. For example, on a post, it will find the next newer post and next older post based on publish date (or whatever sort order WordPress uses for navigation, usually chronological).
+- **Label Customization:** Define the text to display for the “Previous” link and “Next” link. You can use generic text (like “Previous” and “Next”) or include actual post titles for more context (many themes show the post title next to the arrow).
+- **Arrow Icons:** Option to include arrow icons (← →, or chevrons) alongside the labels for clarity.
+- **Conditional Display:** If there's no older post or no newer post (e.g., you're at the first post or latest post), the widget will typically hide that respective link or disable it.
+- **Alignment & Orientation:** In some designs, previous and next links are shown side by side (previous on left, next on right). The widget likely handles that automatically. You might have orientation options (horizontal vs vertical).
+- **Styling:** Control typography and color of the link text, the background or container style, spacing, and hover effects.
+- **In-Same-Category (if supported):** Some navigation implementations allow limiting navigation to the same category. Check if there's a setting like "in same term" - but if not present, by default it goes through all posts by date.
+
+## How to Configure Post Navigation Widget
+
+<Steps>
+1. **Add the Widget:** Drag **Post Navigation** into your single post template, usually at the very bottom of the content area. By default, it may show placeholder “Previous” / “Next” links.
+2. **Content Tab Options:**
+   - **Show Label:** Toggle on/off a generic label like “Previous”/“Next”. If you turn this off, and you have no other text, you might rely on arrow icons or titles. Usually, leave it on so users see the word Previous or Next.
+   - **Previous Label Text:** Customize the text that appears for the previous post link. Default might be “Previous” or “« Previous”. You could change it to something like “← Newer Post” or “← Previous Post” for clarity.
+   - **Next Label Text:** Similarly, customize the next link text. E.g., “Next →” or “Older Post →”. (Note: “Newer” vs “Older” can confuse; standard is "Previous"/"Next" meaning older/newer relative to current).
+   - **Show Arrows:** If available, toggle to show arrow icons. You may have a dropdown to choose an arrow style (angle, double angle, chevron, arrowhead, etc.). Select one that matches your icon style.
+   - **Display Post Title:** Some navigation widgets allow including the actual post title of the next/prev post in the link. If so, enabling that will replace or append to your label text. For example: “← Previous: [Title of Previous Post]”. Check if there's a setting like "Show Post Title".
+   - **Show Borders:** In some designs, the nav links are separated by or enclosed in a border. There might be an option to show a border or divider between prev and next links.
+   - **Same Category:** If an option exists to restrict navigation to the same category, toggle it if you want readers to navigate only within the category of the current post (useful for sites with multiple topics).
+   - The content settings are mostly about what text is shown. Set them as you prefer. 
+3. **Style Tab:**
+   - You'll usually have separate style sections for **Label** (the "Previous"/"Next" text part) and perhaps for **Arrows** and for the container.
+   - **Typography (Label):** Adjust the font of the link text. Maybe you want it small and uppercase to match a subtle meta style.
+   - **Text Color:** Choose the normal color of the link text. And a different color for hover (maybe your theme's link hover color).
+   - **Arrow Style:** If arrows are shown, often they inherit the text color. But there might be settings to size the arrow icons or give them spacing. 
+   - **Spacing:** Control the spacing around the links - e.g., margin between the “Previous” and “Next” if they are on the same line, or padding inside if they're like buttons.
+   - **Alignment:** Possibly set alignment if the two links are in one container (maybe justify space-between so prev is left, next is right by default). If only one link is shown (at beginning or end of list), you might center it. Ensure this looks okay - test on first post and last post scenarios.
+   - **Background/Border:** Some designs put these links in pill-shaped buttons or a bar. You might have background color options for normal and hover states, border style (like add a bottom border or separators).
+   - **Hover State:** Ensure to style the hover (text color change, arrow color change, maybe underline or slight move).
+   - If including post titles, those might inherit style or perhaps be styled differently (like maybe you'd style the title portion italic).
+   - Check mobile: sometimes “Previous” and “Next” might stack vertically on narrow screens or you might want to center them on mobile. You can adjust in responsive settings accordingly.
+4. **Advanced Tab:**
+   - Add margins or padding if the navigation feels too close to other elements. For instance, some space above the navigation section to separate from content above.
+   - You might also choose to only show on certain devices (but generally, keep it everywhere; no reason to hide it on mobile).
+   - If the widget outputs in a list or container, you can use advanced positioning if needed, but likely unnecessary.
+</Steps>
+
+<Aside type="tip" title='Icon Only Nav'>
+If you prefer super minimal, you could turn off labels and just use arrows. For example, just a left arrow on the far left and a right arrow on far right as navigation. If doing this, ensure you have some tooltip or alt text for accessibility (the widget likely adds the post title in the anchor title attribute for screen readers).
+</Aside>
+
+## Example
+
+On your single post, at the bottom, you might configure:
+- Previous Label: “← Previous” 
+- Next Label: “Next →”
+- Show Post Title: Enabled, so it actually reads “← Previous: Title of Earlier Post” on hover or in text (depending on implementation).
+- Style: Make the nav text small and uppercase, color gray. On hover, color dark. Add a subtle arrow icon.
+- Result: At bottom left, you see **“← Previous Post Title”** and at bottom right **“Next Post Title →”**. These link accordingly. If on the first post, only the Next link appears (no Previous). If on the last post, only Previous appears.
+
+## Conclusion
+
+The Post Navigation widget is great for keeping readers on your site by guiding them through your content sequentially. It's especially useful for series or when chronology matters. By customizing the labels and style, you can ensure the navigation looks integrated with your design (e.g., using arrow icons consistent with your icon library, styling text to match link styles). Always test the navigation on different posts (middle, first, last) to ensure it behaves as expected (hiding appropriately, alignment when one link is missing, etc.). With Post Navigation in place, users can easily move to related content without having to return to an archive or homepage, thereby increasing engagement.

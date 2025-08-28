@@ -1,8 +1,64 @@
 ---
 title: Post Time
-description: TODO
+description: "The Post Time widget displays the time of publication for the current post, with options for format, context text, and styling to complement your post meta."
 sidebar:
   order: 9
 ---
 
-Content coming soon.
+import { Aside, Steps } from '@astrojs/starlight/components';
+
+The **Post Time** widget dynamically shows the time that the current post was published. It's a counterpart to the Post Date widget, allowing you to display the exact time (hour and minute) of a post's publication if desired. This is particularly relevant for news sites or time-sensitive content where the time of day matters to readers. You can choose the format (12-hour vs 24-hour, including seconds or not, etc.) and style it as part of your post's meta information.
+
+## Key Features
+
+- **Dynamic Publish Time:** Automatically fetches the publish time of the post (from WordPress's timestamp). This keeps your content accurate - if a post was published at 3:45 PM, it will show that.
+- **Time Format Flexibility:** Choose how the time is displayed:
+  - 12-hour format (with AM/PM) - e.g., 3:45 PM.
+  - 24-hour format - e.g., 15:45.
+  - Include seconds or not, include timezone abbreviation if needed, etc., via custom format tokens.
+- **Before/After Text:** Add text around the time. For instance, prefix with “at” to combine with a date (e.g., “Published on March 5, 2025 at 3:45 PM”). Or add a timezone after text like “ GMT”.
+- **Link Options:** Generally not used for time (similar to date, you could link it to a time archive, but that's rare).
+- **HTML Tag Control:** Wrap the time in your choice of tag (span, div, etc.) for semantic or layout reasons.
+- **Styling:** Full typography and color control so the time text can be styled to match or differentiate from the date text. You might give it the same class as date for consistency.
+- **Combined Meta Use:** Often used in conjunction with the Post Date widget to form a complete “Published on Date at Time” phrase.
+
+## How to Configure Post Time Widget
+
+<Steps>
+1. **Place the Widget:** Drag **Post Time** into your Elementor design, likely near the Post Date or under the title.
+2. **Content Tab Settings:**
+   - **Format:** Select the time format.
+     - Common options might be:
+       - **Default** (which likely follows your WordPress Settings time format).
+       - **g:i a** (example of 12-hour, like 3:45 pm).
+       - **H:i** (24-hour format, like 15:45).
+       - **Custom:** If custom, you can input any PHP date/time format string, e.g., `g:ia` for 3:45pm or `h:i:s A` for 03:45:07 PM.
+     - If you want to show hours and minutes only (typical), choose an appropriate format and ensure AM/PM is included if using 12h.
+   - **Before Text:** Add an optional prefix. Example: "at " (so that if you place it after a date, it reads nicely: *March 5, 2025 at 3:45 PM*).
+   - **After Text:** Optional suffix. Example: " ET" or " PST" if you want to denote timezone (or you could actually include timezone in the format string using T, e.g., `g:i A T` gives 3:45 PM EST).
+   - **Link:** Likely leave off. If turned on, you could dynamically link it perhaps to the day archive or something, but that's unusual. Most keep time as plain text.
+   - **HTML Tag:** Choose span/div/etc. If this time is inline with other text (like within a sentence or meta line), use `<span>`. If it's by itself, `<div>` or `<p>` could be used. Usually, date and time will be in one line, so spans make sense inside a parent container.
+3. **Style Tab:**
+   - **Typography:** Customize the font for the time. In many cases, you'll want the Post Time styled the same as the Post Date (same font size/color), since they often appear together. If you want to differentiate (less common), you can - e.g., making time slightly lighter or smaller.
+   - **Text Color:** Set the color for the time. If you used a prefix like "at", it will share this color.
+   - **Spacing:** If this widget is next to the date widget, you might add a left margin to the time (or right margin to the date) to space them. Often, you'd add something like 0.25em or a few pixels of margin before the “at time” if not already handled via prefix text on one of them.
+   - **Alignment:** If the time is on a separate line or container, align as needed. But typically date and time are together, possibly separated by a comma or the word "at".
+   - If the style tab has a “Normal/Hover” state (if linking), you can set hover color. Without linking, hover state is irrelevant.
+4. **Advanced Settings:**
+   - Similar to Post Date, you might manage margins here if not done in style. For example, if you want date and time on one line but you added them as separate widgets, you can use the Advanced tab to put, say, 5px of left margin on the Post Time widget to add a gap from the date text.
+   - You might also consider grouping date and time in a single container or using a single widget (like a combined Post Info widget) to avoid fussy margin adjustments. However, using separate widgets is fine with manual spacing.
+   - Ensure responsive: On mobile, very long date/time combos might wrap or look awkward. It's okay if they wrap, but you might decide to hide the time on mobile if it's not crucial (less likely; usually you show it regardless).
+</Steps>
+
+<Aside type="tip">
+If you want to display something like “Last updated on Date at Time,” you might need a different approach since Post Date/Time pull original publish time. Consider an **Update Time** dynamic tag if available. Absent that, you'd have to manually update a custom field with last update time or use code.
+</Aside>
+
+## Example Usage
+
+- **News Article Template:** Under the title, you could have a meta line: *Published: March 5, 2025 at 14:30 UTC*. Achieve this by placing Post Date and Post Time. Post Date: Format “F j, Y” (March 5, 2025), no prefix (or maybe “Published:” outside as a separate Text). Post Time: Format “H:i” and After Text “ UTC”. Put “ at ” as Before Text for Post Time. Together it outputs “March 5, 2025 at 14:30 UTC”.
+- **Blog Post Template:** Many blogs don't show the time, just the date. But if you wanted to, maybe in a technical blog where time of publish matters, you can style it subtly: date and time in small font below the title. e.g., *March 5, 2025 • 3:45 pm* (with a dot separator). You could do this by having Post Date with format “F j, Y” and After Text “ •”, and Post Time with format “g:i a” without prefix (since the dot and space are coming from date's after text). They'll sit next to each other as “March 5, 2025 • 3:45 pm”.
+
+## Conclusion
+
+The Post Time widget is a niche but useful addition to your template when precise publication times are relevant. It integrates seamlessly with the Post Date widget to give readers full information on when content went live. Style it wisely - often as part of a muted meta text - so it's present without overpowering other elements like the post title. If your content schedule or relevance is time-sensitive (like news, events, announcements), including the time can add credibility and context for readers.

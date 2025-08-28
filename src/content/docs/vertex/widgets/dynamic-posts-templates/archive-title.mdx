@@ -1,8 +1,72 @@
 ---
 title: Archive Title
-description: TODO
+description: "Displays the title of the current archive (category, tag, author, date, etc.) with optional context prefix."
 sidebar:
   order: 15
 ---
 
-Content coming soon.
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Archive Title** widget dynamically displays the title of the current archive page. This is useful in templates for blog archives, category/tag listings, author archives, date archives, or search results pages. By default, the Archive Title includes a context prefix (e.g. "Category:", "Tag:", "Author:") to clarify the type of archive being viewed, followed by the archive's name or term.
+
+<Aside type="note">
+The Archive Title widget is typically used **only within Archive Templates** in Elementor's Theme Builder. For single pages or posts, use the **Page Title Widget** for pages or the **Post Title** widget for posts instead.
+</Aside>
+
+<LinkCard title="Page Title Widget" href="../page-title/" />
+
+## Usage
+
+<Steps>
+1. In WordPress, navigate to **Templates → Theme Builder** and create or edit an **Archive** template (for example, a blog posts archive or category archive template).
+2. Inside the Elementor editor for the archive template, find **Archive Title** in the widgets panel (usually under *Theme Elements* or *Archive* widgets).
+3. Drag and drop the **Archive Title** widget onto your archive template, typically at the top of the page where an archive heading should appear.
+4. Choose the appropriate HTML tag for the title (e.g. **H1** for main page title, or **H2/H3** if there is another page title present). You can set this under the widget's **HTML Tag** option.
+5. Customize the alignment, typography, and style under the **Style** tab to match your design.
+</Steps>
+
+![Archive Title Widget](https://cdn.webilia.com/u/d/2025/08/vertex-widget-archive-title.png)
+
+## Features and Options
+
+- **Dynamic Archive Detection:** The widget automatically detects the type of archive and displays the relevant title. For example, on a category archive it will show *Category: [Category Name]*, on a tag archive *Tag: [Tag Name]*, on an author page *Author: [Author's Name]*, on a date archive *Month: [Month Year]* or *Year: [Year]*, and on search results *Search Results for: [Query]*.
+- **Context Prefix:** By default, Archive Title prepends a context label like "Category:" or "Author:" to the title for clarity. If you prefer to display only the name without the prefix, you can disable the context. <Badge text="Tip" variant="tip" /> To do this, click the dynamic tags icon next to the title field in the widget (which shows that the content is dynamic), then toggle **Include Context** off. This will remove the prefix and show just the archive name.
+- **HTML Tag:** The Archive Title text can be output as any heading level or HTML tag. By default it may use an `<h2>` tag. You can change the **HTML Tag** option (e.g., to H1 for the main archive heading) to ensure proper hierarchy and SEO for your page.
+- **Linking:** This widget is purely a text heading and does not inherently link anywhere. (It wouldn't make sense to link an archive title, since it is the current page title.) The **Link** option is not applicable for Archive Title, keeping it simple and static.
+
+<Aside type="tip" title='Design Tip'>
+Use the Archive Title widget in conjunction with other archive elements (like breadcrumb, Archive Description, etc.) to provide context to visitors. For example, a category archive can include the Archive Title followed by a brief category description for better UX.
+</Aside>
+
+## Styling
+
+The Archive Title can be styled via the **Style** tab like a typical heading:
+- **Text Color:** Choose the color of the title text.
+- **Typography:** Set the font, size, weight, transform, and other typography options for the title.
+- **Alignment:** Align the title left, center, or right within its container.
+- **Text Shadow and Stroke:** If your design calls for it, you can add a text shadow or stroke effect to the title text.
+- **Spacing:** Adjust margin/padding around the title to position it nicely in your design.
+
+These styling options let you match the Archive Title's appearance to your theme. For instance, you might center an author archive title and use a larger font, or left-align a category title with specific branding colors.
+
+<Aside type="note">
+By default, the Archive Title text adopts global typography settings for headings (if set in Elementor Site Settings) unless overridden. It's a good idea to keep archive titles consistent (e.g., all archive page titles use the same styling for uniformity across the site).
+</Aside>
+
+## Example
+
+To illustrate, if you use the Archive Title widget on a **Travel** category archive, it might display **"Category: Travel"** as the heading. If you disable *Include Context*, it would simply show **"Travel"**. On an **Author** archive for an author named Jane Doe, it would display **"Author: Jane Doe"**, and a **Search** results page for "London" would show **"Search Results for: London"**.
+
+<CardGrid>
+  <Card title="Category Archive">
+    On a "Photography" category page, the widget shows: **Category: Photography**
+  </Card>
+  <Card title="Author Archive">
+    On an author page for John Smith, it shows: **Author: John Smith**
+  </Card>
+  <Card title="Search Results">
+    On a search results page for "Elementor", it shows: **Search Results for: Elementor**
+  </Card>
+</CardGrid>
+
+Using the Archive Title widget ensures your archive pages have a clear, dynamic title that automatically updates based on the content being viewed, without needing manual changes. This makes it an essential element for any archive template in your Vertex-powered Elementor site.
