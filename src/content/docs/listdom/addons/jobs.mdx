@@ -1,0 +1,50 @@
+title: Jobs Addon
+sidebar_label: Jobs Addon
+description: "Turn listings into job posts with application forms, resume uploads, and manage applications in the dashboard."
+sidebar:
+  order: 3
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Jobs Addon <Badge text="Pro" /> transforms your Listdom listings into job listings with an application system. It enables candidates to submit applications with contact info and file uploads like résumés.
+
+## Settings
+Go to **Listdom > Settings > Addons > Jobs** to configure options:
+
+- **Job Category**: Choose a specific category to treat as job listings. If left blank, all listings are considered jobs.
+- **Guest Application**: Allow guest users (not logged in) to apply to jobs. (Default: No)
+- **Allowed File Extensions**: Specify which file types applicants can upload for résumés. (Default: `pdf, docx, txt`)
+- **Application Limit**: Limit the number of job applications a single user can submit within a time frame. (Default: no limit)
+- **Limit Method**: Define the time window for the application limit: `Current Month` or `Past 30 Days`.
+- **Job Modules**: A set of toggles to disable specific listing modules (like Price or Gallery) for job listings to simplify the submission form.
+
+## Shortcodes
+- **`[listdom-manage-applications]`**: Displays an interface for listing owners to view all applications submitted to their job listings.
+- **`[listdom-my-applications]`**: Displays a list of job applications submitted by the current user (the applicant).
+
+## Job Application Process
+<Steps>
+1. **Prepare Job Listings**: Ensure your listing is in the category you set as the "Job Category."
+2. **Enable the Application Form**: Go to **Listdom > Settings > Details Page** and enable the "Apply Now" element on the listing page layout.
+3. **User Applies to Job**: On a job listing, a visitor will see an "Apply Now" button or form where they can fill in their details and attach a résumé.
+4. **Submit Application**: After the user submits the form, the application is stored on the site.
+5. **Confirmation**: The applicant sees a success message, and the listing owner can see the new application in their dashboard.
+</Steps>
+
+<Aside type="tip">
+Enabling **Guest Application** can increase application rates. Consider using Listdom's reCAPTCHA integration to protect the form from bots.
+</Aside>
+
+## Examples
+<CardGrid>
+  <Card title="Online Job Board">
+    A company directory uses the Jobs addon for its job board. Each job post shows an "Apply Now" form. The hiring manager can log into their Listdom dashboard to see all applications and download résumés, streamlining the hiring process.
+  </Card>
+  <Card title="Limited Applications Per User">
+    A nonprofit lists volunteer opportunities and sets an Application Limit of 2 per month. If a user tries to apply for a third opportunity, the addon informs them they've reached the limit, ensuring fair opportunity distribution.
+  </Card>
+</CardGrid>
+
+<LinkCard title="Listdom Documentation" href="https://api.webilia.com/go/listdom-docs/" />
+
+---

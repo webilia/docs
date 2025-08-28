@@ -1,0 +1,149 @@
+---
+title: Reviews Addon
+sidebar_label: Reviews Addon
+description: "Enables visitors to rate and review listings, with an integrated review management system and customizable review settings."
+sidebar:
+  order: 4
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Reviews Addon** allows you to collect and display user reviews and star ratings for your listings. It replaces or augments the standard commenting system with a dedicated reviews section, including star rating fields, review submission forms, and admin moderation tools:contentReference[oaicite:84]{index=84}:contentReference[oaicite:85]{index=85}. With this addon, each listing can showcase feedback from customers or users, helping build trust through social proof.
+
+## Configuration Options
+
+Navigate to **Listdom > Settings > Addons > Reviews** to configure how reviews work on your site. The settings are grouped into several categories:
+
+### Contributions Type
+
+**Contributions Type:** *(Dropdown: "Review & Comments" or "Only Reviews")* – Determines whether listings accept both reviews and standard comments, or just the reviews:contentReference[oaicite:86]{index=86}:contentReference[oaicite:87]{index=87}. 
+- **Review & Comments:** Both the Reviews system and the native WordPress comments are enabled for listings.
+- **Only Reviews:** Disables native comments on listings, so visitors can only submit reviews (star ratings with review text). 
+
+Typically, you would choose **Only Reviews** to avoid confusion and keep all feedback in the structured reviews format.
+
+### Rating Method
+
+**Rating Method:** *(Dropdown: "Overall Rating Field" or "Average of Rating Fields")* – Controls how the rating score for each review is handled:contentReference[oaicite:88]{index=88}. 
+- **Overall Rating Field:** Each review has a single overall star rating (e.g., 1 to 5 stars) given by the reviewer.
+- **Average of Rating Fields:** The review form will include multiple rating criteria (fields) which you define, and the review’s overall rating will be the average of those. For instance, you might have separate ratings for *Quality*, *Value*, *Location*, etc., and the overall rating is computed from all criteria.
+
+<Aside type="note">
+If you select "Average of Rating Fields", make sure to set up the rating fields under **Listings > Reviews > Fields** in the WordPress admin. There you can add multiple review criteria (fields) such as Service, Cleanliness, etc., and those will appear on the review form:contentReference[oaicite:89]{index=89}:contentReference[oaicite:90]{index=90}. The addon will automatically calculate the average.
+</Aside>
+
+### Content Limitations
+
+These settings control the length of reviews:
+
+- **Minimum Word Count:** *(Number, default 1)* – The minimum number of words required in the review text (body):contentReference[oaicite:91]{index=91}:contentReference[oaicite:92]{index=92}. If a user submits a review shorter than this, they’ll receive an error. *(Note: Even if set to 1, the addon internally enforces a default of 5 words minimum unless changed:contentReference[oaicite:93]{index=93}:contentReference[oaicite:94]{index=94}.)*
+- **Maximum Word Count:** *(Number, default 200)* – The maximum allowed words in a review:contentReference[oaicite:95]{index=95}:contentReference[oaicite:96]{index=96}. Extremely long reviews beyond this limit will be rejected. The system ensures the max is not lower than the min and defaults to 200 if not specified:contentReference[oaicite:97]{index=97}.
+
+This helps keep reviews concise and prevents abnormally short or long submissions:contentReference[oaicite:98]{index=98}.
+
+### Permissions
+
+Control who can read and who can submit reviews:
+
+- **Who can see reviews?** *(Dropdown, default "Everyone")* – Options range from Guest (any visitor, even not logged in) to various logged-in roles up to Admin:contentReference[oaicite:99]{index=99}:contentReference[oaicite:100]{index=100}. This setting hides or shows the entire reviews section based on user capability. For example, you might restrict viewing reviews to logged-in users only.
+- **Who can submit reviews?** *(Dropdown, default "Everyone")* – Similar options (Guest, Contributors, Authors, Editors, Admin, etc.) to allow only certain roles to write new reviews:contentReference[oaicite:101]{index=101}:contentReference[oaicite:102]{index=102}. By default it’s everyone including guests, meaning even visitors without accounts can post reviews (they will be asked for name and email).
+
+- **Delete Permission:** *(Switch, default OFF)* – If enabled, users can delete their own reviews:contentReference[oaicite:103]{index=103}:contentReference[oaicite:104]{index=104}. When ON, a reviewer (if recognized by login or perhaps by a cookie for guest) can remove the review they posted. This adds a "Delete" option to their review entry on the front-end.
+
+<Aside type="tip">
+For most public directories, it makes sense to let anyone read reviews, but perhaps only logged-in users to submit (to deter spam). And enabling Delete Permission allows genuine reviewers to remove their review if they made a mistake or no longer stand by it.
+</Aside>
+
+### Approval Settings
+
+- **Automatically Approve Reviews:** *(Switch, default ON)* – If ON, new reviews will go live immediately upon submission:contentReference[oaicite:105]{index=105}:contentReference[oaicite:106]{index=106}. If OFF, all new reviews are set to “pending” status and require an admin to manually approve them before they show up publicly:contentReference[oaicite:107]{index=107}:contentReference[oaicite:108]{index=108}. When disabling auto-approval, remember to regularly check the **Reviews** admin menu for pending reviews.
+  
+  The settings UI notes that you can moderate reviews from the **Reviews** menu in WP admin if auto-approval is off:contentReference[oaicite:109]{index=109}.
+
+### Modules
+
+These optional modules enhance the review system:
+
+- **Feedback Module:** *(Switch, default ON)* – When enabled, visitors can click “Like” or “Dislike” on individual reviews:contentReference[oaicite:110]{index=110}:contentReference[oaicite:111]{index=111}. This is a helpful way to surface the most useful reviews. Likes and dislikes are tallied and displayed (e.g., “3 out of 4 found this review helpful”), and are stored as meta (`lsd_likes`/`lsd_dislikes`). If you turn this off, the thumbs-up/down buttons will not appear.
+- **Image Module:** *(Switch, default OFF)* – Allows reviewers to upload images with their review:contentReference[oaicite:112]{index=112}:contentReference[oaicite:113]{index=113}. When enabled, the review form includes an image upload field, and users can attach one or multiple images to their review. Those images will appear alongside the review text (e.g., as thumbnails in the review). This is great for, say, showing a photo of the meal they had at a restaurant. The addon only accepts common image formats (jpg, jpeg, png) and handles the upload process securely:contentReference[oaicite:114]{index=114}:contentReference[oaicite:115]{index=115}. You might keep this off if images are not relevant or to minimize storage usage.
+
+<Aside type="note">
+If Image Module is on, be mindful of the <Badge text="Max File Size" /> allowed by your WordPress installation and consider adding guidance to users on appropriate images.
+</Aside>
+
+### Display Settings
+
+These settings affect how reviews are loaded and shown on listing pages:
+
+- **Count of loaded reviews:** *(Number, default 20)* – The number of reviews to load per page before pagination or a “Load more” button appears:contentReference[oaicite:116]{index=116}:contentReference[oaicite:117]{index=117}. For example, if you set 5, only the 5 most recent reviews show initially, and users must click to see more.
+- **Order By:** *(Dropdown, default "Most Recent")* – The default sorting of reviews:contentReference[oaicite:118]{index=118}:contentReference[oaicite:119]{index=119}. Options include:
+  - *Most Recent* (date)
+  - *Most Helpful* (which considers likes, i.e., helpfulness feedback)
+  - *Highest Rates* (5-star first)
+  - *Lowest Rates* (1-star first) 
+
+You can choose which makes sense for your directory. “Most Helpful” will require using the Feedback module to have effect.
+
+*Note:* The Reviews addon also adds two new sort options for listing directories: **Rate** and **Most Reviewed**, which you may see in Listdom’s general sort options configuration:contentReference[oaicite:120]{index=120}:contentReference[oaicite:121]{index=121}. “Rate” lets users sort listings by average rating, and “Most Reviewed” by number of reviews.
+
+## How the Reviews System Works
+
+- When the addon is active, each listing’s detail page will include a **Reviews** section (often labeled “What others are saying” by default):contentReference[oaicite:122]{index=122}:contentReference[oaicite:123]{index=123}. This section contains existing review entries and a form for submitting a new review.
+- The review form typically asks for **Name**, **Email**, **Rating** (stars), **Title** of review, and **Review** (text body) by default. If the user is logged in, Name/Email might auto-fill or be hidden.
+- If you enabled multiple rating fields, the form will display each field (each with its own star selector or dropdown) instead of a single star rating.
+- Upon submission, the addon validates the input:
+  - Checks required fields (Name, Email, Title, Body must not be empty):contentReference[oaicite:124]{index=124}.
+  - Verifies email format:contentReference[oaicite:125]{index=125}.
+  - Enforces min/max word count on the review body:contentReference[oaicite:126]{index=126}.
+  - Verifies Google reCAPTCHA if Listdom’s global Captcha is on (to prevent spam):contentReference[oaicite:127]{index=127}:contentReference[oaicite:128]{index=128}.
+- If all good, the review is saved as a custom post type entry (Listdom creates a hidden “listdom-review” post type for reviews) with status either *pending* or *publish* depending on the auto-approval setting:contentReference[oaicite:129]{index=129}:contentReference[oaicite:130]{index=130}.
+- The listing’s overall rating (average of all review ratings) is updated each time new reviews come in:contentReference[oaicite:131]{index=131}. This rating can be displayed on listing cards or pages as “X stars out of 5”.
+- As an admin, you manage reviews via **Listdom > Reviews** in WP admin. There you can see all reviews, approve/publish pending ones, or mark any as *rejected* (there’s even a “Rejected” status for reviews that you can use to hide inappropriate ones while keeping record:contentReference[oaicite:132]{index=132}:contentReference[oaicite:133]{index=133}). You can also edit or trash reviews if needed.
+
+<Aside type="note">
+The Reviews addon automatically sends out notification emails when a review is submitted and when it’s approved (to the reviewer and optionally the listing owner):contentReference[oaicite:134]{index=134}:contentReference[oaicite:135]{index=135}. You can customize these notifications under **Listdom > Notifications** (look for “New Review” and “Review Approved” templates).
+</Aside>
+
+## Using the Reviews Addon
+
+<Steps>
+1. **Activate & Setup:** Activate the *Listdom Reviews* addon. In Settings > Addons > Reviews, choose whether to allow comments too or just reviews, and configure other options (min/max words, permissions, etc.) according to your community needs. For instance, you might set “Only Reviews” and require login to review to maintain quality.
+2. **Define Rating Fields (if needed):** If using multiple criteria ratings, go to **Listings > Reviews > Fields** in WP Admin. Add new Fields for each rating aspect you want. For each field, you can specify:
+   - Field Type (Rate = star rating, Dropdown = a preset list):contentReference[oaicite:136]{index=136}:contentReference[oaicite:137]{index=137}. Use “Rate” for star criteria.
+   - Values (if dropdown, provide comma-separated options).
+   - Related Categories (you can make certain review fields only appear for certain listing categories):contentReference[oaicite:138]{index=138}:contentReference[oaicite:139]{index=139} – e.g., a “Cleanliness” field might only apply to *Hotel* listings.
+   - Index (order) to arrange the fields.
+   Create fields and their order will reflect in the front-end review form.
+3. **Front-end Form Testing:** Visit a listing page as a user (you can log out or use another account if you restricted to logged-in). Ensure the Reviews section appears. Submit a test review:
+   - Try a review that is too short to see the validation (e.g. “Good” only – it should prompt that more words are needed if min is >1).
+   - Try uploading an image if you enabled the image module.
+   - Verify reCAPTCHA if enabled – an error should show if not completed.
+4. **Moderation:** If auto-approval is off, go to **Listdom > Reviews** in WP admin. You’ll see the new review as Pending. Approve it, and watch it appear on the listing. If auto-approve is on, the review should already be visible; perhaps test the deletion feature by attempting to delete the review as the same user who posted it.
+5. **Feedback (Helpful votes):** With the feedback module on, log out and view the listing page (since as the author you can’t vote on your own review). Click the “👍 Yes” or “👎 No” buttons on a review to simulate other users marking helpfulness. See the like/dislike counts update in real-time (or on refresh).
+6. **Sort by Rating or Reviews:** Optionally, incorporate the new sorting options into your directory. For example, on a page listing all businesses, enable the “Highest Rated” sort so visitors can reorder listings by average rating. Or show a “Most Reviewed” filter on your search page to find listings with the most reviews.
+</Steps>
+
+<Aside type="tip">
+Encourage your users to leave reviews by sending follow-up emails (e.g., via the Notification system or manually) to people who engage with a listing. More reviews will enrich your content and the Rank addon can even use them to boost listing visibility.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Building Trust:** A traveler looks at a hotel listing on your site. They see a 4.5★ overall rating from 10 reviews and read comments praising the location. Thanks to the Reviews addon, this feedback is front and center, helping them trust the listing and ultimately make a booking.
+  </Card>
+  <Card>
+    **Detailed Feedback with Criteria:** Your directory uses multi-criteria reviews. A restaurant listing shows an average 4★ rating, broken down into *Food Quality: 5★*, *Service: 4★*, *Ambience: 3★*. This granular feedback (made possible by defining review fields) helps the restaurant owner know where to improve, and helps users decide what matters to them.
+  </Card>
+  <Card>
+    **Community Moderation Signals:** With the feedback module enabled, a particularly insightful review gets 8 “helpful” upvotes and no dislikes. The system can sort reviews so that one rises to the top as the most helpful review. New visitors see that review first, which greatly influences their perception positively.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net" title="Webilia Listdom Docs">
+  Visit Webilia's Listdom documentation for more insights on managing reviews and other addons.
+</LinkCard>

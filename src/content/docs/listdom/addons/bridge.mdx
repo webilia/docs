@@ -1,0 +1,60 @@
+---
+title: Bridge Addon
+sidebar_label: Bridge Addon
+description: "Migrate listings from other plugins into Listdom."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Bridge Addon allows you to migrate (import) listings from other directory and listing plugins into Listdom. This addon adds a "Third Party Plugins" import tool, enabling you to bring existing listings from supported external plugins into the Listdom database.
+
+<Aside type="note">
+The Bridge Addon requires the base Listdom plugin. Ensure the source plugin you are migrating from is installed and active so that its data can be accessed during the import.
+</Aside>
+
+## Supported Source Plugins
+The Bridge Addon currently supports migrating from several popular plugins:
+
+- WP Go Maps
+- GeoDirectory
+- HivePress
+- Business Directory Plugin
+- Classified Listing
+- Directorist
+
+<Aside type="caution">
+While the Bridge Addon strives to import all information, a 100% complete transfer cannot be guaranteed. After import, review your listings to ensure important details have been migrated correctly.
+</Aside>
+
+## Using the Third Party Import Tool
+<Steps>
+1. In your WordPress Dashboard, navigate to **Listdom > Import/Export**. Click on the **Third Party Plugins** tab.
+2. From the **Plugin** dropdown, select the source plugin from which you want to import listings.
+3. Optionally, select a **Category** from the dropdown to assign all imported listings to a specific Listdom category. If you leave this as "Detect Automatically," the tool will attempt to map categories from the source plugin.
+4. Click the **Import** button. A progress message will appear as the import runs in batches.
+5. Wait for the import to complete. When finished, you will see a success message.
+</Steps>
+
+After running an import, the migrated listings will appear in **Listdom > Listings**. The addon will attempt to import titles, descriptions, images, location data, contact information, and taxonomies.
+
+## Bridge Addon Settings
+The Bridge Addon does not have a separate settings page. Its functionality is accessed entirely via the **Listdom > Import/Export** menu.
+
+## Examples
+<CardGrid>
+  <Card title="Migrating from GeoDirectory">
+    A local business directory using GeoDirectory can be moved to Listdom with minimal effort. Install the Bridge Addon, select GeoDirectory in the import tool, and click Import. All places from GeoDirectory will be imported as Listdom listings.
+  </Card>
+  <Card title="Consolidating Multiple Sources">
+    If you have listings in both Business Directory Plugin and HivePress, you can import from one plugin at a time. First, import from Business Directory Plugin, then switch the dropdown to HivePress and import again to consolidate all listings into Listdom.
+  </Card>
+  <Card title="Assigning a Common Category">
+    When importing classified ads, you can create a category like "Imported Ads" in Listdom first. Then, select that category in the dropdown before running the import. All incoming listings will be placed in that category for easy management.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net" title="Listdom Official Website" description="Learn more about Listdom and its features on the official website." />
