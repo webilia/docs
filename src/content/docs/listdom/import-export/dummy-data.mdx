@@ -1,42 +1,71 @@
 ---
-title: "Dummy Data"
-description: Use the Dummy Data tab to quickly import sample content and set up your Listdom-powered directory site.
+title: Dummy Data
+description: Quickly generate sample listings, taxonomies, and pages in Listdom using the Dummy Data import feature, to help you get started or test features.
 sidebar:
   order: 4
-header_button:
-  label: View Listdom Demo
-  url: https://demo.webilia.com/
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Aside, Steps } from '@astrojs/starlight/components';
 
-## Dummy Data
+Listdom's Dummy Data Import tool helps you set up sample content on your directory site with a single click. This is great for seeing how Listdom works or for quickly populating a new site with example data (so you're not starting from scratch). The dummy data includes example listings, categories, locations, tags, custom fields, and more.
 
-The Dummy Data tab is under **Listdom → Import/Export**, designed to streamline the setup process for your Listdom-powered directory website. This feature provides pre-built sample content and configurations—including listings, categories, locations, tags, labels, shortcodes, pages, and more—that serve as a practical starting point, allowing you to quickly build a functional demo or test environment without manually creating every element from scratch.
+**Where to find it:** In WordPress admin, go to **Listdom → Import / Export** and select the **Dummy Data** tab.
 
-Using dummy data is especially helpful when you want to explore Listdom’s full capabilities or demonstrate the plugin’s features to clients before adding real content. You retain full control over what is imported and can delete the dummy content at any time without affecting your live data.
+## What Dummy Data Can Import
 
-## What’s Included in Dummy Data?
+On the Dummy Data page, you'll see a list of toggle switches for various content types. You can choose which types of sample content to import:
 
-- **Listings:** Sample directory entries complete with descriptions, images, and meta details.  
-- **Categories:** Predefined categories to organize your listings.  
-- **Locations:** Location taxonomies that enable location-based filtering.  
-- **Tags:** Sample tags that add additional filtering and search granularity.  
-- **Features:** Custom feature sets applied to listings.  
-- **Labels:** Custom labels such as “Recommended,” “VIP,” or other badges.  
-- **Custom Fields:** Sample custom fields that extend listing details.  
-- **Frontend Dashboard:** A ready-to-use frontend dashboard setup for user submissions and management.  
-- **Shortcodes & Pages:** Pre-built shortcode configurations and essential pages that create the foundation of your directory site.  
+- **Listings:** A few sample listing posts with placeholder content and images (for example, "Sample Bank", "Sample Business"). These demonstrate how listings look on the front-end, complete with featured images and gallery images.
+- **Categories:** A set of example listing categories such as *Beauty Salon*, *Cafe*, *Hospital*, *Hotel*, *Restaurant*, *Super Market*. These come with colorful icons to show how category icons appear.
+- **Locations:** Sample location terms like *Florida*, *London*, *Los Angeles*, *New York*, *Paris*, *Rome*, *Madrid*. Useful for testing the location filtering and map features.
+- **Tags:** Example tags like *Discount*, *Easy Access*, *Parking Friendly*, *Recommended*.
+- **Features:** A few feature terms like *Free Wifi*, *Live Music*, *Valet* to demonstrate listing features.
+- **Labels:** Sample label terms such as *Exclusive*, *Hot Offer*, *Must See*, *Recommended* (with label colors) to see how labels can highlight listings.
+- **Custom Fields (Attributes):** Some pre-made custom attributes:
+  - *Discount* (Text field)
+  - *Pets Allowed* (Dropdown with options "Yes, No, Only Cats, Only Dogs")
+  - *Parking Capacity* (Number field)  
+  These show how additional attributes can be used in listings (they'll be assigned to the sample listings).
+- **Frontend Dashboard:** Creates a page for the user dashboard. Specifically, it will add a WordPress page titled "Manage Listings" with the `[listdom-dashboard]` shortcode. This page allows frontend users to manage their listings (submission, editing, etc.).
+- **Shortcodes & Pages:** Generates several preset listing view shortcodes and a default search form:
+  - A default **Search Form** (saved in Listdom's Search Builder) with common fields (text search, category dropdown, location dropdown, label dropdown).
+  - Multiple **Listing view shortcodes** saved under **Listdom → Shortcodes**: for example, "Side By Side" (listings alongside a map), "List" view, "Grid" view, "Single Map" view, "List + Grid" (toggleable), "Halfmap", "Table", "Masonry", etc. Each shortcode is preconfigured with a particular skin and settings to demonstrate the variety of listing layouts.
+  (These shortcodes are saved in the backend; you can insert them into pages as needed to replicate demo layouts.)
+- **Profile:** Creates a page titled "Profile" with the `[listdom-profile]` shortcode. This page is used to display a directory user's public profile (including their info and listings). It's useful for testing the profile/contact functionality.
 
-## How to Use the Dummy Data Tab
+You can toggle **ON** any items you want to import. For example, to set up everything, turn on all switches. If you only want dummy listings and taxonomies but not pages, you might toggle on Listings/Categories/etc. and leave "Frontend Dashboard" and "Profile" off.
 
-<Steps>
-1. Navigate to **Listdom → Import/Export → Dummy Data**.  
-2. Review the available content types listed.  
-3. Switch each data element you want to import.  
-4. Click the **Import dummy data** button to begin the process.  
-5. Wait for the import to complete; progress feedback will be shown.  
-6. After import, visit your site to see the sample listings, pages, and configurations in place.  
-</Steps>
+## Importing the Dummy Data
 
-By using the Dummy Data feature, you can significantly reduce the time it takes to set up your directory site, test new features, or create demonstration environments, allowing you to focus on customizing and scaling your listings.
+After selecting the desired content types, click the **Import Dummy Data** button. Listdom will proceed to generate the selected content. The process is usually fast (just a few seconds for all content).
+
+Here's what happens for each item:
+
+- **Taxonomies (Categories, Locations, Tags, Features, Labels):** For each enabled taxonomy, Listdom will create the sample terms listed above (if they don't already exist). It skips any term that is already present to avoid duplicates. For example, if you run it twice, it won't create "Cafe" category twice — it will detect it exists.
+- **Custom Fields:** If enabled, the system will create those sample attributes in Listdom's custom fields (under Listdom Settings). Again, it won't duplicate them if they already exist from a previous import.
+- **Listings:** If enabled, a few sample listings will be added. These listings are assigned to the sample categories, locations, etc., and filled with placeholder text. They also come with example coordinates, prices, contact info, and gallery images. (The images are fetched from Listdom's demo site URLs.) The sample listings give you a quick way to see how a listing appears on the front-end with all its sections.
+- **Shortcodes/Search Forms:** If enabled, Listdom will create the default search form and multiple shortcode entries as described. Each will appear in the **Listdom → Search and Filter Builder** or **Listdom → Shortcodes** list. They will not be placed on pages automatically (except the special pages below), but you can copy their shortcodes and paste into a page or widget to use them.
+- **Frontend Dashboard Page:** If enabled, a WordPress page named "Manage Listings" (or similar) is created with the `[listdom-dashboard]` shortcode. If such a page already existed (even in Trash), it will be restored or updated rather than duplicated. This page allows front-end listing management.
+- **Profile Page:** If enabled, a page "Profile" with `[listdom-profile]` shortcode is created (if not already present). This page is used to display user profiles on the front-end.
+
+Once the dummy data import finishes, you can navigate around your site to see the effects:
+
+- The **Listings** menu will now show the sample listings. Try viewing them on the front-end; you'll see example content, images, and the various elements (maps, contact form, etc.) in action.
+- The **Categories**, **Locations**, etc. will show the new terms (each with icons/colors if applicable). These will appear on listing cards and filters.
+- Under **Listdom → Shortcodes**, you'll find entries like "Side By Side", "Grid", etc. You can edit these to see how they're configured, or use their generated shortcodes on a test page.
+- The **Manage Listings** page (frontend dashboard) is now available. If you have the Listdom user dashboard enabled, visiting this page as a logged-in user will show the dummy listings and allow editing, etc.
+- The **Profile** page is available. If you have user profiles enabled in Listdom, you can view this page (likely by adding a link or by visiting as a logged-in user) to see a sample profile.
+
+<Aside type="tip" title="Removing Dummy Data">
+Dummy content can be removed when you no longer need it. You can delete the sample listings from the Listings menu, and likewise delete sample categories, tags, etc., from their respective menus. Pages (Manage Listings, Profile) and shortcodes can also be trashed if not needed. The dummy import will not overwrite or duplicate content that already exists, so you can run it again to add missing pieces without worrying about creating duplicates.
+</Aside>
+
+## Use Cases for Dummy Data
+
+- **Learning and Testing:** If you're new to Listdom, importing dummy data is a great way to explore the plugin's features. You can see how a fully set-up listing looks and how the search and display shortcodes function without having to manually create everything.
+- **Design and Styling:** Developers or designers can use dummy listings and terms to test how the directory will appear with real content. It's easier to adjust styling or settings when you have example data visible.
+- **Demo Sites:** If you're setting up a demo for a client or on a staging site, the dummy data gives you a quick directory to show off, which you can then replace with real data later.
+
+Feel free to mix and match the dummy content types. For instance, you might import just taxonomies and custom fields, then add your own listings manually. Or import everything for a complete demo setup.
+
+When you're ready to go live with your own data, simply remove the dummy entries. They are all standard WordPress posts/terms, so deletion is straightforward. Nothing the dummy importer adds will affect your actual settings - it's only content.

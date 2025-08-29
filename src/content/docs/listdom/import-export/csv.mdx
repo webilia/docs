@@ -1,147 +1,169 @@
 ---
-title: "CSV"
-description: Learn how to import and export Listdom listings using CSV files, mapping templates, and auto-import features.
+title: CSV
+description: Import listings into Listdom from CSV files or export your directory listings to CSV. Learn how to map fields, use AI for mapping, save templates, and set up automated import jobs.
 sidebar:
   order: 2
-header_button:
-  label: View Listdom Demo
-  url: https://demo.webilia.com/
 ---
 
 import { Aside, Steps } from '@astrojs/starlight/components';
 
-## CSV Import & Export
+Listdom allows you to import and export listing data in **CSV format** (Comma-Separated Values). This is useful for bulk-adding listings from a spreadsheet or transferring data to/from other systems. The CSV import/export feature includes powerful field mapping options, support for templates, and even an automated import scheduler with an add-on.
 
-With the **Listdom CSV importer and exporter** (built into the Listdom core), you can easily import classifieds to your listing website with just a few clicks. This tool simplifies the process of extending your online listing and classifieds website by allowing you to import listings in bulk.
+## Exporting Listings to CSV
 
-After the Listdom CSV add-on is installed and activated, it will add a new **CSV** tab in **Listdom → Import / Export**. This tab has four options:
-
-- Import  
-- Mapping Templates  
-- Auto Import *(CSV Addon only)*  
-- Export  
-
----
-
-## Import
-
-In this section, you can select your CSV file, map the fields with Listdom default fields, and click **Import** to process.
-
-### Mapping Table
-
-A table to map the Listdom default fields with the columns of the uploaded CSV file. The columns of this table are:
-
-- **Listdom Field:** The default fields of Listdom (e.g. title, price, tags, categories, etc.). Required fields are marked with a red star.  
-- **Type:** The type of field (text, number, URL, email, etc.).  
-- **Mapping:** The columns of the uploaded CSV file to assign to Listdom fields one by one.  
-- **Default Value:** Optional value to insert when the CSV column is empty.  
-
-**Listdom Field Definitions:**
-
-1. **Unique ID** – Required if you want to update listings later.  
-2. **Listing Title*** – Required.  
-3. **Listing Content** – Description of the listing.  
-4. **Listing Date** – Date of listing creation.  
-5. **Listing Owner** – If value doesn’t exist, CSV add-on creates it automatically.  
-6. **Listing Status** – Published, Draft, Trash, Pending, Expired, On Hold, Offline.  
-7. **Price**  
-8. **Price Max**  
-9. **Price After** – Price description.  
-10. **Currency**  
-11. **Listing Address**  
-12. **Listing Latitude**  
-13. **Listing Longitude**  
-14. **Listing Link**  
-15. **Listing Email**  
-16. **Listing Phone**  
-17. **Listing Website**  
-18. **Listing Contact Address**  
-19. **Listing Remark** – Owner message.  
-20. **Featured Image** – URL to image.  
-21. **Listing Gallery** – Comma-separated image URLs.  
-22. **Listing Category** – If new, add-on creates it.  
-23. **Listing Locations** – If new, add-on creates it.  
-24. **Listing Tags** – If new, add-on creates it.  
-25. **Listing Features** – If new, add-on creates it.  
-26. **Listing Labels** – If new, add-on creates it.  
-27. **Facebook** – Account URL.  
-28. **Twitter** – Account URL.  
-29. **Instagram** – Account URL.  
-30. **WhatsApp** – Number URL.  
-31. **YouTube** – Account URL.  
-32. **TikTok** – Account URL.  
-33. **Telegram** – Account URL.  
-34. **Visible Until** – Final visibility date.  
-
-<Aside type="note">
-The **Visible Until** field is only available in the Listdom Visibility Add-on.
-</Aside>
-
-### Mapping Name
-Save the mapping as a template by entering a name. You can reuse later.
-
-### Load Template
-If you’ve saved mappings before, load them here.
-
----
-
-## How to Add and Import Custom Fields
-
-To import custom fields via CSV:
-
-1. First, create the fields inside Listdom.  
-2. Add corresponding columns to your CSV file.  
-3. Map them in the import screen.  
-
-### Available Methods
-
-- **Custom Fields (built-in):** Basic fields like text, number, dropdown.  
-- **ACF Plugin + Listdom ACF Addon:** Supports advanced fields (gallery, checkbox, color picker, etc.).  
-
-<Aside type="tip">
-Fields inside **ACF Accordion and Tabs** will also be imported.
-</Aside>
-
----
-
-## How to Import Taxonomies
-
-To import taxonomies (categories, locations, tags, features, labels):
-
-1. Create a sample listing with a **Unique ID**.  
-2. In your CSV file, add taxonomy terms in the relevant columns (comma-separated).  
-3. Import the file — new terms will be created and associated automatically.  
-4. Delete the sample listing if desired (terms remain).  
-
----
-
-## Mapping Templates
-
-This section lists all saved mapping templates. You can delete unnecessary ones.
-
----
-
-## Auto Import (CSV Addon only)
-
-The **Auto Import** option allows scheduled imports from a data source.
+To export your current listings to a CSV file:
 
 <Steps>
-1. Enter a **Feed URL** – public CSV link (e.g. from Google Sheets).  
-2. Select a **Field Mapping Template**.  
-3. Choose an **Interval** – how often to fetch.  
-4. Define **Import Size** – maximum number of listings per run.  
+1. Go to **Listdom → Import / Export** in wp-admin.
+2. Choose the **CSV** tab, then click on the **Export** sub-tab.
+3. Click the **Export** button to download the CSV file.
 </Steps>
 
-**Google Sheets Example:**
+The CSV file will contain a header row with field names, followed by one row per listing. Each listing's data (title, content, categories, location, price, etc.) is in a separate column. You can open this CSV in Excel or another spreadsheet program to view or edit the data.
 
-https://docs.google.com/spreadsheets/d/FILE_ID/export?format=csv&id=FILE_ID&gid=SHEET_GID
+**Notes on CSV export:**
 
-<Aside type="note">
-Listdom will fetch the latest data from this URL at the defined interval and update listings automatically.
+- Taxonomy terms (like Categories, Locations, Tags) are usually exported as lists of term names or IDs in a single column for each taxonomy.
+- If a listing has multiple categories or tags, they may be separated by a comma in that cell.
+- Custom fields/attributes are exported as well (each custom attribute might have its own column in the CSV).
+- The CSV uses UTF-8 encoding to support special characters.
+
+This exported CSV can be used as a backup or as a starting template for re-importing after making changes.
+
+## Importing Listings from CSV
+
+Importing from CSV lets you bulk-create listings from a spreadsheet. This is a two-step process: **upload the CSV file**, then **map the CSV columns to Listdom fields**.
+
+### Step 1: Upload CSV File
+
+- In **Listdom → Import / Export**, select the **CSV** tab (the **Import** sub-section is open by default).
+- Click the file picker and choose the CSV file from your computer (it must be a `.csv` file). 
+- After selecting the file, it will upload, and you should see a message "The file is uploaded. Please map the CSV file fields with Listdom fields...".
+
+### Step 2: Field Mapping
+
+Once your CSV is uploaded, the Import page will display a **Mapping** interface. This is where you tell Listdom which columns in your CSV correspond to which Listdom listing fields.
+
+- On the left, you will see a list of **Listdom Fields** (e.g., Title, Content, Category, Location, Price, Address, etc. including custom fields).
+- For each Listdom field, open the dropdown under **Mapping** and select the CSV column that should map to that field. The dropdown is populated with the headers from your CSV file (or generic column labels if no header row was present).
+- Not every field is required, but **mapping as many fields as possible** ensures your data imports correctly. For example, you should at least map "Title" to the CSV column that contains the listing titles. It's also recommended to map Categories and other key fields you have data for.
+
+For fields where your CSV does not have a column, you can provide a **Default Value** (optional). For instance, if your CSV doesn't have a "Currency" column and you want all imported prices to be in USD, you can select "USD" as a default for the Currency field. This default will be applied to all imported listings for that field.
+
+<Aside type="tip" title="Field Mapping Tips">
+- Only map fields that correspond correctly to your CSV data. Incorrect mapping (e.g., mapping a price column to a description field) can result in messy data.
+- You can leave a field unmapped if you don't have that data in your CSV. The imported listings will simply have that field empty or default.
+- Use the default value option to fill in any field that's missing in your CSV. For example, set a default category or a default country if your CSV doesn't specify those.
 </Aside>
 
----
+When you are satisfied with the mappings, you're ready to run the import. At the bottom of the mapping form, there's an **Import** button.
 
-## Export
+### Step 3: Running the Import
 
-In the **Export** section, you can export all listings as a CSV file, edit it, and re-import back into your site.
+- Click the **Import** button. The system will begin processing the CSV rows. 
+- The import happens in batches to avoid timeouts. After each batch, you'll see a status message like "X listings imported successfully! Continuing to import the remaining listings..." - this means the process is working through the file.
+- **Do not close the browser** while import is in progress. Wait until you see a final message indicating the import is complete (e.g., "100 listing(s) imported successfully! The import process is now complete.").
+
+After importing, check **Listings** in the admin to verify the new entries. The importer will also create any new taxonomy terms found in the CSV (for example, if a listing has a category that doesn't exist yet, it will be created).
+
+<Aside type='note'>
+If the importer finds a listing in your CSV that matches an existing listing (by unique ID or possibly title), it may update that listing instead of creating a duplicate. This behavior prevents duplicates when re-importing the same data, but it's always best to import into an empty directory or ensure your CSV entries are unique.
+</Aside>
+
+## Saving and Loading Field Mapping Templates
+
+If you plan to import CSV files with a similar structure in the future, you can save your field mappings as a **template** to reuse:
+
+- On the mapping interface, there is a **Mapping Name** field (pre-filled with a default name like "CSV (2025-08-28…)"). You can enter a custom name here (e.g., "RealEstateCSV Mapping").
+- When you run the import with a template name entered, the mapping configuration (which CSV column maps to which field, and any default values) will be saved under that name.
+
+Later, if you upload another CSV with the same format, you can apply the saved mapping:
+
+- Use the **Load Template** dropdown at the top of the mapping form to select your saved mapping template. Once selected, the field mappings will auto-fill according to that template.
+- This saves time — you don't have to manually map every field again.
+
+All your saved templates are accessible under the **Mapping Templates** sub-tab of the CSV import page. In **Import / Export → CSV → Mapping Templates**, you can review the list of saved mappings. From there you can remove templates you no longer need (for example, if you created a test mapping and want to delete it).
+
+Using mapping templates is highly recommended when doing repetitive imports from the same source or format.
+
+## Smart Mapping with AI (Auto-Mapping Fields)
+
+Listdom includes an AI-powered "Smart Mapping" feature that can automatically suggest field mappings for you. This can be a huge time-saver, especially if your CSV has many columns.
+
+<Aside type='note' title='How it works'>
+You need to have an **AI Profile** configured in Listdom's settings (this typically means providing an OpenAI API key or similar, and training a profile if required). Once that's set up, the mapping interface will show an **AI Profile** dropdown and a **Smart Mapping** button.
+</Aside>
+
+Steps to use Smart Mapping:
+
+<Steps>
+1. In the mapping screen (after uploading your CSV), select an AI Profile from the dropdown (if you have more than one configured).
+2. Click the **Smart Mapping** button. The system will send your Listdom field list and the CSV's field names to the AI, which will attempt to match them.
+3. After a moment, you'll see the Mapping fields auto-populate with suggestions. For example, it might automatically map "Listing Title" to your "Business Name" column, if it infers those are the same.
+</Steps>
+
+<Aside type="note" title="AI Mapping Requires Configuration">
+The Smart Mapping feature will only work if you have set up an AI mapping profile in **Listdom settings**. Make sure you have configured your AI API keys and created a mapping profile beforehand. If not configured, clicking Smart Mapping will return a message that the AI model is not set up.
+</Aside>
+
+Review the AI-generated mappings carefully. While it often makes accurate guesses (especially if your CSV headers are clear), you may need to adjust a few fields. Once you're happy with the mappings, proceed with the import as usual.
+
+Smart Mapping is especially handy for large or unfamiliar CSV files — it can instantly do the heavy lifting of matching many columns.
+
+## Automated Import Jobs (Scheduled CSV Imports)
+
+With the **Listdom CSV Importer add-on**, you can set up automated import jobs to periodically fetch a CSV file from a URL and import listings on a schedule. This is useful if your listing data is updated regularly from an external source (for example, a Google Sheets file or feed).
+
+To use this feature, ensure the *CSV Importer* add-on is installed and activated. Then, in the **CSV** tab of Import/Export, go to the **Auto Import** sub-tab.
+
+### Creating an Import Job
+
+On the Auto Import page, you'll find a form to add a new import job:
+
+- **Feed URL:** Enter the URL where the CSV file can be accessed. This could be a direct link to a CSV file on your server or a public file (e.g., a CSV export link from Google Sheets). Make sure it's a URL that does not require manual login to download.
+- **Field Mapping:** Select one of your saved mapping templates from the dropdown. *This is required!* The import job will use that template to know how to map the CSV's columns to listing fields. (If you don't have a template yet, go to the Import section first, run a manual import, and save a template.)
+- **Interval:** Choose how often the import should run. Options include Hourly, Twice a Day, Daily, or Weekly. Pick an interval appropriate for how frequently the source data changes.
+- **Import Size:** Set how many listings to import per batch in each run. For example, if set to 100, the system will import up to 100 listings each time it executes the job. (Large CSVs will be processed in chunks of this size each interval until fully imported. You can generally leave this at the default unless you have performance concerns.)
+
+Once you've filled these fields, click **Add Import Job**. The job will be scheduled and listed under "Existing Jobs" below the form.
+
+<Aside type="note" title="CSV Importer Add-On Required">
+Automated Import is a premium feature. It will only be available if you have the **Listdom CSV** add-on installed. Without the add-on, the Auto Import tab will show a message that this feature is not available.
+</Aside>
+
+### Managing Import Jobs
+
+After adding a job, you'll see it in the **Existing Jobs** section. For each job, the following information is displayed:
+
+- **Feed URL** - the source link of the CSV.
+- **Field Mapping Template** - the name of the mapping template the job uses.
+- **Import Size** - how many listings it processes per run.
+- **Interval** - the frequency (hourly, daily, etc.).
+- **Last Import at** - timestamp of the last time the job ran.
+- **Last Import Count** - how many listings were imported on the last run.
+
+You can remove a job by clicking the **Remove** button next to it. (There is no edit function for jobs; if you need to change one, remove it and create a new job with the desired settings.)
+
+The auto-import mechanism works via WordPress cron. When the scheduled time arrives (say, every hour), Listdom will fetch the CSV from the URL, then import new or updated listings using the specified mapping. It will update its internal offset so that on the next run, it picks up where it left off (if the CSV grows with new entries).
+
+<Aside type='tip' title='Use Cases'>
+Automated jobs are perfect for scenarios like: you have an external inventory or database of listings that regularly updates a CSV feed. By scheduling hourly or daily imports, your site will keep in sync without manual effort.
+</Aside>
+
+### Important Considerations for Auto Import
+
+- The source CSV URL must be reachable by your server. If it requires authentication or is behind a firewall, the import may fail.
+- The CSV structure should remain consistent with your mapping template. If the source CSV's columns change, you'll need to update your template and job accordingly.
+- WordPress cron tasks rely on site traffic. If your site has low traffic, the cron (and thus the import) might not run exactly on schedule. For mission-critical imports, consider setting up a server cron or a cron service to trigger WP cron regularly.
+- **Duplicates:** The auto import will use the same logic as manual import to avoid duplicates (using unique IDs if available, or detecting existing posts). If the feed updates existing listings, those should be recognized and updated rather than duplicated.
+
+By leveraging automated import jobs, you can keep your directory updated without manual intervention. This is particularly powerful for large directories or frequently changing data.
+
+## Additional Tips for CSV Import/Export
+
+- **Data Cleanup:** Before importing, ensure your CSV data is clean (e.g., consistent use of categories, proper formatting for prices/numbers). It's easier to clean data in a spreadsheet beforehand than to fix many listings after import.
+- **Test with a Small Sample:** It's wise to test the import process with a small CSV (maybe 5-10 listings) first. Verify the results, then proceed with the full dataset. You can also use the "offset" and "limit" features (advanced) to import in parts.
+- **Export for Template:** If unsure how to structure your CSV, do an export of a few sample listings first. That CSV can serve as a template for arranging your data and correct header names.
+- **Backup:** Always have a recent backup of your site (or at least the listings data) before doing large imports, in case something doesn't go as expected. While Listdom's importer is designed to handle data safely, having a backup is a good precaution.
+
+CSV import/export is a flexible tool that, with a bit of setup, can greatly speed up managing large numbers of listings and integrating with other data sources. Happy importing!
