@@ -2,263 +2,342 @@
 title: Listdom Notifications
 description: Learn how to create and manage email and SMS notifications in Listdom.
 order: 1
-header_button:
-  label: View Listdom Demo
-  url: https://demo.webilia.com/
 ---
 
-import { Aside, Steps } from '@astrojs/starlight/components';
+import { Aside, Steps, Code, Card, CardGrid } from '@astrojs/starlight/components';
 
-Listdom has a powerful notification manager that allows you to create different email and SMS templates for different situations. For example, an email for each time a new listing is made or when an application is approved.
+The **Listdom** plugin provides a powerful notifications system to keep users and admins informed about important events in your directory/listings site. Notifications allow the site **administrator** to set up automatic emails - and even SMS messages with an add-on - triggered by specific events (e.g. a new listing submission or a contact form message). Each notification is highly customizable, supporting dynamic **placeholders** for inserting relevant information (like listing title, user name, dates, etc.) into the message content. This document will cover all aspects of the notification system, including available events, how to configure notifications for each event, using placeholders (in both email and SMS), and best practices for utilizing notifications effectively.
 
-## How To Create a Notification
+## Key Features of Notifications
 
-To begin with, Navigate to Listdom → Notifications.
+- **Multiple Event Triggers:** You can create notifications for various built-in events such as Contact Owner, Profile Contact, New Listing, Listing Status Changed, and Abuse Report. (Additional events may be available via add-ons like bookings, reviews, etc., but we will focus on the core events here.)
+- **Customizable Recipients:** For each notification event, you can choose to send to the default (original) recipient(s) or specify custom email addresses. You can also add multiple recipients via Cc and Bcc fields (simply separate emails with commas). This flexibility lets you notify listing owners, site admins, or any other stakeholders as needed.
+- **Dynamic Placeholders:** Notifications support placeholder tags (enclosed in # symbols) that will be replaced with real data when the notification is sent. There are general placeholders (like site name, current date/time) and event-specific placeholders (like listing title, contact message, etc.) for tailoring the content. You can use these placeholders in the email Subject (notification title) and body content, and also in SMS messages.
+- **HTML & Shortcodes in Emails:** Notification email content can include HTML formatting (the system will send emails as HTML) and even WordPress shortcodes if needed. This means you can design rich email templates or include dynamic content using shortcodes (Listdom will process wpautop and do_shortcode on your content before sending).
+- **SMS Notifications (via Add-on):** With the optional Listdom SMS Add-on, you can send SMS alerts for the same events. When the add-on is installed and configured, each notification setup screen will include an SMS Content field. If you enable and fill this in, an SMS will be dispatched through your configured gateway (e.g. Twilio) in addition to or instead of email. (The SMS system uses the same event triggers and will send to the appropriate user's mobile number or admin's number, as we'll discuss in the SMS section.)
 
-This page has a table of the pre-made templates you can use. Each table row includes the notification template’s Title, SMS state, and Hook.
+## Create a Notification
 
-**Title:** Name of the Notification.
-**SMS:** Enabled if an SMS is sent with the email.
-<Aside type="note">
-The SMS notifications are available in the Listdom SMS Add-on.
-</Aside>
-
-**Hook:** The event in which the email and SMS are sent.
-If you don’t see some of the columns, click on the “Screen Options” on the top right of the screen and mark the needed column names to display them. To edit and use a template, click on its title. Also, you can use the options under the title to Edit, Quick Edit, Trash, or Duplicate the template.
-
-To create your template from scratch, hit the “Add Notification” button.
+To create or edit notifications, you must be an admin user (with the manage_options capability). In WordPress admin, navigate to Listdom → Notifications (this menu is added by the plugin). Here you'll see a list of any existing notifications and can click “Add Notification” (or “Add New Notification”) to create a new one. When adding/editing a notification, you will configure:
 
 <Steps>
-1. **Add Title**  
-        The name of this notification. The notification title will be used as the email subject too.
-2. **Content**  
-        The content of the notification email. It includes:
-        
-        **Hook:** A hook is an event that happens in the website system. When something happens in the system, a hook is called. For example, a hook can be called when a new listing is created, when a new booking is made, or when a claim is paid. You can create an email or SMS notification for each hook. For example, you can create a notification to send an email when a new listing is created. It’s important to assign the notification to the correct hook; Otherwise, it won’t work as expected. Several Hooks are available to choose from. Some of them are available in the Listdom free version and the others are added by installing different add-ons of the Listdom.
-        
-        **Free Hooks:**
-        - Contact Owner
-        - New Listing
-        - Listing Status Changed
-        - Abuse Report
-        
-        **Hooks Added by Listdom add-ons:**
-        - Auction Add-on
-        - New Offer
-        - Owner Offer Notification
-        - Offer Accepted
-        - Offer Unaccepted
-        - Booking Add-on
-        - New Booking
-        - Owner Booking Notification
-        - Booking Approved
-        - Booking Rejected
-        - Booking Canceled
-        - Claim Add-on
-        - New Claim
-        - Claim Approved
-        - Claim Rejected
-        - Claim Waiting Payment
-        - Claim Paid
-        - Jobs Add-on
-        - New Job Application
-        - Owner Job Application Notification
-        
-        **Content Text Area:** This is a WYSIWYG editor to make the email content. Shortcodes and HTML codes are allowed in the content.
-3. **Placeholders**  
-    Placeholders are dynamic data that can be added to the email and SMS content. Different Placeholders are available based on the Hook selected. For example, the name of the person who sends the contact request by the contact form. Use the #placeholders# in the notification content and subject (title). Change the Hook to see each one’s specific placeholders.
-    
-    | Hook | Placeholder | Definition |
-    | --- | --- | --- |
-    | Contact Owner | #name# | Name field of the contact form |
-    | Contact Owner | #email# | Email field of the contact form |
-    | Contact Owner | #phone# | Phone field of the contact form |
-    | Contact Owner | #message# | Sent message |
-    | Contact Owner | #listing_link# | Link to the listing |
-    | Contact Owner | #date# | The current date while sending |
-    | Contact Owner | #time# | The current time while sending |
-    | Contact Owner | #datetime# | Current date & time while sending |
-    | Contact Owner | #admin_email# | Email of the website admin |
-    | Contact Owner | #site_name# | The subject of the website |
-    | Contact Owner | #site_url# | Home URL of the website |
-    | Contact Owner | #site_description# | Description of the website |
-    | Contact Owner | #site_link# | Link to the website. The subject of the website will be used as the link title |
-    | New Listing | #listing_status# | Status of new listing |
-    | New Listing | #listing_date# | Listing creation date |
-    | New Listing | #listing_title# | Title to the listing |
-    | New Listing | #owner_name# | Name of listing owner |
-    | New Listing | #owner_email# | Email or listing owner |
-    | New Listing | #listing_link# | Link to the listing |
-    | New Listing | #admin_link# | Link to the listing manage page in WordPress backend |
-    | New Listing | #date# | Current date while sending |
-    | New Listing | #time# | Current time while sending |
-    | New Listing | #datetime# | Current date & time while sending |
-    | New Listing | #admin_email# | Email of the website admin |
-    | New Listing | #site_name# | Subject of the website |
-    | New Listing | #site_url# | Home URL of the website |
-    | New Listing | #site_description# | Description of the website |
-    | New Listing | #site_link# | Link to the website. Subject of the website will be used as the link title |
-    | Listing Status Changed | #previous_status# | Previous Status |
-    | Listing Status Changed | #listing_status# | New Status |
-    | Listing Status Changed | #listing_date# | Listing creation date |
-    | Listing Status Changed | #listing_title# | Title to the listing |
-    | Listing Status Changed | #owner_name# | Name of listing owner |
-    | Listing Status Changed | #owner_email# | Email or listing owner |
-    | Listing Status Changed | #listing_link# | Link to the listing |
-    | Listing Status Changed | #date# | Current date while sending |
-    | Listing Status Changed | #time# | Current time while sending |
-    | Listing Status Changed | #datetime# | Current date & time while sending |
-    | Listing Status Changed | #admin_email# | Email of the website admin |
-    | Listing Status Changed | #site_name# | Subject of the website |
-    | Listing Status Changed | #site_url# | Home URL of the website |
-    | Listing Status Changed | #site_description# | Description of the website |
-    | Listing Status Changed | #site_link# | Link to the website. Subject of the website will be used as the link title |
-    | Abuse Report | #name# | Name field of abuse form |
-    | Abuse Report | #email# | Email field of abuse form |
-    | Abuse Report | #phone# | Phone field of abuse form |
-    | Abuse Report | #message# | Sent message |
-    | Abuse Report | #listing_link# | Link to the listing |
-    | Abuse Report | #date# | Current date while sending |
-    | Abuse Report | #time# | Current time while sending |
-    | Abuse Report | #datetime# | Current date & time while sending |
-    | Abuse Report | #admin_email# | Email of the website admin |
-    | Abuse Report | #site_name# | Subject of the website |
-    | Abuse Report | #site_url# | Home URL of the website |
-    | Abuse Report | #site_description# | Description of the website |
-    | Abuse Report | #site_link# | Link to the website. Subject of the website will be used as the link title |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_amount# | Offer Amount |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_email# | Offer Email |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_status# | Status of Offer |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_comment# | Offer Comment |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_datetime# | Offer Submission Date and Time |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #offer_id# | Offer ID |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #listing_title# | Title of the listing |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #listing_link# | Link to the listing |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #date# | Current date while sending |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #time# | Current time while sending |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #datetime# | Current date & time while sending |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #admin_email# | Email of the website admin |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_name# | Subject of the website |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_url# | Home URL of the website |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_description# | Description of the website |
-    | New Offer, Owner Offer Notification, Offer Accepted, Offer Unaccepted | #site_link# | Link to the website. Subject of the website will be used as the link title |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #name# | Name of booker |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #phone# | Phone of booker |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #email# | Email of booker |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #message# | Booking Message |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_status# | Status of booking |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_datetime# | Booking Submission Date and Time |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_items# | Booked Item(s) |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_id# | Booking ID |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_price# | Booking Price |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_payable# | Booking Payable Amount |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_payment_status# | Booking Payment Status |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #booking_invoice_url# | Booking Invoice URL |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_start# | Event Start |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_end# | Event End |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #event_capacity# | Event Capacity |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkin# | Checkin Date |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkin_datetime# | Checkin Date and Time |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkout# | Checkout Date |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #checkout_datetime# | Checkout Date and Time |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #listing_title# | Title of the listing |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #listing_link# | Link to the listing |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #date# | Current date while sending |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #time# | Current time while sending |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #datetime# | Current date & time while sending |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #admin_email# | Email of the website admin |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_name# | Subject of the website |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_url# | Home URL of the website |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_description# | Description of the website |
-    | New Booking, Owner Booking Notification, Booking Approved, Booking Rejected, Booking Canceled | #site_link# | Link to the website. Subject of the website will be used as the link title |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #name# | Name field of claim form |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #email# | Email field of claim form |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #phone# | Phone field of claim form |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #message# | Sent message |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_message# | Admin Message (Normally used for rejection) |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #listing_title# | Title of the claimed listing |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #listing_link# | Link to the listing |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #attachment_link# | Link to the attached claim document. |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #claim_link# | Link to the claim page on frontend so users can pay or see the current status of their claim |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_link# | Link to the claim manage page in WordPress backend |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #date# | Current date while sending |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #time# | Current time while sending |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #datetime# | Current date & time while sending |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #admin_email# | Email of the website admin |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_name# | Subject of the website |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_url# | Home URL of the website |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_description# | Description of the website |
-    | New Claim, Claim Approved, Claim Rejected, Claim Waiting Payment, Claim Paid | #site_link# | Link to the website. Subject of the website will be used as the link title |
-    | New Job Application, Owner Job Application Notification | #name# | Name of applicant |
-    | New Job Application, Owner Job Application Notification | #mobile# | Mobile of applicant |
-    | New Job Application, Owner Job Application Notification | #email# | Email of applicant |
-    | New Job Application, Owner Job Application Notification | #message# | Applicant Message |
-    | New Job Application, Owner Job Application Notification | #application_status# | Status of Application |
-    | New Job Application, Owner Job Application Notification | #application_datetime# | Application Submission Date and Time |
-    | New Job Application, Owner Job Application Notification | #application_date# | Application Submission Date |
-    | New Job Application, Owner Job Application Notification | #application_time# | Application Submission Time |
-    | New Job Application, Owner Job Application Notification | #application_id# | Application ID |
-    | New Job Application, Owner Job Application Notification | #resume# | Resume Link |
-    | New Job Application, Owner Job Application Notification | #cover# | Cover Link |
-    | New Job Application, Owner Job Application Notification | #code# | Application Code |
-    | New Job Application, Owner Job Application Notification | #listing_title# | Title of the listing |
-    | New Job Application, Owner Job Application Notification | #listing_link# | Link to the listing |
-    | New Job Application, Owner Job Application Notification | #date# | Current date while sending |
-    | New Job Application, Owner Job Application Notification | #time# | Current time while sending |
-    | New Job Application, Owner Job Application Notification | #datetime# | Current date & time while sending |
-    | New Job Application, Owner Job Application Notification | #admin_email# | Email of the website admin |
-    | New Job Application, Owner Job Application Notification | #site_name# | Subject of the website |
-    | New Job Application, Owner Job Application Notification | #site_url# | Home URL of the website |
-    | New Job Application, Owner Job Application Notification | #site_description# | Description of the website |
-    | New Job Application, Owner Job Application Notification | #site_link# | Link to the website. Subject of the website will be used as the link title |
-4. **Recipients**  
-    Each hook has an “Original Recipient”. This recipient varies according to the Hook selected. For example, the Original Recipient of the “Contact Owner” Hook is the owner of the listing. You can disable this option and add some arbitrary email addresses.
-    
-    | Hook | Original Recipient |
-    | --- | --- |
-    | Contact Owner | Listing Owner |
-    | New Listing | Site Admin(s) |
-    | Listing Status Changed | Listing Owner |
-    | Abuse Report | Site Admin(s) |
-    | New Offer | Offer Submitter |
-    | Owner Offer Notification | Listing Owner |
-    | Offer Accepted | Offer Submitter |
-    | Offer Unaccepted | Offer Submitter |
-    | New Booking | Booker (the user who created the booking) |
-    | Owner Booking Notification | Listing Owner |
-    | Booking Approved | Booker (the user who created the booking) |
-    | Booking Rejected | Booker (the user who created the booking) |
-    | Booking Canceled | Booker (the user who created the booking) |
-    | New Claim | Site Admin(s) |
-    | Claim Approved | Claim Owner |
-    | Claim Rejected | Claim Owner |
-    | Claim Waiting Payment | Claim Owner |
-    | Claim Paid | Claim Owner |
-    | New Job Application | Applicant (The user who applied for the job) |
-    | Owner Job Application Notification | Listing Owner |
-    
-    You can add custom recipients to the email using CC and BCC options. CC and BCC serve different purposes. CC is best for providing transparency about who is being informed. BCC is best for keeping addresses private on mail lists. while a CC recipient can see a list of the recipients who have received this email, the BCC recipient does not.
-5. **SMS**  
-    By enabling the SMS status, an SMS with the desired content will be sent anytime the event occurs. HTML codes and shortcodes are not allowed in the SMS content but you can use the placeholders.
-    
-    To learn more about the SMS settings, read the Listdom SMS Add-on documentation.
-    
-    <Aside type="note">
-    The SMS notifications are available in the Listdom SMS Add-on.
-    </Aside>
-6. **Publish**  
-    It’s the final option you must get to. After finishing all of the configurations of the notification, click on the publish button to be able to use the shortcode. Other options in this section are:
-    
-    - **Save draft:** Before publishing the notification, you can save it as a draft and get back to it later.
-    - **Status:** choose the status of the shortcode to be Published (available after the shortcode is published.), Draft, and Pending Review. If you want to disable a notification, you can change its status.
-    - **Visibility:** Select the visibility condition. Available options are:
-      - **Public:** The default, viewable to all.
-      - **Password protected:** Clicking this radio button followed by “OK” causes a further text box to appear, into which you can enter a password.
-      - **Private:** This option hides the content from the public completely.
-    - **Published on / Published immediately:** Select the publish date and time.
+1. **Title** - This is used as the email subject line (placeholders can be used here too).
+
+2. **Event (Hook)** - Choose the event that will trigger this notification (from a dropdown of events like Contact Owner, New Listing, etc.).
+
+3. **Content** - The email body content. You can write text, include placeholders, and basic HTML. (It's a good practice to greet the recipient and include relevant info using placeholders.)
+
+4. **Original Recipient vs Custom Recipients** - A toggle or option to use the original recipient for this event or define custom recipients:
+    - If **Original Recipient** is enabled, the plugin will automatically determine who to send the notification to based on the event (e.g. the listing owner or admin - see event details below).
+    - If you choose to override, you can specify **To** email addresses manually. You may also specify **Cc** or **Bcc** addresses. (Even when using original recipients, any emails in Cc/Bcc will still be included.)
+
+5. **SMS Content (if SMS Add-on is active)** - A text field for the SMS message. If you want an SMS to be sent for this notification, enter the message here (using placeholders as needed) and ensure SMS is enabled for this notification. If this field is left blank (or SMS is disabled), no SMS will be sent.
+6. **Publish / Activate** - When you're ready, publish the notification. Only **Published** notifications are active; you can also save as Draft to deactivate a notification without deleting it. The system will only send notifications that are published, so unpublished ones are effectively disabled.
 </Steps>
 
-## How To Disable a Notification
+Below, we break down each available **Notification Event** and explain how to configure it, what placeholders you can use, and typical use-cases. After that, we'll cover the SMS add-on specifics and some frequently asked questions.
 
-To disable a Listdom notification, you can just change the status of the notification from published to draft.
+## General Placeholders
 
+Before diving into each event, let's review the general placeholders that can be used in any notification (these work for all events, in both email and SMS messages). Using these placeholders allows you to insert dynamic site-specific or time-specific information:
+
+| Placeholder          | Description                                                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `#date#`             | Current date at the time of sending. Uses the date format set in WordPress settings.                                                 |
+| `#time#`             | Current time at the time of sending (WordPress time format).                                                                         |
+| `#datetime#`         | Current date and time timestamp.                                                                                                     |
+| `#admin_email#`      | Email address of the site administrator (from General Settings).                                                                     |
+| `#site_name#`        | Name of your website (blog name).                                                                                                    |
+| `#site_url#`         | URL of your website's homepage.                                                                                                      |
+| `#site_description#` | Tagline or description of your website.                                                                                              |
+| `#site_link#`        | A clickable HTML link to your site's homepage, using the site name as the link text (emails only; in SMS this will be just the URL). |
+
+<Aside type='tip' title='Usage'>
+You can include these anywhere in your notification **Title/Subject** or **Content**. For example, `Email us at #admin_email#` might render as *Email us at admin@example.com*.
+
+Or in an SMS, `Sent from #site_name# (#site_url#)` could become *Sent from My Directory (https://mydirectory.com)*.
+</Aside>
+
+These general placeholders are especially useful for providing context in messages (like including the current date or site name in a notification).
+
+<Aside type='note'>
+In email notifications, #site_link# produces an HTML hyperlink (which is clickable in the email). In SMS, since messages are plain text, the #site_link# will just be shown as the URL.
+</Aside>
+
+Now, let's look at each event and its specific placeholders and behaviors.
+
+## Contact Owner
+
+**Event:** *Contact Owner* - This event is triggered when a visitor fills out the "contact the listing owner" form on a listing page. Typically, a site will have a contact form on each listing so that interested users can send a message to the listing's owner.
+
+**Default Recipient:** By default (if "Original Recipient" is selected), the notification will go to the owner of the listing that was contacted. In other words, the listing author will receive an email when someone sends them a message through the listing's contact form. (The plugin determines the listing owner's email automatically.)
+
+If you prefer, you can override the recipient. For example, an admin could receive all contact form messages instead of or in addition to owners. To do this, uncheck original recipient and fill in a custom To address (or use Cc/Bcc to get a copy).
+
+**Cc/Bcc:** You might CC the admin email on these notifications so that the admin is aware of communications between users. (Since CC and BCC are always honored if provided, this is a quick way to monitor messages while still sending to the owner.)
+
+**Placeholders for Contact Owner Event:** When composing the email or SMS content for this notification, you can use the following placeholders related to the contact form submission:
+
+| Placeholder      | Description                                                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `#name#`         | The name of the person who filled out the contact form. (They enter this in the "Name" field.)                                          |
+| `#email#`        | The email address entered by the person contacting.                                                                                     |
+| `#phone#`        | The phone number entered by the person (if your contact form includes a phone field).                                                   |
+| `#message#`      | The message content that the person wrote in the contact form. In the email, this will be displayed (with basic formatting).            |
+| `#listing_link#` | A link to the listing that was being contacted. In emails this is an HTML link with the listing title; in SMS it will be the plain URL. |
+
+These allow you to craft a meaningful notification. For example, your email to the listing owner might say:
+
+<Code code='Hello, you have a new inquiry on your listing #listing_title#.
+Sender Name: #name#
+Sender Email: #email#
+Message: #message#' />
+
+In the above example, `#listing_title#` is actually a placeholder from the general set (since the listing title is available whenever a listing is involved). Although not listed under contact-owner specific placeholders, you can use `#listing_title#` because a listing ID is associated with this event, and general listing placeholders (title, etc.) will be filled in by the system. The system knows which listing the message was about, so it will replace `#listing_title#` and `#listing_link#` accordingly during sending.
+
+<Aside type='tip' title='Use Case'>
+This notification ensures listing owners don't miss out on inquiries. It's recommended to have at least one Contact Owner notification active so that these form submissions trigger an email. By default, you might set this up to send to listing owners. A good practice is to include the sender's details and message (using placeholders as above) so the owner can directly reply if needed. If you want to keep a record or moderate communications, consider CC-ing an admin or sending a duplicate notification to the admin as well.
+</Aside>
+
+## Profile Contact
+
+**Event:** *Profile Contact* - This is triggered when a visitor uses a contact form on a user's profile page (if Listdom's user profile feature is enabled and has a contact form for the user). It's similar to Contact Owner, but it's targeting a user profile rather than a specific listing.
+
+**Default Recipient:** If using the original recipient, the notification email goes to the user whose profile was contacted. For example, if a directory user has a public profile and someone sends them a message through it, that user will get the email.
+
+- You can override this as well. For instance, if you want all profile contacts to go to an admin or a support address instead of the user, set custom recipients in the notification. However, usually you'll let the user get their messages directly.
+
+**Placeholders for Profile Contact Event:** You can use most of the same placeholders as Contact Owner (since the form likely collects name, email, phone, message). The placeholders unique to the profile contact context are:
+
+| Placeholder      | Description                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#name#`         | Name of the person who filled the contact form (visitor).                                                                                   |
+| `#email#`        | Email of the person who filled the form.                                                                                                    |
+| `#phone#`        | Phone number given by the person (if applicable).                                                                                           |
+| `#message#`      | The message content that was sent.                                                                                                          |
+| `#profile_link#` | Link to the user's profile page. This could be useful if, for example, an admin gets the email and wants to review the profile in question. |
+
+The `#listing_link#` is generally not used here (since this message isn't about a specific listing), but you might still have a `#listing_link#` available if the profile contact form was accessed via a listing context. In most cases, you'll use `#profile_link#` to refer the recipient back to the profile.
+
+Example: If sending to the profile owner, you might write:
+
+<Code code='Hi #owner_name#, you have received a new message via your profile page on #site_name#:
+From: #name# ( #email# )
+Message: #message#' />
+
+Here `#owner_name#` would be the profile owner's name. Note that `#owner_name#` and `#owner_email#` are placeholders defined for certain events like listings; in a profile context, the “owner” is the user. You can actually use `#owner_name#` in this context as well, since the system will treat the profile owner as the target user (Listdom reuses the same mechanism by treating the profile owner as the “listing owner” in this event internally). But to avoid confusion, you might just address the email generically or by using the user's display name if known.
+
+<Aside type='tip' title='Use Case'>
+Profile Contact notifications are useful on membership or directory sites where users have profile pages (e.g., agents, service providers). Ensure users know they'll get emails to their registered email when someone contacts them. As an admin, you might also set yourself as BCC to monitor communications or detect spam. Also, encourage users to keep their email updated (and phone number, if you plan to use SMS) so they don't miss these messages.
+</Aside>
+
+## New Listing
+
+**Event:** *New Listing* - Triggered whenever a new listing is created/submitted on the site. This could be when a user submits a listing from the front-end dashboard or when an admin adds a listing in the back-end. Essentially, it fires on the first save of a listing post (specifically when a listing transitions out of an initial “new” state to a real status).
+
+**Default Recipient:** By default, the original recipient for this event is the site administrator (the WordPress admin email). The assumption is that when a new listing comes in, the admin might want to be notified (for moderation or record-keeping). If "Original Recipient" is on, Listdom will send the New Listing notification to the admin email address configured in WordPress (found in Settings → General).
+
+- **Custom Recipients:** You can override this if, for example, you want a team or a specific moderator to receive new listing alerts (just enter their email in the To field).
+
+- It's generally not common to send this notification to the user who submitted the listing, since they obviously know they just submitted it. Instead, there is another event (“Listing Status Changed”) intended to notify users when their listing gets published or approved. So typically, New Listing notifications are for admins/staff.
+
+**Placeholders for New Listing Event:** This event provides placeholders to include details about the listing that was created:
+
+| Placeholder        | Description                                                                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#listing_title#`  | Title of the new listing. Useful in subject lines (e.g. "New Listing: #listing\_title#").                                                   |
+| `#listing_status#` | The status of the new listing (e.g. "Pending", "Published", "Draft"). This lets you know if the listing is awaiting approval or live.       |
+| `#listing_date#`   | The date the listing was created (uses WordPress date format).                                                                              |
+| `#owner_name#`     | Name of the listing owner (the user who submitted it). This typically comes from the user's WordPress display name.                         |
+| `#owner_email#`    | Email of the listing owner/user.                                                                                                            |
+| `#listing_link#`   | Link to view the listing on the front-end (if it's published or visible).                                                                   |
+| `#admin_link#`     | Link to edit/manage the listing in WP admin (back-end). This is very useful for admin notifications so you can jump straight to moderation. |
+
+Using these, an admin notification email could be:
+
+**Subject**
+<Code code='New Listing Submitted: #listing_title#' />
+
+**Body**
+<Code code='A new listing has been submitted on #site_name#.
+      Listing: "#listing_title#" (Status: #listing_status#)
+      Submitted by: #owner_name# (#owner_email#) on #listing_date#.
+      You can review it here: #admin_link#' />
+
+The `#admin_link#` will be an actual hyperlink labeled with the listing title that takes you to the WordPress dashboard edit screen for that listing.
+
+<Aside type='tip' title='Use Case'>
+New Listing notifications help admins stay on top of incoming content. If your site requires admin approval for listings, this email is your prompt to go review and publish it. Even if auto-published, you might still want to know what's new. If you have a moderation team, you could add multiple emails in the recipient fields (or use a group email) so that everyone gets alerted. Generally, you wouldn't send this to the listing owner; instead, use the next event to acknowledge or communicate with the owner.
+</Aside>
+
+<Aside>
+The plugin is designed such that multiple notifications for the same event can be set up. For instance, you could have one New Listing notification email to the admin and another to a regional manager, etc. The system will retrieve all notifications with the "New Listing" hook and send each one. This gives you flexibility if needed (though often one well-crafted notification per event is enough).
+</Aside>
+
+## Listing Status Changed
+
+**Event:** *Listing Status Changed* - Triggered whenever an existing listing's status changes. Typically, this is used when a pending listing is approved/published by an admin, or if a published listing is expired or disabled, etc. In practical terms, the most common use is to notify the listing owner that their listing has been published (approved) by the admin. It could also fire if a listing goes from published to expired (if your setup expires listings), in which case you might notify the owner their listing expired. Any status transition will trigger it (except the initial creation which is handled as "new listing").
+
+**Default Recipient:** By default, the original recipient is the listing owner (the user who owns/created the listing). So if an admin changes a listing from "Pending" to "Publish", the owner will get an email about that status change. Likewise, if their listing status changes for any other reason (maybe admin set it to "Draft" or a listing expired to "Expired" status), the owner is notified. This keeps users informed about the state of their listings.
+
+- **Custom Recipients:** You can override the recipient to, say, notify an admin or a third party of status changes, but generally this one is meant for the listing owners. If you still want an admin notice on publication, you might already have seen the listing in the New Listing email; however, you could also CC yourself on this too.
+
+- If you don't want owners getting emails on certain status changes, you can disable the notification or filter when it sends (there's no UI for filtering by status type, but you could simply not use the placeholder if not relevant). For example, some admins only want to notify on approval, not on going back to draft. In that case, you'd still send it but phrase it like “Your listing is now published” and trust that you only publish once.
+
+**Placeholders for Listing Status Changed:** This event provides details about the status transition and the listing:
+
+| Placeholder         | Description                                                                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `#previous_status#` | The listing's status *before* the change. For example, "Pending" (if it was pending approval) or "Expired". This is a plain text status label.                 |
+| `#listing_status#`  | The new status *after* the change. For example, "Published" or "Expired".                                                                                      |
+| `#listing_date#`    | The listing's original publish date (or creation date). (In many cases this might not be critical to include, but it's available.)                             |
+| `#listing_title#`   | Title of the listing that had its status changed.                                                                                                              |
+| `#owner_name#`      | Name of the listing owner (for courtesy in the email).                                                                                                         |
+| `#owner_email#`     | Email of the listing owner. (You likely wouldn't put this in the content if emailing that person, but it's there if you need it for an admin notice scenario.) |
+| `#listing_link#`    | Link to view the listing (if now published, this will be the public page).                                                                                     |
+
+Using these, a typical email to the listing owner on approval might be:
+
+**Subject**
+<Code code='Your listing "#listing_title#" is now #listing_status#!' />
+
+**Body**
+<Code code='Hi #owner_name#,
+Good news - your listing "#listing_title#" has been #listing_status# on #site_name#. You can view it here: #listing_link#.
+(Status changed from "#previous_status#" to "#listing_status#" on #date#.)' />
+
+If the listing was pending and now published, it might read: Subject: Your listing "Grand Hotel" is now Published! and in the body: Hi Alice, Good news - your listing "Grand Hotel" has been Published on MySite. You can view it here: (link). (Status changed from "Pending" to "Published" on Aug 30, 2025.) The placeholders will substitute accordingly (note `#previous_status#` would be "Pending", `#listing_status#` "Published").
+
+For an expiration scenario, if you used the same notification, it could say "Your listing ... has been Expired". You might want a different wording in that case (e.g., “has expired” vs “is now published”), but since Listdom uses one event for any status change, you might have to generalize the message or create separate notifications and enable/disable them as needed when statuses change. However, Listdom doesn't provide an out-of-the-box way to target specific status changes differently (that would require a customization or using filters).
+
+<Aside type='tip' title='Use Case'>
+Use Case Tips: This notification is crucial for keeping users informed about their listing's lifecycle. We recommend using it at least for approval notices so users know when their submitted listing is live. If your site auto-approves listings (no pending stage), you might not need an approval email (since the user submits and it's instantly published - they know that). But if listings expire or get unpublished, you could use this to notify them. Adjust your wording to make sense for most scenarios, or consider turning off the notification if it doesn't fit your workflow. For example, some admins only enable it for the publish step - which is automatic. (If needed, you could manually disable sending for certain transitions by custom code, but that's beyond this doc.)
+</Aside>
+
+<Aside title='Technical Note'>
+The system does ensure it doesn't send on the very initial creation event as “status changed” (to avoid double notifying along with New Listing). It checks if previous status was 'new' and if so, skips this event. So you won't accidentally send a status-change email at creation time - it will only trigger on subsequent changes after creation.
+</Aside>
+
+## Abuse Report
+
+**Event:** *Abuse Report* - Triggered when someone submits a “Report Abuse” (or “Report Listing”) form on a listing. Listdom allows users to report a listing if they find something inappropriate, and this event handles notifying the relevant party about such reports.
+
+**Default Recipient:** By default, the original recipient is the site administrator (admin email). The rationale is that abuse reports should go to the site admin or moderators, not to the listing owner (since it might be a complaint about that listing). The code specifically routes original recipients for this event to the admin email.
+
+- In most cases, you will want these reports to go to the admin or moderation team for review. It's probably not a good idea to send them to listing owners (especially if the report is a complaint about them!). So likely you will leave this notification's recipient as the admin.
+
+- You can add additional emails (Cc or Bcc) if multiple moderators should get the alert.
+
+**Placeholders for Abuse Report Event:** The placeholders here are similar to a contact form, capturing what the reporter filled in:
+
+| Placeholder      | Description                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| `#name#`         | Name of the person reporting the abuse (from the form field).                                    |
+| `#email#`        | Email of the person who submitted the report.                                                    |
+| `#phone#`        | Phone number given by the person (if your abuse form asks for it).                               |
+| `#message#`      | The message or reason the person provided for reporting the listing.                             |
+| `#listing_link#` | Link to the listing that was reported. (Admin can click this to review the content in question.) |
+
+You might also consider using general placeholders like `#site_name#` in these emails for context, or `#listing_title#` (which should be replaced since a listing ID is available). Indeed, even though `#listing_title#` is not explicitly listed under abuse placeholders, you can use it to mention which listing (by name) was reported - the system will fill it because it knows the listing from the context (the abuse form includes the listing ID).
+
+Example: An admin notification might be:
+
+**Subject**
+<Code code='Listing Reported: "#listing_title#"' />
+
+**Body**
+<Code code='An abuse report has been submitted for the listing #listing_title#.
+Reporter Name: #name#
+Reporter Email: #email#
+Message: "#message#"
+Review the listing here: #listing_link#
+(This notification was sent from #site_name# on #date#.)' />
+
+This would give the admin all the info needed to follow up. The admin could click the listing link to see the content. If needed, the admin can then take action (edit or remove the listing, contact the owner, etc., outside the scope of the notification system).
+
+<Aside type='tip' title='Use Case'>
+Use Case Tips: Ensure that you have this notification enabled so that abuse reports aren't missed. It's a key part of content moderation workflow. If you have a dedicated moderation team, add their emails. If you ever needed to, you could also send an acknowledgment back to the reporter (but that would be a different notification or custom email - by default Listdom doesn't automatically reply to the reporter, it just shows a success message). Also, consider adding a filter or captcha to the abuse form to avoid spam - which Listdom likely already supports with reCAPTCHA.
+</Aside>
+
+Finally, keep the content of this email professional and clear, since it might be the basis for taking action. You might even include `#admin_link#` if you want a quick link to edit the listing in the dashboard (though `#admin_link#` is not listed under this event, the system might allow it since it's a listing context - you could test if it works; it likely would produce a link if used, similar to listing events).
+
+## SMS Notifications (SMS Add-on)
+
+Listdom's notification system can send **SMS (text message) alerts** in addition to emails, but this requires the separate **Listdom SMS Add-on**. If you have purchased and installed the SMS Add-on, you can enable SMS notifications for any of the events above. Here's how it works and how to set it up:
+
+- **SMS Add-on Setup:** Once installed, go to Listdom → Settings → Addons → SMS. There you will need to configure your SMS Gateway. Currently, the plugin supports Twilio as the SMS gateway. You'll have to enter your Twilio Account SID, Auth Token, and a Sender Number (the phone number or sender ID from which messages will be sent). After saving these settings, the system is ready to send SMS.
+
+- **Per-Notification SMS Content:** In the Notifications section (Listdom → Notifications), when you edit or add a notification, you will see a new meta box or section for “SMS”. This includes a checkbox or toggle to enable SMS for that notification and a textarea to input the SMS message content. You can use the same placeholders in the SMS content as in the email (placeholders will be replaced just the same for SMS). For example, you might have an SMS that says: "New listing #listing_title# submitted by #owner_name#." for the admin, or "Your listing #listing_title# is now #listing_status#." for a user.
+
+- **Enabling/Disabling SMS for a Notification:** To activate SMS, ensure the SMS content field is not empty and that the SMS toggle is on. The plugin will save a meta value indicating SMS is enabled (lsd_sms_status = 1) along with your SMS text (lsd_sms_content). If the SMS content is blank, the SMS will be considered disabled (even if the toggle was on, the code will set status to 0). Conversely, if you have content and leave it enabled, an SMS will be sent out in addition to the email for that notification. (Emails and SMS are managed independently; you cannot currently send only SMS without an email - an email notification must exist and be published, but you could leave the email content very minimal if you only care about SMS.)
+
+- **SMS Recipient Logic:** The recipient of the SMS depends on the event and the first parameter passed when the notification triggers:
+
+  - For events where the listing owner or profile owner is the original email recipient (Contact Owner, Profile Contact, Listing Status Changed), the SMS will be sent to that user's mobile number. The plugin looks for a phone number in the user's meta data (`lsd_mobile`) corresponding to that user. (Users may need to provide or verify their mobile number; the SMS add-on has a Mobile Verification feature where users can verify a phone number on their profile. Make sure users have a number saved if you expect to reach them by SMS.)
+
+  - For events where the admin is the recipient (New Listing, Abuse Report by default), the SMS will go to the admin's number. How does it get the admin's number? You as an admin should set your phone number in your user profile (the add-on likely adds a field in the user profile for “Mobile” which is stored in `lsd_mobile` meta). If the first argument passed to the `lsd_send_notification` hook is a user ID (like admin's user ID or owner's user ID), the SMS system will treat that as “send to this user's mobile”. If it's not a numeric user ID (e.g., you put a raw phone number in custom recipients), it will try to send to that number directly, but generally the plugin passes user IDs for original recipients.
+
+  - **Custom Recipients for SMS:** If you set a custom phone number as the recipient in the code (not via UI, since UI for notifications only takes emails), it could handle it, but the normal UI doesn't have a field for “SMS number”. So essentially, SMS will go to whichever user was going to get the email (if original) or none at all for custom (unless you hack it). So practically, use SMS for scenarios where the target has an associated user account with a mobile number.
+
+- **SMS Content Format:** SMS messages are plain text. The placeholders will be replaced with text. Links will appear as full URLs (e.g., #listing_link# becomes the URL of the listing). There is no HTML in SMS, obviously. Keep SMS messages short and to the point, due to character limits (and possibly costs per SMS). For example, instead of a long message, you might say: "Hi #owner_name#, your listing '#listing_title#' is now published on #site_name#!" or "New inquiry from #name# on #site_name#: check email for details." (In some cases you might use SMS just to prompt someone to check their email if the message is too long to include fully.)
+
+- **Testing SMS:** It's wise to test the SMS by triggering the event (e.g., do a test listing or contact form) with your own user having a mobile number set, to ensure it works. Check that the Twilio credentials are correct and monitor for any errors (the plugin may log errors if SMS fails to send).
+
+- **SMS and Email Coordination:** If you want to temporarily send only emails or only SMS, you can do so by how you configure the content:
+
+  - For email-only: simply do not enter SMS content (or disable SMS) for that notification.
+
+  - For SMS-only: you cannot directly have an SMS without an email because the notification itself must be published (which implies an email content exists). As a workaround, you could set the email content to something trivial or even blank (though blank email might still send a subject-only email). Generally, you'll likely use SMS as a supplement, not a replacement, for email notifications.
+
+The SMS add-on gives an extra channel of communication which can be very effective for urgent notifications (like instant alerts to admins or users). Just use it judiciously to avoid spamming users' phones and ensure you have their consent to receive texts if required by regulations.
+
+## Disabling or Deleting Notifications
+
+If you want to disable a particular notification, you have a couple of options:
+
+- **Unpublish it:** Edit the notification in WP Admin and change its status from “Published” to Draft (or Pending). Only published notifications are active. When a notification post is in draft status, it will not be triggered or sent at all. This is a good way to temporarily turn off a notification without losing your settings for it - you can re-publish it later to turn it back on.
+
+- **Trash or delete it:** If you no longer need the notification at all, you can move it to Trash. Trashed notifications are obviously not sent. (Trashing is effectively similar to unpublishing since it's no longer “publish” status.)
+
+There isn't an on/off toggle per se in the UI aside from changing the status, so using Draft status is the intended method. The SMS portion of a notification can be disabled by simply clearing the SMS content or unchecking the SMS enable option for that notification (so it will only send email). If SMS is enabled but you want to turn it off globally, you could deactivate the SMS add-on plugin - but usually per notification control is enough.
+
+## FAQ
+
+##### Can I create multiple notifications for the same event?
+Yes. You can have more than one notification entry for a given event (hook). The Listdom system will find all published notifications for that event and execute each one. This is useful if you need to notify different people with different messages. For example, for a Contact Owner event, you might have one notification that emails the owner with a friendly message, and another that emails the admin with a more detailed log of the inquiry. Both would trigger when a contact form is submitted. Just be mindful not to confuse recipients - tailor each notification's content and recipients appropriately.
+
+##### Who can configure notifications? Can regular users create their own notifications?
+Only site admins (users with the capability to manage Listdom settings, typically administrators) can access the Notifications menu and create or edit notifications. The Notifications are implemented as a custom post type with admin-only capabilities, so regular users or listing owners cannot create notifications. The notifications are a site-wide configuration.
+
+##### How do I change the email subject for notifications?
+The email subject is taken from the Notification title that you set. So to change the subject line, edit the notification post's title. You can include placeholders in the title as well, which will be replaced just like in the content. For example, setting the title to "Your listing #listing_title# is approved" will insert the actual listing title when sent.
+
+##### Can I include HTML or images in notification emails?
+Yes, you can include basic HTML in the content (the editor provided is typically the standard WP editor). Listdom will send the email as HTML. You could include images by URL or other HTML styling. Keep in mind emails should be kept relatively simple for consistency across email clients. Also, any WordPress shortcodes you add in the content will be processed, so you can use shortcodes if needed (for example, to pull in dynamic content). Test any advanced content by sending a test email to yourself (you might temporarily change the recipient to your email and trigger the event).
+
+##### My placeholders aren't getting replaced - what am I doing wrong?
+Ensure you've typed the placeholders exactly as documented, including the # on both sides. Placeholders are case-sensitive and must match one of the supported tokens for that event or general set. Also, make sure the context is correct: e.g., using #profile_link# will only be replaced when a profile contact event provides that data; it wouldn't do anything in a new listing email, for instance. If a placeholder is not applicable, it may remain as-is in the sent email, which looks odd. When in doubt, refer to the tables above for each event's placeholders. (General placeholders always apply; event-specific ones only work for that event's notifications.) Another tip: don't put placeholders in the “To/CC/BCC” email fields - those fields don't process placeholders, only the content and title do. Recipients must be actual email addresses.
+
+##### How can users opt out of or stop certain notifications?
+Since notifications in Listdom are administratively configured, individual users cannot opt out of system notifications (aside from perhaps unsubscribing from all site emails, which isn't really handled here). If you have a scenario where users might not want an email (for example, perhaps they don't want a “listing published” email), you as the admin would have to disable that notification globally. Always consider whether a notification is truly useful to the end user and avoid sending extraneous emails. For user-specific preferences, it would require custom development.
+
+##### Are notifications sent immediately or can they be scheduled/delayed?
+By default, notifications are sent in real-time when the event occurs. The plugin hooks into the event and sends out emails (and SMS) right away during that process. There isn't a built-in scheduling or digest feature for notifications. If you need to batch or delay notifications, you'd likely need to custom-code that using WordPress scheduling or a third-party service.
+
+##### What if I don't receive an email that should have been sent?
+If a notification isn't working, check a few things:
+
+<Steps>
+1. Is the notification post published (status = Publish)?
+
+2. Is the event definitely triggering? (Try performing the action again or check if other notifications for that event fire.)
+
+3. Check spam/junk mail folder.
+
+4. Verify that your WordPress can send emails generally (e.g., password reset emails). If not, you may need an SMTP plugin.
+
+5. If using SMS, ensure your Twilio credentials are correct and the user has a valid phone number with country code. You can also enable debugging or check the Listdom logs (Listdom may log to wp_uploads/lsd-logs/ if something failed, or Twilio console for SMS).
+Also remember that if a notification's “Original Recipient” is set, it might be sending to someone you didn't anticipate; for testing, you might temporarily set a custom email to yourself to ensure it fires.
+</Steps>
+
+By leveraging the notifications system, you can significantly improve the communication on your directory site - keeping listing owners informed, alerting admins to new content or issues, and generally automating what would otherwise be manual emails. Take advantage of the placeholders to personalize messages, and use the SMS add-on if real-time text alerts would benefit your platform. With careful setup, Listdom notifications will ensure that no important event goes unnoticed. Enjoy the robust flexibility of this system to tailor notifications to your workflow!
