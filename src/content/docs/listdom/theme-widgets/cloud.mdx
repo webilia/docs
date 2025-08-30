@@ -1,0 +1,74 @@
+---
+title: Cloud Widget
+sidebar_label: Cloud Widget
+description: "Showcase your listing taxonomies (tags, categories, etc.) in a dynamic tag cloud that highlights popular listing terms."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Cloud widget displays a tag cloud of Listdom terms, such as Tags or Categories. Terms are shown in varying font sizes (usually reflecting their usage frequency), letting users see popular listing topics at a glance. This widget functions similarly to WordPress's Tag Cloud, but for Listdom's custom taxonomies.
+
+## Widget Options
+
+### Title
+An optional title for the widget (e.g. "Popular Tags"). Leave blank for no title.
+
+### Taxonomy
+Choose which listing taxonomy to display as a cloud:
+
+- **Tags** <Badge text="Default" /> – Listing tags (free-form keywords attached to listings).
+- **Categories** – Listing categories (primary categories or types of listings).
+- **Locations** – Listing locations (geographical terms).
+- **Features** – Listing features/amenities.
+- **Labels** – Listing labels or statuses.
+
+<Aside type="note">
+If you have Listdom Pro, an additional **Custom Fields** taxonomy (Attributes) is available in this list, allowing you to display a cloud of custom attribute terms. <Badge text="Pro" />
+</Aside>
+
+### Display Count
+Whether to show the number of listings for each term:
+
+- **No** <Badge text="Default" /> – Display just the term name.
+- **Yes** – Display each term name followed by the number of listings in parentheses.
+
+For example, a term might appear as "Restaurants (12)" if Display Count is Yes.
+
+### Hide Empty
+Choose whether terms with zero listings should be included:
+
+- **Yes** <Badge text="Default" /> – Hide terms that have no listings.
+- **No** – Show all terms even if they currently have no listings.
+
+Typically, you'll keep this set to Yes so that the cloud only shows relevant terms.
+
+### Sort By
+How to sort the terms in the cloud:
+
+- **Name** <Badge text="Default" /> – Sort terms alphabetically.
+- **Count** – Sort terms by the number of listings (descending), so more popular terms appear first.
+
+### Limit
+The maximum number of terms to display in the cloud. Default: 24. The widget will include up to this many terms, chosen based on the sort order above. You can adjust this number if you want a larger or smaller cloud.
+
+_(If there are more terms than the limit, only the top terms (by name or count) will be shown.)_
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Popular Tags Cloud:** Place the Cloud widget in your sidebar to show a cloud of popular listing tags. For instance, on a real estate site, visitors might see tags like *Apartment*, *Villa*, or *Downtown* grow larger if they're used more often.
+  </Card>
+  <Card>
+    **Multiple Clouds by Taxonomy:** You can add this widget twice – one showing a **Categories** cloud and another showing **Locations**. Give each a distinct title (e.g., "Listing Categories" and "Locations") to help users filter listings by those groupings.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
+Visit the official Listdom plugin page for more information and user reviews.
+</LinkCard>

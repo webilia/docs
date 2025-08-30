@@ -48,6 +48,8 @@ export default defineConfig({
             { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
             { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },            
             { label: 'Settings', autogenerate: { directory: 'listdom/settings' }, collapsed: true },
+            { label: 'Shortcodes', autogenerate: { directory: 'listdom/shortcodes' }, collapsed: true },
+            { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },            
             { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
             { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },
             {

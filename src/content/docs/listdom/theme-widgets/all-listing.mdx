@@ -1,0 +1,78 @@
+---
+title: All Listings Widget
+sidebar_label: All Listings Widget
+description: "Display all your listings on an interactive map in a sidebar or widget area."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The All Listings widget shows a map with markers for all listings on your site. It's ideal for giving visitors a quick overview of every listing's location. This widget does not support filtering; if you need to show a subset of listings, use the Listdom Shortcode widget instead.
+
+## Widget Options
+
+### Title
+An optional widget title displayed above the map (leave blank for no title).
+
+### Map Provider
+Select which mapping service to use for rendering the map:
+
+- **Leaflet (OpenStreetMap)** <Badge text="Default" /> – Uses open-source maps and works without any API key. This is the default provider.
+- **Google Maps** – Uses Google Maps (requires configuring a Google Maps API key in Listdom settings). Choosing Google Maps enables the **Style** option to pick a custom map theme.
+
+<Aside type="note">
+If you choose Google Maps, make sure you have set up your API key in Listdom's settings. Without a valid API key, Google Maps may not display correctly.
+</Aside>
+
+### Style (Google Maps only)
+Pick a visual theme for the Google map. This option appears only when **Google Maps** is selected as the provider. Available styles include:
+
+- **Default** – Google's default map style (standard colors).
+- **Apple Maps Esque**
+- **Blue Essence**
+- **Blue Water**
+- **CDO**
+- **Facebook**
+- **Intown Map**
+- **Light Dream**
+- **Midnight**
+- **Pale Down**
+- **Shades of Grey**
+- **Subtle Grayscale**
+- **Ultra Light**
+
+*(These predefined styles adjust the map's color scheme and appearance. Leaflet maps ignore this setting.)*
+
+### Clustering
+Enable or disable marker clustering (grouping nearby listing markers into a single cluster icon):
+
+- **Enabled** <Badge text="Default" /> – Cluster close markers together into one icon (improves readability when many listings are in the same area).
+- **Disabled** – Show every listing's marker individually (may be crowded if listings are dense).
+
+When clustering is Enabled, clicking a cluster icon will typically zoom in to reveal individual listings.
+
+### Limit
+The maximum number of listing markers to display on the map. Default: 300. If you have more than 300 listings, only the most recent 300 will be shown by default. You can increase this number to show more listings, but be mindful that too many markers might impact performance.
+
+<Aside type="caution">
+Displaying a very large number of markers can slow down the map. If you have hundreds of listings, consider keeping the **Limit** at 300 (the default) or using clustering to maintain performance.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Show All Listings on a Contact Page:** Add the All Listings widget to a sidebar on your contact or home page. For example, in a travel directory site, you could place a map in the sidebar so visitors immediately see all listing locations at a glance.
+  </Card>
+  <Card>
+    **Google Maps with Midnight Style:** If you prefer Google Maps, select **Google Maps** as the provider and choose the **Midnight** style. This can blend with dark-themed websites. The widget will display all listings on a dark-themed Google map in your footer or sidebar.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom WordPress Plugin">
+Learn more about the Listdom plugin on WordPress.org.
+</LinkCard>

@@ -1,0 +1,61 @@
+---
+title: Simple Map Shortcode
+sidebar_label: Simple Map Shortcode
+description: "Display a single specified location on an interactive map with a custom marker."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Simple Map** shortcode `[listdom_simplemap]` displays a single location on a map with a marker. It’s ideal for showing an exact address or coordinates (e.g. your business location) on a standalone map. This shortcode can use the default OpenStreetMap provider or Google Maps for rendering.
+
+## Location Coordinates
+
+- `address`: The address to display on the map. If no `lat`/`lng` are provided, Listdom will geocode this address to find the location. *(Either provide a valid `address` or coordinates via `lat`/`lng`.)*
+- `lat`: Latitude of the location (decimal format). Use with `lng` if you prefer to specify coordinates directly.
+- `lng`: Longitude of the location. Should be used in tandem with `lat`. If `lat` and `lng` are set, they take precedence over `address` and no geocoding is needed.
+- `title`: The title or label for the location. This text appears in the map marker’s info window. *Default:* if not set, the `address` will be used as the title.
+
+<Aside type="tip">
+For best results, provide specific <code>lat</code> and <code>lng</code> coordinates. If only an <code>address</code> is given, Listdom will attempt to convert it to coordinates, which may not always pinpoint the exact spot.
+</Aside>
+
+## Map Display Options
+
+- `provider`: The map provider to use. Options are `leaflet` (OpenStreetMap) or `googlemap` (Google Maps). *Default:* the global Map Provider setting (defaults to Leaflet if not changed).
+- `zoomlevel`: The zoom level of the map, from a wide area (low number) to street level (high number). Accepts values roughly 5 (far) to 18 (very close). *Default:* 14 (city/block level view).
+- `style`: *(Google Maps only)* A map style preset or JSON style string for Google Maps. Leave empty for the default style. This has no effect on Leaflet maps.
+- `id`: A unique identifier for the map element (useful if multiple maps are on one page). *Default:* a random ID is generated automatically.
+
+<Aside type="note">
+If using the Google Maps provider, make sure you have entered a valid Google Maps API key in the Listdom settings. Google Maps will not function without an API key.
+</Aside>
+
+## Marker Options
+
+- `icon`: URL of a custom marker image to use for the location. *Default:* a default blue map pin icon provided by Listdom.
+- `x_offset`: Horizontal offset for the marker’s anchor position (in pixels). This adjusts the marker icon’s exact click/hover point. *Default:* `0` (no horizontal offset).
+- `y_offset`: Vertical offset for the marker anchor. This can be used to fine-tune the marker position (for example, to raise the clickable area if the icon has a shadow). *Default:* `-40` (pixels upward).
+
+The Simple Map shortcode automatically includes standard map controls (zoom, map type toggle, street view, fullscreen, etc.) and an info window that displays the specified `title` when the marker is clicked. These controls are fixed in this shortcode for simplicity.
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Single Location by Address:**  
+    Add `\[listdom_simplemap address="1600 Amphitheatre Parkway, Mountain View, CA" title="Googleplex"\]` to a Contact Us page. This will embed a map centered on the given address with a marker labeled "Googleplex."
+  </Card>
+  <Card>
+    **Using Coordinates Directly:**  
+    Use `\[listdom_simplemap lat="40.7128" lng="-74.0060" zoomlevel="12" title="New York City"\]` to display a map of New York City at zoom level 12. This bypasses any address lookup by providing coordinates directly.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
+Learn more about Listdom and its features on the official WordPress.org plugin page.
+</LinkCard>
