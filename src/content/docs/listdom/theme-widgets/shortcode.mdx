@@ -1,47 +1,65 @@
+---
 title: Shortcode Widget
 sidebar_label: Shortcode Widget
-description: "Embed any saved Listdom shortcode (listing views) into a sidebar/widget area, allowing you to display listings in various layouts in your theme’s widget areas."
+description: "Embed any saved Listdom shortcode (listing views) into a sidebar/widget area, allowing you to display listings in various layouts in your theme's widget areas."
 sidebar:
-order: 3
+  order: 3
 header_button:
-label: View Demo
-url: https://demo.webilia.com/listdom/
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The Shortcode widget lets you insert a pre-configured Listdom listing shortcode into a widget area. This means you can display listings (in list, grid, slider, etc. formats) in sidebars or footers, using any shortcode you’ve created via Listdom → Shortcodes. It’s a powerful way to show listing feeds outside of main content areas.
+The Shortcode widget lets you insert a pre-configured Listdom listing shortcode into a widget area. This means you can display listings (in list, grid, slider, etc. formats) in sidebars or footers, using any shortcode you've created via Listdom → **Shortcodes**. It's a powerful way to show listing feeds outside of main content areas.
 
-<Aside type="caution"> **Ensure adequate width:** Not all listing layouts are suited for narrow sidebars. Stick to compact layouts (List, Grid, Slider, etc.) in widget areas. Using a wide layout (like Half Map or large grid columns) in a narrow sidebar may cause display issues. </Aside>
-Widget Options
-Title
+<Aside type="caution">
+**Ensure adequate width:** Not all listing layouts are suited for narrow sidebars. Stick to compact layouts (List, Grid, Slider, etc.) in widget areas. Using a wide layout (like Half Map or large grid columns) in a narrow sidebar may cause display issues.
+</Aside>
 
-An optional title for the widget (e.g. “Latest Listings”). This title displays above the listings output. Leave blank for no title.
+## Widget Options
 
-Shortcode
+### Title
+An optional title for the widget (e.g. "Latest Listings"). This title displays above the listings output. Leave blank for no title.
 
-Select which saved Listdom shortcode to display. The dropdown will list all shortcodes you’ve created (with their names as you titled them).
+### Shortcode
+Select which saved Listdom shortcode to display. The dropdown will list all shortcodes you've created (with their names as you titled them).
 
-(Dropdown of Shortcode Titles) – Choose one of your existing listing shortcodes. There is no default selection; you must pick a shortcode to embed.
+- **(Dropdown of Shortcode Titles)** – Choose one of your existing listing shortcodes. There is no default selection; you must pick a shortcode to embed.
 
-If you haven’t created any shortcodes yet, the widget will prompt you with a link to create a new shortcode first. Shortcodes are created in the Listdom → Shortcodes menu in your WordPress dashboard.
+If you haven't created any shortcodes yet, the widget will prompt you with a link to create a new shortcode first. Shortcodes are created in the Listdom → **Shortcodes menu in your WordPress dashboard.**
 
-<Aside type="note"> This widget supports shortcodes with compact layouts. Very large layouts (e.g., *Half Map* or *Side by Side*) are not listed for use in narrow sidebars. For more complex layouts, consider using them on full-width pages instead of in a sidebar. </Aside>
+<Aside type="note">
+This widget supports shortcodes with compact layouts. Very large layouts (e.g., *Half Map* or *Side by Side*) are not listed for use in narrow sidebars. For more complex layouts, consider using them on full-width pages instead of in a sidebar.
+</Aside>
 
 When you select a shortcode and save the widget, the listings associated with that shortcode will be rendered in the widget area, using the layout and settings defined in that shortcode.
 
-Add-On Features
+## Add-On Features
 
 If Listdom add-ons or Pro features are installed, they can enhance the content shown by the shortcode:
 
-Listdom Pro <Badge text="Pro" /> provides additional listing layouts (skins) like Mosaic, Accordion, and Side by Side. These advanced skins become available when creating shortcodes (and can be embedded via this widget), though they are best used in wider areas.
+- **Listdom Pro** <Badge text="Pro" /> provides additional listing layouts (skins) like Mosaic, Accordion, and Side by Side. These advanced skins become available when creating shortcodes (and can be embedded via this widget), though they are best used in wider areas.
+- **Exclusion Filters (Pro):** <Badge text="Pro" /> With Listdom Pro, shortcodes can exclude specific listings by tag, author, category, etc. If your chosen shortcode uses exclusion rules, the widget will honor them (e.g., "show all listings except category X").
+- **Custom Fields Filter (Pro):** <Badge text="Pro" /> Pro also allows filtering listings by custom Attributes in shortcodes. A shortcode configured to filter by an Attribute will display only listings meeting that criteria, even in the widget.
+- **Favorites & Compare:** If you have the Favorites or Compare add-ons active, the shortcode's listing cards will include "Add to Favorites" hearts or Compare icons. These will appear automatically in the widget output when applicable.
 
-Exclusion Filters (Pro): <Badge text="Pro" /> With Listdom Pro, shortcodes can exclude specific listings by tag, author, category, etc. If your chosen shortcode uses exclusion rules, the widget will honor them (e.g., “show all listings except category X”).
+_(The Shortcode widget itself has no extra settings from add-ons; it simply renders whatever the shortcode is configured to show.)_
 
-Custom Fields Filter (Pro): <Badge text="Pro" /> Pro also allows filtering listings by custom Attributes in shortcodes. A shortcode configured to filter by an Attribute will display only listings meeting that criteria, even in the widget.
+## Examples
 
-Favorites & Compare: If you have the Favorites or Compare add-ons active, the shortcode’s listing cards will include “Add to Favorites” hearts or Compare icons. These will appear automatically in the widget output when applicable.
+<CardGrid>
+  <Card>
+    **Show Latest Listings in Sidebar:** Create a Listdom shortcode (via *Listdom → Shortcodes*) that is configured to show your latest 5 listings in a **Grid View**. Then add the Shortcode widget to your sidebar and select that shortcode. Visitors will see a mini grid of the newest listings in the sidebar of every page.
+  </Card>
+  <Card>
+    **Featured Listings Slider in Footer:** Use Listdom Pro <Badge text="Pro" /> to create a shortcode with the **Slider** skin showing "Featured" listings. Place the Shortcode widget in your footer widget area and select that shortcode. Your site's footer will then display a rotating slider of featured listings.
+  </Card>
+  <Card>
+    **Category-Specific List:** If you want to highlight a specific category (e.g., "Restaurants"), create a shortcode that filters to that category. Insert a Shortcode widget in a sidebar on relevant pages (like a city guide page) and choose the "Restaurants" shortcode. The sidebar will list only restaurant listings.
+  </Card>
+</CardGrid>
 
-(The Shortcode widget itself has no extra settings from add-ons; it simply renders whatever the shortcode is configured to show.)
-
-Examples
-<CardGrid> <Card> **Show Latest Listings in Sidebar:** Create a Listdom shortcode (via *Listdom → Shortcodes*) that is configured to show your latest 5 listings in a **Grid View**. Then add the Shortcode widget to your sidebar and select that shortcode. Visitors will see a mini grid of the newest listings in the sidebar of every page. </Card> <Card> **Featured Listings Slider in Footer:** Use Listdom Pro <Badge text="Pro" /> to create a shortcode with the **Slider** skin showing “Featured” listings. Place the Shortcode widget in your footer widget area and select that shortcode. Your site’s footer will then display a rotating slider of featured listings. </Card> <Card> **Category-Specific List:** If you want to highlight a specific category (e.g., “Restaurants”), create a shortcode that filters to that category. Insert a Shortcode widget in a sidebar on relevant pages (like a city guide page) and choose the “Restaurants” shortcode. The sidebar will list only restaurant listings. </Card> </CardGrid> <LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org"> Visit the WordPress.org page for Listdom for additional details and support. </LinkCard>
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org">
+Visit the WordPress.org page for Listdom for additional details and support.
+</LinkCard>

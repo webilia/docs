@@ -1,9 +1,9 @@
 ---
-title: Cloud Shortcode
-sidebar_label: Cloud Shortcode
-description: "Show a tag cloud of listing terms from any taxonomy, with flexible filtering and sorting options."
+title: All Listings Widget
+sidebar_label: All Listings Widget
+description: "Display all your listings on an interactive map in a sidebar or widget area."
 sidebar:
-  order: 5
+  order: 1
 header_button:
   label: View Demo
   url: https://demo.webilia.com/listdom/
@@ -11,46 +11,68 @@ header_button:
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Cloud** shortcode `[listdom_cloud]` displays a “tag cloud” of terms from a specified Listdom taxonomy. By default it shows Listing **Tags** in a cloud format (an unordered list ideal for styling as a tag cloud), but it can be used for Categories, Locations, Features, or Labels as well.
+The All Listings widget shows a map with markers for all listings on your site. It's ideal for giving visitors a quick overview of every listing's location. This widget does not support filtering; if you need to show a subset of listings, use the Listdom Shortcode widget instead.
 
-Each term in the cloud is output as a link to that term’s archive page. This shortcode is great for showcasing popular tags or categories in a compact form.
+## Widget Options
 
-## Parameters
+### Title
+An optional widget title displayed above the map (leave blank for no title).
 
-- `taxonomy`: The taxonomy from which to pull terms for the cloud. Options include `listdom-tag` (Tags) – *default*, `listdom-category` (Categories), `listdom-location` (Locations), `listdom-feature` (Features), or `listdom-label` (Labels). Choose based on which set of terms you want to show in cloud format.
-- `hide_empty`: Use `1` to exclude terms that have no listings, or `0` to include all terms regardless of usage. *Default:* `0` (no term is omitted for being empty).
-- `parent`: If you want to show terms under a specific parent only, provide a parent term ID or name. For example, `parent="United States"` could restrict a location cloud to only cities under the United States (assuming “United States” is a parent location term). By default, if not provided, terms are not filtered by parent (except that if you specify a parent, only its descendants will show).
-- `ids`: Comma-separated **Listing IDs** to filter terms by. If provided, the cloud will include **only terms that are associated with those listing IDs**. For instance, `ids="10,15,22"` will generate a cloud of terms that appear on listings 10, 15, or 22 (effectively a tag cloud for just those specific listings).
-- `search`: Filter terms by a search string. Only terms whose names contain this string will be included. Example: `search="beach"` might show only terms that include the word “Beach”.
-- `orderby`: Field to sort terms by. Common values: `name` (alphabetical) or `count` (by usage count). *Default:* `name`.
-- `order`: Sorting order direction, `ASC` or `DESC`. If not set, the default depends on `orderby`: when ordering by name, the default is ascending; when ordering by count, the default is descending (so the most-used terms appear first). You can override this by explicitly setting `order`.
-- `limit`: Maximum number of terms to display. *Default:* `8`. For example, `limit="20"` will include up to 20 terms in the cloud. If you want to show all terms, you can set a very high number or leave it at the default which will show 8 (for more, you must specify a larger number).
+### Map Provider
+Select which mapping service to use for rendering the map:
 
-- `show_count`: Set to `1` to show the number of listings next to each term (e.g., “TermName (5)”), or `0` to show just the term name. *Default:* `0` (counts hidden). Showing counts can be useful for categories or locations cloud to indicate popularity.
+- **Leaflet (OpenStreetMap)** <Badge text="Default" /> – Uses open-source maps and works without any API key. This is the default provider.
+- **Google Maps** – Uses Google Maps (requires configuring a Google Maps API key in Listdom settings). Choosing Google Maps enables the **Style** option to pick a custom map theme.
 
-This shortcode outputs the terms in an unordered list (`<ul>`), each inside a list item `<li>` with a link. You can style it as a typical tag cloud (for example, making font-sizes vary by count via custom CSS, if desired).
+<Aside type="note">
+If you choose Google Maps, make sure you have set up your API key in Listdom's settings. Without a valid API key, Google Maps may not display correctly.
+</Aside>
 
-<Aside type="tip">
-By default, <code>listdom_cloud</code> is great for tags. But you can turn it into a category cloud or any taxonomy cloud by using the <code>taxonomy</code> parameter. For instance, a category cloud might use <code>taxonomy="listdom-category"</code> and <code>orderby="count" order="DESC"</code> to emphasize the most used categories.
+### Style (Google Maps only)
+Pick a visual theme for the Google map. This option appears only when **Google Maps** is selected as the provider. Available styles include:
+
+- **Default** – Google's default map style (standard colors).
+- **Apple Maps Esque**
+- **Blue Essence**
+- **Blue Water**
+- **CDO**
+- **Facebook**
+- **Intown Map**
+- **Light Dream**
+- **Midnight**
+- **Pale Down**
+- **Shades of Grey**
+- **Subtle Grayscale**
+- **Ultra Light**
+
+*(These predefined styles adjust the map's color scheme and appearance. Leaflet maps ignore this setting.)*
+
+### Clustering
+Enable or disable marker clustering (grouping nearby listing markers into a single cluster icon):
+
+- **Enabled** <Badge text="Default" /> – Cluster close markers together into one icon (improves readability when many listings are in the same area).
+- **Disabled** – Show every listing's marker individually (may be crowded if listings are dense).
+
+When clustering is Enabled, clicking a cluster icon will typically zoom in to reveal individual listings.
+
+### Limit
+The maximum number of listing markers to display on the map. Default: 300. If you have more than 300 listings, only the most recent 300 will be shown by default. You can increase this number to show more listings, but be mindful that too many markers might impact performance.
+
+<Aside type="caution">
+Displaying a very large number of markers can slow down the map. If you have hundreds of listings, consider keeping the **Limit** at 300 (the default) or using clustering to maintain performance.
 </Aside>
 
 ## Examples
 
 <CardGrid>
   <Card>
-    **Basic Tag Cloud:**  
-    Simply use `\[listdom_cloud\]` without any parameters to display a cloud of listing tags. This will show up to 8 of your listing tags by name. It’s perfect for a sidebar section titled "Popular Tags."
+    **Show All Listings on a Contact Page:** Add the All Listings widget to a sidebar on your contact or home page. For example, in a travel directory site, you could place a map in the sidebar so visitors immediately see all listing locations at a glance.
   </Card>
   <Card>
-    **Category Cloud:**  
-    `\[listdom_cloud taxonomy="listdom-category" limit="12" orderby="count"\]` will show a cloud of up to 12 categories, ordered by their usage count (most used categories will appear first). You might use this on a directory index page to highlight popular categories.
-  </Card>
-  <Card>
-    **Filtered Term Cloud:**  
-    If you want a cloud of terms related to a specific set of listings, you can use the `ids` filter. For example, `\[listdom_cloud taxonomy="listdom-feature" ids="34,56" hide_empty="1"\]` could display only the Features that are used by listings with ID 34 or 56, hiding any empty features. This could be used on a single listing page to show a cloud of features shared by similar listings.
+    **Google Maps with Midnight Style:** If you prefer Google Maps, select **Google Maps** as the provider and choose the **Midnight** style. This can blend with dark-themed websites. The widget will display all listings on a dark-themed Google map in your footer or sidebar.
   </Card>
 </CardGrid>
 
-<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
-Find more details and examples in the official Listdom documentation and support forums.
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom WordPress Plugin">
+Learn more about the Listdom plugin on WordPress.org.
 </LinkCard>

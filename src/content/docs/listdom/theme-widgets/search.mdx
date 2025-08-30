@@ -1,43 +1,60 @@
+---
 title: Search Widget
 sidebar_label: Search Widget
-description: "Provide an interactive Listdom search form in a sidebar or widget area, allowing users to filter listings by various criteria (fields defined via Listdom’s Search forms)."
+description: "Provide an interactive Listdom search form in a sidebar or widget area, allowing users to filter listings by various criteria (fields defined via Listdom's Search forms)."
 sidebar:
-order: 5
+  order: 5
 header_button:
-label: View Demo
-url: https://demo.webilia.com/listdom/
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The Search widget adds a Listdom search form to any widget area. This lets users filter your listings by whatever criteria you’ve set up (such as keyword, location, category, price, etc.). The actual fields and filters are configured via Listdom → Search forms (the search builder); this widget simply displays one of those forms in the front-end.
+The Search widget adds a Listdom search form to any widget area. This lets users filter your listings by whatever criteria you've set up (such as keyword, location, category, price, etc.). The actual fields and filters are configured via **Listdom → Search** forms (the search builder); this widget simply displays one of those forms in the front-end.
 
-Widget Options
-Title
+## Widget Options
 
-An optional title for the widget (for example, “Search Listings”). It will appear above the search form. Leave blank if you prefer not to display a title.
+### Title
+An optional title for the widget (for example, "Search Listings"). It will appear above the search form. Leave blank if you prefer not to display a title.
 
-Search Form
+### Search Form
+Select which Listdom search form to display. The dropdown will list all available search forms you have created in **Listdom → Search**. (Each search form corresponds to a saved search template with specific fields and filters.)
 
-Select which Listdom search form to display. The dropdown will list all available search forms you have created in Listdom → Search. (Each search form corresponds to a saved search template with specific fields and filters.)
-
-Choose a Search Form – Pick the search form you want to render. There is no default; you must select one of your created forms.
+- **Choose a Search Form** – Pick the search form you want to render. There is no default; you must select one of your created forms.
 
 If no search forms are available in the dropdown, you may need to first create a search form in the Listdom Search builder. Once you have at least one, it will appear as a selectable option here.
 
 When placed on your site, the widget will show the fields of the chosen search form. Users can fill in the criteria and submit to filter listings accordingly.
 
-<Aside type="tip"> You can create multiple search forms for different purposes (e.g., a simple search with just a keyword and location, and an advanced search with many filters). Then, use this widget multiple times in different areas, each with a different search form selected. </Aside>
-Add-On Features
+<Aside type="tip">
+You can create multiple search forms for different purposes (e.g., a simple search with just a keyword and location, and an advanced search with many filters). Then, use this widget multiple times in different areas, each with a different search form selected.
+</Aside>
 
-The Search widget’s functionality can be extended with add-ons, depending on the fields in your chosen search form:
+## Add-On Features
 
-Booking Add-on – If you have the Listdom Booking add-on active, your search forms can include booking-specific fields (like check-in/check-out dates or guest count). Those fields will appear in the widget’s form when applicable. <Badge text="Pro" />
+The Search widget's functionality can be extended with add-ons, depending on the fields in your chosen search form:
 
-Custom Fields (Attributes) – With Listdom Pro, you can add custom attribute fields to your search forms (e.g., filter by a custom property like “Amenities”). These attribute filters will show up in the widget as well. <Badge text="Pro" />
-
-Reviews Add-on – If using the Reviews add-on, you might include a “minimum rating” filter in your search form. The widget will then let users filter listings by review ratings.
+- **Booking Add-on** - If you have the _Listdom Booking_ add-on active, your search forms can include booking-specific fields (like check-in/check-out dates or guest count). Those fields will appear in the widget's form when applicable. <Badge text="Pro" />
+- **Custom Fields (Attributes)** - With Listdom Pro, you can add custom attribute fields to your search forms (e.g., filter by a custom property like "Amenities"). These attribute filters will show up in the widget as well. <Badge text="Pro" />
+- **Reviews Add-on** - If using the _Reviews_ add-on, you might include a "minimum rating" filter in your search form. The widget will then let users filter listings by review ratings.
 
 In short, the widget will display whatever fields the selected search form contains. Add-ons primarily add new field types to the search form builder, which then appear in this widget.
 
-Examples
-<CardGrid> <Card> **Simple Keyword Search:** Create a basic search form (e.g., just a keyword search field) in Listdom’s search builder. Add the Search widget to your sidebar and select this simple form. Users can quickly type a keyword and find relevant listings without leaving the sidebar. </Card> <Card> **Advanced Filters in a Sidebar:** Suppose you build an advanced search form with filters for Category, Location, Price Range, and Tag. By adding the Search widget with this form to your sidebar, users on any page can refine listings by those criteria. This is great for sites where visitors might want to drill down results from any page. </Card> <Card> **Homepage Filter Section:** Some themes have a full-width widget area on the homepage. You could add the Search widget there with a comprehensive search form (including date pickers from the Booking add-on <Badge text="Pro" />, for example). Visitors on the homepage can immediately search with advanced options like availability dates. </Card> </CardGrid> <LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin Info"> Learn more about Listdom and its search capabilities on the official WordPress plugin page. </LinkCard>
+## Examples
+
+<CardGrid>
+  <Card>
+    **Simple Keyword Search:** Create a basic search form (e.g., just a keyword search field) in Listdom's search builder. Add the Search widget to your sidebar and select this simple form. Users can quickly type a keyword and find relevant listings without leaving the sidebar.
+  </Card>
+  <Card>
+    **Advanced Filters in a Sidebar:** Suppose you build an advanced search form with filters for Category, Location, Price Range, and Tag. By adding the Search widget with this form to your sidebar, users on any page can refine listings by those criteria. This is great for sites where visitors might want to drill down results from any page.
+  </Card>
+  <Card>
+    **Homepage Filter Section:** Some themes have a full-width widget area on the homepage. You could add the Search widget there with a comprehensive search form (including date pickers from the Booking add-on <Badge text="Pro" />, for example). Visitors on the homepage can immediately search with advanced options like availability dates.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin Info">
+Learn more about Listdom and its search capabilities on the official WordPress plugin page.
+</LinkCard>
