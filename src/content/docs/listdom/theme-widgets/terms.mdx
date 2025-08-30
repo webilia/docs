@@ -1,0 +1,70 @@
+title: Terms Widget
+sidebar_label: Terms Widget
+description: "Display a list of listing categories, tags, or other taxonomies in a sidebar, with options for hierarchy and post counts (works like the WordPress Categories widget, but for Listdom taxonomies)."
+sidebar:
+order: 4
+header_button:
+label: View Demo
+url: https://demo.webilia.com/listdom/
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Terms widget inserts a list of Listdom taxonomy terms (Categories, Tags, Locations, etc.) into your sidebar or widget area. It functions similarly to the built-in WordPress “Categories” widget, allowing users to navigate listings by taxonomy. You can choose one taxonomy and configure how it’s displayed (flat list or dropdown, with counts, hierarchical or not).
+
+Widget Options
+Title
+
+An optional title for the widget (e.g. “Browse Listings by Category”). This appears above the list of terms. You can leave it blank to display no title.
+
+Taxonomy
+
+Select which Listdom taxonomy to list:
+
+Tags <Badge text="Default" /> – Listing Tags.
+
+Categories – Listing Categories.
+
+Locations – Listing Locations.
+
+Features – Listing Features.
+
+Labels – Listing Labels.
+
+<Aside type="note"> In Listdom Pro, you’ll also see **Custom Fields** (Attributes) as a taxonomy choice. This allows you to list custom attribute terms as a filter. <Badge text="Pro" /> </Aside>
+
+Only one taxonomy can be shown per widget instance. To list multiple taxonomies, you can add multiple Terms widgets (one for each taxonomy needed).
+
+Display as Dropdown
+
+Choose how to display the terms:
+
+No <Badge text="Default" /> – Display the terms as a vertical list.
+
+Yes – Display the terms in a <select> dropdown menu.
+
+Using a dropdown can save space if you have many terms. When a user selects a term from the dropdown, it will jump to that term’s archive of listings.
+
+Display Count
+
+Whether to show the number of listings next to each term:
+
+No <Badge text="Default" /> – Show just the term name.
+
+Yes – Show the count of listings in that term, in parentheses after the name.
+
+For example, with Display Count = Yes, a category might display as “Hotels (27)” if there are 27 listings in Hotels.
+
+Hierarchical
+
+This setting applies mainly to hierarchical taxonomies like Categories (which can have parent/child terms):
+
+No <Badge text="Default" /> – Display all terms in a flat list (ignoring hierarchy).
+
+Yes – Indent child terms under their parents to reflect the term hierarchy.
+
+If the selected taxonomy doesn’t have hierarchy (e.g., Tags have no parent/child structure), this setting has no visible effect.
+
+(For example, if Hierarchical is Yes and you’re listing Categories, sub-categories will be indented under their parent categories.)
+
+Examples
+<CardGrid> <Card> **Category List in Sidebar:** Add the Terms widget to your sidebar and select **Categories** with *Display as Dropdown* = **No**. This will show a simple list of all listing categories. Users can click a category (e.g., “Restaurant”) to view all listings in that category. </Card> <Card> **Locations Dropdown in Footer:** Place a Terms widget in your footer and set it to **Locations** with *Display as Dropdown* = **Yes**. The footer will then have a compact dropdown list of locations. A visitor can pick a location from the dropdown and be taken to that location’s listing archive. </Card> </CardGrid> <LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WP.org"> Check out the official Listdom plugin page on WordPress.org for more details. </LinkCard>

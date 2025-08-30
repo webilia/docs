@@ -1,0 +1,72 @@
+---
+title: Simple Map Widget
+sidebar_label: Simple Map Widget
+description: "Show a single specific location on a map with a marker and optional label – perfect for highlighting a particular address (e.g., your office or a featured location) in a sidebar."
+sidebar:
+  order: 6
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Simple Map widget allows you to display a single location on a map in any widget area. This is useful for showing, for example, your business’s address or any important location with a pin on the map. Unlike the All Listings map, this widget is for one specific point (it doesn’t show multiple listing markers).
+
+Widget Options
+Title
+
+An optional title for the widget (e.g., “Our Office on Map”). It will appear above the map. Leave it blank if you do not need a title.
+
+Address
+
+The address you want to display on the map. You can type any physical address or location name here (for example, “1600 Amphitheatre Parkway, Mountain View, CA” or “Eiffel Tower, Paris”). The widget will attempt to geocode this address and place a map marker at the location.
+
+Ensure the address is specific and correct. The more precise the address, the more likely the map will pinpoint it accurately.
+
+If the address cannot be found (e.g., a very ambiguous or incorrect address), no map will be shown – instead, an error message will appear stating the location couldn’t be found.
+
+<Aside type="note"> The geocoding (turning the address into map coordinates) is done automatically. For Google Maps, this uses Google’s geocoding service (which requires your Google API key). For Leaflet (OpenStreetMap), a third-party geocoding service may be used. Make sure your address is precise for best results. </Aside>
+Map Provider
+
+Choose which map provider to use:
+
+Leaflet (OpenStreetMap) <Badge text="Default" /> – An open-source map with no API key required.
+
+Google Maps – Google’s map service (requires a configured API key). If you select Google Maps, the Style option will become available.
+
+This setting works just like the Map Provider in the All Listings widget, but here it’s applied to a single location map.
+
+Style (Google Maps only)
+
+If using Google Maps, you can select a map style theme. Options include Default, Midnight, Blue Water, and many more (the same style list as in the All Listings widget). Pick a style that matches your site’s look. (No effect for Leaflet maps.)
+
+Location Name
+
+An optional name or label for the location’s marker. For example, you might enter “Head Office” or “Theme Park Entrance.” This text will appear in the map’s info window or tooltip when the marker is clicked.
+
+If you leave Location Name blank, the widget will use the Address itself as the label in the info window.
+
+The label helps users understand what the pin represents (especially if the address is not self-explanatory).
+
+Map Zoom Level
+
+How zoomed-in the map should be, on a scale from 5 (far out, regional view) to 17 (very close, street view). A larger number means a closer zoom:
+
+5 – Entire region or country view.
+
+10 – City level view.
+
+14 <Badge text="Default" /> – Neighborhood level (default setting, a good starting point).
+
+17 – Street level view (very zoomed in).
+
+Choose a zoom level appropriate for your location:
+
+If you want to show surrounding areas for context, use a lower zoom (e.g., 10–12).
+
+If you want to pinpoint the exact spot closely, use a higher zoom (15–17).
+
+(After selecting the zoom level, save the widget and preview the site to adjust if needed — the optimal zoom can depend on the address and context.)
+
+Examples
+<CardGrid> <Card> **Display a Business Location:** If you run a local business, add the Simple Map widget to your contact page sidebar with your office address. Enter your full address and a descriptive “Location Name” like “Main Office”. The widget will show a map pinpointing your office, helping visitors find you. </Card> <Card> **Highlight a Landmark:** For a travel blog, you might use the Simple Map widget to show a famous landmark’s location. For instance, on a post about the Eiffel Tower, you could include a Simple Map widget with the Eiffel Tower’s address and “Eiffel Tower” as the Location Name. Readers see exactly where it is on the map. </Card> <Card> **Custom Styled Google Map:** If your site uses a dark theme, you can choose Google Maps as the provider and select a darker Style (e.g., **Midnight**). Use the Simple Map widget to show your target location with this style so it blends nicely with your design. </Card> </CardGrid> <LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin – More Info"> Find more details and user guidance on the official Listdom plugin page. </LinkCard>

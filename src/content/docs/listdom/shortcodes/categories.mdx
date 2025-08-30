@@ -1,0 +1,68 @@
+---
+title: Categories Shortcode
+sidebar_label: Categories Shortcode
+description: "Show a list or grid of listing categories, with multiple layout styles and filtering options."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Categories** shortcode `[listdom_category]` displays your Listdom listing Categories in various styles. You can showcase categories as simple lists, image blocks, or even a carousel. This helps visitors navigate listings by category.
+
+## Display Styles
+
+- `style`: Choose the layout style for category display. Valid options are **`image`**, **`simple`**, **`clean`**, or **`carousel`**. *Default:* `clean`.  
+  – **image:** Shows each category as a card with an image (category thumbnail) and name.  
+  – **simple:** Shows categories in a basic text list (multiple columns optional).  
+  – **clean:** Displays categories in a grid with icons/color circles and names in a clean format.  
+  – **carousel:** Shows categories in a scrollable carousel slider (icons and names).
+- `grid`: (For **clean** or **simple** style) Number of columns per row to display categories. Accepts `1, 2, 3, 4, 6`. *Default:* for **clean** style `2`; for **simple** style `3` (if an unsupported number is given, it defaults to 3). This option is ignored in **image** (which auto-sizes) and **carousel** styles.
+- `max_grid`: (For **image** style) Maximum number of category cards per row. Accepts values `1` through `8`. *Default:* `8` (will display up to 8 categories in a full row before wrapping).
+- `show_count`: Whether to display the number of listings in each category. Use `1` for yes or `0` for no. *Default:* Off for **clean** and **image** styles (count shown only if explicitly enabled); On for **simple** style (count is shown by default).
+- `show_icon`: Whether to display category icons (the icon set in the category settings) in the **clean** style. Use `0` to hide icons. *Default:* `1` (icons are shown in clean style if the category has an icon configured). *(This parameter has no effect in styles that do not use icons, such as **simple** or **carousel**.)*
+
+<Aside type="tip">
+To take full advantage of the <code>image</code> and <code>clean</code> styles, edit each category in the admin and assign a representative image and icon/color. Categories without a custom image will simply show no thumbnail in Image style.
+</Aside>
+
+## Filtering Options
+
+- `hierarchical`: Display categories in a hierarchical structure (show child categories under their parents). Use `1` for true or `0` for false. When enabled, only top-level parent categories are listed initially (unless a specific `parent` is set), and any direct children of those categories will be listed beneath each. *Default:* `0` (flat list of categories).  
+  *Note:* The Category taxonomy supports parent/child hierarchy only in **Listdom Pro** <Badge text="Pro" />. In the free version, categories are treated as non-hierarchical, so this setting will have no effect unless the **Pro** add-on is activated.
+- `parent`: Show only the sub-categories of a specific parent category. Accepts a category **ID** or **name**. For example, `parent="Restaurants"` or `parent="12"`. If a name is provided, it will be converted to the matching ID.  
+  – If `hierarchical=1`, `parent` defaults to `0` (top-level) when not provided, meaning it will list top-level categories (with their children nested). You can set `parent` to a specific category ID to start the list at that category’s children instead.  
+  – If `hierarchical=0`, you can still use `parent` to filter categories to only those under a given parent, but they will be listed flat.
+- `hide_empty`: Whether to hide categories that have no listings. Use `1` to hide empty categories or `0` to show them. *Default:* `0` (empty categories will be shown).
+- `ids`: Comma-separated list of category IDs to display **exclusively**. If set, only these specific categories will be shown (in the order specified by other sorting options). Example: `ids="5,12,9"` will show only those three category IDs.
+- `search`: Filter categories by a search term. Provide a keyword and only categories whose names contain that term will be included. Example: `search="food"` will match categories with “food” in their name.
+- `orderby`: The field to sort categories by. Common values are `name` (alphabetical by name) or `count` (number of listings in the category). *Default:* `name`. (Any valid taxonomy ordering keyword is accepted, e.g. `name`, `id`, `slug`, `count`.)
+- `order`: Sort direction, `ASC` (ascending) or `DESC` (descending). *Default:* `ASC`. For example, to list categories by highest listing count, use `orderby="count" order="DESC"`.
+
+<Aside type="note">
+The Category hierarchy feature (parent/child categories) is only available if the Listdom **Pro** add-on is installed and activated. Without <Badge text="Pro" />, all categories are treated as top-level and the shortcode will ignore hierarchical display.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Grid of Category Images:**  
+    Use `\[listdom_category style="image" show_count="1"\]` to display an image grid of categories. This will show each category’s image with its name and the count of listings. Make sure you have set an image for each category.
+  </Card>
+  <Card>
+    **Top Categories Carousel:**  
+    To highlight popular categories in a homepage section, you can use `\[listdom_category style="carousel" limit="5"\]`. This will show up to 5 categories in a sliding carousel. (Additional categories beyond 5 will be accessible via carousel navigation.)
+  </Card>
+  <Card>
+    **Child Categories List:**  
+    Suppose “Restaurants” is a parent category with sub-categories like Fast Food, Fine Dining, etc. You can list only those sub-categories by `\[listdom_category style="clean" hierarchical="1" parent="Restaurants"\]`. This will output the “Restaurants” children in a clean two-column layout.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
+Visit the official Listdom plugin page for more information and user reviews.
+</LinkCard>

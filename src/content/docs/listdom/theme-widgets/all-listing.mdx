@@ -1,0 +1,56 @@
+---
+title: Cloud Shortcode
+sidebar_label: Cloud Shortcode
+description: "Show a tag cloud of listing terms from any taxonomy, with flexible filtering and sorting options."
+sidebar:
+  order: 5
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Cloud** shortcode `[listdom_cloud]` displays a “tag cloud” of terms from a specified Listdom taxonomy. By default it shows Listing **Tags** in a cloud format (an unordered list ideal for styling as a tag cloud), but it can be used for Categories, Locations, Features, or Labels as well.
+
+Each term in the cloud is output as a link to that term’s archive page. This shortcode is great for showcasing popular tags or categories in a compact form.
+
+## Parameters
+
+- `taxonomy`: The taxonomy from which to pull terms for the cloud. Options include `listdom-tag` (Tags) – *default*, `listdom-category` (Categories), `listdom-location` (Locations), `listdom-feature` (Features), or `listdom-label` (Labels). Choose based on which set of terms you want to show in cloud format.
+- `hide_empty`: Use `1` to exclude terms that have no listings, or `0` to include all terms regardless of usage. *Default:* `0` (no term is omitted for being empty).
+- `parent`: If you want to show terms under a specific parent only, provide a parent term ID or name. For example, `parent="United States"` could restrict a location cloud to only cities under the United States (assuming “United States” is a parent location term). By default, if not provided, terms are not filtered by parent (except that if you specify a parent, only its descendants will show).
+- `ids`: Comma-separated **Listing IDs** to filter terms by. If provided, the cloud will include **only terms that are associated with those listing IDs**. For instance, `ids="10,15,22"` will generate a cloud of terms that appear on listings 10, 15, or 22 (effectively a tag cloud for just those specific listings).
+- `search`: Filter terms by a search string. Only terms whose names contain this string will be included. Example: `search="beach"` might show only terms that include the word “Beach”.
+- `orderby`: Field to sort terms by. Common values: `name` (alphabetical) or `count` (by usage count). *Default:* `name`.
+- `order`: Sorting order direction, `ASC` or `DESC`. If not set, the default depends on `orderby`: when ordering by name, the default is ascending; when ordering by count, the default is descending (so the most-used terms appear first). You can override this by explicitly setting `order`.
+- `limit`: Maximum number of terms to display. *Default:* `8`. For example, `limit="20"` will include up to 20 terms in the cloud. If you want to show all terms, you can set a very high number or leave it at the default which will show 8 (for more, you must specify a larger number).
+
+- `show_count`: Set to `1` to show the number of listings next to each term (e.g., “TermName (5)”), or `0` to show just the term name. *Default:* `0` (counts hidden). Showing counts can be useful for categories or locations cloud to indicate popularity.
+
+This shortcode outputs the terms in an unordered list (`<ul>`), each inside a list item `<li>` with a link. You can style it as a typical tag cloud (for example, making font-sizes vary by count via custom CSS, if desired).
+
+<Aside type="tip">
+By default, <code>listdom_cloud</code> is great for tags. But you can turn it into a category cloud or any taxonomy cloud by using the <code>taxonomy</code> parameter. For instance, a category cloud might use <code>taxonomy="listdom-category"</code> and <code>orderby="count" order="DESC"</code> to emphasize the most used categories.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Basic Tag Cloud:**  
+    Simply use `\[listdom_cloud\]` without any parameters to display a cloud of listing tags. This will show up to 8 of your listing tags by name. It’s perfect for a sidebar section titled "Popular Tags."
+  </Card>
+  <Card>
+    **Category Cloud:**  
+    `\[listdom_cloud taxonomy="listdom-category" limit="12" orderby="count"\]` will show a cloud of up to 12 categories, ordered by their usage count (most used categories will appear first). You might use this on a directory index page to highlight popular categories.
+  </Card>
+  <Card>
+    **Filtered Term Cloud:**  
+    If you want a cloud of terms related to a specific set of listings, you can use the `ids` filter. For example, `\[listdom_cloud taxonomy="listdom-feature" ids="34,56" hide_empty="1"\]` could display only the Features that are used by listings with ID 34 or 56, hiding any empty features. This could be used on a single listing page to show a cloud of features shared by similar listings.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
+Find more details and examples in the official Listdom documentation and support forums.
+</LinkCard>

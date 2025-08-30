@@ -1,0 +1,60 @@
+---
+title: Terms Shortcode
+sidebar_label: Terms Shortcode
+description: "Provide a list or dropdown of listing taxonomy terms (categories, locations, etc.) for users to navigate or filter listings."
+sidebar:
+  order: 6
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Terms** shortcode `[listdom_terms]` outputs a list or dropdown of taxonomy terms (such as Categories or other taxonomies) as links. This is useful for creating an archive list or a filter form for any listing taxonomy.
+
+By default, this shortcode will show Listing **Categories** in a list. However, you can specify any Listdom taxonomy (Categories, Locations, Tags, Features, Labels) to display.
+
+## Display Modes
+
+- `dropdown`: Set to `1` (true) to display the terms in a `<select>` dropdown menu, or `0` (false) to display as a list of links. *Default:* `0` (shows a list of terms). In dropdown mode, selecting a term will automatically redirect the user to that term’s archive page.
+- `hierarchical`: Whether to include child terms in the output (indented under their parents). This applies to both list and dropdown displays. Use `1` to show terms hierarchically (e.g., subcategories will be nested or can be opt-grouped in dropdown), or `0` to show a flat list. *Default:* `0` for list output (and the dropdown will not group by default).
+- `show_count`: Show the number of listings for each term. Use `1` to display counts (e.g., "Category Name (12)"), or `0` to show just the term names. *Default:* `0` (no counts shown).
+
+## Taxonomy Selection
+
+- `taxonomy`: Specify which taxonomy of terms to display. Options are:
+  - `listdom-category` (Listing Categories) – *default if not specified*  
+  - `listdom-location` (Listing Locations)  
+  - `listdom-tag` (Listing Tags)  
+  - `listdom-feature` (Listing Features)  
+  - `listdom-label` (Listing Labels)  
+  For convenience, you can also use the plural name (e.g., "Categories", "Locations") if configured, but using the taxonomy slug ensures accuracy.
+- `id`: (Primarily for dropdown mode) Set a custom HTML `id` attribute for the form/select element. If not provided, one is auto-generated. This is useful if you have multiple term dropdowns on the same page and want to target them via CSS or script.
+
+When used in **list mode**, the shortcode outputs an unordered list (`<ul>`) of terms (with each term linking to its archive page). In **dropdown mode**, it outputs a form with a single select dropdown. Choosing a term in the dropdown will navigate the user to that term’s page.
+
+<Aside type="note">
+The Terms shortcode is a quick way to output term archives. The list or dropdown generated will automatically redirect or link to the archive pages of the selected terms, so ensure those archive pages are enabled and configured in Listdom settings.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **Category Dropdown Filter:**  
+    Add `\[listdom_terms taxonomy="listdom-category" dropdown="1" show_count="1"\]` to create a dropdown of all categories, with each option showing the category name and listing count. Users can select a category and be taken directly to that category’s listings page.
+  </Card>
+  <Card>
+    **Location List:**  
+    `\[listdom_terms taxonomy="listdom-location" hierarchical="1"\]` will output a hierarchical list of all locations. For example, countries as main list items and cities as nested items. This could serve as a site map for listings by location.
+  </Card>
+  <Card>
+    **Tag Cloud List:**  
+    You can even use this shortcode for tags. E.g., `\[listdom_terms taxonomy="listdom-tag" show_count="0"\]` will produce a simple list of all listing tags (flat list, since tags have no hierarchy). This is akin to a tag cloud (though not weighted by count in styling).
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
+Refer to the official plugin page for more details on taxonomy archives and usage.
+</LinkCard>
