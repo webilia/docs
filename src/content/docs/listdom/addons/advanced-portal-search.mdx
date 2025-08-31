@@ -17,7 +17,7 @@ The **Listdom Advanced Portal Search (APS) Addon** enhances the search and brows
 
 By default, when users select multiple terms in a filter (e.g., multiple categories or multiple features), Listdom uses an **OR** logic – it will show listings that have any of the selected terms. The APS Addon allows you to switch this to **AND** logic on a per-taxonomy basis, meaning users can find listings that strictly match *all* selected terms. 
 
-In the APS settings (**Listdom Settings → Addons → Advanced Portal Search**), you will find **Matching Logic** controls for each taxonomy:contentReference[oaicite:41]{index=41}:contentReference[oaicite:42]{index=42}:
+In the APS settings (**Listdom Settings → Addons → Advanced Portal Search**), you will find **Matching Logic** controls for each taxonomy:
 
 - **Categories Logic:** Choose **OR** (default) to show listings that belong to any of the selected categories, or **AND** to require listings to be in all selected categories simultaneously.
 - **Locations Logic:** Toggle between OR or AND if you allow selecting multiple locations in search.
@@ -26,17 +26,17 @@ In the APS settings (**Listdom Settings → Addons → Advanced Portal Search**)
 - **Labels Logic:** If you use labels (like “Featured” or other flags), you can decide if multiple label filters narrow down (AND) or broaden (OR) the results.
 - **Attributes (Custom Fields) Logic:** For additional custom taxonomies (like Attributes <Badge text="Pro" />), you can set their matching as well. For instance, if you have a custom field taxonomy for “Amenities” with values, AND logic would only find listings that have every amenity selected.
 
-Each taxonomy has a simple toggle in the settings represented by OR/AND radio buttons:contentReference[oaicite:43]{index=43}. Select your preferred logic and save. The search forms on your site will then follow these rules.
+Each taxonomy has a simple toggle in the settings represented by OR/AND radio buttons. Select your preferred logic and save. The search forms on your site will then follow these rules.
 
 <Aside type="note">The default OR logic is usually more user-friendly for broad searches, but AND logic is valuable when users want very specific results. For example, a travel site could let users filter for hotels that are in *London* **and** in the *“5-Star”* category simultaneously (using AND across Location and Category filters).</Aside>
 
 ## Fallback Image for Listings
 
-APS also introduces a **Fallback Image** setting – a single image that you designate to show whenever a listing has no featured image of its own:contentReference[oaicite:44]{index=44}. 
+APS also introduces a **Fallback Image** setting – a single image that you designate to show whenever a listing has no featured image of its own. 
 
-- **Setting the Image:** In the APS settings, you’ll find an **“Fallback Image”** picker:contentReference[oaicite:45]{index=45}. Upload or choose an image from your media library that will serve as the default image. Common choices are a logo, a generic “no photo” graphic, or a placeholder relevant to your niche.
-- **Where It Appears:** Once set, if a listing has no featured image, Listdom will automatically use this fallback image in its place on the front-end. This applies to listing cards, grids, map infowindows, or anywhere a featured image would display:contentReference[oaicite:46]{index=46}:contentReference[oaicite:47]{index=47}. The addon hooks into the featured image retrieval and injects the fallback where needed.
-- **Consistent Dimensions:** The fallback image will be output in the same dimensions/cropping as normal listing thumbnails. It’s recommended to use an image with appropriate aspect ratio (e.g., a 16:9 landscape if your listings normally use that) to avoid any design inconsistencies. The addon ensures the proper CSS classes are applied so the image fits the layout:contentReference[oaicite:48]{index=48}.
+- **Setting the Image:** In the APS settings, you’ll find an **“Fallback Image”** picker. Upload or choose an image from your media library that will serve as the default image. Common choices are a logo, a generic “no photo” graphic, or a placeholder relevant to your niche.
+- **Where It Appears:** Once set, if a listing has no featured image, Listdom will automatically use this fallback image in its place on the front-end. This applies to listing cards, grids, map infowindows, or anywhere a featured image would display. The addon hooks into the featured image retrieval and injects the fallback where needed.
+- **Consistent Dimensions:** The fallback image will be output in the same dimensions/cropping as normal listing thumbnails. It’s recommended to use an image with appropriate aspect ratio (e.g., a 16:9 landscape if your listings normally use that) to avoid any design inconsistencies. The addon ensures the proper CSS classes are applied so the image fits the layout.
 
 By using a fallback, you avoid empty image frames or broken image icons on listings that contributors might have forgotten to add images to. It gives your directory a more polished look since every listing appears to have an image.
 
