@@ -8,21 +8,26 @@ header_button:
   label: View Demo
   url: https://demo.webilia.com/listdom/
 ---
+
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The BuddyPress Integration Addon <Badge text="Pro" /> connects Listdom with the BuddyPress social networking plugin. It creates a seamless experience where your directory’s users have social profiles that showcase their listings and activities.
+# BuddyPress Addon
+
+The BuddyPress Integration Addon <Badge text="Pro" /> connects Listdom with the BuddyPress social networking plugin. It creates a seamless experience where your directory's users have social profiles that showcase their listings and activities.
 
 <Aside type="danger">
 This addon requires the **BuddyPress** plugin to be installed and active for any features to work.
 </Aside>
 
 ## Features Overview
-- **Profile Listings Tab**: Adds a new tab in each user’s BuddyPress profile named "Listings," which displays the listings authored by that user.
+
+- **Profile Listings Tab**: Adds a new tab in each user's BuddyPress profile named "Listings," which displays the listings authored by that user.
 - **Configurable Shortcode for Profile Listings**: In settings, select a Listdom archive shortcode (e.g., a grid skin) to render the listings on the profile tab.
-- **Private Message for Contact Form**: Integrates Listdom’s listing contact form with BuddyPress Private Messaging. When a logged-in user fills out the form, the message is delivered as a private message to the listing owner.
+- **Private Message for Contact Form**: Integrates Listdom's listing contact form with BuddyPress Private Messaging. When a logged-in user fills out the form, the message is delivered as a private message to the listing owner.
 - **Activity Streams Integration**: Broadcasts key Listdom events to the BuddyPress activity feed, such as new listings, new offers (requires Auction Addon), or new reviews (requires Reviews Addon).
 
 ## Settings
+
 Go to **Listdom > Settings > Add-ons > BuddyPress** to adjust integration options.
 
 ### Profile
@@ -40,23 +45,31 @@ Toggle which events generate BuddyPress activity feed posts. All are off by defa
 - **New Review**: (Requires Reviews Addon) Post an update when a new review is submitted (default: Disabled).
 
 ## Using the BuddyPress Addon
+
 <Steps>
-1. **User Profile Listings**: When a user visits a profile, they will see a "Listings" tab showing the listings that this user has published, displayed using the shortcode you selected.
-2. **Contact via Private Message**: The "Contact Owner" form on a listing will create a new private message thread in BuddyPress between the sender and the listing owner.
-3. **Activity Feed**: New listings, offers, or reviews will automatically appear in the BuddyPress activity feed if enabled, increasing social interaction and visibility.
+  <Step>
+    **User Profile Listings**: When a user visits a profile, they will see a "Listings" tab showing the listings that this user has published, displayed using the shortcode you selected.
+  </Step>
+  <Step>
+    **Contact via Private Message**: The "Contact Owner" form on a listing will create a new private message thread in BuddyPress between the sender and the listing owner.
+  </Step>
+  <Step>
+    **Activity Feed**: New listings, offers, or reviews will automatically appear in the BuddyPress activity feed if enabled, increasing social interaction and visibility.
+  </Step>
 </Steps>
 
 ## Examples
+
 <CardGrid>
   <Card title="Agent Profile Showcasing Listings">
-    Sarah is a real estate agent. Visitors to her BuddyPress profile see a “Listings” tab displaying a grid of her 5 properties. A potential client can immediately see all of Sarah’s offerings without running a separate search.
+    Sarah is a real estate agent. Visitors to her BuddyPress profile see a "Listings" tab displaying a grid of her 5 properties. A potential client can immediately see all of Sarah's offerings without running a separate search.
   </Card>
   <Card title="Social Interaction on New Listings">
-    John posts a new listing. The addon creates an activity update: “John added a new listing: John’s Auto Shop.” John’s friends see this in their news feed and comment on it, driving traffic to the new listing.
+    John posts a new listing. The addon creates an activity update: "John added a new listing: John's Auto Shop." John's friends see this in their news feed and comment on it, driving traffic to the new listing.
   </Card>
   <Card title="Private Messaging for Inquiries">
-    Maria uses the contact form on Alex’s listing. Instead of waiting for an email, she finds Alex’s reply in her BuddyPress messages. They chat back and forth and agree on a project, all via the site’s private messaging.
+    Maria uses the contact form on Alex's listing. Instead of waiting for an email, she finds Alex's reply in her BuddyPress messages. They chat back and forth and agree on a project, all via the site's private messaging.
   </Card>
 </CardGrid>
 
-<LinkCard href="[https://buddypress.org](https://buddypress.org)" title="BuddyPress Official Site" description="Learn more about BuddyPress, the social networking plugin that this addon integrates with." />
+<LinkCard href="https://buddypress.org" title="BuddyPress Official Site" description="Learn more about BuddyPress, the social networking plugin that this addon integrates with." />
