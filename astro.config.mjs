@@ -43,13 +43,10 @@ export default defineConfig({
           items: [
             { label: 'Overview', link: '/listdom/' },
             { label: 'Installation & Activation', autogenerate: { directory: 'listdom/installation-and-activation' }, collapsed: true },
-            { label: 'Managing Listings', autogenerate: { directory: 'listdom/managing-listings' }, collapsed: true },
             { label: 'Skin Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
             { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
-            { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },            
+            { label: 'Frontend Dashboard', link: '/listdom/dashboard/' },
             { label: 'Settings', autogenerate: { directory: 'listdom/settings' }, collapsed: true },
-            { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
-            { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },
             {
               label: 'Listdomer Theme',
               items: [

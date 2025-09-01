@@ -8,7 +8,6 @@ header_button:
   label: View Demo
   url: https://demo.webilia.com/listdom/
 ---
-
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
 The **Listdom Advanced Map Addon** extends the map functionality of Listdom with a suite of advanced features. It lets you define custom map styles, choose how listing markers are displayed (by category icon, price, etc.), customize the infowindow design, restrict map bounds, exclude certain listings from maps, and even enable a direction link for users to get navigational guidance. These options allow for a highly tailored map experience in your directory.
@@ -23,9 +22,10 @@ This addon introduces a **Marker Type** setting to control what content appears 
 - **Square (Category Icon):** A unique style that shows a square marker containing the category’s icon on a colored background. This stands out on the map and is useful for emphasizing category via iconography.
 - **Listing ID:** Displays the listing’s ID number in the marker. This can be useful for internal reference or when you want a neutral identifier on the map pins.
 
-You can set the global default Marker Type via *Listdom Settings → Addons → Advanced Map → Marker Type*. Additionally, when creating a shortcode or map display, you have the option to override the marker type for that specific map (there will be a “Marker Type” option in the shortcode builder, with an *Inherit* default). 
+You can set the global default Marker Type via *Listdom Settings → Addons → Advanced Map → Marker Type*. Additionally, when creating a shortcode or map display, you have the option to override the marker type for that specific map (there will be a “Marker Type” option in the shortcode builder, with an *Inherit* default).
 
-<Aside type="tip"> Pairing Marker Types with custom icons/colors can improve user experience. For example, if using **Price** markers, ensure your price format is short (like “$250K”) so it fits nicely in the pin.
+<Aside type="tip">
+Pairing Marker Types with custom icons/colors can improve user experience. For example, if using **Price** markers, ensure your price format is short (like “$250K”) so it fits nicely in the pin.
 </Aside>
 
 ## Infowindow Style
@@ -38,7 +38,8 @@ The **infowindow** is the popup box that appears when a user clicks on a map mar
 
 Set the default style via *Advanced Map settings → Infowindow Style*. Like markers, this can also be overridden per shortcode/map. So you could use Style 2 on one page’s map and Style 1 on another, depending on your design needs.
 
-<Aside type="note"> If you choose a **Custom Builder** infowindow (for example, an Elementor template), make sure that template is designed to display dynamic listing content. The addon adds “Infowindow” as a layout context in supported builders, so you can create a template with Listing dynamic fields and assign it here.
+<Aside type="note">
+If you choose a **Custom Builder** infowindow (for example, an Elementor template), make sure that template is designed to display dynamic listing content. The addon adds “Infowindow” as a layout context in supported builders, so you can create a template with Listing dynamic fields and assign it here.
 </Aside>
 
 ## Leaflet Tile Server
@@ -59,7 +60,8 @@ Advanced Map Addon adds a feature to **exclude certain listings from maps** base
 - **How to Configure:** The settings page presents a checklist of all listing categories. Tick the categories you want to hide on maps. Save the settings. The effect is global – all map shortcodes and views will honor this and omit those categories’ listings.
 - **Multiple Categories:** If a listing has multiple categories and at least one is excluded, that listing will be excluded from maps. Keep this in mind if using multi-category listings.
 
-<Aside type="tip"> Use the exclude feature sparingly – it’s generally better to include as many relevant listings on the map as possible for user completeness. Only exclude categories that truly don’t make sense on a map or are meant to be hidden.
+<Aside type="tip">
+Use the exclude feature sparingly – it’s generally better to include as many relevant listings on the map as possible for user completeness. Only exclude categories that truly don’t make sense on a map or are meant to be hidden.
 </Aside>
 
 ## Restricting Map Bounds
@@ -81,20 +83,25 @@ For Google Maps users, the addon enables adding unlimited **Map Styles** (e.g., 
 - **Using Styles:** When you create a listings map (via shortcode or widget), you will now have an option to choose a map style. Your saved styles appear by the title. Selecting one applies those JSON rules to that particular map. This means you can easily switch the look and feel of maps (e.g., a dark mode map on one page, a retro style on another) without hard-coding anything.
 - **Default Style:** If you want one of your custom styles to be the default for all maps, simply choose it in the shortcode builder each time or possibly set it as default in a global config (Listdom core default style remains the standard until overridden per map).
 
-<Aside type="note"> Map style JSON affects visual aspects like color, road visibility, points of interest, etc., on Google Maps. It does not impact the data. Always validate your JSON format. A missing bracket can prevent the style from applying. Use online tools or Google’s Style wizard to obtain valid JSON, then paste it into the JSON field for a style.
+<Aside type="note">
+Map style JSON affects visual aspects like color, road visibility, points of interest, etc., on Google Maps. It does not impact the data. Always validate your JSON format. A missing bracket can prevent the style from applying. Use online tools or Google’s Style wizard to obtain valid JSON, then paste it into the JSON field for a style.
 </Aside>
 
 ## Geo Direction Features
 
 The Advanced Map Addon also introduces **Geo Direction** enhancements, helping users get directions to listing locations:
 
-- **Internal Direction Module:** In settings, a toggle **“Internal Module”** can be turned on. When enabled, the listing detail page will show an interactive directions interface (for example, a text box for the user to enter their starting location or a “Get Directions” button). This uses Google’s Direction API behind the scenes. Users can generate a route from their location (or entered address) to the listing’s address without leaving your site. <Aside type="caution" title="Google API Key">Using the internal directions requires that you have enabled the **Google Directions API** on your Google Cloud project and provided a valid API key in Listdom’s settings. Without this, the feature may not function.</Aside>
+- **Internal Direction Module:** In settings, a toggle **“Internal Module”** can be turned on. When enabled, the listing detail page will show an interactive directions interface (for example, a text box for the user to enter their starting location or a “Get Directions” button). This uses Google’s Direction API behind the scenes. Users can generate a route from their location (or entered address) to the listing’s address without leaving your site.
+  <Aside type="caution" title="Google API Key">
+  Using the internal directions requires that you have enabled the **Google Directions API** on your Google Cloud project and provided a valid API key in Listdom’s settings. Without this, the feature may not function.
+  </Aside>
 - **Infowindow Direction Link:** Another setting, **“Infowindow Link”**, if switched on, adds a direct link or button inside the infowindow (Style1 and Style2) that says something like “Directions”. Clicking this could open Google Maps in a new tab with the destination pre-filled to the listing’s location (so the user can quickly get directions via Google Maps app/website).
 - **Listing Address Link:** The **“Link Address”** option will turn the listing’s displayed address on the listing page into a clickable link to Google Maps directions. Essentially, if a user clicks the address, it will open an external Google Maps page showing the route from their current location (if available) to that address. This is a simpler alternative to the full internal module if you prefer not to embed route functionality.
 
 You can enable any or all of these features depending on the user experience you want. They work together – for example, you might enable the infowindow link and the address link for convenience, even if you don’t use the full internal module.
 
-<Aside type="tip"> The **infowindow link** and **address link** do not require heavy setup beyond having a Google Map on the page, since they essentially redirect to Google Maps. These are quick wins for user experience if you don’t want to set up the full directions API. The internal module is more interactive but needs the API key.
+<Aside type="tip">
+The **infowindow link** and **address link** do not require heavy setup beyond having a Google Map on the page, since they essentially redirect to Google Maps. These are quick wins for user experience if you don’t want to set up the full directions API. The internal module is more interactive but needs the API key.
 </Aside>
 
 ## Examples

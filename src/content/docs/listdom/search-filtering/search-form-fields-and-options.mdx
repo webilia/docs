@@ -1,0 +1,359 @@
+---
+title: Search and Filter Form Available Fields and Options
+sidebar_label: Search Form Fields
+description: "Details of every available search field type in Listdom and how to configure their display options."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdom offers a wide range of field types that you can add to your search forms. Each field corresponds to a specific filterable aspect of listings (such as title keywords, categories, custom attributes, etc.) and comes with configurable display options. Below is a comprehensive list of all available search form fields and their options. (We assume all Listdom add-ons are installed, so fields from add-ons like Pro, Booking, and ACF are included. Features requiring an add-on are noted with badges or asides.)
+
+Each field type is documented with the ways it can be displayed (field “methods”) and the settings you can adjust for that field. The format for each option is Option Name: Description (including default values).
+
+## Text Search
+
+Use this field to let users search by keywords matching listing titles, descriptions, and other text content.
+
+Display as: A single-line text input (users type search terms). (This is the only display method for text search.)
+
+Placeholder: An optional placeholder text to show inside the text box when empty (e.g., “Search keywords…”). If left blank, no placeholder text is shown. Default: (none). You might set a helpful prompt here, like “🔍 What are you looking for?”.
+
+Default Value: You can pre-fill a default search term if desired. Typically this is left empty so the user can enter their own query. Default: (empty).
+
+<Aside type="note"> Behind the scenes, the Text Search field will query listing titles and descriptions for matches. With the Listdom <Badge text="Pro" /> add-on, the text search is enhanced to also match other fields (e.g., it can find listings by category name, tags, author name, etc. if the typed text matches one of those). </Aside>
+
+## Categories
+
+Allows users to filter listings by category. (Categories in Listdom are a taxonomy for organizing listings.)
+
+Display as: Choose one of the following formats for the category selector:
+
+- **Dropdown:** A single-select dropdown list of all categories.
+- **Dropdown (Multiple Selection):** A multi-select dropdown allowing selection of multiple categories.
+- **Checkboxes:** A list of category checkboxes (users can tick one or many).
+- **Radio Buttons:** Radio options for categories (user can select only one).
+- **Text Input:** A text field where users can type to search for a category term (autocompletion may be enabled by the browser for options).
+- **Hierarchical Dropdowns:** <Badge text="Pro" /> Two-level cascading dropdowns for parent and child categories. The first dropdown lists parent categories, and the second lists sub-categories. You can configure whether the sub-category dropdown loads all options or only those under the selected parent (see Level Status below).
+
+Dropdown Style: If using any dropdown-type method (single or multi-select), choose Enhanced or Standard. Enhanced uses an improved UI (e.g., searchable, select2-style dropdown) for better UX on long lists. Standard uses the browser’s native select element. **Default:** Enhanced.
+
+Placeholder: For dropdowns, this text appears as the first option when nothing is selected (e.g., “All Categories”). For text-input method, it appears inside the input as a prompt. If left blank, a default will be used (typically “(All Categories)” for dropdowns, or no placeholder for text inputs). **Default:** “All Categories” (for dropdown methods).
+
+Terms Method: Determine which category terms to include:
+
+- **Display All Terms:** (Default) All categories will be shown as options.
+- **Display Selected Terms:** Only specific categories you choose will be available. Selecting this will reveal a Terms selector where you can pick one or multiple category terms to include. Use this if you want to limit the filter to certain categories (for example, only show major top-level categories).
+
+Columns: If the method is Checkboxes or Radio Buttons, you can choose how many columns to split the options into (for a cleaner layout). Options are 1, 2, 3, 4, or 6 columns. **Default:** 1 column (all options in a single list). Using multiple columns can prevent a long list from becoming too tall on the page.
+
+Level Status: <Badge text="Pro" /> (Applicable to Hierarchical Dropdowns only). This setting controls how the two-level category dropdown behaves:
+
+- **Show All Options:** The sub-category dropdown is always populated with all sub-categories (or can even list all categories) regardless of the first selection. This allows users to pick a parent in the first dropdown and still see the full list of sub-categories in the second (with perhaps the parent selection acting as an additional filter).
+- **Dependent on First Selection:** The sub-category dropdown remains disabled or empty until a parent category is selected. Once a parent is chosen, the second dropdown loads only the sub-categories under that parent. This cascade approach keeps the options relevant.
+
+Show All Option: (For hierarchical dropdowns) Toggle whether to include an “All” choice in the sub-category dropdown. If enabled, the secondary dropdown could have an option like “All” meaning any sub-category (useful if the user wants to filter by a parent category but not drill down further). **Default:** Enabled (show an “All” option).
+
+Parent Label: (For hierarchical dropdowns) Customize the label of the first level dropdown if needed (default is typically the taxonomy name, e.g., “Categories”). This is rarely changed, but you might relabel it if using categories in a special way.
+
+Default Display: If you add a Categories field, by default it will use Dropdown (single select) style, showing all categories in a standard enhanced dropdown with a placeholder “All Categories.”
+
+## Locations
+
+Filter listings by location. This field is very similar to Categories, but for the Location taxonomy.
+
+Display as: Supports the same methods as Categories: Dropdown, Dropdown (Multiple), Checkboxes, Radio Buttons, Text Input, and Hierarchical Dropdowns <Badge text="Pro" />. (Location taxonomy in Listdom can be hierarchical, e.g., Country > City, so hierarchical dropdowns are applicable.)
+
+Dropdown Style: Enhanced vs Standard select (for dropdown methods). **Default:** Enhanced.
+
+Placeholder: Placeholder text for dropdown or input (e.g., “All Locations”). If blank, a default like “(All Locations)” is used for dropdowns.
+
+Terms Method: All Terms (default) or Selected Terms (to limit which locations appear). If “Selected Terms,” choose specific location terms under Terms.
+
+Columns: If using checkboxes or radio, set 1–6 columns for layout.
+
+Level Status: <Badge text="Pro" /> (Hierarchical only) – decide if the second-level location dropdown should show all options or depend on the first selection (e.g., whether the “City” dropdown lists all cities or only cities in the selected “State/Region”).
+
+Show All Option: For hierarchical mode, whether to include an “All” option in the second dropdown.
+
+Parent Label: Label for the first dropdown (e.g., “State/Province:” instead of default “Locations:” if you have structured your locations by state and city).
+
+Note: In Listdom, Locations are often hierarchical (like Country > State > City). The hierarchical dropdown method (Pro) is especially useful here to avoid overwhelming the user with a giant list of cities; they can first select a country or state, then see cities in that region.
+
+## Tags
+
+Filter by listing tags. Tags in Listdom are a flat taxonomy (non-hierarchical) typically used for keywords.
+
+Display as: Dropdown, Dropdown (Multiple Selection), Checkboxes, or Radio Buttons, or Text Input. (Hierarchical dropdowns are not applicable to tags, since tags have no parent/child structure.)
+
+Dropdown Style: Enhanced vs Standard for dropdowns.
+
+Placeholder: E.g., “All Tags” as the placeholder/first option text. Default will be “(All Tags)” if not set.
+
+Terms Method: Show all tags (default) or only selected tags. If limiting, pick the tag terms to include.
+
+Columns: For checkboxes or radio, choose layout columns (1–6).
+
+(No hierarchical options for tags, so Level Status and related settings do not apply.)
+
+Typically, tags are numerous and free-form. Using an Enhanced Dropdown or a Text Input method can be user-friendly if the list is very long (text input lets users type part of a tag to filter the list).
+
+## Features
+
+Filter by listing features. Features is a taxonomy often used to mark special attributes of listings (for example, “Free Wi-Fi”, “Pet Friendly”, etc.). It is non-hierarchical.
+
+Display as: Dropdown, Dropdown (Multiple), Checkboxes, Radio Buttons, or Text Input, similar to Tags.
+
+Dropdown Style: Enhanced or Standard.
+
+Placeholder: Placeholder text for dropdown (e.g., “All Features”) or input prompt. Defaults to “(All Features)” if not specified (for dropdown).
+
+Terms Method: All Terms by default. Or choose Selected Terms to only include certain features. (For instance, you might exclude some internal feature tags from the public filter.)
+
+Columns: Set 1–6 columns for checkbox/radio layout.
+
+Feature filters are often best displayed as multiple checkboxes (since users might want to tick several features). In that case, consider using 2 or 3 columns if you have many feature options, so the list is balanced.
+
+## Labels
+
+Filter by listing labels. Labels taxonomy can be used for status labels or flags on listings (e.g., “Open Now”, “Verified”, “Sponsored”). It’s non-hierarchical.
+
+Display as: Dropdown, Dropdown (Multiple), Checkboxes, Radio Buttons, or Text Input (same set of methods as Tags/Features).
+
+Dropdown Style: Enhanced or Standard for dropdowns.
+
+Placeholder: e.g., “All Labels” placeholder text. Defaults to “(All Labels)” if left empty.
+
+Terms Method: All Labels (default) or only specific labels (Selected Terms).
+
+Columns: 1–6 columns for checkbox/radio layouts.
+
+Often, labels are few in number (like a simple set of flags). A radio button display can work well if you want the user to pick one label (or a checkbox if multiple labels can apply). For example, a Labels filter might be used for something like “Status: Any, Open Now, Closed” – that could be done with radio buttons and perhaps an “Any” option as default.
+
+## Price
+
+Filters listings by a price value or price range. (This field is available if pricing is enabled in Listdom.)
+
+Display as: Several methods tailored to price filtering:
+
+- **Dropdown+:** A dropdown menu that typically includes preset price ranges (and possibly a “Custom range” option). For instance, the dropdown might list ranges like “Under $50”, “$50 - $100”, “$100 - $200”, “Over $200”. If the user selects one, the form will filter accordingly. This method is called "Dropdown+" because it can present combined ranges rather than single values.
+- **Min/Max Input:** Two numeric inputs side by side, one for minimum price and one for maximum price. Users can enter a range manually. Often labeled as “Min Price” and “Max Price”.
+- **Range Slider:** <Badge text="Pro" /> An interactive slider allowing the user to select a price range by dragging two handles (for min and max) on a scale. This provides a visual way to choose a range. Requires Listdom Pro.
+
+Placeholder: (for Dropdown+ method) The placeholder text shown when no range is selected, e.g., “Any Price” or “Price Range”. Defaults to something like “(All Prices)” if not set.
+
+Max Placeholder: If using Min/Max Input, you can set a placeholder in the Max field as well (e.g., “Max”). **Default:** (none) – the fields might simply show as empty.
+
+Default Value / Max Default Value: If desired, set an initial default min and/or max. For example, you might pre-set the price filter to 0 as min and 1000 as max to initially show mid-range results. By default, no default min/max is enforced (all prices are shown until the user filters).
+
+Min / Max / Increment: (For Range Slider or numeric inputs) Define the numeric range and step:
+
+- **Min:** The minimum price value selectable. (Default might be 0.)
+- **Max:** The maximum price value selectable. (Set this to the upper limit of your listings’ prices to constrain the slider or inputs.)
+- **Increment:** The step interval for the slider or number input. For example, an increment of 50 means the slider will snap to 50-unit steps.
+
+Thousands Separator: If you want to format numbers with a separator (e.g., comma for thousands), specify it here (usually “,” or “.” or a blank for none). This affects how large numbers are displayed in the inputs/slider labels. **Default:** “,” (comma for US formatting).
+
+Prepend: Any text or symbol to prepend to the price values. Commonly used for a currency symbol. For instance, set Prepend to “$” to show values like “$50”. If your currency symbol goes after the number, you could leave Prepend blank and instead include it in the field label or so. **Default:** (none) – but we recommend using this to clarify currency.
+
+Display Criteria Label: The text used when showing this filter in the criteria summary (if Display Criteria is on). By default it might say “Price: …”. You can customize it (e.g., “Budget: …”).
+
+Example: If you use Range Slider <Badge text="Pro" />, you might set Min = 0, Max = 1000, Increment = 50. The slider will then let users pick any range between $0 and $1000 in $50 steps. You might Prepend “$” so the labels show currency. The criteria summary would show something like “Price: $100 – $400” after selection.
+
+## Price Class
+
+If your listings use “Price Class” (e.g., budget categories like $, $$, $$$), this field lets users filter by that price class. (Requires pricing enabled in Listdom.)
+
+Display as: Dropdown or another method to select the price class. Only Dropdown is available by default for Price Class.
+
+- **Dropdown:** A simple dropdown listing all defined price classes (e.g., $, $$, $$$). The user can choose one class.
+
+Placeholder: The placeholder for the dropdown, e.g., “All Price Classes”. Defaults to “(All Price Classes)” if not set.
+
+Dropdown Style: Enhanced vs Standard select. Given typically few options, Standard may suffice, but Enhanced is fine. **Default:** Enhanced.
+
+Terms Method: Not applicable here, as price classes are not a taxonomy you’d partially select—likely all classes are offered.
+
+Columns: Not applicable (only dropdown method).
+
+Prepend/Append: If your price class symbols need context, you could prepend something (but generally $ or other symbols are part of the class labels already).
+
+Note: Price Class is a simpler alternative to numeric price filtering. For example, restaurants might be classified as $, $$, or $$$. Using this field, a user can filter for, say, $$ mid-range restaurants easily.
+
+## Address
+
+Allows users to search for listings by address or location keyword, with optional radius filtering. The Address field ties into map/geolocation features.
+
+Display as:
+
+- **Text Input:** A single-line text box where the user can type an address, city, or zip code. (This is the basic method – user enters a location string.)
+- **Radius Search:** <Badge text="Pro" /> A text input paired with a radius distance setting. The user enters an address and results are limited to a radius around that point. The radius can be fixed or user-adjustable (see options below).
+- **Radius Dropdown:** <Badge text="Pro" /> An address input with a dropdown for radius distances. The user enters a location and selects a radius from a predefined list (e.g., 5 KM, 10 KM, 50 KM).
+
+Placeholder: Placeholder text in the address input, e.g., “Enter a location…”. Setting a helpful placeholder (like “City, State or ZIP”) can guide users. If blank, a default like “Search address…” may be used.
+
+Radius (Meters): If using Radius Search (with a fixed radius) or as a default for radius methods, you can specify a radius distance in meters. For example, 5000 meters as a default radius means ~5 KM. This value will be used if the user doesn’t choose a radius (or as the initial radius).
+
+Display Radius Field: A toggle for radius methods to allow the user to adjust radius:
+
+- If **Display Radius Field** is enabled, the form will show either a slider or a numeric input for radius (when using the “Radius Search” method) so the user can set any distance, or it will show the radius dropdown (for “Radius Dropdown” method).
+- If disabled, the radius is fixed to the value you set (the user will not see any option to change radius).
+
+Radius Values (Meters): (For Radius Dropdown method) Define the set of radius options the user can choose from, as a comma-separated list of values in meters. For example: `1000,5000,10000,20000` to offer 1 KM, 5 KM, 10 KM, 20 KM options. If not set, default options might be provided.
+
+Radius Display Unit: Choose the unit to display for the radius values shown to the user. Options:
+
+- **Meters** – show distances in meters (e.g., “5000 m”).
+- **Kilometers (KM)** – convert and display in kilometers (e.g., “5 KM” instead of 5000 m).
+- **Miles** – convert and display in miles (if you prefer imperial, e.g., “3.1 miles” for 5000 m).
+
+**Default:** Kilometers (for non-US locales) or Miles (for US locales), depending on settings. You can override to your preferred unit.
+
+Prepend: Any text to prepend to the address input value when displaying criteria. Typically left empty (addresses don’t need a prefix).
+
+Optional Placeholder: If the address field is optional, you might include a subtle placeholder indicating that (e.g., “City or ZIP (optional)”), but generally this isn’t needed because all search fields are optional by nature.
+
+When the Address field is used without radius (just text input), it will search listings’ address field for matches containing the entered text. With the Advanced Search capabilities <Badge text="Pro" />, the address text can also match coordinates or be converted to a location bias.
+
+With radius filtering (Pro), the typical use-case is to allow “Near me” or location-specific searches. The user enters a location, and the plugin finds listings within X distance of that point. For example, they could enter “Central Park, NYC” and select 5 KM radius to find listings around Central Park.
+
+<Aside type="tip"> If you want to implement a “Near Me” button (to use the user’s own geolocation), you might integrate custom code or a map – Listdom’s Map add-ons can complement the Address field by letting users pick a point on a map. </Aside>
+
+## Custom Attributes
+
+Listdom allows creation of Custom Attributes (custom fields) for listings, and these can be made searchable. Any custom attributes you’ve defined for listings will appear as available fields in the search form builder.
+
+Display as: The display method depends on the attribute’s field type. When you created the attribute, you specified a type (like text, number, select dropdown, etc.). The search field will offer corresponding methods:
+
+- If the attribute is a **Text field** (single line text, textarea, phone, etc.), the search field can be a Text Input (for keywords) by default.
+- If the attribute is a **Number field**, you’ll get methods similar to the Number filter: number inputs, dropdown choices, or even a range slider <Badge text="Pro" /> for numeric range filtering.
+- If the attribute is a **Select, Radio, or Checkbox field** (with predefined options), the search field will behave like a taxonomy filter: you can use Dropdown, Multi-select, Checkboxes, etc., showing those predefined choices.
+- If the attribute is a **True/False (boolean toggle)**, the search field will appear as a single Checkbox (e.g., the label might be the attribute name, and checking it means true).
+
+Field Label: By default, the search field will use the attribute’s name as its label/title. You can customize it in the form builder if needed (for instance, shorten it or clarify units).
+
+Placeholder: For text or number inputs, you can set a placeholder (e.g., “Enter value…” or something context-specific).
+
+Min/Max/Increment: For numeric attributes with range slider or number input methods, you can set Min, Max, and Increment just like for Price. (E.g., if the attribute is “Year Built”, Min might be 1900, Max 2023, Increment 1.)
+
+Options/Terms: For select-type attributes, you might see an option to limit which options are displayed (similar to Terms Method for taxonomies). Typically, it will list all predefined choices by default.
+
+Columns: If the attribute is shown as checkboxes or radio buttons (for a finite set of options), you can choose the number of columns for layout (just like categories/tags).
+
+Default Value: In some cases, you can set a default selected value for the attribute filter. For instance, if you have a custom attribute “Condition” with options New/Used, you might default it to “Any” (no default filter) or leave it blank.
+
+Example: Suppose you added a custom attribute “Bedrooms” (a number type) for real estate listings. In the search form, Bedrooms will be available. You could display it as:
+
+- A Dropdown with options “1+, 2+, 3+, 4+” bedrooms (you would manually define those options in the search field’s configuration using the Terms Method or by defining ranges).
+- Number Inputs for min and max (so user can specify a range of bedroom count).
+- If Pro is active, a Range Slider from 0 to, say, 10 with step 1, so they can slide from e.g., 2 to 5 bedrooms.
+
+In each case, the field label “Bedrooms” would show, and you can customize the placeholder or default as needed.
+
+<Aside type="note"> Custom Attributes are defined in Listdom’s settings. Only attributes marked as “searchable” will appear as Available Fields. Make sure when creating an attribute (in Listdom Attributes settings) you enable it for search if you want it to be filterable. </Aside>
+
+## Advanced Custom Fields (ACF)
+
+If you use the Listdom ACF Integration add-on, you can include filters for fields created via the Advanced Custom Fields plugin. Any ACF fields attached to the Listdom Listing post type become available in the search form builder (provided they are of a supported type).
+
+<Aside type="note"> The ACF integration requires the Listdom ACF add-on to be installed and active. It allows the following ACF field types to be used in search forms. </Aside>
+
+ACF fields will appear with their field label as the title. They behave similarly to custom attributes, with search field methods based on the field type:
+
+- **ACF Text / Email Field:** Appears as a Text Search input. You can set a placeholder if needed. (Example: an ACF text field “Contact Name” could be made searchable via a text input.)
+- **ACF Number Field:** Treated as a numeric filter. Methods include number input (min/max), dropdown choices, or range slider <Badge text="Pro" />. You can configure min, max, increment just like other numeric fields.
+- **ACF Select Field:** If the select field allows single selection, it will be offered as a Dropdown (single) by default (with possible methods of dropdown, radio, etc., since it has discrete options). If it allows multiple selection, the search field might allow multiple (e.g., multi-select dropdown or checkboxes).
+- **ACF Radio Field:** Behaves similarly to a select (single choice). You can use Dropdown or Radio Buttons to display the options defined in ACF.
+- **ACF Checkbox Field:** If the ACF checkbox allows multiple choices, in the search form it typically would be best presented as Checkboxes (so users can tick multiple options) or a multi-select dropdown. All the choices defined in the ACF field group will be available.
+- **ACF True/False Field:** Shows as a single Checkbox filter. The label will be the field’s label (e.g., “Has Parking”). If checked, the filter looks for listings where that toggle is true.
+- **ACF Range Field:** (slider field in ACF) Appears as a Range Slider filter in the search form. You can set the min, max as per that field’s settings, and users can slide to pick a range. This is useful for numeric ranges with a slider UI.
+
+Placeholder and Labels: The search form will use the ACF field’s label as the filter label. Placeholders can be set for text/number inputs if desired. Typically, ACF choices come with their own labels, so you may not need to tweak much beyond maybe adding a placeholder or default.
+
+Default Values: If an ACF field has a default value in the listing, that doesn’t automatically apply to the search form. You can specify a default filter value in the search field settings if it makes sense (though usually you leave it empty so as not to pre-filter).
+
+For example, say you have an ACF field “Pet Friendly” (True/False). In the search form, you add it as a filter. It will appear as a checkbox labeled “Pet Friendly”. If a user checks it, the search will filter to listings where that ACF field is true (pet friendly listings). If unchecked, it won’t filter by that field (showing all listings regardless of pet friendly status).
+
+Using ACF fields in search is a powerful way to extend Listdom’s filtering to virtually any custom data you’ve added to listings via ACF.
+
+## Booking Fields (Availability Search)
+
+If you have the Listdom Booking add-on installed, your search forms can include special fields to filter listings by availability (dates and guest count). These fields tie into the booking system (e.g., for rental or reservation listings).
+
+<Aside type="note"> The following fields are available only if the Listdom Booking add-on is installed and activated. </Aside>
+
+### Start & End Dates (Booking Period)
+
+This field allows users to specify a date range for availability. It typically connects to listings that have booking calendars.
+
+Display as: A **Date Range Picker**. When the user focuses on this field, a date-picker calendar pops up allowing them to select a start date and an end date. Both dates are captured in one field UI component.
+
+Field Label: By default it may be labeled “Start & End Dates” or simply “Dates”. You can rename it (e.g., “Check-in & Check-out” for hotels, or “Travel Dates”).
+
+Placeholder: Text displayed when no dates are selected, e.g., “Select dates…”. **Default:** (may show an icon or “Choose dates”). It’s good to use something like “From – To” as a hint.
+
+Date Format: (Global setting, configured in WordPress/Listdom settings) – the picker will display dates in a format like MM/DD/YYYY or DD/MM/YYYY depending on site settings.
+
+Default Value: Typically none – the date range will be empty until user selects. You cannot realistically have a meaningful default date range (except perhaps current date as start and +1 day as end, but Listdom usually leaves it blank).
+
+Behavior: Once the user selects a period, the search will filter out listings that are unavailable in that period, showing only those that have availability for the entire range. This is crucial for booking sites – it ensures users see only what they can book for their chosen dates.
+
+Unavailable Dates Handling: The date picker may visually block out dates that are fully booked (depending on Listdom’s integration). Unavailable dates might be unselectable.
+
+### Adults
+
+A field for the number of adult guests. This corresponds to a capacity filter on listings (if listings have an “adult capacity” defined via the Booking add-on).
+
+Display as: A numeric input or selector for the number of adults.
+
+- **Number Input:** The default – a small number input where user can type or use increment buttons to set a number.
+- **Dropdown:** Alternatively, you can provide a dropdown with specific choices (e.g., 1,2,3,4,5+).
+- **Dropdown+:** This method might not be common for guest count, but could be used if you want an option like “4+” meaning 4 or more.
+- **Range Slider:** <Badge text="Pro" /> could be used for a range of guests, but usually a single value is needed, not a range.
+
+Placeholder: Could be “Adults” or a default value shown (some sites default to 1 adult). Often for UX, you might default this to 1 to assume at least one person.
+
+Min / Max / Increment: You can set a minimum (e.g., 1) and a maximum (maybe the largest party size you accommodate, say 20) and the step (1). **Default:** Min 1, no strict max unless specified (or max may default to a high number like 20).
+
+Default Value: Optionally, set an initial number of adults. It might make sense to default to 1 to avoid zero. **Default:** 1 (if left empty, many sites treat it as 1 adult).
+
+Columns: Not applicable (this is typically a single input).
+
+Validation: The field will typically not allow below minimum or above maximum as set.
+
+When users fill this in, the search will filter listings that can accommodate at least that many adults. For instance, if a listing’s adult capacity is 2 and the user searches for 4 adults, that listing will be excluded.
+
+### Children
+
+A field for number of child guests. Functions similarly to Adults field, allowing the user to specify number of children for the booking query.
+
+Display as: Number Input (default), or a Dropdown of numbers, etc., akin to Adults.
+
+Placeholder: Could be “Children” or “0” depending on how you want to indicate it. Many sites default children to 0.
+
+Min / Max / Increment: Set min = 0 (common, since you can have zero children), max maybe similar upper bound as adults or fewer, and step 1. **Default:** Min 0, no preset max.
+
+Default Value: Often 0 (meaning assume no children by default unless specified). **Default:** 0.
+
+Behavior: If the user enters, say, 2 children, the search will find listings with capacity for at least 2 children (listings usually have an “children capacity” or share total capacity logic).
+
+Columns: Not applicable (single value input).
+
+Usually, Adults and Children fields are used together. For example, a search form might have “Adults” and “Children” selectors side by side. Users pick how many of each, and the search will ensure the listing has enough total capacity. Under the hood, the Booking add-on treats these as part of an “inquiry” filter – it will find listings that have availability for the specified dates and can accommodate the given number of adults and children.
+
+Note: If you don’t need to distinguish adults vs children, you could omit one of these fields or label them generally as “Guests.” However, Listdom Booking separates them because some listings might have different pricing or rules for children.
+
+## Examples
+
+<CardGrid>
+<Card> **Travel Booking Search:** A travel site uses Listdom with the Booking add-on. The search form includes **Start & End Dates**, **Adults**, and **Children** fields, plus a **Destination** (Location taxonomy) dropdown. A user selects July 1–5 as dates, 2 Adults and 1 Child, and “Beach Resort” as the category. Upon search, results show only listings that are categorized as Beach Resorts **and** have availability from July 1 to 5 for at least 2 adults and 1 child. </Card>
+<Card> **“Near Me” Restaurant Finder:** A directory of restaurants uses an **Address** field with **Radius Dropdown**. The form has an address input with placeholder “Enter your address...” and a radius dropdown with options 5 KM, 10 KM, 20 KM. A user enters their city and selects 5 KM. The search finds all restaurant listings within a 5 km radius of that location. The results page might also display the user’s chosen radius (because we set the criteria summary to show “Radius: 5 KM” alongside other filters). </Card>
+<Card> **Custom Attributes in Action:** A car listings site added a custom attribute “Mileage” (numeric) and “Fuel Type” (select: Petrol, Diesel, Electric). In the search form, **Mileage** is included with a Range Slider set from 0 to 200,000 (km) in 5,000 increments, and **Fuel Type** is a series of checkboxes (Petrol, Diesel, Electric). A user can filter for Electric cars with mileage between 0 and 50,000. The form’s range slider makes it easy to pick the mileage range, and the Fuel Type checkboxes allow multi-select (maybe the user checks both Electric and Hybrid if Hybrid was an option). Only listings matching those criteria appear. </Card>
+</CardGrid>
+
+<LinkCard href="https://demo.webilia.com/listdom/" title="Listdom Demo – Explore Field Types"> See a live demo of Listdom where you can experiment with different search fields. Try filtering by taxonomies, custom fields, radius, and more to get a feel for how each field type behaves. </LinkCard>
+

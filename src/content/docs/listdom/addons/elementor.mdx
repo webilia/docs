@@ -23,7 +23,7 @@ With the addon active, navigate to **Listdom → Elementor Styles** in your Word
 
 **Step 1:** Click **Add New** to create a new template. Give it a descriptive title (e.g., “Listing Single Template”).
 
-**Step 2:** On the right side (or below the title), find the **Template Type** selector. Choose **Single Listing**:contentReference[oaicite:102]{index=102}:contentReference[oaicite:103]{index=103} since we’re designing the full listing page layout. *(Other options: “Listing Card” for search results cards, and “Infowindow” for map pop-up content – we’ll cover those later.)*
+**Step 2:** On the right side (or below the title), find the **Template Type** selector. Choose **Single Listing** since we’re designing the full listing page layout. *(Other options: “Listing Card” for search results cards, and “Infowindow” for map pop-up content – we’ll cover those later.)*
 
 **Step 3:** Publish the template (it can be empty for now). After publishing, click the **Edit with Elementor** button. The Elementor editor will open, allowing you to design this template.
 
@@ -88,9 +88,9 @@ The Elementor Addon also allows custom templates for **listing cards** (the summ
 
 To create these:
 
-- **Listing Card Template:** Add another template in **Elementor Styles** CPT. Choose **Listing Card** as the Template Type:contentReference[oaicite:104]{index=104}:contentReference[oaicite:105]{index=105}. Edit with Elementor and design a small card – perhaps a container with **Listing Image**, **Listing Title**, and a couple of key details like **Listing Price** or **Location**. Save it. Now, in Listdom’s settings or shortcode attributes, select the option to use custom Elementor style for cards (for example, some skins may have an option like “Use Elementor Design”). Once applied, your directory’s archive pages and [listdom] shortcodes will use this custom card layout.
+- **Listing Card Template:** Add another template in **Elementor Styles** CPT. Choose **Listing Card** as the Template Type. Edit with Elementor and design a small card – perhaps a container with **Listing Image**, **Listing Title**, and a couple of key details like **Listing Price** or **Location**. Save it. Now, in Listdom’s settings or shortcode attributes, select the option to use custom Elementor style for cards (for example, some skins may have an option like “Use Elementor Design”). Once applied, your directory’s archive pages and [listdom] shortcodes will use this custom card layout.
 
-- **Map Infowindow Template:** Similarly, add a template and choose **Infowindow** as type:contentReference[oaicite:106]{index=106}. Design a very compact layout (infowindows are small). You might include the **Listing Title** and a thumbnail (Listing Image), maybe the address, all in a small box. Note: Using this template requires the **Advanced Map Addon** to be active for Listdom (which enables infowindows on the map):contentReference[oaicite:107]{index=107}. The Elementor Addon will use your design for the map tooltips/popups. If Advanced Map isn’t installed, you’ll see a notice that infowindow design is unavailable:contentReference[oaicite:108]{index=108}.
+- **Map Infowindow Template:** Similarly, add a template and choose **Infowindow** as type. Design a very compact layout (infowindows are small). You might include the **Listing Title** and a thumbnail (Listing Image), maybe the address, all in a small box. Note: Using this template requires the **Advanced Map Addon** to be active for Listdom (which enables infowindows on the map). The Elementor Addon will use your design for the map tooltips/popups. If Advanced Map isn’t installed, you’ll see a notice that infowindow design is unavailable.
 
 After creating a custom Infowindow template, ensure the Advanced Map settings know to use it. Typically, the addon will automatically override the infowindow content with your Elementor template if present.
 
