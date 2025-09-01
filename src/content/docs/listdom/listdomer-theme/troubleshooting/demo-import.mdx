@@ -1,0 +1,33 @@
+---
+title: Demo Import Issues
+sidebar_label: Demo Import Issues
+description: "Fix problems encountered while importing Listdomer demo content."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Troubleshooting tips for One Click Demo Import in Listdomer.
+
+## Demo Import Problems
+
+- **Demo Import Fails or Times Out:** This often relates to server limits. Check your PHP max_execution_time and memory_limit. If import stops, you can rerun it; the importer will skip already imported items, so you can safely run it twice <Badge text="Tip" />.
+- **Content Imported but Homepage is Blank:** After import, if your homepage shows “[shortcode]” text or missing sections, the Listdom plugin or another required plugin wasn’t active during import. Activate them and re-import or manually insert the shortcodes on the page.
+- **Images Not Importing:** The demo images are hosted on Webilia’s CDN. If they didn’t import, your server might have blocked external URL fetches. Manually download those images from the demo site and add them to your Media Library, or replace with your own images.
+- **Menus or Widgets Not Showing:** If after import the menus or widgets are empty, assign them manually. Refer to the demo’s screenshots to see what menus or widgets should be there. The demo import log notes each step – any failures can be addressed by manual configuration.
+
+<Aside type="note">Already have content? It’s not recommended to import a demo on a live site with lots of content. Consider importing on a staging site or reset the site before import.</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>**Import Timeout** – The import stops halfway. Increase PHP execution time to 120s and rerun the importer; it skips items already imported.</Card>
+  <Card>**Blank Homepage After Import** – Activate the Listdom plugin and re-run the import so shortcodes render correctly.</Card>
+  <Card>**Missing Menu Assignments** – After import, manually assign the Primary and Sub-Footer menus under Appearance > Menus.</Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/support/">💬 Webilia Support Center – Still stuck? Contact support or browse the community forum for help.</LinkCard>
+

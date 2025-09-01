@@ -1,0 +1,44 @@
+---
+title: Functionality & Integration Issues
+sidebar_label: Functionality & Integration Issues
+description: "Address problems with theme features, Listdom add-ons, and other integrations."
+sidebar:
+  order: 4
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Troubleshoot functionality and integration issues for Listdomer and Listdom add-ons.
+
+## Functionality Issues
+
+- **“Add Listing” Button does nothing:** If a user is not logged in, clicking “Add Listing” might redirect to the login/register depending on your Listdom settings. Check that the target page is set. In Header Settings, see Login Redirection Page and Register Redirection Page – set those appropriately. Ensure the Listdom plugin’s settings allow front-end submissions.
+- **Login/Register links not showing:** They will only show if you enabled them in Header Settings and Listdomer detects the relevant plugin. If you’re not using a login plugin, they still link to the default login page. If they’re not showing, double-check the setting and view the site as a guest.
+- **Language switcher not appearing:** Requires WPML. If WPML is installed and you have multiple languages, ensure you added the WPML Language Switcher to the theme location or enabled the header switcher option. If using a different multilingual plugin, the built-in switcher won’t work.
+- **Breadcrumb not showing:** Make sure Breadcrumb is enabled in Page Heading settings for the context you’re testing. The breadcrumb will not show on the front page by default. On listing single pages, ensure Listdomer’s breadcrumb integration is active.
+
+## Integration with Listdom & Addons
+
+- **Listdom Pro Add-ons Not Detected:** If you installed a Listdom Pro add-on but don’t see its effect, it may be by design. For example, for Claim Listings, the theme by default hides the “Verified” badge icon to keep design clean and changes the “Claim Listing” button text to “Claim It Now!”. You can override this with a code snippet in a child theme.
+- **Real Estate Toolkit fields unstyled:** The Real Estate Toolkit adds custom fields like price or property type. The theme should style their output, but if something looks off, check for plugin or theme updates. You can add custom CSS in the Custom CSS field to adjust spacing.
+
+## Miscellaneous
+
+- **Content Overflows or looks misaligned:** This could happen if you insert custom HTML or shortcodes that have their own styling. Use Custom CSS to tweak those elements. Ensure images and tables are within container widths.
+- **Slow Performance:** If you experience slow page loads, consider disabling the preloader animation if enabled. Ensure you have caching and optimized images. The Listdom plugin may load scripts like Google Maps, which can slow pages if used excessively.
+- **Need to Reset Settings:** If you heavily modified settings and want to revert to demo defaults, re-import the Redux settings from the demo or use the Redux panel’s reset options. Always back up your settings before resetting <Badge text="Tip" />.
+
+<Aside type="note">For persistent problems, provide your site URL, theme/plugin version, and screenshots when contacting support.</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>**Add Listing Button Redirect** – Set Login Redirection Page and Register Redirection Page in Header Settings so clicking “Add Listing” sends users to the correct dashboard.</Card>
+  <Card>**Listings Not Appearing on Archive** – Go to Settings > Permalinks and save to flush rewrite rules, ensuring listing archives display.</Card>
+  <Card>**Google Map Not Showing** – Add your Google Maps API key in Listdom > Settings > Google Map to display maps on listings.</Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/support/">💬 Webilia Support Center – Still stuck? Contact support or browse the community forum for help.</LinkCard>
+
