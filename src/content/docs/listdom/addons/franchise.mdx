@@ -1,0 +1,40 @@
+---
+title: Franchise Addon
+sidebar_label: Franchise Addon
+description: "Create parent-child relationships between listings, ideal for franchises or multi-location businesses."
+sidebar:
+  order: 18
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Franchise Addon <Badge text="Pro" /> enables hierarchical relationships between listings. It allows you to designate certain listings as "parent" listings and others as their "sub listings," which is useful for franchises, chains, or any multi-location business.
+
+## Settings
+Go to **Listdom > Settings > Addons > Franchise** to configure options:
+
+- **Franchise Category**: Select a specific listing category to limit the franchise functionality. If left blank (default), the feature is available for all categories.
+- **Hide parents when no child**: If enabled, any parent listing that has no sub listings will be hidden from search results and archive pages. (Default: No)
+
+## Parent-Child Listing Usage
+When adding or editing a listing, a new **Listing Parent** dropdown appears.
+
+- **Assigning a Parent**: To make a listing a child of another, simply select the desired parent listing from the dropdown before saving. You can create multiple levels of hierarchy.
+- **Display on Listing Pages**: Single listing pages will show a "Parent" section and a "Sub Listings" section, making it easy for visitors to navigate the franchise structure.
+- **Display in Directories**: By default, child listings appear in search results like regular listings. Parent listings also appear unless you've enabled "Hide parents when no child."
+
+## Examples
+<CardGrid>
+  <Card title="Franchise Chain Example">
+    A nationwide gym directory uses the addon to link branch locations to their main brand. The "Gold's Gym" parent listing contains general info, and each gym location is a sub-listing. On each location's page, visitors see a link back to the main brand page.
+  </Card>
+  <Card title="Multi-level Organization">
+    A real estate site has a top-level "Real Estate Group" as a parent for several "Regional Offices," which in turn are parents to individual "Agent" listings. This allows users to traverse up the chain from an agent to the regional office and the main group.
+  </Card>
+</CardGrid>
+
+<LinkCard title="Listdom Documentation" href="[https://api.webilia.com/go/listdom-docs/](https://api.webilia.com/go/listdom-docs/)" />
+
+---

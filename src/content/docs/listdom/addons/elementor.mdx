@@ -1,0 +1,132 @@
+---
+title: Elementor Addon
+sidebar_label: Elementor Addon
+description: "Full Elementor integration for Listdom – design single listing pages, listing cards, and map info windows visually with Elementor."
+sidebar:
+  order: 15
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Elementor Addon** empowers you to build and style Listdom listing layouts using **Elementor’s live page builder**. With this addon, you can create custom templates for single listings, listing cards in archive pages, and even map infowindows – all without coding. It introduces dedicated Elementor **widgets** for Listdom elements (title, content, gallery, etc.) and a special “Elementor Styles” post type in wp-admin to manage these templates. Whether or not you have Elementor Pro, this addon makes it possible to achieve a completely custom design for your directory’s listings.
+
+<Aside type="note">
+You must have the Elementor plugin activated for this addon to function (Elementor Pro is optional; the addon provides a solution for both Pro and free users). Once the Elementor Addon is active, you’ll see **Elementor Styles** under Listdom menu and new Listdom widgets in Elementor’s editor.
+</Aside>
+
+## Creating a Single Listing Template
+
+With the addon active, navigate to **Listdom → Elementor Styles** in your WordPress dashboard. This is a custom post type where you’ll create and store your Elementor listing templates (also labeled as “Elementor Templates” or “Styles”). 
+
+**Step 1:** Click **Add New** to create a new template. Give it a descriptive title (e.g., “Listing Single Template”).
+
+**Step 2:** On the right side (or below the title), find the **Template Type** selector. Choose **Single Listing** since we’re designing the full listing page layout. *(Other options: “Listing Card” for search results cards, and “Infowindow” for map pop-up content – we’ll cover those later.)*
+
+**Step 3:** Publish the template (it can be empty for now). After publishing, click the **Edit with Elementor** button. The Elementor editor will open, allowing you to design this template.
+
+Now you’re in Elementor’s canvas, designing a layout that listing pages will use. You can add sections and widgets as you normally would. The Listdom Elementor Addon provides a category of widgets typically named **“Listdom”** or **“Listing”** in the Elementor widget panel. For example, you’ll find:
+
+- **Listing Title** – widget to display the listing’s title.
+- **Listing Content** – the full description of the listing.
+- **Listing Gallery** – a gallery or slider of listing images.
+- **Listing Address** – the address text of the listing.
+- **Listing Map** – an embedded map showing the listing location.
+- **Listing Categories** – list of categories the listing belongs to.
+- (And many more – see **Listdom Widgets** below.)
+
+Drag and drop these widgets into your template structure. For instance, you might start with a two-column section: left column with **Listing Gallery**, right column with **Listing Title** and **Listing Content**. You can use Elementor’s regular widgets too (for styling or extra content), but the Listdom widgets are how you pull in dynamic listing data.
+
+Design the template to your liking: adjust spacing, add headings (“About this listing” above the content, for example), style typography, etc. Each Listdom widget exposes some style settings in the Elementor panel (for example, the Title widget lets you choose HTML tag and alignment).
+
+**Step 4:** Once done, click **Update** to save the template. This template now automatically applies to all single listing pages on the front-end. Visit any listing on your site to see it using the Elementor design you created.
+
+<Aside type="tip">
+Elementor free users: The above method using **Elementor Styles** CPT is your way to create listing templates (since Elementor’s Theme Builder is a Pro feature). The addon takes care of applying your saved template to the appropriate pages. Elementor Pro users can alternatively use Theme Builder (create a Single Post Template for post type “listings”), but using the Elementor Styles CPT works for everyone.
+</Aside>
+
+## Listdom Widgets in Elementor
+
+The addon introduces a wide range of **Elementor widgets** for Listdom content, letting you insert any piece of listing data. These widgets appear in the Elementor editor (usually under a **Listdom** section). Key widgets include:
+
+- **Listing Title:** Displays the listing title. You can choose the HTML tag (H1, H2, etc.) and style it with Elementor’s text controls.
+- **Listing Content:** The main description of the listing (as entered in the listing post). It can be long text, and you have full typography control in Elementor.
+- **Listing Image:** Shows the featured image of the listing (if set).
+- **Listing Gallery:** Outputs the listing’s image gallery as an image carousel or gallery grid (you can toggle layout options).
+- **Listing Categories:** Lists the categories (and similarly **Listing Locations**, **Listing Tags**, **Listing Labels**) associated with the listing. You can often choose to show as normal text or as badges.
+- **Listing Features:** Lists the features (amenities) assigned to the listing.
+- **Listing Price:** Shows the price or price range of the listing, with currency symbol.
+- **Listing Address:** Shows the address text.
+- **Listing Map:** Displays an interactive map with the listing’s location marker (uses the coordinates from the listing).
+- **Listing Contact Button:** A button that triggers the contact form (for contacting the listing owner). Typically labeled “Contact” or an envelope icon – when clicked, it scrolls to or opens the contact form (which Listdom normally places on single page).
+- **Listing Owner Info:** Shows the listing owner’s name (and possibly avatar, contact link) if you want to attribute the listing.
+- **Listing Social Share:** Social sharing buttons for the listing.
+- **Listing Tags:** Outputs the tags (as a list of tag names or links).
+
+Additionally, the Elementor Addon provides some advanced or add-on-specific widgets:
+
+<Aside type="note">
+**Conditional Widgets:** Some widgets appear only if relevant features or addons are active:
+- **Listing Booking Form** – if the Booking Addon is installed (allows insertion of a booking widget).
+- **Listing Auction Info** – if Auction Addon is active.
+- **Listing Rating** – if the Reviews/Rating feature is available (e.g., in <Badge text="Pro" />). This could show star ratings <Badge text="Pro" />.
+- **Listing Favorite Button** – if Wishlists/Favorites are enabled (e.g., Pro feature).
+- **Listing Availability** – if Work Hours are enabled (shows open/closed status or schedule).
+- **Listing Custom Fields (ACF)** – if the ACF Addon is active, to display custom fields.
+- **Listing Comparison** – if Compare Addon is active (e.g., a checkbox to add listing to compare list).
+  
+The addon dynamically registers these widgets when appropriate, so your Elementor panel might show widgets like **Listing Auction** or **Listing Rating** only when those addons are present.
+</Aside>
+
+Each Listdom widget comes with its own settings and style tabs in Elementor. For example, the **Listing Map** widget might let you choose map height and zoom level, the **Listing Features** widget might allow icon or text display choices, etc. Use Elementor’s preview mode (you can pick a specific listing to preview with from the dropdown in Elementor’s editor) to see real data as you design.
+
+## Listing Cards and Infowindows
+
+The Elementor Addon also allows custom templates for **listing cards** (the summary boxes in listings grids and results) and **map infowindows** (the pop-up bubble when a listing is clicked on a map). 
+
+To create these:
+
+- **Listing Card Template:** Add another template in **Elementor Styles** CPT. Choose **Listing Card** as the Template Type. Edit with Elementor and design a small card – perhaps a container with **Listing Image**, **Listing Title**, and a couple of key details like **Listing Price** or **Location**. Save it. Now, in Listdom’s settings or shortcode attributes, select the option to use custom Elementor style for cards (for example, some skins may have an option like “Use Elementor Design”). Once applied, your directory’s archive pages and [listdom] shortcodes will use this custom card layout.
+
+- **Map Infowindow Template:** Similarly, add a template and choose **Infowindow** as type. Design a very compact layout (infowindows are small). You might include the **Listing Title** and a thumbnail (Listing Image), maybe the address, all in a small box. Note: Using this template requires the **Advanced Map Addon** to be active for Listdom (which enables infowindows on the map). The Elementor Addon will use your design for the map tooltips/popups. If Advanced Map isn’t installed, you’ll see a notice that infowindow design is unavailable.
+
+After creating a custom Infowindow template, ensure the Advanced Map settings know to use it. Typically, the addon will automatically override the infowindow content with your Elementor template if present.
+
+<Aside type="caution">
+When designing listing cards or infowindows, keep them simple. These appear in tight spaces. Too many widgets or large images in a card template could break the grid layout. Aim for a balance of information and compact style.
+</Aside>
+
+## Using Elementor Theme Builder (Pro)
+
+If you have **Elementor Pro**, you have an alternative: use the native Theme Builder. The Listdom Elementor Addon registers its widgets and dynamic tags with Elementor’s system, so you can create a Single Post Template for “Listings” directly. The widgets like Listing Title will be available under **SITE** or **Listdom** section.
+
+Using Theme Builder vs. the Elementor Styles CPT yields the same front-end result – use whichever workflow you prefer. The **Elementor Styles** approach is beneficial for free users or for managing all Listdom-related templates in one place.
+
+## Example Workflow
+
+<Steps>
+1. Design a Single Listing:** An admin creates a “Single Listing” Elementor Style and, with Elementor, builds a template: top section with a large Listing Image background, the Listing Title overlaid, followed by a two-column section (left: Listing Content, right: Listing Details like price, features, and a Contact button). They style it to match their theme.
+
+2. Assign and Preview:** The admin saves the template. Immediately, all listing pages adopt this new layout. They preview several listings — each shows the title, images, and info in the exact design configured. No two listings are the same in content, but the template applies uniformly.
+
+3. Custom Archive Cards:** The admin also adds a “Listing Card” template, choosing to show just a thumbnail, title, and price. After enabling this, the homepage’s [listdom] shortcode grid now uses the custom Elementor card design, which is more visual and branded than the default skin.
+
+4. Map Infowindow:** With the Advanced Map addon, they decide to customize the map infowindow. Using Elementor, they design a tiny popup with the listing’s thumbnail and title. Now, when a user clicks a map marker, the infowindow matches the site’s style and provides a quick glance at the listing (picture and name) consistent with the overall design.
+</Steps>
+
+## Examples
+
+<CardGrid>
+  <Card title="Boutique Hotel Listings">
+    A travel directory uses the Elementor Addon to create a striking single listing page for hotels. Using Elementor, they include a full-width image carousel, the hotel name with a custom font, star rating <Badge text="Pro" />, and a styled amenities list. The result is a unique, professional layout far from the default.
+  </Card>
+  <Card title="Custom Grid Layout">
+    A restaurant directory wants an image-forward grid. The admin designs an Elementor listing card: a card with the restaurant photo as background and the name and category overlayed. After applying it, all [listdom] shortcode grids transform into a magazine-style layout. Users love the visual browsing experience.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin – More Info">
+  Visit the official Listdom plugin page for additional documentation and user discussions.
+</LinkCard>

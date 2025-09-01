@@ -1,0 +1,61 @@
+---
+title: MemberPress Addon
+sidebar_label: MemberPress Addon
+description: "Integrate Listdom with MemberPress to control listing submission features and listing rank by membership level."
+sidebar:
+  order: 22
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The MemberPress Addon <Badge text="Pro"/> connects Listdom with the MemberPress membership platform. This integration lets you tailor listing submission features and enhance listing visibility based on a user's membership level.
+
+<Aside type="note">
+**MemberPress** must be installed and active for this addon to function. Once set up, the Listdom integration options will appear on your MemberPress membership configuration pages.
+</Aside>
+
+## Membership Plan Settings in MemberPress
+After activating the addon, edit a membership plan in **MemberPress → Memberships**. You will find a new **Listdom** tab with two sets of options.
+
+### Submission Modules
+Control which listing features or fields a user can access when submitting a listing. You can enable or disable modules per membership plan. Modules include:
+- Contact Details
+- Gallery
+- Custom Fields
+- Address / Map
+- Price Options <Badge text="Pro"/>
+- Work Hours <Badge text="Pro"/>
+- And more...
+
+<Aside type="tip">
+Create tiered offerings. For instance, disable the `Gallery` and `Embed Codes` for a basic plan, while enabling all modules for a premium plan to add value to an upgrade.
+</Aside>
+
+### Listing Rank
+Assign a numeric rank value to each membership plan. This works as a boost to the visibility of listings created by members of this plan. For example, you might set **Listing Rank = 10** for a "Platinum" membership. Listings from Platinum members will receive an extra 10 points in rank, helping them appear higher in search results.
+
+<Aside type="note">
+The **Listing Rank** value only takes effect if you have a ranking mechanism enabled in Listdom, such as the **Listdom Rank Add-on**.
+</Aside>
+
+## Effect on User Experience
+- **Frontend Submission**: A user will only see the fields and options that are allowed for their membership level when adding or editing a listing.
+- **Listing Visibility**: If the Listdom Rank system is in use, listings from users with a higher membership rank will appear more prominently.
+- **No Content Restriction**: This addon focuses on submission capabilities, not viewing permissions. All users can see all listings by default.
+
+## Examples
+<CardGrid>
+  <Card title="Basic vs. Premium Plan Features">
+    A directory offers "Basic" and "Premium" plans. The Basic plan allows only essential modules like Title and Contact. The Premium plan gets everything, including Gallery and Video Embeds, providing a clear incentive to upgrade.
+  </Card>
+  <Card title="Boosting Premium Member Listings">
+    An admin assigns a rank of 5 to the "Premium" membership and 0 to the "Basic" one. As a result, listings from Premium members tend to appear higher in search results, giving them more visibility.
+  </Card>
+  <Card title="Creating a Mid-Tier Plan">
+    An admin introduces a "Pro" plan between Basic and Premium. Pro members can have a gallery and map but no video embeds. They also get a small rank boost of 2, creating a tiered value structure.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://memberpress.com" title="MemberPress Official Website" description="Learn more about MemberPress memberships and features on the official site." />

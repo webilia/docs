@@ -1,0 +1,57 @@
+---
+title: Ads Addon
+sidebar_label: Ads Addon
+description: "Monetize your directory by adding advertisement content to listing pages, with global or per-listing ad options."
+sidebar:
+  order: 2
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Ads Addon** allows you to insert advertisement content into your listing pages. This is ideal for monetizing your directory by displaying ads (such as banners, affiliate ads, or custom HTML/shortcodes) within individual listings. The addon provides both a global ad (shown on all listings) and per-listing ad fields for customized advertising.
+
+## Global Ad Setting
+
+Once the Ads Addon is installed, a **Global Ad** field becomes available in **Listdom Settings → Addons → Ads Addon**. This is a textarea where you can input any advertisement code or content that should appear on every listing page by default.
+
+- **Content Allowed:** You can enter HTML (such as banner image code or AdSense script) or even WordPress shortcodes into the Global Ad field. This flexibility means you can embed rich media ads or dynamic content plugins.  
+- **Global vs. Local:** The Global Ad acts as a fallback. If a specific listing doesn’t have its own ad content (see *Listing-Specific Ad* below), this global content will be displayed on that listing’s page. This is useful for site-wide advertisements that should show on all listings (for example, a standard ad banner).
+
+<Aside type="note">Global Ad content is output in a styled container labeled “Ads” on the listing page. If you prefer not to show any advertisement on certain listings, you can simply leave their individual ad field blank, and the Global Ad will display instead (or nothing will show if the global content is also empty).</Aside>
+
+## Listing-Specific Ad Field
+
+The addon adds an **“Ads”** module to listing submission and edit forms. When adding or editing a listing (both in the front-end dashboard and the WordPress admin), you will see a new **Advertisement** field (often a rich text editor) labeled *“Ads”*. Here you can input custom ad content specific to that listing.
+
+- **Per Listing Content:** If you want a particular listing to show a unique advertisement (for example, a sponsored banner just for that listing’s owner), enter the content in this field for that listing. This content can include HTML for images, scripts, or shortcodes – anything that you would normally put in the global ad field can be put here as well.
+- **Fallback Behavior:** If this field is left empty for a listing, the system will default to showing the Global Ad content on that listing’s page. If the Global Ad is also empty, then no ad section will appear for that listing at all.
+
+<Aside type="tip">You can use the WordPress **WYSIWYG editor** in the Ads field to format your ad content or to paste ad code. This makes it easy to integrate third-party ad scripts. Also, consider using shortcodes from ad manager plugins in this field for advanced rotation or tracking <Badge text="Tip" />.</Aside>
+
+## Listing Detail Page Ads Section
+
+For the ad content (global or per-listing) to appear on the front-end, the **Ads section** needs to be enabled on listing detail pages. The Ads Addon automatically adds an **“Ads”** element to the Listdom single listing layout options. By default, this Ads section is **disabled** on listing pages until you enable it:
+
+- **Enabling Ads Section:** Go to *Listdom Settings → Listing Details Page* builder (the layout editor for single listings). You will find an element for **Ads** among the list of available sections. Drag or enable the Ads section in your desired position on the listing page (for example, below the main content or in a sidebar area). Save the settings.
+- **Ads Section Display:** When enabled, each listing page will display an “Ads” block containing either the listing’s specific ad content or the global ad. It will include an optional heading (you can customize the section title to something like “Sponsored” or “Advertisement” if desired). The content is output exactly as entered (HTML and shortcodes will be rendered normally).
+- **Styling:** The ad content is wrapped in a CSS class so you can style it via custom CSS if needed (for instance, centering a banner or adding margins). By default it will adopt theme styles for content boxes.
+
+<Aside type="caution">Be mindful of ad dimensions and responsive behavior. If you insert large ads (like a 728x90 banner), ensure your theme layout can accommodate it without breaking. It’s good practice to test on mobile devices as well, or use responsive ad codes.</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Global Banner on All Listings">
+    A directory site wants to show a banner ad on every listing page. The admin pastes an AdSense code into the **Global Ad** setting. Now, every listing page displays this banner at the bottom of the content, generating revenue no matter which listing is viewed.
+  </Card>
+  <Card title="Ad Manager Integration">
+    A site admin uses a shortcode from an ad management plugin within the **Global Ad** field. <Badge text="Tip" /> This shortcode rotates multiple ads. With the Ads Addon, every listing now shows the rotating ads snippet, providing variety and better monetization without editing each listing.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/products/listdom-ads-addon" title="Listdom Ads Addon Info">
+  Official documentation and tips for the Listdom Ads Addon can be found here, including best practices for ad placement and formats.
+</LinkCard>

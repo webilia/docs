@@ -1,0 +1,120 @@
+---
+title: Pro Addon
+sidebar_label: Listdom Pro
+description: "Unlocks premium features including front-end submissions, user dashboards, advanced display settings, and more."
+sidebar:
+  order: 25
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Pro Addon** is the premium extension for Listdom that introduces a wide range of advanced features. With Listdom Pro, you can allow users to submit and manage listings from the front-end, customize how listings are displayed on a per-listing or per-category basis, and take advantage of additional listing statuses and other enhancements. This addon is essential for directories that need more flexibility and a professional touch <Badge text="Pro" />.
+
+## Key Features and Options
+
+### Front-end Submission & Dashboard
+
+Listdom Pro enables a full **Front-end Dashboard** for your users. You can designate a WordPress page as the Dashboard Page and insert the `[listdom-dashboard]` shortcode on it. Through this dashboard, users (and listing owners) can manage their listings, profiles, and more without accessing WP Admin.
+
+- **Dashboard Page:** Select a page to act as the user dashboard in **Listdom > Settings > Frontend Dashboard > Pages**. Place the <code>[listdom-dashboard]</code> shortcode on that page. Users will see a personalized dashboard with menu items like *My Listings*, *Add Listing*, *Favorites*, *Profile*, etc.
+- **Independent Add Listing Page:** Optionally enable an independent add-listing page. By toggling **Independent Add Listing Form** to ON, you can specify another page for direct listing submission (with <code>[listdom-add-listing]</code> shortcode). This allows you to have a separate “Add Listing” page outside the dashboard context.
+- **User Dashboard Menus:** Reorder or customize dashboard menu items in **Frontend Dashboard > Dashboard Menus** settings. You can drag & drop default menu items (like *Dashboard*, *Add Listing*, *Listings*, *Profile*, *Logout*) and even add custom menu links. For example, you might add a custom menu item linking to an external page or resource for your users.
+
+<Aside type="note">
+Front-end dashboard functionality (including the add listing form and custom menus) is exclusive to Listdom Pro. Free version users will instead be directed to WP Admin for listing management or see login prompts.
+</Aside>
+
+### Guest Submission Settings
+
+Pro addon allows **guest users** to submit listings without an account. In **Settings > Frontend Dashboard > Submission**, you’ll find:
+
+- **Guest Submission Status:** *(Switch)* – Enable this to allow guests to submit listings without logging in. When enabled, guests can access the add listing form.
+- **User Registration Method:** *(Dropdown)* – Choose how to handle accounts for guest submissions. Options:
+  - **Once Approved:** Guest’s listing submission creates a new user in a pending status; an admin approves the account (default).
+  - **Once Submitted:** Automatically register the guest as a user as soon as they submit a listing.
+  - **Disabled:** Do not create any user account for guest submissions (the listing will show under a generic guest identity).
+- **Redirect to Login:** *(Switch)* – If guest submissions are disabled, this option can redirect non-logged-in visitors to the login page when they try to access the submission form. Enable this if you prefer users to log in or register before submitting.
+
+<Aside type="caution">
+Enabling guest submissions can increase spam. It's recommended to use moderation (e.g., require admin approval of listings) or enable <Badge text="CAPTCHA" /> to protect against bots.
+</Aside>
+
+### Display Options Per Listing and Category
+
+Listdom Pro gives granular control over how each listing and category’s detail page appears:
+
+- **Display Options Per Listing:** *(Dropdown)* – Control who can customize display settings per individual listing. Options:
+  - **Disabled:** No per-listing display customization.
+  - **Admin Only:** Only administrators can set custom display options for each listing (via WP Admin listing edit screen).
+  - **Admin & Listing Owner:** Both admins and listing owners (via front-end form) can customize that listing’s layout.
+  
+  When enabled, a **Display Options** meta box appears on the listing edit screen for admins (and on the front-end listing form for owners). This allows selection of a specific **Single Listing Style** template and toggling elements (map, contact form, etc.) on or off for that listing. You’ll also see a **Style** column in the listings table to quickly view or change a listing’s assigned style.
+
+- **Display Options Per Category:** *(Switch)* – Enable or disable category-based single listing styles. When **Enabled**, each listing category gets additional fields to choose a single listing style and element visibility for listings in that category. You can set these in the **Listings > Categories** edit screen. For example, you might have the *Hotels* category use a different detail page layout than *Restaurants*. If a listing itself doesn’t have a custom style, it will inherit the style of its primary category when this is active.
+
+<Aside type="tip">
+Use per-category styles to give each section of your directory a unique look. For instance, all listings in *Real Estate* could use a map-focused layout, while *Job* listings use a simpler layout.
+</Aside>
+
+### Additional Listing Statuses
+
+Pro addon introduces new listing post statuses to help manage listing life cycles:
+
+- **Expired:** Listings that have passed their active period (e.g., an expiration date) can be marked as **Expired**. Expired listings are typically not shown on the front-end unless filtered specifically.
+- **On Hold:** This status can be used when a listing is temporarily paused or awaiting some action (for example, payment or verification). On-hold listings are not publicly visible.
+- **Offline:** An alternative status to indicate a listing is taken offline (perhaps by the owner) without deleting it.
+
+These statuses appear in the WP Admin **Listings** list and can be filtered just like Published or Draft statuses. They are internal statuses, meaning they won’t show to users as “Published” but rather in these specific states. Admins can manually set a listing to these statuses, or other addons like a **Subscriptions/Payment** addon might auto-set a listing to *expired* when its package runs out.
+
+### Other Pro Enhancements
+
+- **User Profile & Avatar:** In the front-end dashboard, users can edit their profile information and upload a profile image. Listdom Pro supports custom avatar upload via the dashboard, so listing owners can have their picture or logo shown on their listings.
+- **Front-end Category/Tags Creation:** The *Terms Builder* feature allows users to create new Categories, Locations, Labels, Tags, or Features on the fly from the listing submission form. You can toggle which taxonomies are allowed for front-end creation in **Settings > Frontend Dashboard > Fields**. For example, you might permit adding new *Tags* and *Locations* from front-end, but not new top-level *Categories* to maintain structure.
+- **Listing Form Field Types:** Pro provides options to choose how multi-select fields appear. Under **Fields Method**, you can set *Locations* and *Features* to use checkboxes or a dropdown selector in the submission form. Similarly, *Tags* can be a free-text input (allowing comma-separated tags) or chosen from checkboxes/dropdown.
+- **Gallery Upload Method:** Choose between using the standard WordPress Media Library uploader or a simplified custom uploader for listing galleries on the front-end form. The *Simple Uploader* is handy to streamline the user experience, whereas the WordPress Media gives more control (like cropping, etc.).
+
+<Aside type="note">
+Listdom Pro seamlessly integrates with other add-ons. For instance, if you have the Reviews addon, the Pro addon allows you to display review elements in user dashboards and adds more control over who can see or submit reviews <Badge text="Pro" />.
+</Aside>
+
+## Using the Pro Addon
+
+<Steps>
+1. **Install & Activate:** Upload and activate the *Listdom Pro* plugin. Verify that the base Listdom plugin meets the minimum required version (Listdom Pro will not initialize if the core plugin is out of date).
+2. **Configure Settings:** Go to **Listdom > Settings**. You’ll notice new tabs like **Frontend Dashboard** and additional options in **Single Listing** (details page) settings due to Pro. Adjust the settings:
+   - Set up your **Dashboard Page** with the shortcode and select it in settings.
+   - If needed, enable **Add Listing Page** separately and set that up.
+   - Turn on any desired features like *guest submission* or *terms builder* under the **Submission** and **Fields** sections.
+   - In **Single Listing** tab, enable *Display Options Per Listing* or *Per Category* if you plan to use those features.
+3. **Front-end Pages:** Ensure that the pages for dashboard (and add listing, if separate) are published and accessible. When a logged-in user visits the Dashboard page, they should see the dashboard interface. Create a test user account to verify the experience.
+4. **Test Submission:** Try adding a listing via the front-end form. Fill in details, upload images (to test the gallery method setting), and submit. If you allowed guests, try it logged out — you should see a registration or completion message depending on your guest settings.
+5. **Moderation & Statuses:** After submission, check the listing in WP Admin. You can change its status to *Expired*, *On Hold*, etc., to see how Pro handles these. For example, set a listing to **Expired** and confirm it no longer appears on the site’s listing directory.
+6. **Customize Display:** If enabled, edit a listing and find the **Display Options** meta box. Choose a different style template (e.g., Style 2 or 3) and disable an element (like map or contact form) for that listing. View the listing on the front-end to confirm the changes are applied only to that listing.
+7. **Category Styling:** If using *Display per Category*, edit a category (Listings > Categories). Assign a special style (and optionally toggle off certain elements) for that category. Now all listings under that category will use that layout unless they have their own override.
+8. **Leverage Dashboard:** Log in as a regular user (non-admin) and use the Dashboard. Add a listing, edit a listing, update profile info, etc., to ensure everything works smoothly for your directory’s users.
+</Steps>
+
+<Aside type="tip">
+Don't forget to mention to your site users the benefits of their new dashboard. For instance, they can easily update their listings or check how many views their listing has (if using a views counter) right from the front-end.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>
+    **User-Friendly Listing Management:** With <strong>Listdom Pro</strong>, John can log into your directory site and see a personalized dashboard. He clicks *Add Listing* (using the intuitive front-end form) to submit his business. Later, he navigates to *My Listings* on the dashboard to update details or mark it <em>Offline</em> when his service is temporarily closed.
+  </Card>
+  <Card>
+    **Customized Look per Category:** You run a multi-category directory. Thanks to Pro, all *Hotel* listings use a gallery-centric layout, while *Restaurant* listings automatically show a reservation form. You achieved this by enabling display-by-category and setting different styles for each category, providing a tailored experience in one site.
+  </Card>
+  <Card>
+    **Seamless Guest Posting:** A visitor comes to your site and wants to post a new listing but isn’t registered. Because you enabled guest submissions in <strong>Pro</strong>, the visitor fills out the listing form. The system automatically creates a new user account for them upon submission <Badge text="Auto-Register" /> and even sends them an approval email once the listing is reviewed. They never had to deal with the WP Admin, making the process smooth.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
+  Learn more about the Listdom plugin and its premium features on the official WordPress plugin page.
+</LinkCard>

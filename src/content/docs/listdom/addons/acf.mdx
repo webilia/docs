@@ -1,0 +1,56 @@
+---
+title: ACF Addon
+sidebar_label: ACF Addon
+description: "Integrate Advanced Custom Fields with Listdom listings, allowing custom fields to appear on submission forms and listing pages."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom ACF Addon** integrates the popular Advanced Custom Fields (ACF) plugin with Listdom. It enables you to attach custom fields to your listings and display or collect additional information beyond the default Listdom fields. <Aside type="note">Make sure the **Advanced Custom Fields** plugin is installed and activated for this add-on to function.</Aside>
+
+## Submission Form Integration
+
+Once this add-on is activated (and ACF is installed), any ACF field group assigned to the **Listing** post type will automatically appear in the **Add Listing** form on the front-end dashboard. This means you can define extra fields (text, select, image, etc.) for your listings via ACF and they will be seamlessly included in the listing submission process.
+
+- **ACF Fields in Frontend:** Custom fields created with ACF (and assigned to Listdom’s listing post type) will show up as additional input fields when users add or edit a listing on the front-end. Users can fill in these fields just like any other listing field.  
+- **Submission Module Toggle:** In Listdom’s settings, the ACF module is enabled by default (under *Submission Modules*). This ensures ACF fields are visible on submission forms. You can disable the ACF module to hide these fields if needed (though in most cases you’ll keep it on).
+
+<Aside type="tip">ACF field visibility on the front-end respects any conditional logic or location rules set in ACF. For example, you can configure a field group to appear only for listings in a certain category.</Aside>
+
+## Listing Detail Page Display
+
+The ACF Addon also adds a new **ACF section** option to the Listing **Details Page Builder**. In the Listdom settings for customizing single listing layout, you will find an **“ACF”** element that can be enabled and placed in the desired section of the listing page (e.g., in the content area). When enabled, this section will display all the custom field values associated with the listing:
+
+- **ACF Section Options:** By default, the ACF section on the listing page is disabled (to avoid empty output if no ACF fields are set). You can enable it via *Listdom Settings → Listing Details Page* builder. You may also set a custom title for this section (default title is “Details”). 
+- **Field Group Headings:** The output will group fields by ACF Field Group. Each field group’s title is shown as a heading (typically as a small heading on the listing page) with its fields listed underneath.
+- **Field Label and Value:** Each custom field is displayed in a “Label: Value” format for clarity. If a field label is left blank in settings, the addon will use the field name. Fields like images or file links will be rendered appropriately (e.g., an image field displays the image, a file field shows a link).
+
+<Aside type="note">The ACF section on listing pages only appears if the listing has values for the custom fields. If none of the ACF fields have data for a listing, the section remains hidden.</Aside>
+
+## Import and Export Integration
+
+With the ACF Addon, Listdom’s import/export functionality will include ACF custom field data as well. When you export listings (via Listdom’s CSV export, for example), any additional ACF fields are added as extra columns in the export file. Similarly, during import, the addon attempts to map and import values into ACF fields.
+
+- **Export Columns:** Each custom field (except layout/style fields like ACF tabs or messages) will produce a column in the CSV export named after the field’s label. This allows you to retain those custom values outside WordPress.
+- **Import Support:** On listing import, the addon tries to import provided values into the appropriate ACF fields. Standard field types (text, number, select, etc.) are supported. Complex fields (like repeaters or groups) require structured data and will import if formatted correctly.
+
+<Aside type="caution">Ensure that the destination site has the same ACF field groups configured before importing listings with ACF data. The ACF Addon uses the field names/keys to match values on import. If a field doesn’t exist on the new site, its data will be skipped.</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Real Estate Custom Fields">
+    A real estate directory uses ACF to add fields like **“Number of Bedrooms”** and **“Square Footage”** to listings. With the ACF Addon, these appear on the property submission form, and the values (e.g., 3 Bedrooms, 1200 sqft) show on each listing’s page in a dedicated “Details” section.
+  </Card>
+  <Card title="Event Listings with ACF">
+    An events site creates ACF fields for **Event Date** and **Ticket URL**. The ACF Addon puts a date picker and URL field on the event submission form. On the event listing page, a “Details” section automatically lists the event date and provides a link to purchase tickets.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/products/listdom-acf-addon" title="Listdom ACF Addon">
+</LinkCard>

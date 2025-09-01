@@ -46,10 +46,10 @@ export default defineConfig({
             { label: 'Managing Listings', autogenerate: { directory: 'listdom/managing-listings' }, collapsed: true },
             { label: 'Skin Shortcodes', autogenerate: { directory: 'listdom/skins-shortcodes' }, collapsed: true },
             { label: 'Search & Filter Builder', autogenerate: { directory: 'listdom/search-filtering' }, collapsed: true },
-            { label: 'Frontend Dashboard', autogenerate: { directory: 'listdom/frontend-dashboard' }, collapsed: true },            
+            { label: 'Frontend Dashboard', link: '/listdom/dashboard/' },
             { label: 'Settings', autogenerate: { directory: 'listdom/settings' }, collapsed: true },
             { label: 'Shortcodes', autogenerate: { directory: 'listdom/shortcodes' }, collapsed: true },
-            { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },            
+            { label: 'Theme Widgets', autogenerate: { directory: 'listdom/theme-widgets' }, collapsed: true },
             { label: 'Notifications', autogenerate: { directory: 'listdom/notifications' }, collapsed: true },
             { label: 'Import & Export', autogenerate: { directory: 'listdom/import-export' }, collapsed: true },
             {
@@ -67,7 +67,6 @@ export default defineConfig({
             { label: 'How Tos', autogenerate: { directory: 'listdom/how-tos' }, collapsed: true },
             { label: 'Troubleshooting', autogenerate: { directory: 'listdom/troubleshooting' }, collapsed: true },
             { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
-
           ],
         },
         {

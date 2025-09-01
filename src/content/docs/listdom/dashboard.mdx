@@ -1,0 +1,353 @@
+---
+title: Dashboard
+description: "Manage listings, user profiles, and more through Listdom’s frontend Dashboard. Configure pages, menus, and submission settings for a seamless user experience."
+sidebar:
+  order: 5
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Listdom Dashboard is a frontend user panel that allows listing owners and users to manage their listings, profiles, and related features without accessing the WordPress admin area. This guide covers how to set up the Dashboard, explains each menu item available (including those added by Listdom addons), and details all the configuration options in Listdom → Settings → Frontend Dashboard.
+
+## Setting Up the Frontend Dashboard
+
+To enable the Dashboard on your site, you need to create dedicated pages and configure them in Listdom settings. Follow these steps to set up the frontend Dashboard:
+
+<Steps>
+1. **Create a Dashboard Page:** In WordPress, create a new page (e.g., "My Dashboard"). Add the shortcode `[listdom-dashboard]` in the page content and publish it.
+2. **Configure Dashboard Page in Settings:** Go to **Listdom → Settings → Frontend Dashboard → Pages**. For **Dashboard Page**, select the page you created in step 1 from the dropdown.
+3. *(Optional)* **Enable Independent Add Listing Page:** If you want a separate page for submitting listings, toggle **Independent Add Listing Form** <Badge text="Pro" /> to Enabled. Then choose a page for **Add Listing Page** and insert the `[listdom-add-listing]` shortcode on that page.
+4. **Save Changes:** Click **Save The Changes** to apply the settings.
+</Steps>
+<Aside type="note"> If you do not use a separate Add Listing page, the listing submission form will be accessible via the Dashboard page itself (when users click the "Add Listing" menu in the Dashboard). </Aside>
+
+## Dashboard Menus
+
+Once configured, users can access the Dashboard page and will see a menu of sections on the left. By default, the following menu items are available:
+
+### Dashboard (Listings Overview)
+
+This is the main dashboard section (labeled Dashboard). It displays a list of the user’s listings. Users can see all their listings here with key details like title, status (Published, Pending, Draft, etc.), and manage them. They can search their listings by keyword or filter by category using the search bar and filters at the top of the list. Pagination is provided if there are many listings (e.g., 20 per page by default).
+
+For each listing in the Dashboard table, users can perform actions:
+
+- **Edit:** Opens the listing in the front-end editor (same as the Add Listing form pre-filled for editing).
+- **Delete/Trash:** Removes the listing (moves to Trash).
+- **Status Filters:** Users may filter listings by status (e.g., view only Pending or Draft listings) if applicable.
+
+The Dashboard overview gives a quick insight into how many listings a user has in each status. It’s the home section of the user Dashboard.
+
+### Add Listing
+
+The Add Listing menu opens the listing submission form where users can create a new listing (or edit an existing one). If using the integrated form, clicking Add Listing on the Dashboard will switch the Dashboard page into “Add Listing” mode to show the form. If you have set up an independent Add Listing page, this menu may redirect users to that page instead (depending on your configuration).
+
+The listing submission form includes all the fields required to submit a listing:
+
+- **Listing Title and Description** (main content).
+- **Categories** (choose one or multiple categories).
+- **Locations, Labels, Features, Tags** (taxonomy fields for additional classification).
+- **Contact Details** (such as email, phone, address, website if enabled).
+- **Price fields** (price, price range, etc., if the Price module is enabled).
+- **Gallery** (upload listing images).
+- **Featured Image** (cover image for the listing).
+- **Embed Codes** (e.g., videos or 3D tours, if enabled).
+- **Work Hours/Availability** (if enabled for listings).
+- **Custom Fields** (any additional fields/attributes you have configured).
+- **Remark** (an internal note or remark field, if enabled).
+
+The available fields in the Add Listing form depend on which Modules are enabled (see Dashboard Settings below for controlling modules). Administrators can also mark certain fields as required. By default, Listing Title is required (and always enabled), and other fields like Description or Excerpt can be optional unless configured otherwise.
+
+When a user submits the form:
+
+- If the user is logged in, the listing will be saved under their account (with status depending on moderation settings or user role capabilities).
+- If **Guest Submission** is enabled <Badge text="Pro" />, non-logged-in users can submit listings. They will be prompted to provide an email (and possibly password) for creating an account, based on your Guest Submission settings.
+- The form will enforce any restrictions set (e.g., maximum number of images or tags, required fields).
+
+After submission, users may be redirected to choose a package (if using the Subscriptions add-on) or see a success message. They can then find the new listing in the Dashboard (Listings overview) section, possibly in pending status if moderation is required.
+
+### Profile Setting
+
+The Profile Setting menu (sometimes labeled Profile or Profile Settings) allows the user to manage their personal profile information. In this section, users can update:
+
+- **Name:** First Name and Last Name.
+- **Job Title:** A title or role (for example, “Agent at Company”).
+- **Bio:** A short biography or description about the user.
+- **Profile Image:** The user’s avatar or profile picture. Users can upload an image here.
+- **Cover Image:** A cover/banner image for their profile (e.g., suggested size 1920x490px).
+- **Contact Info:** Contact details for the user profile, including Email, Phone, Mobile, Fax, and Website. (The Email field is required.)
+- **Social Media:** Links to social networks (Facebook, X (Twitter), Pinterest, LinkedIn, Instagram, WhatsApp, YouTube, TikTok, Telegram, etc.). Users can enter their profile URLs or usernames for these platforms.
+- **Password:** The user can set a new account password. They must enter a New Password and confirm it by typing it again.
+
+After making changes, the user can click **Save** to update their profile. The system will validate required fields (for example, Email is required). Updating the password will immediately change their login password (they’ll need to use the new password next time they log in).
+
+This Profile section essentially provides a user profile/dashboard feature so listing owners can manage their public profile details (which may be displayed on their listings or author page) and account security (password) without going into WordPress admin.
+
+### Logout
+
+The Logout menu item logs the user out of the site. This menu is shown to logged-in users for convenience. When clicked, it will sign the user out of their WordPress account and typically redirect them to the home page or login page (depending on WordPress behavior).
+
+**Note:** Once logged out, the user will need to log back in to access the Dashboard again. If Guest Submission is enabled, guests can still see the Add Listing form without logging in, but other Dashboard sections (Listings, Profile) require a logged-in account.
+
+<Aside type="tip"> You can customize the Dashboard menu order and visibility of these items (except **Dashboard** and **Logout**) using the Dashboard Menu settings (available in Listdom <Badge text="Pro" />). For example, you might hide **Add Listing** if you prefer users to only submit via a separate page, or rearrange menu order to highlight certain add-on features. </Aside>
+
+### Subscriptions (Add-on)
+<Aside type="note"> The **Subscriptions** menu is available only if the **Listdom Subscriptions** add-on is installed and activated. This is a <Badge text="Pro" /> feature for monetizing listings. </Aside>
+
+If using Listdom’s paid listing packages system (via WooCommerce integration), the Subscriptions section appears in the Dashboard. This menu allows users to view and manage their listing Packages/Subscriptions.
+
+In the Subscriptions dashboard page, a user can see:
+
+- **Current Package Details:** The active subscription package they have (e.g., how many listings they can post, expiration date, etc.).
+- **Purchase a Package:** If the user does not have an active package or wants to upgrade, they will see available listing packages (plans) listed. They can select a package and proceed to purchase (this will typically redirect to the WooCommerce checkout).
+- **Message/Status:** If a user tries to add a listing without a subscription (and one is required), Listdom will redirect them to the Subscriptions page with a message prompting them to choose a package.
+
+From here, users complete the checkout process for the chosen package. Once the order is completed, the subscription is activated and they can then add listings according to the package limits.
+
+Administrators can configure packages (listing plans) via the Listdom Subscriptions add-on (which uses WooCommerce products behind the scenes). The Subscriptions dashboard page provides a self-service area for users to handle the purchasing process.
+
+### Inquiries (Add-on)
+<Aside type="note"> The **Inquiries** menu is available only if the **Listdom Connect** add-on is installed and activated. This feature lets listing owners manage contact form inquiries from their listings. </Aside>
+
+If enabled, the Inquiries section shows messages and contact requests that visitors have sent via the inquiry or contact forms on the user’s listings. In this dashboard page, listing owners can see a list of inquiries such as messages from potential customers or leads.
+
+For each inquiry, the user might see details like:
+
+- **Sender name and contact information** (email/phone if provided).
+- **The message content.**
+- **Which listing the inquiry is related to.**
+- **Date of the inquiry.**
+
+Listing owners can use this section to track and respond to people who reached out through the listing’s contact form. (Actual replying might happen via email since the plugin typically emails the listing owner, but this dashboard gives a record of all inquiries.)
+
+This is particularly useful for business directory listings, real estate agents, etc., to keep track of customer leads in one place.
+
+### Favorites (Add-on)
+<Aside type="note"> The **Favorites** menu is available only if the **Listdom Favorites** add-on is installed and activated. It allows users to save listings and view them in their dashboard (requires <Badge text="Pro" />). </Aside>
+
+When the Favorites feature is active, logged-in users can "favorite" or bookmark listings on the front end. The Favorites section of the dashboard will list all listings that the user has saved as favorites.
+
+In the Favorites dashboard page, users will see a table or grid of their saved listings (titles, perhaps a thumbnail or excerpt). They can click on any saved listing to view its details, or remove listings from their favorites.
+
+This feature is typically used to let end-users keep track of listings they are interested in. (Note: The admin can enable/disable the Favorites feature for the dashboard via settings. If disabled, the Favorites menu won’t appear even if the add-on is active.)
+
+### Bookings (Add-on)
+<Aside type="note"> The **Bookings** menu is available only if the **Listdom Booking** add-on is installed and activated. This <Badge text="Pro" /> add-on enables booking and reservation functionality for listings. </Aside>
+
+If listing bookings/reservations are enabled, the Bookings section will appear in the user Dashboard. This page allows listing owners to manage booking requests made for their listings.
+
+In the Bookings dashboard page, a listing owner can see all booking inquiries or reservations that users have submitted on their listings (e.g., if you run a directory of rentable venues or services with availability):
+
+- **A list of booking requests or confirmed bookings**, each with details like the listing name, dates requested (check-in/check-out or appointment date), requester name/contact, number of people, etc.
+- **The status of each booking** (e.g., Pending, Approved, Rejected, Canceled).
+- **Actions to manage each booking:** approve, reject, cancel, or delete (trash) a booking request.
+
+For example, if someone requests a booking for a listing, the owner can approve it directly from this dashboard section. Approving might change the status to “Approved” (confirming the reservation). They can also reject or cancel bookings, which updates the status accordingly.
+
+The Bookings dashboard helps listing owners handle reservations without needing separate communication – they can manage everything in one place. All changes (approve/reject) typically trigger notification emails to the requester (depending on the Booking add-on’s configuration).
+
+### Applications (Add-on)
+<Aside type="note"> The **Applications** menu is available only if the **Listdom Jobs** add-on is installed and activated. This is a <Badge text="Pro" /> feature for job listing directories. </Aside>
+
+If you are using Listdom for job listings (with the Jobs add-on), the Applications section will appear in the Dashboard. This section allows employers or listing owners to review job applications submitted to their job listings.
+
+In the Applications dashboard page, the user will see:
+
+- **A list of job applications** submitted for their listings (each application typically corresponds to a specific job listing).
+- **Details for each application** such as applicant name, email, possibly a resume/CV attachment or link, cover letter or message, and the date of application.
+- **The listing (job) that the application is for.**
+
+This interface makes it easy for a job listing owner to go through all applicants. They may click into individual applications to view more details or download attachments provided by applicants.
+
+The Applications dashboard menu streamlines hiring processes by gathering all responses to job postings in one place on the front end.
+
+The above menus will appear for users on the frontend Dashboard. Administrators can customize which menus show up and their order using the Dashboard Menus settings (see below). For example, you can add custom menu items to link to external pages or content, or remove certain menus if not needed.
+
+## Dashboard Settings (Admin Options)
+
+Site administrators can fine-tune how the frontend Dashboard behaves via **Listdom → Settings → Frontend Dashboard**. This settings screen is divided into several sections (tabs) to configure pages, menu customization, guest submissions, form fields, and restrictions. Below is a breakdown of each option exactly as available:
+
+### Pages
+
+- **Dashboard Page:** Select the WordPress page that serves as the main dashboard. This page should contain the `[listdom-dashboard]` shortcode. (If you followed the setup steps, you have created and selected this page.) When a user visits this page, they will see the Dashboard interface with menus and their content.
+- **Independent Add Listing Form:** <Badge text="Pro" /> Toggle this option to Enable if you want to use a separate page for the listing submission form (instead of the form being part of the dashboard page). **Default** is off (disabled). This feature is only available in Listdom Pro.
+- **Add Listing Page:** (Visible only if Independent Add Listing Form is enabled) Select the page that will host the standalone Add Listing form. This page must contain the `[listdom-add-listing]` shortcode. When Independent mode is enabled, you can direct users to this page for adding listings (for instance, you might place a “Add Your Listing” button on your site linking to it). If left empty or not set, the Add Listing form will just use the main Dashboard page in form mode.
+
+<Aside type="caution"> Even with a separate Add Listing page configured, the **Add Listing** menu may still appear on the Dashboard. You can choose to hide or repurpose it via the Dashboard Menus settings if needed (to avoid confusion by having two entry points for adding listings). </Aside>
+
+### Dashboard Menus (Customization)
+
+*(This section is available in Listdom Pro)*
+
+The Dashboard Menus settings allow you to reorder the dashboard menu items and add custom menu entries:
+
+- **Reorder Menus:** You will see a list of the default menu items (such as Dashboard, Add Listing, Profile, and any active add-on menus like Subscriptions, etc.). You can drag and drop these items to change the order in which they appear on the frontend Dashboard. The first item is typically Dashboard (fixed as the main page), and the last is Logout. Other items can be rearranged freely. The new order will reflect in the users’ Dashboard menu.
+- **Add Custom Menu:** You can create custom dashboard menu items that point to custom content. Click the **Add Custom Menu** button to create a new entry. For each custom menu, configure the following:
+  - **Label:** The menu name as it will appear to users (e.g., "Help Center" or "My Coupons").
+  - **Slug:** A unique identifier (no spaces or special characters) for the menu. This slug will be used internally (for example, as a query parameter `?tab=yourslug` or similar). It must be unique among menu items.
+  - **Icon:** Choose an icon (from Font Awesome icons) to display next to the menu label. Clicking the icon field opens an icon picker where you can select an appropriate icon.
+  - **Content:** The content to display when the user clicks this menu. You can type text, HTML, or even shortcodes here. For example, you might enter instructions, a contact form shortcode, or any custom HTML. This content will be shown in the dashboard’s main area for this menu.
+
+Each custom menu you add will appear in the list. You can still drag and reorder custom menus among the default ones. Custom menus also have controls to delete (remove) or expand/collapse their content settings in the admin.
+
+**Removing/Hiding Menus:** By default, all applicable menus are listed. If you want to hide a default menu from the Dashboard, you currently must do so by adding it as a custom menu override or filtering it out via custom code. (There isn’t a simple checkbox to hide a default menu, but reordering and custom entries offer flexibility. Dragging an item out of the list in the admin UI can effectively remove it from the order.)
+
+Remember to hit **Save Changes** after reordering or adding/removing menus. Once saved, users will see the updated menu structure on their next page load of the Dashboard.
+
+<Aside type="tip"> Use custom dashboard menus to enhance the user experience. For example, you could add a "Support" menu that shows a help message or FAQs, or a "Statistics" menu that embeds a stats shortcode. This keeps users engaged in one central dashboard for all related tasks. </Aside>
+
+### Guest Submission
+
+- **Guest Submission (Allow Guest Listing):** <Badge text="Pro" /> This is a toggle (Enable/Disable) that allows non-logged-in visitors to submit listings from the front end. **Default** is disabled (meaning only logged-in users can add listings). When enabled, additional options appear:
+
+  - Enabling Guest Submission will allow visitors to access the Add Listing form without logging in. They will be asked for an email (and optional password) to create an account when they submit a listing.
+  - **User Registration:** (Appears when Guest Submission is enabled) Choose how the system handles user account creation for guest submitters. Options include:
+    - **Once Approved:** An account for the guest will be created only when their listing is approved by an admin. (Their submitted listing remains pending; upon admin approval, the plugin registers the user and associates the listing with the new account.)
+    - **Once Submitted:** An account is created as soon as the guest submits the listing. The listing will immediately be associated with this new user (even before approval).
+    - **Disabled:** Do not automatically register a new user for guest submissions. (The listing might be submitted with a placeholder owner or as a guest post. Use with caution — if disabled, guests won’t have an account to later edit their listing.)
+  - **Redirect to Login:** (Visible only when Guest Submission is Disabled.) This toggle determines what happens if a non-logged-in user tries to access the Dashboard or Add Listing:
+    - **Enabled:** Instead of showing the frontend login/register prompts, the user will be redirected to the standard WordPress login page when they attempt to access a dashboard function. Essentially, this forces them to log in via WP login form.
+    - **Disabled:** (Default) If a guest accesses the Dashboard or submission, Listdom will show its own message or login form prompting the user to log in or register (without redirecting away).
+
+In summary, to allow guest listings you must enable Guest Submission, and configure whether accounts are auto-created. If you prefer to strictly require login, keep this disabled and optionally use Redirect to Login for a seamless experience.
+
+<Aside type="caution"> Guest Submission should be enabled only if you want to allow anonymous users to contribute listings. Keep in mind that disabling user registration (setting it to "Disabled") means guest listings might not be tied to any user, making it impossible for the submitter to edit them later. It's generally recommended to create accounts for guest submissions (<Badge text="Pro" /> feature). </Aside>
+
+### Fields
+
+The Fields section lets you control how certain input fields appear in the Add Listing form and whether users can add new terms on the fly. It consists of a few parts:
+
+#### Field Input Method
+
+For taxonomy selection fields in the listing form, choose the input style:
+
+- **Locations Field Method:** Choose how the Locations field is presented to users. Options:
+  - **Checkboxes:** (Default) Users will see a checklist of all available Locations and can tick one or multiple.
+  - **Dropdown:** Users will see a dropdown (single-select) of Locations instead.
+- **Features Field Method:** Choose input style for Features (amenities or attributes) field. Options are Checkboxes or Dropdown (default is Checkboxes). This behaves similarly: checkboxes allow multi-select, whereas a dropdown typically allows one selection (unless configured otherwise).
+- **Tags Field Method:** Choose input style for Tags. Options:
+  - **Text Input:** (Default) A freeform text field where users can type tags (usually separated by commas).
+  - **Checkboxes:** Show all existing tags as multiple checkboxes (user can select those that apply).
+  - **Dropdown:** A single-select dropdown of existing tags.
+- **Gallery Method:** Choose how images are uploaded in the listing form:
+  - **WordPress Media:** (Default) Uses the standard WordPress media library pop-up for uploading/choosing images. This provides more features (image library, cropping, etc.) but requires the user to be treated as having media permissions.
+  - **Simple Uploader:** Provides a simpler file input for uploading images directly. This might be more straightforward for users and doesn’t open the full media library interface.
+
+#### Terms Builder
+
+This section allows you to let users create new taxonomy terms (Categories, Locations, Labels, Tags, Features) from the frontend form, instead of restricting them to existing choices. For each taxonomy listed below, choose one of the options:
+
+- **Disabled:** Users cannot create new terms; they must use one of the existing options.
+- **Express:** Users can quickly add a new term by entering a name inline (for example, a small “+ Add New” text field might appear in the form). This typically just needs a name for the new term.
+- **Detailed:** Users can add a new term with more details. Selecting this might allow a more detailed form (perhaps a modal or additional fields like description or image for the term, depending on taxonomy).
+
+The taxonomies you can configure:
+
+- Categories (Listing Categories)
+- Locations
+- Labels
+- Tags
+- Features
+
+By default, each of these is set to **Disabled** on the frontend (so users can only choose from admin-defined terms). If you want, for example, users to add new Locations while submitting a listing, you could set Locations to Express or Detailed. Detailed might prompt for extra info like maybe coordinates or parent location, whereas Express would just take a name.
+
+Enabling Terms Builder can enrich your directory by allowing user contributions to taxonomy, but use it carefully to maintain data quality. For instance, you might allow new Tags (which are free-form by nature) but keep Categories controlled.
+
+#### Required Fields
+
+Here you can mark which fields in the listing submission form are required. You’ll see a list of all possible fields with checkboxes:
+
+- Check the box next to a field to make it required (the user must fill it to submit).
+- Uncheck to make it optional.
+- Some fields are always required and cannot be changed – these are indicated (they appear checked and disabled). For example, Listing Title is always required. If Guest Submission is on, Guest Email and Guest Password fields are always required for guests (since an email and password are needed to create their account).
+
+Fields listed include:
+
+- Title, Description, Excerpt
+- Category, Locations, Tags, Features, Labels
+- Price fields (if price module is enabled)
+- Contact fields (email, phone, etc.)
+- Address, Map location (if enabled)
+- Work Hours (if enabled)
+- Custom Fields (Attributes)
+- Gallery, Featured Image, Embed Codes
+- Remark (an internal note field)
+
+The list will dynamically include fields from active modules. Simply configure which ones you absolutely need from users. For example, you might require at least one Category, or require an Email in contact info.
+
+This setting gives you fine control to enforce data completeness for listings.
+
+#### Restrictions
+
+The Restrictions section has two parts, controlling content limits and module availability based on user roles:
+
+##### Listing Content Restrictions
+
+These settings define limits for what users can input in their listings:
+
+- **Maximum Gallery Images:** Set the maximum number of images a user can upload to the listing’s gallery. Enter a number (e.g., 5 to allow up to 5 images). Leave empty for no limit. Default is no limit (blank). If you set 0, it would effectively prevent adding images.
+- **Maximum Image Size Allowed:** Set the largest file size (in kilobytes) for each image upload. This applies to gallery and featured images uploaded via the front end. Leave empty for no limit. For example, enter 1024 to limit images to ~1 MB each. (Note: server-side PHP limits still apply.)
+- **Maximum Description Length:** Set a character limit for the listing Description field. Enter the number of characters allowed. Leave empty for unlimited length. For instance, you might set 1000 to enforce brevity. If a user exceeds this, the form will likely show an error or truncate.
+- **Maximum Number of Tags:** If you use tags, you can limit how many tags a user can enter per listing. Enter a number or leave blank for no limit. E.g., 5 means each listing can have at most 5 tags.
+
+These limits help maintain consistency and prevent excessively large submissions. If any of these are set, the front-end form will enforce them (and show validation errors if the user tries to exceed the limits).
+
+##### Modules (Field Sections Availability)
+
+Here you control which modules or sections of the listing form are enabled for front-end users, and at what level. For each module in the list, you have three options:
+
+- **Enabled:** The module (and its related fields) is available on the frontend Add Listing form for all users.
+- **Editor + Admin:** The module is hidden from normal users on the frontend, but available to site editors/administrators. In practice, this means regular users will not see those fields in the submission form, but an administrator editing the listing in WP Admin can fill them. This is useful for fields you want to control yourself or only allow higher privileges to set.
+- **Disabled:** The module is completely turned off (neither users nor admins will use those fields). Any fields under this module won’t be collected.
+
+The modules you can configure include:
+
+- Contact Details: Fields like listing owner Email, Phone, Website, Address, etc.
+- Remark: An internal Remark/note field for listings.
+- Gallery: The image gallery upload field.
+- Custom Fields (Attributes): Any additional attributes/custom fields you have defined.
+- Locations: The Location taxonomy field.
+- Tags: The Tags taxonomy field.
+- Features: The Features taxonomy field.
+- Labels: The Labels taxonomy field.
+- Featured Image: The primary featured image field.
+- Embed Codes: The embeds section (for videos, iframes, etc.).
+- Excerpt: The Listing Excerpt field.
+
+If certain advanced components are enabled, you will also see:
+
+- Related Listings: (Requires the Related Listings component) Allows linking related listings.
+- Address / Map: (Requires the Map component) The address input and map selector.
+- Price Options: (Requires Pricing component) The price, price range, and related price fields.
+- Work Hours: (Requires Work Hours component) The business hours/availability schedule field.
+
+Each module is listed with its name. For example, to disable the Price section on the frontend, find **Price Options** and set it to **Disabled**. Or if you want only admins to set Labels (and not let users pick labels), set **Labels** to **Editor + Admin**.
+
+By default, most modules are Enabled (if the feature exists), except some that might be off if their parent feature is off. For instance, if you haven’t enabled a Price component in Listdom, the Price module might not even show up here or would be moot.
+
+Setting a module to **Editor + Admin** means when a regular user submits a listing, they won’t even see that field; however, an admin editing the listing in the backend can fill it in. This is great for things like an “Approved” flag or special attributes you don’t want users to manipulate.
+
+<Aside type="tip"> A common use of Modules settings: You might disable **Address/Map** for front-end users if you want to manually add locations yourself, or set **Custom Fields** to *Editor + Admin* if only admins should assign certain attributes. This flexibility helps tailor the submission form to your workflow. </Aside>
+
+After adjusting the Modules and other restrictions, click **Save Changes**. The frontend form will immediately reflect these rules (you may test by going to Add Listing as a regular user).
+
+## Examples
+
+Finally, here are some practical examples to illustrate how the Dashboard features can be used in real scenarios:
+
+<CardGrid>
+  <Card>
+    **Allowing Guest Listing Submissions:** By enabling _Guest Submission_ <Badge text="Pro" />, a directory owner opened their site to submissions from the public. Visitors could add listings without creating an account first. For each guest entry, an account was automatically created once the admin approved the listing. This helped increase community contributions while the admin retained control over approvals.
+  </Card>
+  <Card>
+    **Custom Dashboard Menu for Support:** An administrator added a custom Dashboard menu called "Help & Support". Using the **Add Custom Menu** feature, they provided a Label "Help & Support", chose an info icon, and added content with FAQs and a contact form shortcode. Now, users see a "Help & Support" option in their Dashboard, which when clicked shows helpful information and a way to contact support, all without leaving the dashboard.
+  </Card>
+  <Card>
+    **Managing Bookings from the Dashboard:** A property rental site uses the Listdom **Booking** add-on. Property owners see a **Bookings** menu in their Dashboard. One owner received multiple booking requests for a holiday home listing – all appeared in the Bookings section. The owner could approve one request (changing its status to confirmed) and reject another (perhaps due to unavailability), all with a couple of clicks. The booking statuses updated immediately, and the renters got notified. This streamlined process kept booking management simple and organized.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org"> Explore the official WordPress plugin page for Listdom for more details and user reviews. </LinkCard>
+

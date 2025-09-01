@@ -1,0 +1,106 @@
+---
+title: Connect Addon
+sidebar_label: Connect Addon
+description: "Facilitate connections between users and listing owners through inquiries and direct communication tools."
+sidebar:
+  order: 12
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Connect Addon** enables a messaging system between listing viewers and listing owners. It introduces an **Inquiries** system, allowing site users to contact listing owners via a form on listing pages or user profiles. These inquiries are stored in your WordPress dashboard for tracking and response, complementing (or replacing) direct email notifications. By activating Connect, you add tabs and shortcodes that make two-way communication easier without exposing personal contact information.
+
+<Aside type="note">
+The Connect Addon must be installed and activated to use the inquiries feature. Once active, new **Inquiries** menus and dashboard sections will appear in Listdom.
+</Aside>
+
+## Inquiries Overview
+
+When a site visitor fills out a **Contact Owner** form on a listing page (or a **Contact User** form on a profile page), the Connect Addon intercepts that submission and creates a new **Inquiry** entry. Each Inquiry is stored as a custom post type (`listdom-connect`) containing the message and contact details:
+
+- **Name, Email, Phone:** The contact information provided by the inquirer.
+- **Message:** The inquiry text or question.
+- **Source:** Indicates where the inquiry was sent from – either a specific listing or a user profile (shown as “listing” or “profile”).
+- **Listing/User Reference:** If sent from a listing, the inquiry stores the target listing’s ID. If sent via a user profile, it stores the target user’s ID.
+- **Sender and Receiver IDs:** The user ID of the person who sent the inquiry (if logged in) and the listing owner’s user ID as the receiver.
+
+Each Inquiry post is private to site administrators and listing owners and is not published publicly. This allows owners to log in and review inquiries instead of relying solely on email.
+
+## Admin Dashboard – Managing Inquiries
+
+Once Connect is active, an **Inquiries** submenu appears under **Listdom** in wp-admin. Administrators can click **Listdom → Inquiries** to see all inquiry entries:
+
+- The inquiries list table shows each inquiry’s **title** (automatically generated from the sender’s email and listing title or user name) and a **Source** column indicating Listing or Profile.
+- Clicking an inquiry opens its detail view. A meta box displays all inquiry information: Name, Email, Phone, Message, and references to the related Listing or User.
+- From here, admins can take action such as manually emailing the inquirer back (using their provided email) or simply keep a record of the communication. Inquiries are stored as WordPress posts, so you can also mark them as read or move them to Trash when resolved.
+
+By default, only administrators (or roles with `manage_options`) can view inquiries in wp-admin. This keeps inquiries confidential. Listing owners will typically use the front-end dashboard to review their messages (see below).
+
+## Frontend Dashboard Integration
+
+Connect Addon also adds an **Inquiries** section to Listdom’s frontend user dashboard for logged-in users. On the dashboard menu, users will see a new **Inquiries** tab (with a question-circle icon) after logging in. This section serves two purposes:
+
+- **Received Inquiries:** If the user is a listing owner, this tab will list all inquiries received for their listings, allowing them to read messages from interested parties.
+- **Sent Inquiries:** If the user has sent inquiries (while logged in), the tab will also show inquiries they have submitted to other listing owners.
+
+When the **Inquiries** dashboard page is opened, the addon displays an interface for managing inquiries. At the top, a handy link titled **Connect Settings** leads admins to the Connect addon settings in wp-admin (though in this case, Connect has no configurable options beyond shortcodes). Below that, the inquiries are presented, often in two lists or sections:
+
+- **Received Inquiries:** This section (visible to listing owners) shows each inquiry received, with details like sender name, message excerpt, and date. Listing owners can click each entry to view the full message.
+- **Sent Inquiries:** This section (visible to any user who sent inquiries) lists messages the user has sent to others, along with their status (e.g., date sent).
+
+Users must be logged in to access the dashboard inquiries. If a non-logged-in visitor tries to view these shortcodes or pages, they will be prompted to **log in first**.
+
+<Aside type="tip">
+Listing owners should regularly check their **Inquiries** dashboard or wp-admin **Inquiries** list. Inquiries appear immediately after a visitor submits the form. Owners can then respond via email (using the sender’s email provided) since direct reply via the site is not yet supported.
+</Aside>
+
+## Shortcodes
+
+Connect provides two shortcodes to display inquiry lists on the front-end (outside of the standard dashboard). These can be useful if you want to create custom pages for inquiries:
+
+- **`[listdom-received-inquiries]`** – Displays the logged-in user’s received inquiries (messages sent *to* that user’s listings). Use this on a page where listing owners can see who has contacted them. This output is similar to the Inquiries dashboard tab.
+- **`[listdom-sent-inquiries]`** – Displays inquiries the logged-in user has sent out to other listing owners. You might place this on a user profile page or a “My Inquiries” page so users can review the messages they’ve sent.
+
+In the Connect Addon’s settings panel (Listdom Settings → Addons → Connect), these shortcodes are noted for reference. You can place the shortcodes on any page or widget. The output will be an interactive list of inquiries, complete with search and filter capabilities (e.g., a search box to find inquiries by keyword, filter by read/unread, etc.). For example, on a dedicated “My Inbox” page, `[listdom-received-inquiries]` could show all messages a listing owner has gotten, without requiring navigation to the dashboard.
+
+<Aside type="note">
+The inquiry shortcodes will only show results for logged-in users. Guests will see a prompt to log in before viewing inquiries.
+</Aside>
+
+## Using the Connect Addon – Step by Step
+
+<Steps>
+1. Activation:** Install and activate the Connect Addon. No additional configuration is needed – the addon’s features load automatically on activation.
+
+2. Contact Form Submission:** A visitor fills in the contact form on a listing’s page or a user’s profile page (these forms are provided by core Listdom). Upon submission, the Connect Addon creates an inquiry post, storing the message and details. Simultaneously, Listdom’s notification system may send an email to the listing owner to alert them of the inquiry (if email notifications are enabled).
+
+3. Admin Review (optional):** As an administrator, navigate to **Listdom → Inquiries** in wp-admin to see all inquiries. You can click on any inquiry to view its content and the sender’s info, and optionally follow up by email if needed.
+
+4. Listing Owner Dashboard:** The listing owner logs into the site and visits their **Dashboard → Inquiries** section. There, they find the new inquiry under **Received Inquiries**, including the sender’s name, message, and which listing it’s regarding. They can read the full message and use the sender’s contact details (email or phone) to reply directly (outside the system).
+
+5. Sender’s Perspective:** If the sender has an account and was logged in, they can log into their own dashboard to see the inquiry listed under **Sent Inquiries**. They’ll know the message was delivered and can keep track of their outgoing inquiries.
+
+6. Ongoing Communication:** The listing owner responds via traditional methods (e.g., emailing the inquirer back, or calling if a phone number was provided). Future enhancements may introduce on-site reply threads, but currently the Connect Addon’s role is to capture and organize the initial inquiries.
+</Steps>
+
+<Aside type="caution">
+**Privacy:** The Connect Addon stores inquiry content and contact info in your database. Ensure your privacy policy covers this. Only authorized users (admins and the listing owner) can see an inquiry’s personal details.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Facilitating Buyer–Seller Interaction">
+    A real estate directory uses the Connect Addon to let interested buyers send messages directly from a listing page. The property owner receives the inquiry in their dashboard and follows up via email. The inquiry is logged in the system, providing a record of buyer interest.
+  </Card>
+  <Card title="Private Message Center for Listings">
+    On a services marketplace, the site admin enabled Connect to create a secure message center. Service providers check their <strong>Inquiries</strong> tab regularly to view new client questions. Clients who sent inquiries can review their outgoing messages, giving both parties a convenient history of their communication.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org">
+  Explore the Listdom plugin page for more details and reviews.
+</LinkCard>

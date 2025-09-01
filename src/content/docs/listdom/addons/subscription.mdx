@@ -1,0 +1,116 @@
+---
+title: Subscriptions Addon
+sidebar_label: Subscriptions Addon
+description: "Monetize your directory by selling listing submission packages to users via WooCommerce."
+sidebar:
+  order: 30
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Subscriptions Addon** allows you to generate revenue by selling subscription packages for listings. It integrates with **WooCommerce** to let you define listing packages (e.g. Free, Silver, Gold plans) that users can purchase. Each package can limit how many listings a user can submit and for how long their listings remain active, along with restricting certain listing features. With this addon, you can turn your listing directory into a membership-based platform where users pay for the ability to post and maintain listings.
+
+<Aside type="caution">
+**WooCommerce Required:** The Subscriptions addon requires WooCommerce to be installed and activated for payment processing <Badge text="Pro" />. Make sure WooCommerce is set up before configuring Listdom subscription packages.
+</Aside>
+
+## Creating Subscription Packages (Admin)
+
+Site administrators can create custom subscription packages which users will buy. Each package corresponds to a product in WooCommerce. Follow these steps to set up a subscription package:
+
+<Steps>
+1. **Create a WooCommerce Product:** In your WooCommerce catalog, create a new product that represents the subscription (for example, *“Gold Listing Package”*). Set a price and make it a simple product (or a subscription product if using recurring billing plugins). You do not need to publish this product on the shop page; it will be used internally for Listdom.
+2. **Add a New Package in Listdom:** In WordPress admin, navigate to **Listdom → Subscriptions**. This section lists user subscriptions, but also allows managing packages. Click **Add New Package** (you may find this under *All Packages* or via an “Add Package” button).
+3. **Package Settings:** Enter the package details:
+   - **Title:** The name of the package (e.g. *Gold Package*). This will be shown to users.
+   - **Description:** (Optional) Describe the benefits of the package. This text may appear on the subscription selection page for users.
+   - **WooCommerce Product:** Select the WooCommerce product you created for this package. This links the package to the actual item users purchase.
+   - **Listing Limit:** Set the number of listings a user can submit under this package. For example, *10 listings*. Leave blank or 0 for **Unlimited** listings.
+   - **Duration:** Set how long the subscription lasts (in days). For example, *30 days*. After this period, listings under this subscription will expire unless renewed. Leave blank or 0 for **Never Expire** (no time limit).
+   - **One-time Purchase:** If enabled, a user can only purchase this package once. (They cannot buy it again after it expires or is used up.) Use this for one-off lifetime packages or unique offers.
+   - **Auto Confirm:** If enabled, listings submitted under this package are automatically published (bypassing admin review). (Default is off, meaning listings might follow normal moderation settings.)
+   - **Allowed Categories:** Restrict which listing categories are available to this package’s users. You can select one or multiple categories. If you leave this empty, users can post in **all categories**.
+   - **Allowed Labels:** If you use listing labels (via the Label addon) or a similar feature, you can restrict which labels can be applied by this package’s users. Leave empty to allow all labels.
+   - **Dashboard Modules:** Choose which listing features/modules are enabled for this package. For example, you might disable the **Gallery** or **Price** module for a lower-tier package. All modules (Contact Details, Remark, Gallery, Custom Fields, Locations, Tags, Features, Labels, etc.) are enabled by default. Toggle the switch off to disallow a feature in this package. (If a module is globally disabled in Listdom settings, it will not appear here.)
+   - **Max Gallery Images:** Limit the number of gallery images a listing can have for this package. For instance, enter **5** to allow at most 5 photos per listing. Leave blank for no limit.
+   - **Max Tags:** Limit how many tags can be added to a listing. For example, **3** tags maximum. Leave blank for no tag limit.
+   - **Description Length:** Limit the character count of the listing description. Enter a number (e.g. **500** characters) to restrict length, or leave blank for no restriction.
+   - **Max Visits:** (Integrates with the Visibility addon) Set a maximum number of views each listing can receive under this package. If a listing hits this number of views, it will be auto-expired (set offline) by the Visibility addon. Leave blank for unlimited views. <Badge text="Pro" />
+   - **Display Style:** If the **Display Per Package** feature is enabled in Listdom’s single listing settings, you can choose a custom listing style for this package. (For example, premium packages could display listings in a highlighted style or different layout.) Select a style from the dropdown, or choose “Inherit from global” to use the default style.
+4. **Mass Subscription (Optional):** In the package edit screen, you’ll see a **Mass Subscriptions** section. This lets you assign this package to existing users in bulk:
+   - **All Users:** Check this to give every user on the site this subscription.
+   - **Specific Users:** If you prefer, leave "All Users" unchecked and select one or more usernames from the list to grant them this package.
+   - **Ignore Subscribed Users:** If checked, the system will *not* assign the package to users who already have any active subscription. (This prevents duplicate or overlapping subscriptions.)
+   After selecting, click **Update** on the package. The addon will automatically create subscription entries for those users (free of charge) as if they purchased the package.
+5. **Save the Package:** Click **Publish** or **Update** to save your new package. Once saved, it becomes available for users to purchase on the front-end.
+</Steps>
+
+Each package you create will appear on the user’s Subscription selection page (detailed below), showing its title, description, listing limit, duration, and price.
+
+<Aside type="tip">
+You can set up multiple packages (e.g., Free, Basic, Premium) to offer tiered plans. Use **Listing Limit**, **Duration**, and **Modules** to differentiate the packages. For example, a Free plan might allow 1 listing with limited features, while a Premium plan offers 50 listings with all features enabled.
+</Aside>
+
+## Subscription Add-On Settings (Global)
+
+In addition to creating packages, there are global settings for the Subscriptions addon. Navigate to **Listdom → Settings → Addons tab → Subscriptions** to configure these:
+
+- **Default Subscription:** Choose a package to automatically assign to every new user upon registration. This is useful if you offer a free starter package. For example, select a “Free Trial” package here and any newly registered user will immediately get that subscription without payment. If set to **None**, new users start with no listings until they purchase a package.
+- **Import Subscription:** Select a package that will be used when importing listings via CSV/JSON/Excel. If you import listings in bulk (perhaps as an admin or via a script), those listings need a subscription association. The chosen package will be applied to imported listings (typically, you might create an **“Import”** package with unlimited listings and never expiring for this purpose). If left **None**, imported listings will not be tied to a subscription, and they cannot be edited by front-end users until assigned.
+- **Auto Order Complete:** Toggle this On (Recommended). When enabled, any WooCommerce order for a subscription product will automatically be marked **Completed** as soon as payment is done. This means the user’s subscription activates immediately. (If disabled, you or the WooCommerce system would have to manually complete the order before the subscription becomes active.)
+- **Redirect to Add Listing Form:** (*Visible only if Auto Order Complete is on.*) Toggle On to redirect users straight to the **Add Listing** page after a successful checkout. With this on, once a user pays for a package, they’ll skip the typical WooCommerce Thank You page and instead land on the Listdom “Add New Listing” form, ready to use their new subscription.
+
+These settings refine how the subscription workflow behaves. Usually you will set a default package if you have a free plan, and enable auto-completion and redirection for a smoother user experience.
+
+<Aside type="note">
+If you plan to import listings in bulk into an account, ensure you set **Import Subscription** to a package that has a high (or unlimited) listing limit and no expiration. This ensures imported listings remain editable. For example, you might assign all imports to an “Admin Unlimited” package.
+</Aside>
+
+## User Dashboard & Purchasing a Subscription
+
+Once the Subscriptions addon is active, users will see a new **“Subscriptions”** section in their Listdom front-end dashboard. Here’s how the process works for an end user:
+
+- **Dashboard Menu:** In the user’s dashboard (usually accessed via a page using the `[listdom_dashboard]` shortcode), a new menu item **Subscriptions** appears. Users can click this to manage their subscription or buy a new one.
+- **Available Packages:** The Subscriptions dashboard page will list all the available packages (the ones you created) with their name, price, how many listings they allow, and how long they last. Users can compare the plans here.
+- **Purchasing a Package:** When a user selects a package to purchase, they’ll typically see a **“Buy”** or **“Select Package”** button (often represented with a shopping cart icon). Upon clicking it, the addon will add the corresponding WooCommerce product to their cart and take them to checkout. The user proceeds through the WooCommerce checkout and payment as usual.
+- **Order Completion:** If *Auto Order Complete* is enabled, the moment payment is successful, the order status changes to **Completed** automatically. The Subscriptions addon will then create a new subscription entry for the user tied to the package they bought. At this point, the user is “subscribed” and can use their package.
+- **Redirect to Add Listing:** With the redirect option on, the user is forwarded straight to the **Add Listing** form after checkout. They will see that they can now submit listings (up to the limit of their package). If the redirect is off, they’ll see the standard WooCommerce thank-you page and can navigate to add a listing on their own.
+- **Using the Subscription:** Once subscribed, the user can add up to the number of listings allowed by their package. The addon associates each new listing with the user’s subscription. The user’s subscription status and usage (e.g., how many listings used out of the limit) may be displayed on the Subscriptions dashboard page, so they can keep track.
+- **Expiration and Renewal:** If the package has a duration, then from the date of purchase, it will expire after that many days. Upon expiry, the user’s listings might be automatically expired (removed from public view) by the addon. Users would then need to renew by purchasing a new package. For one-time packages, they can purchase a different package if one-time prevents re-buying the same. If you are using a recurring payments plugin (see note below), renewals can happen automatically.
+- **Switching Packages:** If a user still has an active subscription but wants to upgrade to a higher package, they can purchase the new package as well. Listdom Subscriptions addon allows users to have multiple subscription entries. However, a single listing can only be associated with one subscription at a time. The user interface includes options to **switch** a listing’s subscription if the user has more than one active (for example, moving a listing from a free package to a paid package they bought). This is handled via a dropdown or button on the listing in the dashboard (e.g., *“Switch Subscription”* action).
+- **Subscription Management:** In the front-end, users can see details of their current subscription (package name, remaining listing count, expiry date). They cannot manually extend it except by buying another package. Admins, however, could extend or modify subscriptions from the back-end if needed.
+
+<Aside type="note">
+When a user’s subscription expires or they reach the listing limit, the addon will prevent new listings from being added. If a user attempts to add a listing in that state, they will be redirected to the Subscriptions page with a message prompting them to purchase or renew a package.
+</Aside>
+
+## Admin Management of Subscriptions
+
+On the WordPress admin side, the **Listdom → Subscriptions** page shows all user subscriptions as custom post entries (post type: *Listdom Subscription*). Each subscription record includes the user (author), the package, status, and other metadata:
+
+- **Statuses:** Subscriptions can have statuses like *Active (publish)*, *Expired*, *Canceled*, or *On Hold*. These statuses update automatically based on time or admin actions:
+  - Active means the subscription is currently valid.
+  - Expired means the duration passed.
+  - Canceled might indicate an admin or system canceled it (e.g., refunded or manually ended).
+  - On Hold could indicate a paused subscription (for instance, if using recurring payments and a payment failed).
+- **Viewing/Editing:** An admin can click on a subscription to view its details (the associated package, dates, user info). You typically do not need to edit these manually, but you could adjust expiry dates or package associations if necessary.
+- **Listings Association:** Each listing post in Listdom will have a meta field linking it to a subscription ID (`lsd_subscription`). Admins can see which subscription a listing is under. If a subscription expires, the addon (in conjunction with the Visibility addon) may expire the listings (set them offline).
+
+In practice, most subscription management (activation, expiry) is automated. Admins mainly intervene to set up packages and handle edge cases (like granting free packages via Mass Subscription or troubleshooting payment issues).
+
+<Aside type="tip">
+For recurring payments, consider using <Badge text="Pro" /> **WooCommerce Subscriptions** or **YITH WooCommerce Subscription** plugins. The Listdom Subscriptions addon will detect these and integrate accordingly (automatically renewing the listing package when the WooCommerce subscription renews, marking it expired if a recurring payment fails, etc.). This provides a seamless experience for subscription plans that charge monthly or annually.
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card title="Free and Paid Plans" description="You offer a **Free** package (1 listing, 7-day duration) for new users and a **Premium** package (unlimited listings for 30 days). A new user automatically gets the Free plan on signup, then upgrades to Premium via the Subscriptions page to post more listings." />
+  <Card title="Tiered Feature Access" description="Using **Dashboard Modules** settings, you create a **Basic** plan that does not allow Gallery or Video embeds, and an **Advanced** plan that enables all features. Users on Basic can list items with text only, enticing them to upgrade for rich media features." />
+  <Card title="Recurring Revenue Model" description="You set up a **Monthly Subscription** product in WooCommerce tied to a Listdom package. With WooCommerce Subscriptions <Badge text='Pro' />, users are automatically charged each month and their listing quota renews without manual intervention, ensuring continuous revenue." />
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/woocommerce/" title="WooCommerce Plugin" description="Learn more about WooCommerce, the e-commerce platform required for processing subscription payments in Listdom." />

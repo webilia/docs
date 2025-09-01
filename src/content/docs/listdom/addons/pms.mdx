@@ -1,0 +1,48 @@
+---
+title: Paid Member Subscriptions Addon
+sidebar_label: Paid Member Subscriptions
+description: "Control listing visibility based on Paid Member Subscriptions membership levels."
+sidebar:
+  order: 24
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The Paid Member Subscriptions (PMS) Addon <Badge text="Pro"/> integrates Listdom with the Paid Member Subscriptions plugin, allowing you to restrict which listings are visible to users based on their membership status. You can designate which listing categories are viewable by guests, logged-in users, and each subscription plan tier.
+
+<Aside type="note">
+This integration requires the **Paid Member Subscriptions** plugin to be installed and activated. Make sure PMS is set up with your membership plans before configuring the integration.
+</Aside>
+
+## Category Access Control Settings
+After activating the addon, navigate to **Listdom > Settings > Addons > Paid Member Subscriptions**. Here you can configure which listing categories can be viewed by different user groups.
+
+- **Guest Users**: Check the categories that can be viewed by non-logged-in visitors.
+- **Logged-in Users (No Subscription)**: Select categories that all regular registered users (without a membership) can view.
+- **Specific Subscription Plans**: For each subscription plan you've created (e.g., "Bronze," "Gold"), a row will appear. Check the categories that members of that plan are allowed to view.
+
+<Aside type="caution">
+If a user's subscription expires, their permissions revert to the "Logged-in (no subscription)" access level. Ensure your settings for this group are configured appropriately.
+</Aside>
+
+## How It Works (Front-end Behavior)
+Once configured, the addon filters listing visibility automatically:
+- **Browsing and Search**: Users will only see listings from categories that their role or plan is allowed to access.
+- **Direct Access**: If a user tries to view a restricted listing via a direct URL, they will see a warning message prompting them to log in or upgrade their account.
+
+## Examples
+<CardGrid>
+  <Card title="Public vs. Members-only Listings">
+    An admin creates a "Premium Listings" category and uses the addon to disable guest and non-member access. A user without a subscription will not see any listings from that category. Once they subscribe, the premium listings become visible.
+  </Card>
+  <Card title="Tiered Access with Multiple Plans">
+    A real estate directory has "Silver" and "Gold" plans. The admin assigns high-value properties to an "Elite Properties" category and allows access only for Gold members. This incentivizes users to upgrade for full access.
+  </Card>
+  <Card title="Gradual Restriction Rollout">
+    A directory admin decides to make some existing public categories subscriber-only. Using the addon, they check those categories under the subscription plan rows and uncheck them for guests, effectively paywalling that content.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/paid-member-subscriptions/" title="Paid Member Subscriptions Plugin" description="Learn more about the Paid Member Subscriptions plugin on WordPress.org." />

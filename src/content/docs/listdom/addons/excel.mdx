@@ -1,0 +1,86 @@
+---
+title: Excel Addon
+sidebar_label: Excel Addon
+description: "Advanced Excel Importer/Exporter for Listdom – bulk upload and download listings using Excel (.xlsx) files with smart field mapping."
+sidebar:
+  order: 16
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+The **Listdom Excel Addon** extends Listdom’s import/export capabilities to Microsoft Excel files. It works similarly to the CSV Addon, but allows you to use **.xlsx** files for bulk listing import and export. This is ideal if you prefer working in Excel or Google Sheets. With the Excel Addon, you can import hundreds of listings from a spreadsheet, complete with an interactive field mapper and even AI-assisted “Smart Mapping,” and export your current listings to an Excel file with one click.
+
+<Aside type="note">
+Make sure to install and activate the Excel Addon to use these features. A new **Excel** tab will appear under **Listdom → Import & Export** once active, alongside CSV, JSON, etc.. Excel import/export is not available without this addon.
+</Aside>
+
+## Importing Listings from Excel
+
+To import listings via an Excel file:
+
+1. Go to **Listdom → Import & Export → Excel** tab. You’ll see options similar to the CSV import tab, but tailored for Excel.
+2. **Upload an Excel File:** Use the file selector to upload your `.xlsx` file. The addon supports the common Excel format (the file should have a header row with column names). After upload, the addon processes the file and prepares the **Mapping** interface.
+3. **Field Mapping:** Just like with CSV, the Excel Addon will display a list of Listdom fields and attempt to read the column headers from the Excel file. You’ll map each Listdom field to the corresponding Excel column. The interface shows dropdowns populated with your Excel columns for each field. For example, map “Listing Title” to the “Name” column, “Description” to “Description” column, “Price” to “Cost” column, etc.
+4. **Default Values:** If any Listdom field is not present in your Excel, you can provide a default. For instance, if none of your Excel rows have a “Label” for listings, you might set a default label (like “New”) that will apply to all imported listings. Default value inputs appear in the mapping table where applicable.
+5. **Smart Mapping (AI Auto-map):** A unique feature in the Excel Addon is the **Smart Mapping** button. If you have configured AI profiles in Listdom’s settings (for example, connected an AI service), you can select an AI profile and click **Smart Mapping**. The addon will use AI to automatically match your Excel columns to listing fields by analyzing header names. This can save time – for example, it might recognize that your “PriceUSD” column should map to Price, or that “Full Address” maps to Address.
+6. **Mapping Templates:** You can save the mapping for reuse. The interface provides a field to name your mapping template (pre-filled with “Excel (current-date)” by default). Enter a name and proceed with import; the template will be saved. You can also load existing templates via the “Load Template” dropdown at the top of the mapping form.
+7. **Import Process:** After mapping, click the **Import** button (on the form) to begin import. The Excel Addon will import in chunks, similar to CSV, ensuring server limits aren’t hit. Progress messages inform you of the status. Once complete, a success message is shown and all listings from the Excel appear in your Listings list.
+
+The addon uses an Excel parser to read your file, so it can handle multiple sheets, but **make sure your data is on the first sheet** for simplicity (the addon reads the first worksheet by default). Each row becomes a listing. If a row is missing required info (like Title or Category), the addon will skip or flag it as an error.
+
+<Aside type="tip">
+Before importing, clean your Excel data: remove any completely empty rows, ensure dates or numeric values are in a consistent format, and ensure one listing per row. Consistency will help the import run smoothly and accurately.
+</Aside>
+
+## Field Mapping and Templates in Excel Import
+
+The Excel Addon’s mapping interface is very similar to CSV’s, with a few enhancements:
+
+- **AI Profile & Smart Mapping:** If AI integration is configured, select an AI profile (e.g., a GPT model profile you set up) from the dropdown and click **Smart Mapping**. The system will automatically pair up fields. For example, it might map “Description” on its own if your Excel column name is “Listing Description” even if you haven’t explicitly chosen it.
+- After using Smart Mapping, review the mappings – the AI is helpful but you should verify and adjust if needed (the mapped columns will be pre-selected in each dropdown).
+- **Saving Template:** Provide a template name before importing (like “Excel Import Format A”). When you run the import, the mapping will be saved. Next time, if you come with an updated Excel of the same format, just select your template and the mappings fill in.
+- You can manage saved Excel mapping templates under the **Mapping Templates** sub-section of the Excel tab (similar to CSV). It lists all saved templates and allows removal of old ones.
+
+<Aside type="note">
+The Excel Addon’s field mapping supports all core listing fields and any custom fields from other addons (e.g., Work Hours, Custom Attributes) that are active. You’ll see those in the Listdom field list. Map them as needed – for example, map a “Monday Hours” column to the Work Hours field if applicable.
+</Aside>
+
+## Exporting Listings to Excel
+
+Export functionality is provided to download all listings in Excel format:
+
+- In the **Excel** tab of **Import & Export**, click the **Export** sub-tab. You’ll find an explanation and an **Export** button.
+- Clicking **Export** will generate an `.xlsx` file and prompt you to download it (the addon hooks into Listdom’s export request to produce Excel output instead of CSV).
+- The exported Excel will contain a sheet (usually the first sheet) with all listing data. The first row is the header (field names) and subsequent rows each represent a listing.
+
+The Excel export includes the same data as the CSV export – every listing field that exists. Data like categories, locations, etc., will be comma-separated if multiple apply. The benefit of Excel export is that you can open it directly in Excel, Numbers, or Google Sheets with proper cell formatting.
+
+If you have a very large number of listings, the export might take a moment. The addon handles the request via AJAX in the background, then triggers the file download when ready.
+
+<Aside type="tip">
+You can use the Excel export file as a starting point for re-import. For instance, export all listings to Excel, make bulk edits in the spreadsheet (change prices, add new listings as new rows), then import the updated file. This is a convenient round-trip for content updates.
+</Aside>
+
+## Automatic Import (Feeds) for Excel
+
+Unlike the CSV Addon, which supports scheduled URL fetches, the Excel Addon is generally used for on-demand imports. There isn’t a dedicated “Auto Import” interface for Excel in the current version. However, you can mimic it by regularly uploading a new Excel or using CSV’s auto-import if you convert your source to CSV. In many cases, data feeds are provided in CSV or JSON rather than Excel. If you do have an Excel feed that updates at a URL, you would need to manually download and import it periodically (or use CSV auto-import by converting the source feed to CSV format).
+
+Keep an eye on addon updates; future versions might add scheduled Excel feed imports if there’s demand.
+
+## Examples
+
+<CardGrid>
+  <Card title="Populate via Spreadsheet">
+    A new business directory site has an Excel sheet of 500 local businesses. With the Excel Addon, the admin uploads the .xlsx, maps columns like “Business Name”, “Address”, “Phone” to Listdom fields, and imports. Within minutes, all 500 businesses are live on the site, each with the correct details in place.
+  </Card>
+  <Card title="Smart Mapping Saves Time">
+    An events directory receives Excel files from different organizers. Column names vary slightly. The admin uses the <strong>Smart Mapping</strong> feature: after training an AI profile on a few examples, the addon now guesses mappings (like “Start Time” -> Event Date) automatically. This significantly speeds up the frequent import process.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin on WordPress.org">
+  Visit the WordPress plugin page for Listdom for additional documentation and user reviews.
+</LinkCard>
