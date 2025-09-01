@@ -1,7 +1,93 @@
 ---
-title: Page Templates
-description: Coming Soon.
+title: Page Templates & Layouts
+sidebar_label: Page Templates & Layouts
+description: "Learn how Listdomer structures pages and how to customize headers, footers, and layouts for different content types."
 sidebar:
-  order: 2
+  order: 3
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
 ---
-Coming Soon
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Learn how Listdomer structures pages and how to customize headers, footers, and layouts for different content types.
+
+## Header and Footer Layouts
+
+Listdomer comes with multiple pre-defined header and footer templates that you can switch between.
+
+Header Types 1–5: These are different structural layouts for the top of your site (logo + menu + extras). For example, Header Type 1 might have the logo left and menu right, Header Type 2 could center the logo above a centered menu, etc. You can preview these by switching the Header Type setting (see Header Settings guide). All header types include the primary menu and optional buttons (Add Listing, Login) in some configuration.
+
+<Aside type="note">
+Header Types beyond the default may require Pro <Badge text="Pro" />; in the free version you might have only Type 1 (and possibly Type 2) active.
+</Aside>
+
+Footer Types 1–5 + Tiny: Footer Type 1 is a classic four-column footer (using Footer 1-4 widget areas). Other types might arrange widgets differently (e.g., Type 2 could be three columns, Type 3 two columns and a logo, etc.) and Tiny footer is just a slim bar typically containing the copyright text and maybe a small menu. Choose a footer type that best displays the info you want. For instance, if you only need a simple footer with minimal info, you might use Tiny or a two-column type.
+
+These headers/footers are applied globally but can be overridden on individual pages via the Listdomer meta box on the page edit screen. If you want a landing page with no header and footer (for marketing purposes), set Header = Disabled and Footer = Disabled in that meta box for that page. Conversely, if you’ve created a custom Elementor header template and want it just on one page, you could select it there.
+
+Responsive Behavior: All header and footer types are responsive. On mobile, the primary menu typically collapses into a mobile menu (hamburger icon). The footer columns will stack vertically on smaller screens. Listdomer ensures that even if you have four footer widgets, on mobile they appear one after another for readability.
+
+## Default Page Template (Full Width)
+
+All regular pages (WordPress Pages) use the default page.php template, which in Listdomer is a one-column, full-width layout. It will display the page title section (banner) at top unless disabled, then your page content, and comments if enabled. There is no sidebar on pages by default. This gives you a blank canvas for content (which is ideal if using page builders or creating landing pages). If you need a sidebar on a specific page, you have a couple options:
+
+- Use the Columns block (in block editor) or a page builder to simulate a sidebar within the content. For example, a two-column section where one column has text and the other inserts a shortcode or widget (Elementor makes this easy).
+- Create a custom page template in a child theme that includes a sidebar. (Advanced)
+
+Since Listdomer is primarily focused on directory listings, most page content will either be created via shortcodes or page builder, so the theme assumes full-width pages. The blog is where sidebars are used.
+
+## Blog Layout Templates
+
+For blog posts and archives, Listdomer relies on WordPress’s template hierarchy with its own twist:
+
+- **Blog Home / Category Archive:** The theme uses index.php or archive.php for blog listing pages, which in turn incorporate the layout settings. If you chose a sidebar layout, the template will output a two-column structure with sidebar. If full-width, it’s one-column. The elements like post title, meta, excerpt, read-more button, etc., are part of a template partial for post content. The theme likely has partials/content-blog.php or similar to format each post in the list (with your chosen grid/list style applied via CSS classes).
+
+- **Single Post:** The single.php (or more specifically single.php falling back to the theme’s logic) displays single blog posts. It will include the header, then the post banner (page header section with title if enabled), then the post content, and after content it may show the post navigation and comments template. The sidebar is included if chosen (the code would output sidebar markup if layout is left/right). In Listdomer, this is dynamic based on your settings rather than separate physical templates for each layout.
+
+You don’t need to manually select templates for blog – the theme automatically uses the correct structure and applies your settings.
+
+## Directory (Listdom) Templates
+
+One of Listdomer’s key roles is integrating the Listdom directory plugin content into the theme seamlessly. It does so by providing template overrides for Listdom’s custom post types and taxonomies. For example:
+
+- **Listing Archive (All Listings page):** If you visit the archive of Listdom listings (e.g., yourdomain.com/listings if Listdom’s post type is listdom-listing), Listdomer ensures the layout matches the theme. It likely overrides the plugin’s archive template via the lsd_template filter. So the archive of listings will use the theme’s archive style (including the page header/banner with archive title and description for the directory, as configured). The Listdomer Settings > Listings Archive controls (in Page Heading and Blog settings) apply here. For instance, if you disabled “archive title” or changed description position for listing archives, it affects this page.
+
+- **Listing Category/Location pages:** Similarly, when viewing a Listing Category or Location archive (the pages that list listings within a specific category or location), the theme uses its taxonomy.php or similar integrated template. You’ll see the category name in the banner and, if enabled, the category description. The listings themselves are output by the plugin, but Listdomer’s CSS and wrappers style them. The Include Context in Title option for archives (Category: prefix) also applies to these taxonomy pages, so you can choose whether to show “Category: Hotels” or just “Hotels” at the top.
+
+- **Single Listing Page:** Listdom (plugin) controls the content of a single listing (the details like description, gallery, maps, etc.). Listdomer doesn’t override the internals of that, but it does provide the surrounding theme wrapper (header, footer) and likely ensures the page title section (banner) is shown or hidden appropriately. Listdom’s single listing can have multiple styles (as configured in Listdom settings). Listdomer will honor those and just apply general styling (fonts, colors you set).
+
+The theme’s lsd_template override means if Listdomer has a custom template file for a plugin part, it will use it. Developers can also override those in a child theme under a listdom/ folder as indicated. But for a typical user, the important part is: you don’t need to do anything special – the directory content will appear seamlessly integrated. For example, breadcrumb support for listings was added in Listdom 4.3.0 and Listdomer includes a Breadcrumb component; you’ll see breadcrumbs on listing pages if enabled and it will show the path (e.g., Home > Category > Listing Name).
+
+## Elementor Single Listing Templates
+
+If you have the Listdom Elementor Addon (Pro) that allows designing listing single pages via Elementor, Listdomer is aware of it. When you edit such an Elementor Template, the theme uses a special blank canvas template so you can design without the standard header/footer interfering. Similarly, for Listdomer’s own Elementor header/footer templates, it uses a canvas. This is mostly behind the scenes: it means when building templates you get a clean slate. On the live site, your designed template will slot into the theme layout correctly.
+
+## Creating Landing Pages / No Header (Canvas)
+
+For pages where you want absolutely no header, footer, or even theme styling – essentially a blank slate – Listdomer provides a “Canvas” template file (tpl-canvas.php). It is used internally for certain cases (Elementor previews) but you can also use it if needed. While the theme did not expose it in the Page Template dropdown (to keep things simple), advanced users can create a child theme and provide a Page Template that uses tpl-canvas.php to achieve a completely blank page. An easier method: use Elementor’s Canvas feature (if using Elementor) by editing the page and selecting Page Layout: Elementor Canvas in the editor’s settings. That will bypass theme output and you can design a standalone page.
+
+In summary, Listdomer’s default page template is full-width content with global header/footer, which covers most needs. For special cases (landing pages, coming soon pages, etc.), you can disable header/footer per page or use builder-specific canvas modes.
+
+## Per-Page Settings Recap
+
+- **Header Inheritance:** Pages by default use the global header type. To use a different one on a certain page, open that page in the editor and find Header in the Listdomer settings box. For example, to have a landing page with no header, set Header: Disabled on that page. To use an Elementor-designed header on only one page, select it there instead of globally.
+
+- **Footer Inheritance:** Similarly, you can change the footer per page using the Footer dropdown in the meta box. This can be helpful if, say, you want to hide the footer on a sign-up page or use the “Tiny” footer just on a specific page while keeping a big footer elsewhere.
+
+- **Page Title Section:** You can hide the banner on a specific page by toggling “Page Title” off in the page’s meta box (Listdomer options). This is equivalent to removing the entire colored title section for that page. You might do this if you’re creating a homepage with a page builder that already includes a hero section, so you don’t want the default page title shown.
+
+- **Template Hierarchy:** If you ever need to create custom templates, Listdomer follows standard WP hierarchy. For example, to customize how listing category archive displays beyond what settings allow, you could override taxonomy-listdom-category.php in a child theme, etc. But for non-developers, the provided settings should cover most layout needs.
+
+## Examples
+
+<CardGrid>
+  <Card>**Custom Home Page (No Title Banner)** – You build a homepage in Elementor with a big hero section. The default page banner with the page title would be redundant. To remove it, edit the “Home” page in WP admin, and in the Listdomer Page Settings meta box, turn off **Enable Page Header Section** or set “Page Title” to off for that page. Publish the page. Now the Home page displays your designed content from top of the page, with no extra gap or title – exactly as intended for a landing layout.</Card>
+
+  <Card>Landing Page with No Header/Footer – You’re creating a marketing landing page and want to hide navigation to focus on conversion. Create a new Page called “Promo”. In the Listdomer meta box on that page, set Header: Disabled and Footer: Disabled. Publish the page. When viewed, it will not show the main site header or footer – users on that page won’t see the menu or footer widgets. This is perfect for standalone campaigns. (Don’t forget to include some link or button for users to navigate out, since the menu is hidden!)</Card>
+
+  <Card>Using a Child Theme for Template Changes – An advanced scenario: you want to adjust the HTML of the listing archive output beyond what settings allow. For instance, maybe you want to insert an advertisement after every 3 listings. You could create a child theme and copy the Listdom listing archive template into listdom/archive-listdom-listing.php in your child theme, then edit it to include your ad code. Listdomer’s integration will prefer your child theme’s template. While most users won’t need this due to the flexibility of shortcodes and settings, it’s good to know the theme doesn’t restrict traditional WordPress customization methods.</Card>
+</CardGrid>
+
+<LinkCard href="https://demo.webilia.com/listdom/">🌐 Live Demo – Page Layouts – Explore the live demo site to see various headers, footers, and page templates in action (blog layouts, directory pages, etc.), as built with Listdomer.</LinkCard>
+
