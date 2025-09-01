@@ -1,0 +1,42 @@
+---
+title: Shortcodes & Elementor Integration
+sidebar_label: Shortcodes & Elementor
+description: "Use Listdom shortcodes and Elementor widgets to display listings and design headers or footers."
+sidebar:
+  order: 3
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdomer fully supports inserting shortcodes in pages or widgets and integrates with Elementor for custom layouts.
+
+## Using Shortcodes in Pages and Widgets
+
+- **Shortcodes in Pages:** Create a page and insert a Listdom shortcode (e.g., `[listdom listings per_page="12" view="grid"]`). The theme styles the output automatically.
+- **Shortcodes in Widgets:** Use a Text widget or Custom HTML widget to hold a shortcode in a sidebar or footer. For example, `[listdom_search]` can output a search form for listings.
+
+<Aside type="note">Listdomer doesn’t add shortcodes of its own aside from what the Listdom plugin provides.</Aside>
+
+## Elementor Integration
+
+Listdomer adds a custom category “Listdomer” with widgets for Elementor:
+
+- **Posts:** Display blog posts in Elementor layouts.
+- **Carousel:** Display content in slider format.
+- **Tiny:** A mini content block for compact displays.
+- **Testimonials:** Showcase client testimonials.
+
+Elementor integration also enables creating header or footer templates. When you design a template of type “Listdomer Header” or “Listdomer Footer,” it appears in the Header Type or Footer Type dropdown so you can apply it site-wide <Badge text="Tip" />.
+
+## Examples
+
+<CardGrid>
+  <Card>**Page Shortcode for Listings** – Create an “All Listings” page and insert a `[listdom listings view="grid"]` shortcode to display directory entries in a grid.</Card>
+  <Card>**Sidebar Listing Search** – Place a `[listdom_search]` shortcode in a Text widget to let users search listings from any page.</Card>
+  <Card>**Custom Elementor Header** – Design a header in Elementor, save it as a Listdomer Header template, and select it in Header Settings to replace the default header.</Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/documentation/article/shortcode-block/">🔗 WordPress Shortcode Block – Learn how to insert shortcodes using the block editor.</LinkCard>
+

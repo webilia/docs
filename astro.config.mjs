@@ -55,15 +55,15 @@ export default defineConfig({
             {
               label: 'Listdomer Theme',
               items: [
-                { label: 'Installation Setup', link: '/listdom/listdomer-theme/installation-setup/' },
+                { label: 'Installation & Setup', link: '/listdom/listdomer-theme/installation-setup/' },
                 { label: 'Demo Import', link: '/listdom/listdomer-theme/demo-import/' },
-                { label: 'Settings', link: '/listdom/listdomer-theme/settings/' },
-                { label: 'Widgets', link: '/listdom/listdomer-theme/widgets/' },
+                { label: 'Settings', autogenerate: { directory: 'listdom/listdomer-theme/settings' }, collapsed: true },
+                { label: 'Widgets', autogenerate: { directory: 'listdom/listdomer-theme/widgets' }, collapsed: true },
                 { label: 'Page Templates', link: '/listdom/listdomer-theme/page-templates/' },
-                { label: 'Troubleshooting', link: '/listdom/listdomer-theme/troubleshooting/' },
+                { label: 'Troubleshooting', autogenerate: { directory: 'listdom/listdomer-theme/troubleshooting' }, collapsed: true },
               ],
               collapsed: true
-            }, 
+            },
             { label: 'How Tos', autogenerate: { directory: 'listdom/how-tos' }, collapsed: true },
             { label: 'Troubleshooting', autogenerate: { directory: 'listdom/troubleshooting' }, collapsed: true },
             { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },

@@ -1,7 +1,66 @@
 ---
 title: Installation & Setup
-description: Coming Soon.
+sidebar_label: Installation & Setup
+description: "Follow these steps to get the Listdomer theme up and running on your WordPress site."
 sidebar:
   order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
 ---
-Coming Soon
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Follow these steps to get the Listdomer theme up and running on your WordPress site.
+
+## Theme Installation and Activation
+
+<Steps>
+1. **Install the Listdomer Theme:** In your WordPress admin, go to Appearance > Themes > Add New. Search for “Listdomer” and click Install, then Activate. Alternatively, upload the listdomer.zip file via Upload Theme if you have it downloaded.
+2. **Install Required Plugins:** After activating Listdomer, you’ll be prompted to install its recommended plugins.
+3. **Activate Plugins:** Go to Appearance > Install Plugins (or follow the admin notice) and install/activate each plugin. Once “Listdomer Core” is active, the theme’s features and settings menu will become available in your dashboard.
+</Steps>
+
+Listdomer Core: Required. Provides core theme features (demo import, settings, Elementor widgets, etc.).
+
+Redux Framework: Required. Powers the theme options panel.
+
+Listdom (Webilia’s directory plugin): Recommended. The theme is designed to work with Listdom for listings functionality.
+
+One Click Demo Import: Recommended. Enables easy demo content import (see Demo Import guide).
+
+<Aside type="note">
+If you have **Listdomer Pro** <Badge text="Pro" /> (the premium version of the theme), upload and activate it as a separate theme. It will automatically override the free version with additional features (e.g. extra header/footer styles). Always update the core Listdom plugin and addons to the latest versions for full compatibility.
+</Aside>
+
+## Basic Setup and Configuration
+
+<Steps>
+1. **Run Listdom Setup Wizard:** After activating the Listdom plugin, you’ll see a Listdom menu. It’s advised to run the Setup Wizard (from Listdom > Settings or the prompt) to generate essential pages (Listings, Dashboard, etc.) and configure basic listing settings. This ensures your directory functionality is ready.
+2. **Assign Menus:** Go to Appearance > Menus and assign your menu to the “Primary” location (for the header). Listdomer supports two menu locations: Primary (main site menu) and Sub-Footer (a smaller footer menu). Assign a menu to Sub-Footer if you have one (e.g. for quick links at page bottom).
+3. **Customize Site Identity:** In Appearance > Customize, set your Site Title, Tagline, and upload a site icon (favicon) as needed. Listdomer also allows uploading a logo via its theme options (see General Settings in the Settings guide).
+</Steps>
+
+## Verifying the Installation
+
+After activation, you should see a new Listdomer section in your dashboard menu. This contains Demo Import, Listdomer Settings, and quick links to Documentation and Support. Also, the front-end of your site should now be using the Listdomer design. Verify the following:
+
+- **Theme Design Active:** Visit your homepage – it should display the Listdomer theme’s layout. You might see placeholder content if no pages are created yet, which is normal.
+- **Plugins Functioning:** The Listdom plugin will add a “Listings” custom post type and related menus (Listings, Categories, Locations, etc.) in wp-admin. If those appear, Listdom is active.
+- **No Errors:** If you encounter a “missing stylesheet” error during installation, ensure you uploaded the correct theme zip (not a package containing documentation). If any required plugin failed to install, try installing it manually via Plugins > Add New search.
+
+<Aside type="note">
+**Multilingual Setup:** The Listdomer theme is translation-ready. If you plan to use WPML for multiple languages, install WPML **after** Listdomer. The theme includes an option to show a language switcher in the header when WPML is active (see **Header Settings**).
+</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>**Installing from WordPress.org** – Navigate to *Appearance > Themes*, click **Add New**, search “Listdomer,” and hit **Install**. Activate to apply the theme. This method pulls the theme directly from the official repository.</Card>
+
+  <Card>Manual Theme Upload – Download the listdomer.zip from the source. In WP admin, go to Appearance > Themes > Add New > Upload Theme. Select the ZIP and upload. Activate the theme once uploaded. This is useful if you obtained Listdomer from a marketplace or directly from Webilia.</Card>
+
+  <Card>Required Plugins Activation – After activating the theme, a notice will prompt you to install Listdomer Core and other plugins. Click Begin installing plugins, install each, and then return to activate them. Upon completion, you’ll see the Listdomer menu in the dashboard, confirming a successful setup.</Card>
+</CardGrid>
+
+<LinkCard href="https://listdom.net/documentation/">📖 Listdom/Listdomer Documentation – Continue to the full documentation to learn about next steps, including importing demo content and configuring settings.</LinkCard>
+

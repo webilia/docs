@@ -1,0 +1,73 @@
+---
+title: Content & Misc Settings
+sidebar_label: Content & Misc Settings
+description: "Control blog layout, search behavior, the 404 page, widget styling, and custom code in Listdomer."
+sidebar:
+  order: 3
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Manage content presentation and advanced options for your site.
+
+<Aside type="tip">Use these settings to fine-tune how your content appears and how users interact with it.</Aside>
+
+## Blog Settings
+
+### Archive Options
+
+- **Layout (Sidebar or Full):** Choose Left Sidebar, Right Sidebar, or Full Width for blog index pages.
+- **Archive Style – List vs Grid:** Choose between a classic list view or a grid of posts. Grid style will show posts in columns; you can then set the number of columns.
+- **Post Title Style:** Adjust the post title typography and text decoration on archive cards.
+- **Pagination Style:** Select Numeric or Next/Previous for the blog pagination links.
+- **Meta Toggles:** Show or hide meta info on post listings: Category, Author, Date.
+- **Posts Per Page:** Control how many posts to show per page on the blog/archive. This setting overrides the WordPress Reading setting <Badge text="Tip" />.
+
+### Single Blog Post Options
+
+- **Typography:** Set the font style for the post title and the post content text on single posts.
+- **Layout:** Choose the single post layout – Left Sidebar, Right Sidebar, or Full Width.
+- **Meta Elements:** Toggle Category, Author, Date on the single post as well.
+- **Post Navigation:** Enable or disable the “Previous Post / Next Post” navigation links at the bottom of posts. You can set a limit on how many words of the post title to display in those navigation links.
+- **Content & Meta Colors:** Adjust the text color for post content and for post meta info.
+- **Comment Form Styling:** Style the comment form fields: input background color, text color, placeholder text color, border style and colors, and border radius.
+
+## Search Settings
+
+- **Use Default WordPress Search:** Switch to either use WordPress’s standard search or a custom search.
+- **Custom Post Type Search:** If you turn the above option off, select which content types are included in search results. Check or uncheck Posts, Pages, and Listdom Listings as needed.
+
+## 404 Page Settings
+
+- **404 Image:** Upload an image to display on the 404 page.
+- **404 Title:** Change the large title text.
+- **404 Message:** Provide a user-friendly message.
+- **404 Button Text:** Label for the call-to-action button.
+- **404 Button Destination:** Select which page the button should link to.
+
+## Widget Styling
+
+- **Widget Background Color:** Set the background for widget containers.
+- **Widget Title Text Color:** Color for the widget titles.
+- **Widget Title Border Color:** Set the color of the underline or border under widget titles.
+- **Widget Content Text Color:** Color for the text within widgets.
+- **Widget Border Radius:** Controls the roundness of widget container corners.
+
+## Other Settings
+
+- **Custom CSS:** Add your own CSS rules in an editor.
+- **Custom JavaScript:** Add JS code that appears before &lt;/body&gt;.
+- **Header Tracking Codes & Footer Tracking Codes:** Specific fields for analytics or pixel code snippets.
+
+## Examples
+
+<CardGrid>
+  <Card>**Grid Blog Layout** – Switch Archive Style to Grid and set Number of Columns to 3 to create a magazine-like blog page.</Card>
+  <Card>**Listing-Only Search** – Turn off Default WordPress Search and leave only Listdom Listings checked to focus search results on directory listings.</Card>
+  <Card>**Custom 404 Page** – Upload a branded image, change the 404 Title, and set the button to link back to your homepage for a friendly error page.</Card>
+</CardGrid>
+
+<LinkCard href="https://demo.webilia.com/listdomer/documentation/#theme-options">📘 Full Theme Options Reference – Learn more about each option in the Listdomer documentation, with screenshots and tips for optimal settings.</LinkCard>
+

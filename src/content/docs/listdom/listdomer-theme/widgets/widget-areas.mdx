@@ -1,0 +1,36 @@
+---
+title: Widget Areas
+sidebar_label: Widget Areas
+description: "Use Listdomer's sidebars and footer widget areas to place content."
+sidebar:
+  order: 1
+header_button:
+  label: View Demo
+  url: https://demo.webilia.com/listdom/
+---
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdomer works seamlessly with WordPress widgets to display content in sidebars and footers.
+
+## Widget Areas (Sidebars)
+
+The theme registers several widget areas for flexible content placement:
+
+- **Main Sidebar:** Appears on blog pages (archives and single posts) when using a sidebar layout. This sidebar’s default ID is “sidebar-1” and typically shows on the right (or left) side of blog content. You can add widgets like Search, Recent Posts, or any custom widget here via Appearance > Widgets. <Badge text="Tip" />
+- **Footer 1, 2, 3, 4:** Four widget columns in the footer. These are used by footer layouts that have multiple columns. Footer Type 1 might place these four side by side. Add widgets to each to populate your footer columns.
+- **Sub-Footer (Footer Menu):** Not a widget area, but a menu location for a thin bar below the footer widgets.
+
+To add content, go to Appearance > Widgets (or the Widgets editor in Customizer if using WordPress 5.8+). Drag and drop desired widgets into “Sidebar” or “Footer 1/2/3/4”. Common uses include placing a Search widget and Categories in the Sidebar for blog navigation, and adding a Text or Custom HTML widget to Footer 1 for an “About us” blurb.
+
+<Aside type="note">If you imported a demo, the widget areas may already have content. You can edit or replace these to make the footer your own.</Aside>
+
+## Examples
+
+<CardGrid>
+  <Card>**Blog Sidebar Navigation** – Add a Categories widget and a Recent Posts widget to the Main Sidebar to help visitors explore your blog.</Card>
+  <Card>**Footer Widgets** – Place a Text widget in *Footer 1* for an “About” blurb and a Navigation Menu widget in *Footer 2* to show quick links.</Card>
+  <Card>**Sub-Footer Menu** – Assign a menu to the Sub-Footer location for a slim bar of legal links or contact info.</Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/documentation/article/wordpress-widgets/">🔗 WordPress Widgets Documentation – Learn more about managing widgets in WordPress.</LinkCard>
+
