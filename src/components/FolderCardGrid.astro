@@ -31,5 +31,9 @@ const pages = ((await getCollection('docs')) as DocEntry[])
     .single-column-grid > :global(*) {
       margin-top: 0 !important;
     }
+
+    .single-column-grid a {
+      line-height: 1.6;
+    }
   }
 </style>
