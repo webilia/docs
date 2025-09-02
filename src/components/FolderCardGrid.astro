@@ -1,6 +1,6 @@
 ---
 import { LinkCard } from '@astrojs/starlight/components';
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 interface Props {
   folder: string;
@@ -8,7 +8,8 @@ interface Props {
 
 const { folder } = Astro.props as Props;
 const base = folder.replace(/^docs\//, '').replace(/\/$/, '');
-const pages = (await getCollection('docs'))
+type DocEntry = CollectionEntry<'docs'> & { slug?: string };
+const pages = ((await getCollection('docs')) as DocEntry[])
   .filter((p) => p.id.startsWith(base + '/'))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
