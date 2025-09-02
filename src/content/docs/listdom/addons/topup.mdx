@@ -7,7 +7,7 @@ sidebar:
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Listdom Top Up Addon** provides a way for you to monetize listings by letting users *boost* their listings’ visibility. A “Top-Up” essentially allows a listing owner to pay a fee to refresh their listing (often bumping it to the top of lists or extending its active period). This addon integrates with WooCommerce so that each top-up is a purchase. It’s ideal for directories where you want to charge users to keep their listings prominent after they’ve been live for a while.
+The **Listdom Top Up Addon** provides a way for you to monetize listings by letting users *boost* their listings' visibility. A "Top-Up" essentially allows a listing owner to pay a fee to refresh their listing (often bumping it to the top of lists or extending its active period). This addon integrates with WooCommerce so that each top-up is a purchase. It's ideal for directories where you want to charge users to keep their listings prominent after they've been live for a while.
 
 <Aside type="caution">
 **WooCommerce Required:** The Top Up addon requires WooCommerce for handling the payment of top-ups <Badge text="Pro" />. Make sure WooCommerce is installed and set up with a payment gateway.
@@ -15,26 +15,26 @@ The **Listdom Top Up Addon** provides a way for you to monetize listings by lett
 
 ## How Top-Up Works
 
-In Listdom, listings usually appear in order of publish date or other sorting. The Top Up addon introduces a new concept: **Top-Up Date**. Each listing gets a metadata field recording the last time it was topped up. You can configure your listing shortcodes or pages to sort by Top-Up Date (most recent first) – this effectively means any listing that is “topped up” will jump to the top of the list, gaining more visibility.
+In Listdom, listings usually appear in order of publish date or other sorting. The Top Up addon introduces a new concept: **Top-Up Date**. Each listing gets a metadata field recording the last time it was topped up. You can configure your listing shortcodes or pages to sort by Top-Up Date (most recent first) - this effectively means any listing that is "topped up" will jump to the top of the list, gaining more visibility.
 
-Additionally, if using the Visibility addon’s view-limit feature, topping up could be used as a way to re-activate a listing that went offline after reaching a view limit (though by default Top Up mainly influences sorting).
+Additionally, if using the Visibility addon's view-limit feature, topping up could be used as a way to re-activate a listing that went offline after reaching a view limit (though by default Top Up mainly influences sorting).
 
-From the user’s perspective, they will see a “Top Up” action for their listings in the front-end dashboard. By purchasing a top-up, the listing’s Top-Up Date is updated to now, which you can think of like renewing or bumping the listing.
+From the user's perspective, they will see a "Top Up" action for their listings in the front-end dashboard. By purchasing a top-up, the listing's Top-Up Date is updated to now, which you can think of like renewing or bumping the listing.
 
 ## Setting Up a Top-Up Product (Admin)
 
 Before users can top up listings, you need to configure a WooCommerce product that represents the top-up purchase. Follow these steps:
 
 <Steps>
-1. **Create a WooCommerce Product:** In WooCommerce, add a new simple product for “Listing Top-Up” (or a similar name). For example, you might call it *“Bump Listing”*. Set the price to whatever you want to charge for a single top-up. You can keep this product hidden from your public shop if you want, as it will be triggered via the Listdom interface.
+1. **Create a WooCommerce Product:** In WooCommerce, add a new simple product for "Listing Top-Up" (or a similar name). For example, you might call it *"Bump Listing"*. Set the price to whatever you want to charge for a single top-up. You can keep this product hidden from your public shop if you want, as it will be triggered via the Listdom interface.
 2. **Configure Top Up Settings in Listdom:** Navigate to **Listdom → Settings → Addons tab → Top Up**. Here you will find two key settings and some options:
-   - **Top Up New Listings:** This is a toggle. If enabled (default **On**), any new listing created will automatically have a Top-Up Date set at the time of creation. In effect, new listings count as already “topped up” once when they’re added. If you switch this **Off**, new listings will have no top-up date until the owner purchases one. (Turning it off would mean new listings might start with lower priority if sorting by top-up – typically, you leave it on so that new listings get an initial visibility boost.)
-   - **WooCommerce Product:** Select the WooCommerce product you created (e.g., *“Listing Top-Up”*) from the dropdown. This tells Listdom which product to add to cart when a user triggers a top-up.
-   - **Auto Order Complete:** Toggle for whether to mark the WooCommerce order as completed automatically. By default this is **On**. It’s recommended to leave it on, so that as soon as payment is successful, the listing top-up is applied without waiting for manual admin order processing.
+   - **Top Up New Listings:** This is a toggle. If enabled (default **On**), any new listing created will automatically have a Top-Up Date set at the time of creation. In effect, new listings count as already "topped up" once when they're added. If you switch this **Off**, new listings will have no top-up date until the owner purchases one. (Turning it off would mean new listings might start with lower priority if sorting by top-up - typically, you leave it on so that new listings get an initial visibility boost.)
+   - **WooCommerce Product:** Select the WooCommerce product you created (e.g., *"Listing Top-Up"*) from the dropdown. This tells Listdom which product to add to cart when a user triggers a top-up.
+   - **Auto Order Complete:** Toggle for whether to mark the WooCommerce order as completed automatically. By default this is **On**. It's recommended to leave it on, so that as soon as payment is successful, the listing top-up is applied without waiting for manual admin order processing.
 3. **Save Settings:** Click **Save Changes** for the Top Up addon settings after selecting the product and desired toggles.
 </Steps>
 
-That’s it for setup. You have now defined what a top-up costs and how it’s processed. Ensure your WooCommerce store has a payment gateway active so users can actually checkout.
+That's it for setup. You have now defined what a top-up costs and how it's processed. Ensure your WooCommerce store has a payment gateway active so users can actually checkout.
 
 <Aside type="note">
 The **Auto Order Complete** option, when enabled, means users will instantly see their listing topped up after payment. If disabled, the listing would only bump once the admin marks the order complete, which could delay the effect.
@@ -42,45 +42,45 @@ The **Auto Order Complete** option, when enabled, means users will instantly see
 
 ## User Experience: Purchasing a Top-Up
 
-Once set up, the front-end dashboard for listing owners will include a **Top Up** action for each listing (usually an icon or button next to the listing in their “My Listings” table).
+Once set up, the front-end dashboard for listing owners will include a **Top Up** action for each listing (usually an icon or button next to the listing in their "My Listings" table).
 
-When a user wants to boost their listing, here’s what happens:
+When a user wants to boost their listing, here's what happens:
 
 - **Initiate Top-Up:** The user clicks the **Top Up** button for a specific listing. Immediately, the addon will prepare the WooCommerce checkout process. Typically, an AJAX call is made to add the Top-Up product to the cart associated with that particular listing.
-- **Redirect to Checkout:** The user is then taken to the WooCommerce checkout page (or a special streamlined checkout modal, depending on your configuration). They will see the “Listing Top-Up” product in their order.
+- **Redirect to Checkout:** The user is then taken to the WooCommerce checkout page (or a special streamlined checkout modal, depending on your configuration). They will see the "Listing Top-Up" product in their order.
 - **Payment:** The user completes payment through WooCommerce as with any purchase.
 - **Order Completion:** If Auto Complete is on, right after successful payment, the order is marked complete. The Top Up addon then:
-  - Updates the listing’s **Top-Up Date** to the current time.
+  - Updates the listing's **Top-Up Date** to the current time.
   - Triggers an action indicating the listing was topped up (which could send a notification email if you have those configured).
-- **Result:** The listing is now considered “recently topped up.” If your site’s listing directory is sorted by Top-Up Date (descending), this listing will jump to the top of the listings list, gaining prominence. Even if your default sort is by publish date, users can choose to sort by latest top-up if you offer that sorting option.
-- **Confirmation to User:** After payment, the user might be redirected back to their dashboard with a message like “Your listing has been topped up successfully.” The Top Up button could be temporarily disabled or show the last top-up time.
+- **Result:** The listing is now considered "recently topped up." If your site's listing directory is sorted by Top-Up Date (descending), this listing will jump to the top of the listings list, gaining prominence. Even if your default sort is by publish date, users can choose to sort by latest top-up if you offer that sorting option.
+- **Confirmation to User:** After payment, the user might be redirected back to their dashboard with a message like "Your listing has been topped up successfully." The Top Up button could be temporarily disabled or show the last top-up time.
 
-Importantly, topping up does **not** duplicate or create a new listing entry; it simply refreshes the existing listing’s position or active status. The user does not need to re-enter any listing information – it’s an instant promotion of the listing.
+Importantly, topping up does **not** duplicate or create a new listing entry; it simply refreshes the existing listing's position or active status. The user does not need to re-enter any listing information - it's an instant promotion of the listing.
 
 ### Listing Visibility After Top-Up
 
 In many cases, top-ups are used in conjunction with listing expiration rules:
-- If you have configured listings to expire after a certain time (perhaps using the Visibility addon’s date fields), you might interpret a top-up as renewing the duration. By default, the Top Up addon doesn’t automatically change an expiration date – it only sets the “last top-up” timestamp and affects sorting. However, you could manually decide that a top-up also means extending the visible-until date (if you wanted to, you’d do that as admin or custom code).
+- If you have configured listings to expire after a certain time (perhaps using the Visibility addon's date fields), you might interpret a top-up as renewing the duration. By default, the Top Up addon doesn't automatically change an expiration date - it only sets the "last top-up" timestamp and affects sorting. However, you could manually decide that a top-up also means extending the visible-until date (if you wanted to, you'd do that as admin or custom code).
 - If you use the **Maximum Visits** feature of the Visibility addon to auto-offline listings after X views, topping up a listing that has hit its view cap will not by itself reset the view count or reactivate the listing. In practice, you as the admin might encourage owners to top up and also contact you to get their listing republished if it was offline. (Advanced: You could handle this by hooking into the top-up action to auto-publish the listing again if needed.)
 
-The primary, built-in effect of a top-up is **improved ordering**. Many directory owners use top-ups as “bump to top” payments. For example, a listing may naturally sink down the list over time; paying for a top-up puts it back on top as if it were new again.
+The primary, built-in effect of a top-up is **improved ordering**. Many directory owners use top-ups as "bump to top" payments. For example, a listing may naturally sink down the list over time; paying for a top-up puts it back on top as if it were new again.
 
 ## Sorting by Top-Up Date
 
-The addon adds a sorting option called **Top Up Date**. You can enable this in your Listdom shortcodes or widgets. For instance, when using the `[listdom_listings]` or similar shortcode, check if there’s a sorting parameter or in the Listdom settings for sorting options. “Top Up Date” will sort listings by the last top-up time, with the newest-topped-up first.
+The addon adds a sorting option called **Top Up Date**. You can enable this in your Listdom shortcodes or widgets. For instance, when using the `[listdom_listings]` or similar shortcode, check if there's a sorting parameter or in the Listdom settings for sorting options. "Top Up Date" will sort listings by the last top-up time, with the newest-topped-up first.
 
 Common usage:
-- Set the default sorting of your directory page to Top-Up Date. That way, any listing whose owner paid to top up will immediately float to the top, above those who haven’t recently topped up.
-- Alternatively, allow users to sort by “Recently Boosted” in the sort dropdown on the front-end.
+- Set the default sorting of your directory page to Top-Up Date. That way, any listing whose owner paid to top up will immediately float to the top, above those who haven't recently topped up.
+- Alternatively, allow users to sort by "Recently Boosted" in the sort dropdown on the front-end.
 
 If no top-up has ever been done for a listing, its Top-Up Date might be considered as the time it was created (if *Top Up New Listings* was on) or simply not set (which effectively might sort it towards the bottom if others have top-up dates). This is why enabling Top Up New Listings is usually beneficial: it gives new listings a fair starting point in the sort order.
 
 ## Examples
 
 <CardGrid>
-  <Card title="Bump to Top" description="On a classifieds site, listings normally sort by date. A seller’s post is a week old and has moved down. They use **Top Up** to bump it. After payment, their listing’s Top-Up Date updates to now and it appears back at the top of the list, ahead of other free listings." />
-  <Card title="Paid Renewals" description="A job listing has expired after 30 days (using Visibility add-on). The employer purchases a **Top Up** <Badge text='Pro' /> to renew it. The admin has configured that a top-up also means extending the listing’s visible-until date by another 30 days, so the job post becomes active again and moves to top of recent jobs." />
+  <Card title="Bump to Top" description="On a classifieds site, listings normally sort by date. A seller's post is a week old and has moved down. They use **Top Up** to bump it. After payment, their listing's Top-Up Date updates to now and it appears back at the top of the list, ahead of other free listings." />
+  <Card title="Paid Renewals" description="A job listing has expired after 30 days (using Visibility add-on). The employer purchases a **Top Up** <Badge text='Pro' /> to renew it. The admin has configured that a top-up also means extending the listing's visible-until date by another 30 days, so the job post becomes active again and moves to top of recent jobs." />
   <Card title="Highlighting Promoted Listings" description="With **Top Up**, your directory can highlight which listings are promoted. For instance, you sort by Top-Up Date and add a badge on listings updated in the last 24 hours. Users see these as trending or sponsored listings, encouraging others to purchase Top Ups to get the same spotlight." />
 </CardGrid>
 
-<LinkCard href="https://demo.webilia.com/listdom/" title="Live Demo – Listing Top-Up" description="See the Listdom demo to observe how a top-upped listing is displayed and how users can initiate a Top Up from their dashboard." />
+<LinkCard href="https://demo.webilia.com/listdom/" title="Live Demo - Listing Top-Up" description="See the Listdom demo to observe how a top-upped listing is displayed and how users can initiate a Top Up from their dashboard." />

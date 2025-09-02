@@ -13,39 +13,39 @@ The **Post Excerpt** widget allows you to show a short summary of the current po
 
 - **Dynamic Summary:** Automatically displays the **excerpt** of the post. If you've written a custom excerpt in WordPress, it will use that. If not, WordPress can generate an excerpt from the first part of the post content.
 - **Excerpt Length Control:** Choose how many words (or characters) to display if the excerpt is being generated from content. This helps keep all excerpts to a consistent length for a neat layout.
-- **After Text/Read More Indicator:** Optionally add trailing text (like “…”) or a “Read more” indicator after the excerpt to show it has been truncated. Some designs include an ellipsis or a “... [Read More]” after excerpts.
-- **Fallback Content:** Provide a fallback message if there's no content to excerpt. (For instance, “No summary available.” However, it's rare to have no excerpt at all; usually WordPress will just show nothing in that case or auto-excerpt from content.)
+- **After Text/Read More Indicator:** Optionally add trailing text (like "…") or a "Read more" indicator after the excerpt to show it has been truncated. Some designs include an ellipsis or a "... [Read More]" after excerpts.
+- **Fallback Content:** Provide a fallback message if there's no content to excerpt. (For instance, "No summary available." However, it's rare to have no excerpt at all; usually WordPress will just show nothing in that case or auto-excerpt from content.)
 - **Styling & Typography:** Full control over the look of the excerpt text - font, size, color, alignment, spacing. Ensure the excerpt's style complements the title and other text.
 - **Dynamic Tag Compatibility:** You could incorporate dynamic tags in Before/After text if needed (though typical use doesn't require that).
 
 ## How to Configure the Post Excerpt Widget
 
 <Steps>
-1. **Add the Widget:** Drag the **Post Excerpt** widget into your Elementor template or page. If you are in a single post context and the post has an excerpt, you'll see it appear. In the Elementor editor, you might see placeholder text if no excerpt is found, like “Sample excerpt content…”.
+1. **Add the Widget:** Drag the **Post Excerpt** widget into your Elementor template or page. If you are in a single post context and the post has an excerpt, you'll see it appear. In the Elementor editor, you might see placeholder text if no excerpt is found, like "Sample excerpt content…".
 2. **Content Options (Content Tab):**
-   - **Excerpt Length:** Set the length of the excerpt if the content needs to be trimmed. This might be in number of **words** (commonly) or characters. For example, set “20 words” to limit the excerpt to 20 words. 
+   - **Excerpt Length:** Set the length of the excerpt if the content needs to be trimmed. This might be in number of **words** (commonly) or characters. For example, set "20 words" to limit the excerpt to 20 words. 
      - If the post has a manual excerpt, typically that exact text is shown (and not cut off), regardless of this length setting. The length setting primarily affects automatically generated excerpts.
    - **Allowed HTML:** (If applicable) Some excerpt settings let you allow basic HTML tags (like `<br>` or `<strong>`) or strip all HTML. Often excerpts are plain text by default.
    - **After Text:** Add characters or text to append to the end of the excerpt. By default, you might want an ellipsis `…` to indicate truncation. You can type `...` or any symbol/word here. If you leave it blank, the excerpt will end abruptly at the cut-off point.
-   - **Fallback Excerpt:** If a post somehow has no content to generate an excerpt from, you can set a fallback phrase. Example: “(No excerpt available)”. In practice, this is seldom seen by users if your posts have content.
+   - **Fallback Excerpt:** If a post somehow has no content to generate an excerpt from, you can set a fallback phrase. Example: "(No excerpt available)". In practice, this is seldom seen by users if your posts have content.
 3. **Link (Optional):** Unlike some excerpt implementations, the Post Excerpt widget typically just outputs text. If you want the excerpt text itself to be a clickable link (maybe linking to the full post), you would need to wrap it with a link using other means. Usually, we do **not** link the excerpt text (we link titles or add a separate Read More button).
-   - If you do need a “Read More” link, consider using the widget's After Text to manually add something like `... <a href="#">Read More</a>` with dynamic URL. However, that requires allowing HTML and a bit of care. Alternatively, use a dedicated “Read More” widget or button.
+   - If you do need a "Read More" link, consider using the widget's After Text to manually add something like `... <a href="#">Read More</a>` with dynamic URL. However, that requires allowing HTML and a bit of care. Alternatively, use a dedicated "Read More" widget or button.
 4. **Style Options (Style Tab):**
    - **Text Color:** Set the color of the excerpt text. Often, excerpts are in a slightly muted color (grayish) compared to titles, to differentiate them.
    - **Typography:** Customize the font family, font size, and other typographic settings. Perhaps you want the excerpt text a bit smaller than the body font or in an italic style - set that here.
    - **Alignment:** Align the excerpt left, center, right, or justify. In multi-column grids, left alignment is common. On a single post page, you might justify or left-align to match the content style.
    - **Spacing:** You might have options for line-height (to control the paragraph spacing of the excerpt) and margin below the excerpt (to space it from the next element).
-   - If the widget provides a **“More Indicator”** style (for the after text, like the ellipsis), you could style that separately (e.g., color of the ellipsis). In many cases, the ellipsis just inherits the text style.
+   - If the widget provides a **"More Indicator"** style (for the after text, like the ellipsis), you could style that separately (e.g., color of the ellipsis). In many cases, the ellipsis just inherits the text style.
 5. **Advanced Options:** Use advanced tab if needed (for adding a CSS class, margin/padding adjustments outside the Style tab's scope, etc.). Usually, minimal adjustments are needed here, as the Style tab covers most needs.
 </Steps>
 
 <Aside type="note" title='Manual vs Automatic Excerpts'>
-Remember, WordPress allows you to write a manual excerpt for each post (in the post edit screen). If you do, that exact text will be shown by this widget (up to any After Text you define). If you leave it blank, WordPress automatically takes the first ~55 words of the post as an excerpt. The widget's “Excerpt Length” can override that default length. It's a good practice to craft a compelling manual excerpt for important posts, as it will be used not just here but also in meta descriptions for SEO in many cases.
+Remember, WordPress allows you to write a manual excerpt for each post (in the post edit screen). If you do, that exact text will be shown by this widget (up to any After Text you define). If you leave it blank, WordPress automatically takes the first ~55 words of the post as an excerpt. The widget's "Excerpt Length" can override that default length. It's a good practice to craft a compelling manual excerpt for important posts, as it will be used not just here but also in meta descriptions for SEO in many cases.
 </Aside>
 
 ## Example Usage
 
-- **Blog Archive Page:** In your Archive template, you might have an image, Post Title, Post Excerpt, and a Read More button for each post card. You could set Excerpt Length to, say, 25 words, and After Text to “…” for a neat preview. Style the text to be slightly smaller and lighter than the title. This gives visitors a quick intro to each post.
+- **Blog Archive Page:** In your Archive template, you might have an image, Post Title, Post Excerpt, and a Read More button for each post card. You could set Excerpt Length to, say, 25 words, and After Text to "…" for a neat preview. Style the text to be slightly smaller and lighter than the title. This gives visitors a quick intro to each post.
 - **Featured Post Section:** On a homepage, if highlighting a latest post, you can use Post Excerpt to show a teaser. For example, after the Post Title, add Post Excerpt (maybe 40-50 words) to encourage readers to click through.
 - **Single Post Template (optional):** Some single post designs show the excerpt at the top (perhaps as a subtitle or summary under the title). If that's your design, you can include the Post Excerpt widget under the Post Title in your single template. If a post has no manual excerpt, it might show the first part of the post, which could be redundant, so this approach is less common.
 

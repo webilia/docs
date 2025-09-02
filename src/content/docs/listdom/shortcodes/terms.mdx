@@ -13,14 +13,14 @@ By default, this shortcode will show Listing **Categories** in a list. However, 
 
 ## Display Modes
 
-- `dropdown`: Set to `1` (true) to display the terms in a `<select>` dropdown menu, or `0` (false) to display as a list of links. *Default:* `0` (shows a list of terms). In dropdown mode, selecting a term will automatically redirect the user to that term’s archive page.
+- `dropdown`: Set to `1` (true) to display the terms in a `<select>` dropdown menu, or `0` (false) to display as a list of links. *Default:* `0` (shows a list of terms). In dropdown mode, selecting a term will automatically redirect the user to that term's archive page.
 - `hierarchical`: Whether to include child terms in the output (indented under their parents). This applies to both list and dropdown displays. Use `1` to show terms hierarchically (e.g., subcategories will be nested or can be opt-grouped in dropdown), or `0` to show a flat list. *Default:* `0` for list output (and the dropdown will not group by default).
 - `show_count`: Show the number of listings for each term. Use `1` to display counts (e.g., "Category Name (12)"), or `0` to show just the term names. *Default:* `0` (no counts shown).
 
 ## Taxonomy Selection
 
 - `taxonomy`: Specify which taxonomy of terms to display. Options are:
-  - `listdom-category` (Listing Categories) – *default if not specified*  
+  - `listdom-category` (Listing Categories) - *default if not specified*  
   - `listdom-location` (Listing Locations)  
   - `listdom-tag` (Listing Tags)  
   - `listdom-feature` (Listing Features)  
@@ -28,7 +28,7 @@ By default, this shortcode will show Listing **Categories** in a list. However, 
   For convenience, you can also use the plural name (e.g., "Categories", "Locations") if configured, but using the taxonomy slug ensures accuracy.
 - `id`: (Primarily for dropdown mode) Set a custom HTML `id` attribute for the form/select element. If not provided, one is auto-generated. This is useful if you have multiple term dropdowns on the same page and want to target them via CSS or script.
 
-When used in **list mode**, the shortcode outputs an unordered list (`<ul>`) of terms (with each term linking to its archive page). In **dropdown mode**, it outputs a form with a single select dropdown. Choosing a term in the dropdown will navigate the user to that term’s page.
+When used in **list mode**, the shortcode outputs an unordered list (`<ul>`) of terms (with each term linking to its archive page). In **dropdown mode**, it outputs a form with a single select dropdown. Choosing a term in the dropdown will navigate the user to that term's page.
 
 <Aside type="note">
 The Terms shortcode is a quick way to output term archives. The list or dropdown generated will automatically redirect or link to the archive pages of the selected terms, so ensure those archive pages are enabled and configured in Listdom settings.
@@ -39,7 +39,7 @@ The Terms shortcode is a quick way to output term archives. The list or dropdown
 <CardGrid>
   <Card>
     **Category Dropdown Filter:**  
-    Add `[listdom_terms taxonomy="listdom-category" dropdown="1" show_count="1"]` to create a dropdown of all categories, with each option showing the category name and listing count. Users can select a category and be taken directly to that category’s listings page.
+    Add `[listdom_terms taxonomy="listdom-category" dropdown="1" show_count="1"]` to create a dropdown of all categories, with each option showing the category name and listing count. Users can select a category and be taken directly to that category's listings page.
   </Card>
   <Card>
     **Location List:**  

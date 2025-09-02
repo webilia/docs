@@ -7,29 +7,29 @@ sidebar:
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Listdom Team Addon** enables listings to have multiple associated users – essentially creating a team or staff list for each listing. This is useful for scenarios like real estate listings with co-agents, business listings with multiple contacts, or any situation where more than one person should be displayed and reachable for a listing. With the Team addon, listing owners can add other registered users as teammates on their listing, and those team members’ profiles (including contact info) will be shown on the listing’s detail page.
+The **Listdom Team Addon** enables listings to have multiple associated users - essentially creating a team or staff list for each listing. This is useful for scenarios like real estate listings with co-agents, business listings with multiple contacts, or any situation where more than one person should be displayed and reachable for a listing. With the Team addon, listing owners can add other registered users as teammates on their listing, and those team members' profiles (including contact info) will be shown on the listing's detail page.
 
 ## Adding Team Members to a Listing
 
 After activating the Team addon, a new **Team** module becomes available in the listing submission form (both front-end and back-end). The listing owner (or admin) can add one or more users as team members for that listing:
 
 <Steps>
-1. **Edit or Create a Listing:** On the front-end “Add Listing” page (or in WP admin listing edit screen), you will now see a **Team** section among the listing details. 
-2. **Select Team Members:** In the Team section, you can add users by selecting their username or email from a dropdown or autocomplete field. Start typing a user’s name – matching registered users will appear. Click to add a user. Repeat to add multiple team members. Each selected team member will typically show as a tag or list item in the field.
-3. **Save the Listing:** Once you’ve added the desired team members, submit (or update) the listing. The team member assignments will be saved.
+1. **Edit or Create a Listing:** On the front-end "Add Listing" page (or in WP admin listing edit screen), you will now see a **Team** section among the listing details. 
+2. **Select Team Members:** In the Team section, you can add users by selecting their username or email from a dropdown or autocomplete field. Start typing a user's name - matching registered users will appear. Click to add a user. Repeat to add multiple team members. Each selected team member will typically show as a tag or list item in the field.
+3. **Save the Listing:** Once you've added the desired team members, submit (or update) the listing. The team member assignments will be saved.
 </Steps>
 
 There is no hard limit (by default) to the number of team members you can assign to a listing. However, adding too many could clutter the display, so in practice owners assign a reasonable number of key staff.
 
-Only existing registered users can be added as team members. If a person is not yet a user on your site, they will need an account (even a subscriber-level account) to be selectable in the Team field. Typically, team members might have accounts with roles like Agent, Author, etc., but any user role is acceptable since it’s primarily for display and contact purposes.
+Only existing registered users can be added as team members. If a person is not yet a user on your site, they will need an account (even a subscriber-level account) to be selectable in the Team field. Typically, team members might have accounts with roles like Agent, Author, etc., but any user role is acceptable since it's primarily for display and contact purposes.
 
 <Aside type="note">
-Team members do not automatically gain edit rights to the listing by being added here. By default, only the listing’s owner (the user who created it) or an admin can edit the listing. The Team addon’s main function is to display additional people on the listing. (An admin can manually change listing ownership or roles if true co-management is required.)
+Team members do not automatically gain edit rights to the listing by being added here. By default, only the listing's owner (the user who created it) or an admin can edit the listing. The Team addon's main function is to display additional people on the listing. (An admin can manually change listing ownership or roles if true co-management is required.)
 </Aside>
 
 ## Displaying Team Members on the Listing Page
 
-When a listing has team members assigned and the Team addon is active, a **Team** section can be displayed on the listing’s public detail page. Similar to other listing detail sections, the Team section is controlled via the single listing page settings:
+When a listing has team members assigned and the Team addon is active, a **Team** section can be displayed on the listing's public detail page. Similar to other listing detail sections, the Team section is controlled via the single listing page settings:
 
 - Go to the Listdom single listing (detail page) settings and locate **Team** in the list of available elements. Enable it and choose whether to show a title. By default, the Team section title is "Listing Team," but you can customize this text or hide the title entirely.
 - Once enabled, the Team section will appear on all listing pages that have team members assigned (it remains hidden on listings with no team).
@@ -37,13 +37,13 @@ When a listing has team members assigned and the Team addon is active, a **Team*
 When visible, the Team section will list each team member along with key profile information. For each team member, the following details are shown by default:
 
 - **Name:** The display name of the user, shown as a link to their profile page (if your site has public profile pages for users, e.g., a Listdom user profile or author archive). 
-- **Avatar:** The user’s profile picture (WordPress avatar) is shown in a thumbnail.
-- **Job Title:** If the user’s profile has a job title field (Listdom adds a **Job Title** field in user profiles), it will be displayed below their name.
-- **Bio:** If the user’s profile **Biographical Info** (description) is filled in, a short bio or description will be displayed.
-- **Social Icons:** Any social media links the user has (as set up in Listdom’s Social Networks settings for user profiles) will appear as icons (for example, Facebook, Twitter links).
+- **Avatar:** The user's profile picture (WordPress avatar) is shown in a thumbnail.
+- **Job Title:** If the user's profile has a job title field (Listdom adds a **Job Title** field in user profiles), it will be displayed below their name.
+- **Bio:** If the user's profile **Biographical Info** (description) is filled in, a short bio or description will be displayed.
+- **Social Icons:** Any social media links the user has (as set up in Listdom's Social Networks settings for user profiles) will appear as icons (for example, Facebook, Twitter links).
 - **Contact Information:** The Team addon can display multiple contact fields for each user:
-  - **Telephone (Tel):** The user’s phone number.
-  - **Email:** The user’s email address.
+  - **Telephone (Tel):** The user's phone number.
+  - **Email:** The user's email address.
   - **Mobile:** A mobile/cell number (if separate from phone).
   - **Website:** A personal or company website URL.
   - **Fax:** Fax number.
@@ -53,40 +53,40 @@ You can control which of these contact items are shown for team members. In the 
 - **Tel:** Show or hide the phone number. (Default: **Yes**, show it, if available.)
 - **Email:** Show or hide the email address. (Default: **Yes**, show it.)
 - **Mobile:** Show or hide the mobile number. (Default: **Yes**, show it.)
-- **Website:** Show or hide the website link. (Default: **No** by default – it’s off unless enabled.)
+- **Website:** Show or hide the website link. (Default: **No** by default - it's off unless enabled.)
 - **Fax:** Show or hide the fax number. (Default: **Yes**, show it.)
 
-These settings apply globally to all listings’ Team sections. If a particular field (e.g., fax) is not relevant to your site, you can keep it disabled so it won’t clutter the team display.
+These settings apply globally to all listings' Team sections. If a particular field (e.g., fax) is not relevant to your site, you can keep it disabled so it won't clutter the team display.
 
 <Aside type="note">
-The contact info for each team member is pulled from that user’s profile. Team members can update their own profile in WordPress (via the **Users → Profile** page) to add a phone, mobile, etc. If a field is empty for a user, that item simply won’t show up in the listing even if enabled.
+The contact info for each team member is pulled from that user's profile. Team members can update their own profile in WordPress (via the **Users → Profile** page) to add a phone, mobile, etc. If a field is empty for a user, that item simply won't show up in the listing even if enabled.
 </Aside>
 
-On the front-end, the Team section typically appears as a list of team members with their avatar and details. The layout might be one member per row or in a grid, depending on your theme’s styling. Each team member entry provides multiple ways for visitors to reach out: they can click the email (which opens an email client to send an email), click the phone or mobile number (on mobile devices, this initiates a call), and click the website link to visit an external page. This makes it very convenient for a listing to have, say, two agents both displayed with their direct contact info.
+On the front-end, the Team section typically appears as a list of team members with their avatar and details. The layout might be one member per row or in a grid, depending on your theme's styling. Each team member entry provides multiple ways for visitors to reach out: they can click the email (which opens an email client to send an email), click the phone or mobile number (on mobile devices, this initiates a call), and click the website link to visit an external page. This makes it very convenient for a listing to have, say, two agents both displayed with their direct contact info.
 
-By default, the section title "Listing Team" is hidden (since **Show Title** is off). If you enable it, it will display as a heading above the list of members – you can change this title text if desired (for example, "Our Agents" or "Team Members").
+By default, the section title "Listing Team" is hidden (since **Show Title** is off). If you enable it, it will display as a heading above the list of members - you can change this title text if desired (for example, "Our Agents" or "Team Members").
 
 ## Notifications and Team Integration
 
-One additional feature the Team addon provides is integrating with listing contact notifications. Listdom has a system where, when a visitor sends a message through a listing’s contact form (or any "Contact Owner" action), an email notification is sent to the listing owner. The Team addon can CC all team members on that email:
+One additional feature the Team addon provides is integrating with listing contact notifications. Listdom has a system where, when a visitor sends a message through a listing's contact form (or any "Contact Owner" action), an email notification is sent to the listing owner. The Team addon can CC all team members on that email:
 
-- In **Listdom → Settings → Addons → Team**, there is a setting **“Contact Notifications”**. Turn this on to include team members in email notifications for listing inquiries.
+- In **Listdom → Settings → Addons → Team**, there is a setting **"Contact Notifications"**. Turn this on to include team members in email notifications for listing inquiries.
 - With this enabled, whenever a contact email is sent to the listing owner (for example, someone fills out the "Contact Owner" form on the listing page), all users listed in the Team will get that email as well (added in CC). This ensures every team member stays in the loop on incoming inquiries.
 
 <Aside type="tip">
-Enabling "Contact Notifications" is great for teamwork – all agents or staff on the listing get the inquiry at the same time. Make sure your team members expect these emails; otherwise, leave it off if only the primary owner should respond.
+Enabling "Contact Notifications" is great for teamwork - all agents or staff on the listing get the inquiry at the same time. Make sure your team members expect these emails; otherwise, leave it off if only the primary owner should respond.
 </Aside>
 
 The Team addon does not otherwise send separate notifications to team members for listing updates; it specifically hooks into the contact emails. Team members can always log into the site and view the listing (though they cannot edit it unless given access by an admin).
 
-To remove a team member from a listing, simply edit the listing and remove that user from the Team field (click the “×” or backspace their name in the multi-select field), then update the listing. They will no longer be displayed on the front-end and will stop receiving contact notifications for that listing.
+To remove a team member from a listing, simply edit the listing and remove that user from the Team field (click the "×" or backspace their name in the multi-select field), then update the listing. They will no longer be displayed on the front-end and will stop receiving contact notifications for that listing.
 
 ## Examples
 
 <CardGrid>
-  <Card title="Real Estate Co-Agents" description="A real estate listing is handled by **two agents**. The listing owner adds the second agent via the Team addon. Now the property listing’s page shows both Agent A and Agent B, each with their photo, phone number, and email, so prospective buyers can contact either agent." />
+  <Card title="Real Estate Co-Agents" description="A real estate listing is handled by **two agents**. The listing owner adds the second agent via the Team addon. Now the property listing's page shows both Agent A and Agent B, each with their photo, phone number, and email, so prospective buyers can contact either agent." />
   <Card title="Business with Multiple Contacts" description="A restaurant listing includes the **manager and the assistant manager** as team members. The Team section on the listing page displays both contacts. When a user sends an inquiry through the listing, both the manager and assistant manager get the email <Badge text='Pro' /> so they can respond quickly." />
-  <Card title="Service Provider Team" description="A home services company has a listing where they want to show **key staff** (electrician, plumber, etc.). Using the Team addon, the company’s listing page now highlights each specialist’s name, title, and contact links, presenting a full team to potential clients." />
+  <Card title="Service Provider Team" description="A home services company has a listing where they want to show **key staff** (electrician, plumber, etc.). Using the Team addon, the company's listing page now highlights each specialist's name, title, and contact links, presenting a full team to potential clients." />
 </CardGrid>
 
-<LinkCard href="https://demo.webilia.com/listdom/" title="Live Demo – Team Feature" description="Check the Listdom demo to see an example of a listing with multiple team members displayed, and how their contact info is presented." />
+<LinkCard href="https://demo.webilia.com/listdom/" title="Live Demo - Team Feature" description="Check the Listdom demo to see an example of a listing with multiple team members displayed, and how their contact info is presented." />

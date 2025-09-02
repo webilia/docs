@@ -7,14 +7,14 @@ sidebar:
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Simple Map** shortcode `[listdom_simplemap]` displays a single location on a map with a marker. It’s ideal for showing an exact address or coordinates (e.g. your business location) on a standalone map. This shortcode can use the default OpenStreetMap provider or Google Maps for rendering.
+The **Simple Map** shortcode `[listdom_simplemap]` displays a single location on a map with a marker. It's ideal for showing an exact address or coordinates (e.g. your business location) on a standalone map. This shortcode can use the default OpenStreetMap provider or Google Maps for rendering.
 
 ## Location Coordinates
 
 - `address`: The address to display on the map. If no `lat`/`lng` are provided, Listdom will geocode this address to find the location. *(Either provide a valid `address` or coordinates via `lat`/`lng`.)*
 - `lat`: Latitude of the location (decimal format). Use with `lng` if you prefer to specify coordinates directly.
 - `lng`: Longitude of the location. Should be used in tandem with `lat`. If `lat` and `lng` are set, they take precedence over `address` and no geocoding is needed.
-- `title`: The title or label for the location. This text appears in the map marker’s info window. *Default:* if not set, the `address` will be used as the title.
+- `title`: The title or label for the location. This text appears in the map marker's info window. *Default:* if not set, the `address` will be used as the title.
 
 <Aside type="tip">
 For best results, provide specific <code>lat</code> and <code>lng</code> coordinates. If only an <code>address</code> is given, Listdom will attempt to convert it to coordinates, which may not always pinpoint the exact spot.
@@ -34,7 +34,7 @@ If using the Google Maps provider, make sure you have entered a valid Google Map
 ## Marker Options
 
 - `icon`: URL of a custom marker image to use for the location. *Default:* a default blue map pin icon provided by Listdom.
-- `x_offset`: Horizontal offset for the marker’s anchor position (in pixels). This adjusts the marker icon’s exact click/hover point. *Default:* `0` (no horizontal offset).
+- `x_offset`: Horizontal offset for the marker's anchor position (in pixels). This adjusts the marker icon's exact click/hover point. *Default:* `0` (no horizontal offset).
 - `y_offset`: Vertical offset for the marker anchor. This can be used to fine-tune the marker position (for example, to raise the clickable area if the icon has a shadow). *Default:* `-40` (pixels upward).
 
 The Simple Map shortcode automatically includes standard map controls (zoom, map type toggle, street view, fullscreen, etc.) and an info window that displays the specified `title` when the marker is clicked. These controls are fixed in this shortcode for simplicity.

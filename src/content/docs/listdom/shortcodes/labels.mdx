@@ -7,15 +7,15 @@ sidebar:
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Labels** shortcode `[listdom_label]` displays Listing Labels, which are a taxonomy of labels/tags you assign to listings. Labels can be used for special flags like “Featured”, “Sold”, or any custom tag. This shortcode lets you list all labels in one place.
+The **Labels** shortcode `[listdom_label]` displays Listing Labels, which are a taxonomy of labels/tags you assign to listings. Labels can be used for special flags like "Featured", "Sold", or any custom tag. This shortcode lets you list all labels in one place.
 
-*(Note: “Labels” in Listdom are a flat taxonomy similar to tags. They are not hierarchical.)*
+*(Note: "Labels" in Listdom are a flat taxonomy similar to tags. They are not hierarchical.)*
 
 ## Display Options
 
 - `style`: Choose the layout style for label display. Options are **`simple`** or **`clean`**. *Default:* `clean`.  
-  – **simple:** Outputs labels as a plain text list (can be multi-column with `grid`).  
-  – **clean:** Outputs labels in a cleaner block format (similar to categories clean style, with potential icon/color circle if configured).
+  - **simple:** Outputs labels as a plain text list (can be multi-column with `grid`).  
+  - **clean:** Outputs labels in a cleaner block format (similar to categories clean style, with potential icon/color circle if configured).
 - `grid`: (For **simple** or **clean** styles) Number of columns per row for listing labels. Allowed values: `1, 2, 3, 4, 6`. *Default:* `3` (in simple style) or `2` (in clean style). If an unsupported value is given, it defaults to 3. This setting controls how many label items appear in each row.
 - `show_count`: Whether to show the number of listings associated with each label next to the label name. Use `1` to display counts or `0` to hide them. *Default:* Off (labels will display without counts unless enabled).
 
@@ -23,8 +23,8 @@ The **Labels** shortcode `[listdom_label]` displays Listing Labels, which are a 
 
 - `hide_empty`: Set to `1` to hide labels that have no listings, or `0` to include even empty labels. *Default:* `0` (show all labels, including those not used by any listing).
 - `ids`: Comma-separated list of specific Label IDs to show. If provided, only those labels will be listed. Example: `ids="7,15,22"` will output only the labels with those IDs.
-- `search`: Filter labels by a keyword. Only labels whose names contain the search term will be shown. For example, `search="Featured"` will match any labels with “Featured” in the name.
-- `orderby`: Field to sort labels by. Common options: `name` for alphabetical, `count` for number of listings using that label. *Default:* `name` (alphabetical A–Z).
+- `search`: Filter labels by a keyword. Only labels whose names contain the search term will be shown. For example, `search="Featured"` will match any labels with "Featured" in the name.
+- `orderby`: Field to sort labels by. Common options: `name` for alphabetical, `count` for number of listings using that label. *Default:* `name` (alphabetical A-Z).
 - `order`: Sort direction, either `ASC` (ascending) or `DESC` (descending). *Default:* `ASC`. For instance, to list labels by popularity, use `orderby="count" order="DESC"`.
 
 Since Labels are not hierarchical, the `hierarchical` and `parent` parameters are not applicable to this shortcode. Each label will be listed as an individual item.
@@ -38,11 +38,11 @@ Listing Labels are available in all versions of Listdom. Assign labels to your l
 <CardGrid>
   <Card>
     **Highlight Specific Labels:**  
-    If you only want to show certain important labels, for example “Open Now” and “Featured”, you could use `[listdom_label style="clean" ids="5,6"]` (assuming 5 and 6 are the IDs of those labels). This will output just those labels in a clean grid format.
+    If you only want to show certain important labels, for example "Open Now" and "Featured", you could use `[listdom_label style="clean" ids="5,6"]` (assuming 5 and 6 are the IDs of those labels). This will output just those labels in a clean grid format.
   </Card>
   <Card>
     **Labels Search Filter:**  
-    You can create a page section for a specific subset of labels. E.g., `[listdom_label search="New"]` will list all labels containing “New” in their name (such as “New Opening” or “New Listing”). This can help users find new or special listings quickly.
+    You can create a page section for a specific subset of labels. E.g., `[listdom_label search="New"]` will list all labels containing "New" in their name (such as "New Opening" or "New Listing"). This can help users find new or special listings quickly.
   </Card>
 </CardGrid>
 

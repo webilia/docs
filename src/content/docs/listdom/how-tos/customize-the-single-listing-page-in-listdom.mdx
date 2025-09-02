@@ -7,26 +7,26 @@ sidebar:
 
 import { Aside, Steps } from '@astrojs/starlight/components';
 
-The single listing page — also known as the detail page — is one of the most important parts of your directory site. It’s where visitors view the full details of a listing, such as the description, images, contact information, map, and custom fields. In Listdom, you have multiple ways to control the design and layout of this page to match your brand and content style.
+The single listing page — also known as the detail page — is one of the most important parts of your directory site. It's where visitors view the full details of a listing, such as the description, images, contact information, map, and custom fields. In Listdom, you have multiple ways to control the design and layout of this page to match your brand and content style.
 
-In this guide, we’ll walk you through how to fully customize the single listing page, using Listdom’s built-in settings as well as visual page builders like Elementor and Divi. We’ll also cover how to apply different layouts per listing, per category, or even based on membership level.
+In this guide, we'll walk you through how to fully customize the single listing page, using Listdom's built-in settings as well as visual page builders like Elementor and Divi. We'll also cover how to apply different layouts per listing, per category, or even based on membership level.
 
-## Basic Method: Using Listdom’s Default Layout System
+## Basic Method: Using Listdom's Default Layout System
 
-The easiest way to control the appearance of single listing pages is through Listdom’s built-in layout settings.
+The easiest way to control the appearance of single listing pages is through Listdom's built-in layout settings.
 
 To access this, go to:
 
 **WP Admin → Listdom → Settings → Single Listing**
 
-Here, you’ll find several configuration options under the **General** and **Elements** sections.
+Here, you'll find several configuration options under the **General** and **Elements** sections.
 
 - **Style Category** lets you choose whether to use a default Listdom layout or a custom Elementor layout (if the relevant addon is installed).  
 - **Style** lets you pick from pre-designed templates such as Basic, Sidebar, Slider, or User Directory.  
 - **Theme Layout** allows you to choose between different page wrappers (e.g., Full Width, No Header).  
 - **Element Visibility Controls** in the Elements section let you show or hide components like the map, gallery, tags, videos, and more — on a global level.  
 
-This setup is ideal if you’re looking for a quick, consistent design across your site.
+This setup is ideal if you're looking for a quick, consistent design across your site.
 
 ## Building a Custom Single Listing Page with Elementor
 
@@ -41,23 +41,23 @@ The Elementor Addon is required for building Single Listing templates with Eleme
 <Steps>
 1. Make sure the Elementor Addon is installed and activated.  
 2. You can confirm this by visiting: **WP Admin → Listdom → Settings → Addons**.  
-3. You should see “Elementor Addon” listed.  
+3. You should see "Elementor Addon" listed.  
 </Steps>
 
 ### Step 2: Create a Custom Elementor Layout
 
 <Steps>
 1. Go to **WP Admin → Listdom → Elementor Styles → Add New**.  
-2. Enter a name for your layout (e.g., “Modern Detail Page”).  
-3. Select the **Style Type** as “Single Listing.”  
+2. Enter a name for your layout (e.g., "Modern Detail Page").  
+3. Select the **Style Type** as "Single Listing."  
 4. Click **Edit with Elementor**.  
 </Steps>
 
-This opens the Elementor editor, where you can build the single listing page from scratch using Listdom’s custom widgets.
+This opens the Elementor editor, where you can build the single listing page from scratch using Listdom's custom widgets.
 
 ### Step 3: Design the Page Using Widgets
 
-Within Elementor, you’ll find Listdom widgets specifically made for single listings. For example, you can add and arrange:
+Within Elementor, you'll find Listdom widgets specifically made for single listings. For example, you can add and arrange:
 
 - **Listing Title**  
 - **Gallery and Featured Image**  
@@ -67,13 +67,13 @@ Within Elementor, you’ll find Listdom widgets specifically made for single lis
 - **Custom Fields**  
 - **Reviews**  
 
-Use Elementor’s visual tools to style each section — set fonts, colors, spacing, and responsive settings.
+Use Elementor's visual tools to style each section — set fonts, colors, spacing, and responsive settings.
 
 ### Step 4: Assign the Layout Sitewide
 
 <Steps>
 1. Once your custom layout is ready, go back to: **Listdom → Settings → Single Listing**.  
-2. Set **Style Category** to “Elementor.”  
+2. Set **Style Category** to "Elementor."  
 3. Set **Style** to the layout you just created.  
 4. Save the settings.  
 </Steps>
@@ -82,7 +82,7 @@ Now all single listing pages will use your custom Elementor design.
 
 ## Creating a Custom Template with Divi Builder
 
-If you’re using the Divi theme, Listdom’s Divi Addon allows you to build listing detail pages using Divi’s Theme Builder.
+If you're using the Divi theme, Listdom's Divi Addon allows you to build listing detail pages using Divi's Theme Builder.
 
 <Aside type="note">
 The Divi Addon is required for building Single Listing templates with Divi.
@@ -98,13 +98,13 @@ The Divi Addon is required for building Single Listing templates with Divi.
 
 <Steps>
 1. Go to **Divi → Theme Builder → Add New Template**.  
-2. In the popup, choose the “Listing” post type so it applies only to single listings.  
+2. In the popup, choose the "Listing" post type so it applies only to single listings.  
 3. Click **Create Template**, then **Add Custom Body → Build Custom Body**.  
 </Steps>
 
 ### Step 3: Design the Layout with Divi Modules
 
-In the builder, use Divi’s dynamic modules and Listdom shortcodes (if needed) to add the listing details. For example, you can add and arrange:
+In the builder, use Divi's dynamic modules and Listdom shortcodes (if needed) to add the listing details. For example, you can add and arrange:
 
 - **Post Title**  
 - **Image Gallery**  
@@ -113,20 +113,20 @@ In the builder, use Divi’s dynamic modules and Listdom shortcodes (if needed) 
 - **Contact Info**  
 - **Custom Fields**  
 
-Customize the layout as needed using Divi’s visual design tools.
+Customize the layout as needed using Divi's visual design tools.
 
 ### Step 4: Assign and Save
 
-Make sure the template is assigned to the “Listing” post type. Then save the layout.  
+Make sure the template is assigned to the "Listing" post type. Then save the layout.  
 
 Your single listing pages are now powered by Divi!
 
 ## Advanced Controls: Per-Listing, Per-Category, and Per-Membership Layouts
 
-Listdom doesn’t stop at global settings. You can assign layouts conditionally:
+Listdom doesn't stop at global settings. You can assign layouts conditionally:
 
 ➤ **Per Listing (via Pro Addon)**  
-In the backend, edit a specific listing. If **Display Options Per Listing** is enabled, you’ll see a dropdown to select a layout for that listing only.
+In the backend, edit a specific listing. If **Display Options Per Listing** is enabled, you'll see a dropdown to select a layout for that listing only.
 
 Enable this in: **Listdom → Settings → Single Listing → Display Options Per Listing**.  
 
@@ -137,7 +137,7 @@ The Display Options Per Listing feature requires the Listdom Pro Addon.
 </Aside>
 
 ➤ **Per Category (via Pro Addon)**  
-To show different templates based on the listing’s category (e.g., “Properties” use Slider, “Doctors” use Sidebar):  
+To show different templates based on the listing's category (e.g., "Properties" use Slider, "Doctors" use Sidebar):  
 
 **Listdom → Settings → Single Listing → Display Options Per Category**
 
@@ -157,7 +157,7 @@ This feature requires the Listdom Subscription Addon, which lets you assign layo
 Customizing the single listing page in Listdom can be as simple or as advanced as you need it to be.
 
 - If you just want to apply a clean layout across the site, use the built-in skins via **Settings → Single Listing**.  
-- If you’re building a modern, visually branded website, Elementor and Divi offer complete creative control.  
-- For advanced use cases like per-category or per-user layout control, Listdom’s Pro and Subscription Addons give you dynamic styling options.  
+- If you're building a modern, visually branded website, Elementor and Divi offer complete creative control.  
+- For advanced use cases like per-category or per-user layout control, Listdom's Pro and Subscription Addons give you dynamic styling options.  
 
-Need help choosing or setting up the right layout strategy? Contact Listdom support — they’ll be happy to help.
+Need help choosing or setting up the right layout strategy? Contact Listdom support — they'll be happy to help.

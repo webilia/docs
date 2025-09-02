@@ -7,7 +7,7 @@ sidebar:
 
 import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
 
-The **Dynamic Grid/Carousel** widget is a powerful tool for displaying posts, pages, or custom post types anywhere on your site. Unlike the Archive Posts widget (which is tied to archive templates), Dynamic Grid/Carousel allows you to fetch **any set of posts** (recent posts, posts by a certain category, etc.) and present them in either a multi-column **grid layout** or an interactive **carousel slider**. It also includes advanced features like front-end filtering (letting users filter posts by taxonomy), “load more” pagination, and animated layout effects.
+The **Dynamic Grid/Carousel** widget is a powerful tool for displaying posts, pages, or custom post types anywhere on your site. Unlike the Archive Posts widget (which is tied to archive templates), Dynamic Grid/Carousel allows you to fetch **any set of posts** (recent posts, posts by a certain category, etc.) and present them in either a multi-column **grid layout** or an interactive **carousel slider**. It also includes advanced features like front-end filtering (letting users filter posts by taxonomy), "load more" pagination, and animated layout effects.
 
 ## Key Features
 
@@ -54,7 +54,7 @@ Use Dynamic Grid/Carousel on regular pages or templates where you want to pick a
      - *Loop:* Decide if the carousel should loop back to the start.
 4. **Front-End Filter Options (Content Tab - Filter Section):** *(Pro feature)* If you want users to filter the posts:
    - **Enable Filter:** Choose one or multiple taxonomy terms to generate filter buttons (e.g., select *Categories* - the widget will create buttons for each category of the posts shown).
-   - **"Show All" Label:** Customize the text for the “All” filter button (default “Show All”).
+   - **"Show All" Label:** Customize the text for the "All" filter button (default "Show All").
    - **Filter Logic:** If AJAX filtering is on, clicking a filter will fetch posts via AJAX; if off, it filters items already on the page (useful with smaller sets or when all posts are loaded).
    - **Count Badges:** Optionally display a count of posts next to each filter name.
    - **Filter Alignment & Style:** (See Style tab for design options of filter bar and buttons.)
@@ -63,7 +63,7 @@ Use Dynamic Grid/Carousel on regular pages or templates where you want to pick a
    - *Title:* Show or hide the post title. If shown, you can enable linking the title to the post's single page (recommended for user navigation).
    - *Excerpt:* Show or hide the excerpt. If shown, set a word limit for consistency. You can also choose to override manual excerpts with the set length.
    - *Meta Data:* Select which meta info to display beneath the title (Author, Date, Time, Comments count, etc.). The widget might offer checkboxes or a multi-select for meta elements. You can input a separator character (like a bullet • or pipe |) to be placed between meta items.
-   - *Read More:* Optionally display a “Read More” link or button. Customize its text (e.g., “Read More”, “View Details”) and decide if it appears as a text link or button.
+   - *Read More:* Optionally display a "Read More" link or button. Customize its text (e.g., "Read More", "View Details") and decide if it appears as a text link or button.
 6. **Style Your Posts (Style Tab):** There are multiple subsections here:
    - **Card/Item:** Set background color or hover background for the item container. Add a border or shadow if desired. Adjust padding inside each item to space out content.
    - **Image:** If images are shown, you can adjust the corner radius (make images rounded), add CSS Filters (grayscale, brightness, etc.) for a consistent style, and define a hover animation (like zoom-in on hover).
@@ -88,7 +88,7 @@ Use Dynamic Grid/Carousel on regular pages or templates where you want to pick a
 
 <CardGrid>
   <Card title='Portfolio Gallery'>
-  Use a 3-column grid of custom post type “Portfolio” items, enable a category filter (e.g., by project type), and allow users to filter without page reload. Masonry layout and hover animations can add a creative touch.
+  Use a 3-column grid of custom post type "Portfolio" items, enable a category filter (e.g., by project type), and allow users to filter without page reload. Masonry layout and hover animations can add a creative touch.
   </Card>
   <Card title='Latest Blog Posts Carousel'>
   On your homepage, display the 5 latest blog posts in a stylish carousel. Enable autoplay so it slides automatically, and style it to match your site's theme.

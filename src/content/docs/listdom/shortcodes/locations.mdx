@@ -12,21 +12,21 @@ The **Locations** shortcode `[listdom_location]` lists your listing Locations ta
 ## Display Styles
 
 - `style`: Layout style for displaying locations. Options: **`image`**, **`simple`**, **`clean`**. *Default:* `clean`.  
-  – **image:** Each location is shown as an image card with its name (uses the location’s assigned image).  
-  – **simple:** Locations are shown as a basic text list (columns controlled by `grid`).  
-  – **clean:** Locations appear in a clean grid, with an icon placeholder or circle (if icons were supported) and name.
+  - **image:** Each location is shown as an image card with its name (uses the location's assigned image).  
+  - **simple:** Locations are shown as a basic text list (columns controlled by `grid`).  
+  - **clean:** Locations appear in a clean grid, with an icon placeholder or circle (if icons were supported) and name.
 - `grid`: (For **simple** or **clean** style) Number of columns per row. Allowed values: `1, 2, 3, 4, 6`. *Default:* for **clean** `2`, for **simple** `3`. This defines how many location items are in each row for those styles.
-- `max_grid`: (For **image** style) Maximum number of location cards per row (1–8). *Default:* `8`. If fewer locations exist, the row will just contain those; if more, they wrap to next line.
+- `max_grid`: (For **image** style) Maximum number of location cards per row (1-8). *Default:* `8`. If fewer locations exist, the row will just contain those; if more, they wrap to next line.
 - `show_count`: Whether to show the number of listings in each location. Use `1` to display counts or `0` to hide. *Default:* Off for **clean** and **image** styles (count shown only if enabled); On for **simple** style (count is shown by default).
 
 ## Filtering Options
 
 - `hierarchical`: Display locations hierarchically (i.e., parent regions with child subregions nested). Use `1` for yes or `0` for no. *Default:* `1` (since Locations taxonomy is inherently hierarchical). When enabled, only parent locations (e.g., countries or top-level regions) are listed initially, with their sub-locations listed underneath in the output. When disabled, all locations will appear as a flat list (you can still filter by a specific parent using `parent`).
-- `parent`: Show only locations that are children of a specific parent location. Accepts a **location ID** or **name**. For example, `parent="California"` will list only locations under “California”. If not set (and `hierarchical=1`), the shortcode will list top-level locations by default. If `hierarchical=0`, using `parent` simply filters the flat list to those under the given parent.
+- `parent`: Show only locations that are children of a specific parent location. Accepts a **location ID** or **name**. For example, `parent="California"` will list only locations under "California". If not set (and `hierarchical=1`), the shortcode will list top-level locations by default. If `hierarchical=0`, using `parent` simply filters the flat list to those under the given parent.
 - `hide_empty`: Use `1` to hide locations with no listings, or `0` to show all locations regardless of emptiness. *Default:* `0` (include empty locations in the list).
 - `ids`: Comma-separated list of location IDs to display exclusively. Example: `ids="101,102,103"` will list only those location terms (useful if you want to show a selected set of cities or regions).
-- `search`: Filter locations by a keyword. Only locations whose names contain the search term will be shown. E.g., `search="New"` might match “New York” or “New Jersey”.
-- `orderby`: Field to sort locations by. Typically `name` for alphabetical or `count` for number of listings. *Default:* `name` (A–Z by location name).
+- `search`: Filter locations by a keyword. Only locations whose names contain the search term will be shown. E.g., `search="New"` might match "New York" or "New Jersey".
+- `orderby`: Field to sort locations by. Typically `name` for alphabetical or `count` for number of listings. *Default:* `name` (A-Z by location name).
 - `order`: Sorting order, `ASC` or `DESC`. *Default:* `ASC`. For example, `orderby="count" order="DESC"` would list locations from most listings to fewest.
 
 <Aside type="tip">
