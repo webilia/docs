@@ -1,101 +1,98 @@
 ---
 title: Divi Addon
-description: Design Listdom listing pages and elements using the Divi Builder – create custom templates for single listings and more.
+description: Design Listdom listing pages and elements using the Divi Builder - create custom templates for single listings and more.
 sidebar:
   order: 14
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Listdom Divi Addon** allows you to harness the power of the Divi Builder to create custom layouts for your directory’s listings. With this addon, you can design the **Single Listing** page visually using Divi’s drag-and-drop interface, and even create custom listing card designs. The addon provides a suite of Divi modules (visual building blocks) for every Listdom listing element – title, description, gallery, map, features, and more – so you can lay out and style listing content exactly as you wish.
+The **Listdom Divi Addon** allows you to harness the power of the Divi Builder to create custom layouts for your directory's listings. With this addon, you can design the **Single Listing** page visually using Divi's drag-and-drop interface, and even create custom listing card designs. The addon provides a suite of Divi modules (visual building blocks) for every Listdom listing element - title, description, gallery, map, features, and more - so you can lay out and style listing content exactly as you wish.
 
 <Aside type="note">
-This addon requires the Divi theme or Divi Builder plugin to be installed. It adds a “Listdom Divi” integration into Divi’s system. Ensure Divi (version 4.0+ with Theme Builder support) is active alongside Listdom for this addon to function.
+This addon requires the Divi theme or Divi Builder plugin to be installed. It adds a "Listdom Divi" integration into Divi's system. Ensure Divi (version 4.0+ with Theme Builder support) is active alongside Listdom for this addon to function.
 </Aside>
 
 ## Getting Started with Divi Integration
 
-Once the Divi Addon is activated, no additional settings are needed in Listdom (the Addon’s panel will simply inform you to use Divi’s tools). You will primarily work within **Divi → Theme Builder** to create templates for Listdom listings:
+Once the Divi Addon is activated, no additional settings are needed in Listdom (the Addon's panel will simply inform you to use Divi's tools). You will primarily work within **Divi → Theme Builder** to create templates for Listdom listings:
 
-- **Single Listing Template:** In Divi’s Theme Builder, add a new template and assign it to the Listdom **Listing** post type (and optionally specific categories or conditions as desired). Then build the body of this template using Divi Builder.
-- When editing the template, you’ll find new **Listdom modules** in the Divi module library. These modules are prefixed with “Listing” and represent various pieces of listing data (detailed in the next section).
+- **Single Listing Template:** In Divi's Theme Builder, add a new template and assign it to the Listdom **Listing** post type (and optionally specific categories or conditions as desired). Then build the body of this template using Divi Builder.
+- When editing the template, you'll find new **Listdom modules** in the Divi module library. These modules are prefixed with "Listing" and represent various pieces of listing data (detailed in the next section).
 - Drag and drop these modules onto your template layout. For example, you might add a two-column section: one column with the **Listing Gallery** module, and the other with a **Listing Title** and **Listing Description** module stacked.
-- Style each module using Divi’s familiar design options (fonts, colors, spacing, etc.). The modules pull real listing data when viewed on the front-end.
+- Style each module using Divi's familiar design options (fonts, colors, spacing, etc.). The modules pull real listing data when viewed on the front-end.
 
 After designing, save the template. Now all **single listing pages** on your site will use your Divi layout, displaying listing information in the design you created. You can always return to the Theme Builder to tweak the layout or add/remove modules.
 
 <Aside type="tip">
-Use Divi’s dynamic content features for any text modules if needed. However, the dedicated Listdom modules will cover most needs without custom dynamic fields.
+Use Divi's dynamic content features for any text modules if needed. However, the dedicated Listdom modules will cover most needs without custom dynamic fields.
 </Aside>
 
 ## Listdom Divi Modules
 
 The Divi Addon registers a comprehensive set of custom modules in Divi Builder, each corresponding to a Listdom listing feature or field. When you open the module list in Divi Builder (while editing a Listdom template), look for modules like **Listing Title**, **Listing Description (Content)**, **Listing Gallery**, etc. Key modules include:
 
-- **Listing Title:** Displays the listing’s title. You can choose the heading level (H1, H2, etc.) and style it.
+- **Listing Title:** Displays the listing's title. You can choose the heading level (H1, H2, etc.) and style it.
 - **Listing Content:** The full description of the listing (main content). Supports all text styling options Divi provides.
-- **Listing Gallery:** Outputs the listing’s image gallery as a Divi slider or gallery module, allowing you to showcase listing photos.
+- **Listing Gallery:** Outputs the listing's image gallery as a Divi slider or gallery module, allowing you to showcase listing photos.
 - **Listing Image:** The featured image of the listing, if any.
-- **Listing Categories:** A list or icons of the listing’s categories (and similarly **Listing Locations**, **Listing Tags**, **Listing Labels** for other taxonomies).
-- **Listing Map:** Displays a map with the listing’s location pin (will only show if the listing has an address/coordinates).
+- **Listing Categories:** A list or icons of the listing's categories (and similarly **Listing Locations**, **Listing Tags**, **Listing Labels** for other taxonomies).
+- **Listing Map:** Displays a map with the listing's location pin (will only show if the listing has an address/coordinates).
 - **Listing Address:** The text address of the listing.
-- **Listing Features:** A list of the listing’s features or amenities.
+- **Listing Features:** A list of the listing's features or amenities.
 - **Listing Price:** The price or price range of the listing, formatted with currency.
 - **Listing Price Class** <Badge text="Pro" />: Displays a price category or label (if using a pricing taxonomy).
 - **Listing Owner:** Information about the listing author/owner (name, avatar, etc.).
-- **Listing Contact:** A button or form trigger for contacting the owner (commonly just an icon or link since the actual form is handled by Listdom’s contact system).
-- **Listing Working Hours:** Shows the listing’s availability or business hours (from the Work Hours module).
+- **Listing Contact:** A button or form trigger for contacting the owner (commonly just an icon or link since the actual form is handled by Listdom's contact system).
+- **Listing Working Hours:** Shows the listing's availability or business hours (from the Work Hours module).
 - **Listing Social Share:** Social share buttons for the listing.
-- **Listing Breadcrumb:** A breadcrumb navigation showing the listing’s position (e.g., Home > Category > Listing).
+- **Listing Breadcrumb:** A breadcrumb navigation showing the listing's position (e.g., Home > Category > Listing).
 - **Listing Discussion:** The comments/reviews section (if using WordPress comments for listings).
 
 In addition, the Divi Addon includes modules that appear if certain other Listdom addons are active:
 
 <Aside type="note">
 **Addon-specific Divi Modules:** The Divi integration covers advanced features too. For example:
-- **Listing Booking** – Requires Listdom Booking Addon (shows booking form/details).
-- **Listing Auction** – Requires Listdom Auction Addon (displays auction bid info).
-- **Listing Claim** – Requires the Claim/Verification Addon (for “claim this listing” status).
-- **Listing ACF** – Requires the ACF integration Addon (shows custom fields).
-- **Listing Favorite** – Requires the Favorites feature (e.g., part of <Badge text="Pro" /> plan, to show a favorite button).
-- **Listing Stats** – Requires Listdom Pro’s statistics (views count) to be enabled.
-- **Listing Franchise** – Requires Franchise/Branch Addon if applicable.
+- **Listing Booking** - Requires Listdom Booking Addon (shows booking form/details).
+- **Listing Auction** - Requires Listdom Auction Addon (displays auction bid info).
+- **Listing Claim** - Requires the Claim/Verification Addon (for "claim this listing" status).
+- **Listing ACF** - Requires the ACF integration Addon (shows custom fields).
+- **Listing Favorite** - Requires the Favorites feature (e.g., part of <Badge text="Pro" /> plan, to show a favorite button).
+- **Listing Stats** - Requires Listdom Pro's statistics (views count) to be enabled.
+- **Listing Franchise** - Requires Franchise/Branch Addon if applicable.
   
 These modules will only appear in Divi if you have the corresponding addon active. The Divi Addon intelligently registers them as needed.
 </Aside>
 
 Using these modules is as simple as placing them in your layout. For instance, to build a header section, you might use **Listing Title** and **Listing Categories** side by side. For a sidebar, you could use **Listing Contact** and **Listing Map** modules stacked vertically.
 
-Each module comes with the usual Divi design settings. You can set fonts, colors, backgrounds, etc., and the module will render the actual listing data on the front-end. If a certain listing field is empty (e.g., no price given), the module will typically not display anything (or show a placeholder like “No listing available” which you can style).
+Each module comes with the usual Divi design settings. You can set fonts, colors, backgrounds, etc., and the module will render the actual listing data on the front-end. If a certain listing field is empty (e.g., no price given), the module will typically not display anything (or show a placeholder like "No listing available" which you can style).
 
 ## Custom Listing Cards (Templates)
 
 In addition to single pages, the Divi Addon can help design listing **cards** (the listing preview boxes in grid or list views). The addon registers a custom post type **Divi Templates** in wp-admin (found under Listdom as **Divi Templates**). You can create a new Template here and design it with Divi Builder to serve as a listing card layout. Key steps:
 
-- Go to **Listdom → Divi Templates** and click **Add New Template**. Give it a name like “Custom Listing Card”.
-- In the Template edit screen, you can choose a **Template Type** (if available) such as “Listing Card” (for archive card views) or “Single Listing” (for full page). Select **Listing Card**.
-- Click **Use The Divi Builder** to design this template. You’ll have access to the same **Listing** modules. However, since a card is a compact view, you might just use a few: e.g., **Listing Image**, **Listing Title**, maybe **Listing Price**, etc., arranged in a smaller layout.
+- Go to **Listdom → Divi Templates** and click **Add New Template**. Give it a name like "Custom Listing Card".
+- In the Template edit screen, you can choose a **Template Type** (if available) such as "Listing Card" (for archive card views) or "Single Listing" (for full page). Select **Listing Card**.
+- Click **Use The Divi Builder** to design this template. You'll have access to the same **Listing** modules. However, since a card is a compact view, you might just use a few: e.g., **Listing Image**, **Listing Title**, maybe **Listing Price**, etc., arranged in a smaller layout.
 - Save the template.
 
-Currently, applying a custom Divi card design to Listdom’s output may require selecting a special skin or short code option (the integration ensures the Divi layout is used if properly configured). Check Listdom’s skin settings for an option like “Custom Divi Card”. If present, activating that will replace standard cards with your Divi Template design.
+Currently, applying a custom Divi card design to Listdom's output may require selecting a special skin or short code option (the integration ensures the Divi layout is used if properly configured). Check Listdom's skin settings for an option like "Custom Divi Card". If present, activating that will replace standard cards with your Divi Template design.
 
 <Aside type="tip">
-If you’re comfortable with Divi, you can use its responsive design controls to ensure your listing templates look good on all devices. For example, you might hide certain modules on mobile (like a wide gallery) and show a simpler layout.
+If you're comfortable with Divi, you can use its responsive design controls to ensure your listing templates look good on all devices. For example, you might hide certain modules on mobile (like a wide gallery) and show a simpler layout.
 </Aside>
 
 ## Example Usage
 
 <Steps>
-1. Create a Listing Template:** In Divi Theme Builder, assign a new template to “All Listdom Listings”. Design a header with the <strong>Listing Title</strong> and <strong>Listing Categories</strong> modules, a gallery section with <strong>Listing Gallery</strong>, and a right sidebar with <strong>Listing Map</strong> and <strong>Listing Contact</strong> modules. Style everything to match your theme’s aesthetics.
+1. **Create a Listing Template:** In Divi Theme Builder, assign a new template to "All Listdom Listings". Design a header with the <strong>Listing Title</strong> and <strong>Listing Categories</strong> modules, a gallery section with <strong>Listing Gallery</strong>, and a right sidebar with <strong>Listing Map</strong> and <strong>Listing Contact</strong> modules. Style everything to match your theme's aesthetics.
 
-2. View a Listing:** Open any listing on the front-end. You’ll see your Divi template in action – the listing title and categories are displayed with your chosen font and color, the gallery is in the layout you designed, and the map is showing the location. You achieved a totally unique listing page without writing code.
+2. **View a Listing:** Open any listing on the front-end. You'll see your Divi template in action - the listing title and categories are displayed with your chosen font and color, the gallery is in the layout you designed, and the map is showing the location. You achieved a totally unique listing page without writing code.
 
-3. Update Easily:** The client wants to show the price more prominently. Edit the template in Theme Builder, add the <strong>Listing Price</strong> module below the title, perhaps with a bold style. Save changes – now all listing pages immediately reflect the new design with the price visible at the top.
+3. **Update Easily:** The client wants to show the price more prominently. Edit the template in Theme Builder, add the <strong>Listing Price</strong> module below the title, perhaps with a bold style. Save changes - now all listing pages immediately reflect the new design with the price visible at the top.
 
-4. Design a Card (Advanced):** You decide the default listing grids aren’t fitting your style. You create a Divi Template of type Listing Card: in a compact row, you place the featured image on the left and title, location, and price on the right. After integrating this template via Listdom’s settings, your directory’s grid view now uses this modern card layout you built in Divi.
+4. **Design a Card (Advanced):** You decide the default listing grids aren't fitting your style. You create a Divi Template of type Listing Card: in a compact row, you place the featured image on the left and title, location, and price on the right. After integrating this template via Listdom's settings, your directory's grid view now uses this modern card layout you built in Divi.
 </Steps>
 
 ## Examples

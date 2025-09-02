@@ -1,41 +1,38 @@
 ---
 title: Advanced Portal Search Addon
-description: Augment Listdom’s search functionality with refined taxonomy matching logic and a custom fallback image for listings without featured images.
+description: Augment Listdom's search functionality with refined taxonomy matching logic and a custom fallback image for listings without featured images.
 sidebar:
   order: 5
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The **Listdom Advanced Portal Search (APS) Addon** enhances the search and browsing experience on your directory. It provides more control over how filters match listings and ensures your directory looks professional by displaying a fallback image for listings that don’t have their own featured image. Essentially, APS gives you fine-grained search logic (AND/OR) for taxonomy filters and a way to avoid blank image slots on listing cards.
+The **Listdom Advanced Portal Search (APS) Addon** enhances the search and browsing experience on your directory. It provides more control over how filters match listings and ensures your directory looks professional by displaying a fallback image for listings that don't have their own featured image. Essentially, APS gives you fine-grained search logic (AND/OR) for taxonomy filters and a way to avoid blank image slots on listing cards.
 
 ## Matching Logic for Taxonomies
 
-By default, when users select multiple terms in a filter (e.g., multiple categories or multiple features), Listdom uses an **OR** logic – it will show listings that have any of the selected terms. The APS Addon allows you to switch this to **AND** logic on a per-taxonomy basis, meaning users can find listings that strictly match *all* selected terms. 
+By default, when users select multiple terms in a filter (e.g., multiple categories or multiple features), Listdom uses an **OR** logic - it will show listings that have any of the selected terms. The APS Addon allows you to switch this to **AND** logic on a per-taxonomy basis, meaning users can find listings that strictly match *all* selected terms. 
 
 In the APS settings (**Listdom Settings → Addons → Advanced Portal Search**), you will find **Matching Logic** controls for each taxonomy:
 
 - **Categories Logic:** Choose **OR** (default) to show listings that belong to any of the selected categories, or **AND** to require listings to be in all selected categories simultaneously.
 - **Locations Logic:** Toggle between OR or AND if you allow selecting multiple locations in search.
 - **Tags Logic:** OR shows listings having any of the selected tags; AND would only show listings that have every selected tag.
-- **Features Logic:** Often multiple features can be selected (e.g., “Free WiFi” AND “Parking”). Using AND here means a listing must have all chosen features to appear in results. OR would list any with at least one of the features.
-- **Labels Logic:** If you use labels (like “Featured” or other flags), you can decide if multiple label filters narrow down (AND) or broaden (OR) the results.
-- **Attributes (Custom Fields) Logic:** For additional custom taxonomies (like Attributes <Badge text="Pro" />), you can set their matching as well. For instance, if you have a custom field taxonomy for “Amenities” with values, AND logic would only find listings that have every amenity selected.
+- **Features Logic:** Often multiple features can be selected (e.g., "Free WiFi" AND "Parking"). Using AND here means a listing must have all chosen features to appear in results. OR would list any with at least one of the features.
+- **Labels Logic:** If you use labels (like "Featured" or other flags), you can decide if multiple label filters narrow down (AND) or broaden (OR) the results.
+- **Attributes (Custom Fields) Logic:** For additional custom taxonomies (like Attributes <Badge text="Pro" />), you can set their matching as well. For instance, if you have a custom field taxonomy for "Amenities" with values, AND logic would only find listings that have every amenity selected.
 
 Each taxonomy has a simple toggle in the settings represented by OR/AND radio buttons. Select your preferred logic and save. The search forms on your site will then follow these rules.
 
-<Aside type="note">The default OR logic is usually more user-friendly for broad searches, but AND logic is valuable when users want very specific results. For example, a travel site could let users filter for hotels that are in *London* **and** in the *“5-Star”* category simultaneously (using AND across Location and Category filters).</Aside>
+<Aside type="note">The default OR logic is usually more user-friendly for broad searches, but AND logic is valuable when users want very specific results. For example, a travel site could let users filter for hotels that are in *London* **and** in the *"5-Star"* category simultaneously (using AND across Location and Category filters).</Aside>
 
 ## Fallback Image for Listings
 
-APS also introduces a **Fallback Image** setting – a single image that you designate to show whenever a listing has no featured image of its own. 
+APS also introduces a **Fallback Image** setting - a single image that you designate to show whenever a listing has no featured image of its own. 
 
-- **Setting the Image:** In the APS settings, you’ll find an **“Fallback Image”** picker. Upload or choose an image from your media library that will serve as the default image. Common choices are a logo, a generic “no photo” graphic, or a placeholder relevant to your niche.
+- **Setting the Image:** In the APS settings, you'll find an **"Fallback Image"** picker. Upload or choose an image from your media library that will serve as the default image. Common choices are a logo, a generic "no photo" graphic, or a placeholder relevant to your niche.
 - **Where It Appears:** Once set, if a listing has no featured image, Listdom will automatically use this fallback image in its place on the front-end. This applies to listing cards, grids, map infowindows, or anywhere a featured image would display. The addon hooks into the featured image retrieval and injects the fallback where needed.
-- **Consistent Dimensions:** The fallback image will be output in the same dimensions/cropping as normal listing thumbnails. It’s recommended to use an image with appropriate aspect ratio (e.g., a 16:9 landscape if your listings normally use that) to avoid any design inconsistencies. The addon ensures the proper CSS classes are applied so the image fits the layout.
+- **Consistent Dimensions:** The fallback image will be output in the same dimensions/cropping as normal listing thumbnails. It's recommended to use an image with appropriate aspect ratio (e.g., a 16:9 landscape if your listings normally use that) to avoid any design inconsistencies. The addon ensures the proper CSS classes are applied so the image fits the layout.
 
 By using a fallback, you avoid empty image frames or broken image icons on listings that contributors might have forgotten to add images to. It gives your directory a more polished look since every listing appears to have an image.
 
@@ -45,8 +42,8 @@ By using a fallback, you avoid empty image frames or broken image icons on listi
 
 <Steps>
 1. **Open APS Settings:** Navigate to *Listdom Settings → Addons → Advanced Portal Search*. This panel contains all APS addon options.
-2. **Adjust Matching Logic:** For each taxonomy listed under **Matching Logic**, decide whether search filters should use OR or AND. Click the corresponding radio button for each (e.g., set **Features** to AND if you want all selected features required). If you’re unsure, leaving it on OR (default) is a safe choice.
-3. **Set a Fallback Image:** Under **Fallback Image**, click **“Choose Image”**. Upload a new placeholder image or select one from your media library. Once chosen, it will appear as a thumbnail in the settings page. 
+2. **Adjust Matching Logic:** For each taxonomy listed under **Matching Logic**, decide whether search filters should use OR or AND. Click the corresponding radio button for each (e.g., set **Features** to AND if you want all selected features required). If you're unsure, leaving it on OR (default) is a safe choice.
+3. **Set a Fallback Image:** Under **Fallback Image**, click **"Choose Image"**. Upload a new placeholder image or select one from your media library. Once chosen, it will appear as a thumbnail in the settings page. 
 4. **Save Changes:** Click **Save The Changes**. Your new search logic and fallback image are now active. Test on the front-end by running a search with multiple filters and by viewing a listing without a featured image to ensure the fallback displays.
 </Steps>
 
@@ -57,7 +54,7 @@ By using a fallback, you avoid empty image frames or broken image icons on listi
     A job directory allows filtering by multiple skills (tags). With APS, the admin sets **Tags** logic to **AND**. Now if a user filters jobs by *JavaScript* AND *React*, they only see jobs that require both skills, not jobs that require either. This delivers more precise results to the user.
   </Card>
   <Card title="Cleaner Listing Grid with Fallbacks">
-    An event directory has some older events added without images. The admin uploads a branded “Event Coming Soon” graphic as the **Fallback Image**. Now, on the homepage event grid, every event tile shows either its unique featured photo or the fallback image. The grid looks consistent and professional, with no empty image slots.
+    An event directory has some older events added without images. The admin uploads a branded "Event Coming Soon" graphic as the **Fallback Image**. Now, on the homepage event grid, every event tile shows either its unique featured photo or the fallback image. The grid looks consistent and professional, with no empty image slots.
   </Card>
   <Card title="Combining Filters with AND Logic">
     On a real estate site, the admin enables AND logic for **Features**. A visitor can filter for homes that have *Pool* **and** *Garage* **and** *Fireplace* simultaneously. Thanks to APS, only properties with all those features show up, saving the visitor time by not showing homes missing one of the amenities.

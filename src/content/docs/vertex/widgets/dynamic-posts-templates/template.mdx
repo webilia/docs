@@ -20,8 +20,8 @@ The **Template** widget enables you to embed a saved Elementor template anywhere
 ## Using the Template Widget
 
 <Steps>
-1. **Prepare a Template:** Before using this widget, create and save the Elementor template you want to embed. For example, you might create a “Author Bio Section” template that includes an image and text, or a “Custom Post Layout” section.
-2. **Drag the Template Widget:** In the Elementor editor, locate the **Template** widget (usually under the “Vertex” or similar category) and drag it into your page where you want the template content to appear.
+1. **Prepare a Template:** Before using this widget, create and save the Elementor template you want to embed. For example, you might create a "Author Bio Section" template that includes an image and text, or a "Custom Post Layout" section.
+2. **Drag the Template Widget:** In the Elementor editor, locate the **Template** widget (usually under the "Vertex" or similar category) and drag it into your page where you want the template content to appear.
 3. **Select a Template (Content Tab):** In the Template widget's settings (Content tab):
    - **Choose a Template:** You'll see a dropdown list of your saved templates. Find and select the template you wish to insert. The widget will then load a preview of that template's content into your page.
    - The dropdown will typically list templates by name (Section and Page templates). If you have many, use the search bar to quickly find the correct one.
@@ -42,11 +42,11 @@ When inserting templates that include dynamic widgets (like Post Title, etc.), b
 
 - **Reusable Section:** You have a custom call-to-action section designed in Elementor that you want to include at the end of every blog post. Save that section as a template, then in your Single Post Template (Theme Builder), use the Template widget to insert it. Now one edit to the call-to-action template updates it on all posts.
 - **Custom Loop Item Design:** Paired with the Dynamic Grid widget, you can design a loop item as a template (e.g., a fancy post card layout with ACF fields, etc.) and then have Dynamic Grid/Carousel widget use that for each item. Here, the Template widget would actually be used behind the scenes via selection, rather than manually dragging in each loop.
-- **Content Snippets:** If you have legal text or repeated informational blocks (like “FAQ about shipping” that appears on multiple product pages), create a template for that text. Then drop it in wherever needed with the Template widget. Editors can update the single template without editing each page.
+- **Content Snippets:** If you have legal text or repeated informational blocks (like "FAQ about shipping" that appears on multiple product pages), create a template for that text. Then drop it in wherever needed with the Template widget. Editors can update the single template without editing each page.
 
 ## Tips and Best Practices
 
-- **Naming Templates:** Give your templates clear names (e.g., “CTA Section - Newsletter” or “Blog Post Bio Box”) so they're easy to identify in the dropdown.
+- **Naming Templates:** Give your templates clear names (e.g., "CTA Section - Newsletter" or "Blog Post Bio Box") so they're easy to identify in the dropdown.
 - **Editing Templates:** To edit a template that's inserted via this widget, you don't edit it on each page. Instead, go to **Templates** in WordPress or the Elementor Template Library and edit the saved template itself. After updating, all Template widgets that reference it will show the changes.
 - **Avoid Nesting Too Deeply:** While you can insert a template that itself contains a Template widget, this nesting can get confusing and potentially affect performance. It's usually best to keep it to one level (widget inserts a template that contains static/design elements or dynamic fields, but not another Template widget).
 - **Use in Headers/Footers:** If you're not using Elementor Pro's global header/footer, you could design a header or footer as a saved template and insert it on multiple pages with the Template widget. However, note that a truly global header/footer might be better handled by Elementor's Theme Builder or other methods for consistency.

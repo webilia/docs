@@ -3,9 +3,6 @@ title: Only 12 Listings Show on Category Pages (No Pagination)
 description: Fix the issue where only 12 listings appear on Listdom category pages without pagination or load more options.
 sidebar:
   order: 1
-header_button:
-  label: View Listdom Demo
-  url: https://demo.webilia.com/listdom
 ---
 
 import { Steps } from '@astrojs/starlight/components';
@@ -16,11 +13,11 @@ When clicking on a listing category (e.g., from a taxonomy link or widget), the 
 
 ## Answer
 
-If your category pages in Listdom only display 12 listings and don’t show a “Load More” button or any pagination, this article will help you identify and fix the issue. This issue is usually caused by the **Pagination Method** being set to “Disabled” in the shortcode that generates the archive page. In Listdom, category archive pages can be powered by shortcodes (if configured in Listdom settings). If the shortcode in use has pagination disabled, it will stop displaying listings after the initial **Limit** (commonly set to 12).
+If your category pages in Listdom only display 12 listings and don't show a "Load More" button or any pagination, this article will help you identify and fix the issue. This issue is usually caused by the **Pagination Method** being set to "Disabled" in the shortcode that generates the archive page. In Listdom, category archive pages can be powered by shortcodes (if configured in Listdom settings). If the shortcode in use has pagination disabled, it will stop displaying listings after the initial **Limit** (commonly set to 12).
 
 ## How to Fix It
 
-Follow these steps to enable pagination or “Load More” functionality for your category pages:
+Follow these steps to enable pagination or "Load More" functionality for your category pages:
 
 <Steps>
 1. **Check Archive Page Settings**  
@@ -36,12 +33,12 @@ Follow these steps to enable pagination or “Load More” functionality for you
    - This can usually be found under the **Layout** tab of the shortcode builder.
 
 3. **Change the Pagination Method**  
-   If it’s set to **Disabled**, change it to one of the following:  
-   - **Load More Button:** Shows a “Load More” button at the bottom of the listing results.  
+   If it's set to **Disabled**, change it to one of the following:  
+   - **Load More Button:** Shows a "Load More" button at the bottom of the listing results.  
    - **Infinite Scroll:** Automatically loads more listings as the user scrolls down.  
    - **Numeric:** Divides the listings into several pages and adds the page numbers.  
 
-   ✅ Don’t leave it as “Disabled,” or your listing results will be limited to the first batch (e.g., 12 items).
+   ✅ Don't leave it as "Disabled," or your listing results will be limited to the first batch (e.g., 12 items).
 
 4. **Save the Shortcode**  
    After updating the pagination setting, click **Save** or **Update** on the shortcode.  
@@ -50,7 +47,7 @@ Follow these steps to enable pagination or “Load More” functionality for you
 
 ## Why This Happens
 
-Listdom shortcodes are very flexible, but when **Pagination Method** is set to “Disabled,” the shortcode will only display the initial limit of listings — and will not load any more, even if more listings exist. This setting is useful when you want a compact listing block, but it’s not ideal for archive pages.
+Listdom shortcodes are very flexible, but when **Pagination Method** is set to "Disabled," the shortcode will only display the initial limit of listings — and will not load any more, even if more listings exist. This setting is useful when you want a compact listing block, but it's not ideal for archive pages.
 
 ## Summary
 

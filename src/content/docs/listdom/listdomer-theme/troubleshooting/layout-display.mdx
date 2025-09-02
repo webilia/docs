@@ -4,9 +4,6 @@ sidebar_label: Layout & Display Issues
 description: Solve visual problems with headers, footers, sidebars, and page titles.
 sidebar:
   order: 3
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
@@ -14,20 +11,20 @@ This guide addresses common layout and display issues in Listdomer.
 
 ## Layout & Display Issues
 
-- **Header Looks Wrong on Mobile:** If the menu is not toggling on mobile or overlaps the logo, ensure you have not removed the mobile toggle by custom CSS. Also check that you assigned a menu to the “Primary” location. An empty menu can cause unexpected layout.
-- **Footer Widgets Not Showing:** If you expect widgets in the footer but none appear, verify that you have added widgets to the respective Footer sidebar. Ensure the Footer Type selected actually uses widgets. For example, Footer “Tiny” will not display the 4 widget areas – it’s just a small bar.
-- **Page Title Section Too Large/Empty:** If a page’s title banner area looks oddly large with nothing in it, possibly the title is hidden but the section is still shown. Disable the entire section or turn it off on that specific page to avoid an awkward blank space.
+- **Header Looks Wrong on Mobile:** If the menu is not toggling on mobile or overlaps the logo, ensure you have not removed the mobile toggle by custom CSS. Also check that you assigned a menu to the "Primary" location. An empty menu can cause unexpected layout.
+- **Footer Widgets Not Showing:** If you expect widgets in the footer but none appear, verify that you have added widgets to the respective Footer sidebar. Ensure the Footer Type selected actually uses widgets. For example, Footer "Tiny" will not display the 4 widget areas - it's just a small bar.
+- **Page Title Section Too Large/Empty:** If a page's title banner area looks oddly large with nothing in it, possibly the title is hidden but the section is still shown. Disable the entire section or turn it off on that specific page to avoid an awkward blank space.
 - **Sidebar appearing below content:** This usually indicates an HTML markup issue or a CSS float/width problem. Check your widgets for unclosed tags or custom CSS that forces unusual widths.
 
-<Aside type="tip">Use your browser’s developer tools to inspect elements and diagnose layout problems <Badge text="Tip" />.</Aside>
+<Aside type="tip">Use your browser's developer tools to inspect elements and diagnose layout problems <Badge text="Tip" />.</Aside>
 
 ## Examples
 
 <CardGrid>
-  <Card>**Header Menu Overlap** – Too many menu items cause overlap with the logo. Reduce top-level items or switch to a different Header Type.</Card>
-  <Card>**Footer Widgets Missing** – Footer shows empty space. Add widgets to Footer 1–4 and confirm a footer layout that supports widgets.</Card>
-  <Card>**Sidebar Drops Below Content** – An unclosed `<div>` in a Text widget breaks layout. Fix the HTML so the sidebar aligns properly.</Card>
+  <Card>**Header Menu Overlap** - Too many menu items cause overlap with the logo. Reduce top-level items or switch to a different Header Type.</Card>
+  <Card>**Footer Widgets Missing** - Footer shows empty space. Add widgets to Footer 1-4 and confirm a footer layout that supports widgets.</Card>
+  <Card>**Sidebar Drops Below Content** - An unclosed `<div>` in a Text widget breaks layout. Fix the HTML so the sidebar aligns properly.</Card>
 </CardGrid>
 
-<LinkCard href="https://listdom.net/support/">💬 Webilia Support Center – Still stuck? Contact support or browse the community forum for help.</LinkCard>
+<LinkCard href="https://listdom.net/support/">💬 Webilia Support Center - Still stuck? Contact support or browse the community forum for help.</LinkCard>
 

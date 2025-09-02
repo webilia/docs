@@ -4,9 +4,6 @@ description: Learn how to build custom search and filter forms in Listdom to let
 sidebar:
   label: How to Create a Search Form
   order: 1
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
@@ -18,24 +15,24 @@ Creating a search and filter form in Listdom empowers your users to pinpoint lis
 2. **Configure Form Settings**: In the **Form** panel, choose the style and enable any desired options (explained below).
 3. **Set Search Results Behavior**: In the **Search Results** panel, decide whether the form redirects to a results page or filters listings on the same page. Set the appropriate options (explained below).
 4. **Add Fields**: In the **Fields builder** panel, add rows and drag Available Fields into your form layout. Arrange the fields as needed for desktop, tablet, and mobile views.
-5. **Publish and Use the Form**: Click **Publish** to save. Copy the provided shortcode and insert it on any page or widget area, or select this form in a Listdom listing shortcode’s settings to deploy the search on your site.
+5. **Publish and Use the Form**: Click **Publish** to save. Copy the provided shortcode and insert it on any page or widget area, or select this form in a Listdom listing shortcode's settings to deploy the search on your site.
 </Steps>
 
 ## Form
 
 The Form settings control the basic appearance and meta info of the search form itself:
 
-- **Style**: Choose the form’s layout style. *Default* style displays the search form in a standard layout suitable for content areas, while *Sidebar* style optimizes the form for narrow sidebar areas (fields stack vertically with adjusted spacing). **Default:** Default.
-- **Display Criteria**: Toggle whether to show a summary of chosen filters (criteria) to the user after a search is performed. If enabled, the search results page will display the active filters in a human-readable format (e.g., “Category: Rentals; Location: New York”). This helps users see which filters are applied. **Default:** Off.
+- **Style**: Choose the form's layout style. *Default* style displays the search form in a standard layout suitable for content areas, while *Sidebar* style optimizes the form for narrow sidebar areas (fields stack vertically with adjusted spacing). **Default:** Default.
+- **Display Criteria**: Toggle whether to show a summary of chosen filters (criteria) to the user after a search is performed. If enabled, the search results page will display the active filters in a human-readable format (e.g., "Category: Rentals; Location: New York"). This helps users see which filters are applied. **Default:** Off.
 
 ## Search Results
 
 These settings determine how and where listing results appear when users submit the search form. You can either show results on a separate page or filter listings in place on the same page:
 
-- **Results Page**: Select the page where search results should be displayed. The chosen page must contain a Listdom listing (skin) shortcode or widget to show the listings. If you pick a Results Page here, the search form will redirect to that page upon submission and show filtered results there. If this field is left empty (meaning “Current Page”), the search form will display results on the same page without redirection (ideal for filtering an on-page listing section).
-- **Target Shortcode**: (Visible only if a Results Page is set.) Specify which listing shortcode on the results page to filter, if that page contains multiple listing sections. Choose the target listing skin’s shortcode instance by title. This ensures the form only updates the intended listing block. If you leave this blank, the search will attempt to filter all Listdom listing shortcodes and widgets on the results page.
+- **Results Page**: Select the page where search results should be displayed. The chosen page must contain a Listdom listing (skin) shortcode or widget to show the listings. If you pick a Results Page here, the search form will redirect to that page upon submission and show filtered results there. If this field is left empty (meaning "Current Page"), the search form will display results on the same page without redirection (ideal for filtering an on-page listing section).
+- **Target Shortcode**: (Visible only if a Results Page is set.) Specify which listing shortcode on the results page to filter, if that page contains multiple listing sections. Choose the target listing skin's shortcode instance by title. This ensures the form only updates the intended listing block. If you leave this blank, the search will attempt to filter all Listdom listing shortcodes and widgets on the results page.
 - **Connected Shortcodes**: <Badge text="Pro" /> (Visible only if no Results Page is set.) Select up to four Listdom listing shortcodes on the same page that should be connected to this search form. The search form will filter these specific listing sections in place. For example, you might connect a List view and a Map view on the homepage to a single search form. Only listing shortcodes that support searching (List, Grid, Masonry, List + Grid, Half Map, Side by Side, etc.) and reside on the same page can be selected.
-- **Ajax Search**: <Badge text="Pro" /> Choose how the results update when using connected shortcodes on the same page. **On Submit** (the default) updates the connected listings only after the user fills the form and clicks the Search button. **On The Fly** updates the results immediately as users select or change a filter field, without needing to press the button. In “On The Fly” mode, the search form listens for any field changes and refreshes results dynamically.
+- **Ajax Search**: <Badge text="Pro" /> Choose how the results update when using connected shortcodes on the same page. **On Submit** (the default) updates the connected listings only after the user fills the form and clicks the Search button. **On The Fly** updates the results immediately as users select or change a filter field, without needing to press the button. In "On The Fly" mode, the search form listens for any field changes and refreshes results dynamically.
 
 <Aside type="caution">
 Make sure the page you set as the Results Page contains at least one Listdom listings shortcode (such as a List, Grid, etc.). If the page has no Listdom listing section, no search results will be displayed.
@@ -54,16 +51,16 @@ The Fields builder is where you design the layout and content of your search for
 You can add as many rows as needed to structure your form. Each row can contain one or multiple fields:
 
 - **Click Add row** to create a new row in the form layout. By default, a new row is empty until you add fields.
-- On the right side, under **Available Fields**, you’ll see all the field types you can add (e.g., Text Search, Categories, Locations, etc.). Drag and drop a field from this list into a row. You can place multiple fields in the same row to have them appear side by side.
+- On the right side, under **Available Fields**, you'll see all the field types you can add (e.g., Text Search, Categories, Locations, etc.). Drag and drop a field from this list into a row. You can place multiple fields in the same row to have them appear side by side.
 - Rearrange fields by dragging them within or between rows. You can also drag entire rows to reorder them vertically.
-- To remove a field, click the trash 🗑️ icon on that field. (You’ll need to confirm by clicking twice to prevent accidental deletions.)
-- Each row includes a Search button by default (usually positioned at the end of the last row). You can optionally include a **Clear All** button that resets all filters – to do this, enable the **Clear Button** option for the row containing the buttons. This will add a “Clear All” button next to the search submit button, allowing users to reset the form with one click.
+- To remove a field, click the trash 🗑️ icon on that field. (You'll need to confirm by clicking twice to prevent accidental deletions.)
+- Each row includes a Search button by default (usually positioned at the end of the last row). You can optionally include a **Clear All** button that resets all filters - to do this, enable the **Clear Button** option for the row containing the buttons. This will add a "Clear All" button next to the search submit button, allowing users to reset the form with one click.
 
 ### More Options Section
 
-Use the More Options feature to keep your form compact while still offering advanced filters. Clicking the **More Options** button in the builder will insert a special “More Options” divider row. Any fields placed below this divider will be initially hidden behind a “More Options” toggle on the front-end form.
+Use the More Options feature to keep your form compact while still offering advanced filters. Clicking the **More Options** button in the builder will insert a special "More Options" divider row. Any fields placed below this divider will be initially hidden behind a "More Options" toggle on the front-end form.
 
-To create an expandable section: add the More Options row, then drag the less-common or advanced fields underneath it (in new rows). On the front-end, the form will show a “More Options” link or button; when clicked, the hidden fields you placed below the divider will reveal.
+To create an expandable section: add the More Options row, then drag the less-common or advanced fields underneath it (in new rows). On the front-end, the form will show a "More Options" link or button; when clicked, the hidden fields you placed below the divider will reveal.
 
 - Fields above the More Options divider are always visible. Fields below it stay hidden until expanded by the user.
 - You can remove the More Options row if you decide to show all fields by default. Simply delete the divider like any other row; the fields below it will move up and become always visible.
@@ -73,22 +70,22 @@ To create an expandable section: add the More Options row, then drag the less-co
 
 Listdom allows you to tailor the search form for different device sizes (desktop, tablet, mobile). At the top of the Fields builder, you can switch between Desktop, Tablet, and Mobile views to adjust the layout for each:
 
-- **Inherit from Desktop**: By default, Tablet and Mobile layouts inherit the Desktop form layout. A toggle switch is provided for each (labeled “Inherit from Desktop.”). When this option is on, the device simply uses the Desktop arrangement of rows and fields. To customize a device layout separately, turn off the inherit toggle. This will unlock that device’s layout so you can remove or rearrange fields independently. For example, you might choose to hide certain fields on mobile for simplicity—turn off inherit on Mobile, then delete or move fields in the Mobile view (this will not affect Desktop).
-- **Enable Background Box**: Each device view also has a “Background Box” toggle. This setting (on by default) wraps the search form in a styled background container for that device, typically giving it a distinct panel background. If you turn this off, the form will have a transparent background on that device, blending into the page. You might disable the background box on Desktop if the form is in-content, but keep it on for Mobile to make the form stand out, for instance.
+- **Inherit from Desktop**: By default, Tablet and Mobile layouts inherit the Desktop form layout. A toggle switch is provided for each (labeled "Inherit from Desktop."). When this option is on, the device simply uses the Desktop arrangement of rows and fields. To customize a device layout separately, turn off the inherit toggle. This will unlock that device's layout so you can remove or rearrange fields independently. For example, you might choose to hide certain fields on mobile for simplicity—turn off inherit on Mobile, then delete or move fields in the Mobile view (this will not affect Desktop).
+- **Enable Background Box**: Each device view also has a "Background Box" toggle. This setting (on by default) wraps the search form in a styled background container for that device, typically giving it a distinct panel background. If you turn this off, the form will have a transparent background on that device, blending into the page. You might disable the background box on Desktop if the form is in-content, but keep it on for Mobile to make the form stand out, for instance.
 - **Device-specific adjustments**: When customizing Tablet or Mobile (with inherit off), you can add/remove rows and fields just like on Desktop, specific to that device. You might use fewer columns per row on mobile (since screens are narrow) — for example, fields that sit in one row on Desktop might automatically stack on mobile. You can fine-tune by creating separate rows or ordering fields differently for mobile usability.
 
-Any changes in the Desktop layout automatically propagate to Tablet/Mobile as long as those are set to inherit. Once you break inheritance for a device, you control that device’s layout separately. Be sure to review each device tab to ensure the form is user-friendly on all screen sizes.
+Any changes in the Desktop layout automatically propagate to Tablet/Mobile as long as those are set to inherit. Once you break inheritance for a device, you control that device's layout separately. Be sure to review each device tab to ensure the form is user-friendly on all screen sizes.
 
 ## Shortcode and Usage
 
-After configuring your search form, click **Publish** (or **Update**) to save it. You can now deploy this form on the front-end of your site. In the **Shortcode** panel on the edit screen, you’ll find the shortcode code for your form:
+After configuring your search form, click **Publish** (or **Update**) to save it. You can now deploy this form on the front-end of your site. In the **Shortcode** panel on the edit screen, you'll find the shortcode code for your form:
 
-- **Shortcode**: Copy the code snippet `[listdom-search id="123"]` (with your form’s ID in place of `123`). You can paste this shortcode into any WordPress page, post, or widget area where you want the search form to appear. When that page is viewed, it will render your custom search form.
-- **Using in Listdom Listings**: Alternatively, you can attach this search form directly to a Listdom listing shortcode (also known as a “skin”). For example, if you have a listings shortcode on a page, edit that Listdom shortcode (via **Listdom → Shortcodes**). In the shortcode’s **Search** settings, enable **Searchable** and select your new search form from the **Search Form** dropdown. You can also choose the **Search Form Position** (e.g., top, left, right, etc. of the listings). This method inserts the search form into the listing block itself, combining search and results in one element.
-- **Widgets & Page Builders**: You can place the search form in widget areas or page builders as well. In classic widgets, use a **Text** or **Custom HTML** widget and paste the shortcode. If you are using Elementor, Listdom provides a **Listdom Search** widget – simply drag it in and select your saved search form from the dropdown. The form will appear with all its fields, without needing the manual shortcode.
+- **Shortcode**: Copy the code snippet `[listdom-search id="123"]` (with your form's ID in place of `123`). You can paste this shortcode into any WordPress page, post, or widget area where you want the search form to appear. When that page is viewed, it will render your custom search form.
+- **Using in Listdom Listings**: Alternatively, you can attach this search form directly to a Listdom listing shortcode (also known as a "skin"). For example, if you have a listings shortcode on a page, edit that Listdom shortcode (via **Listdom → Shortcodes**). In the shortcode's **Search** settings, enable **Searchable** and select your new search form from the **Search Form** dropdown. You can also choose the **Search Form Position** (e.g., top, left, right, etc. of the listings). This method inserts the search form into the listing block itself, combining search and results in one element.
+- **Widgets & Page Builders**: You can place the search form in widget areas or page builders as well. In classic widgets, use a **Text** or **Custom HTML** widget and paste the shortcode. If you are using Elementor, Listdom provides a **Listdom Search** widget - simply drag it in and select your saved search form from the dropdown. The form will appear with all its fields, without needing the manual shortcode.
 
 <Aside type="tip">
-Listdom’s integration with page builders makes it easy to add search forms. For instance, using the **Listdom Search** widget in Elementor, you can pick any saved search form and insert it into your page design instantly, no shortcode needed.
+Listdom's integration with page builders makes it easy to add search forms. For instance, using the **Listdom Search** widget in Elementor, you can pick any saved search form and insert it into your page design instantly, no shortcode needed.
 </Aside>
 
 Your search form is now live. Test it on the front-end: selecting filters and submitting should yield the filtered listings either on the same page or on your chosen results page, as configured.
@@ -100,14 +97,14 @@ Your search form is now live. Test it on the front-end: selecting filters and su
     **Filter Listings on the Same Page (AJAX):** Imagine a homepage with multiple listing sections (e.g., a list view and a map view). You create a search form with Location, Category, and Price Range fields, and configure it with **Connected Shortcodes** <Badge text="Pro" /> linking to both the list and map sections. You set **Ajax Search** to "On The Fly", so as users select a category or adjust the price slider, both the list and map update instantly without reloading the page.
   </Card>
   <Card>
-    **Redirect to a Results Page:** You design a search form for a property directory, including fields like Keyword, Location, and Property Type. In **Search Results** settings, you select a dedicated “Search Results” page that contains a Listdom [List + Grid] shortcode. When a visitor fills the form and hits **Search**, they are taken to the results page, which now shows only the properties matching the chosen Location and Type. The user also sees a summary of their criteria (because **Display Criteria** is enabled, it might show “Location: London; Property Type: Apartment” at the top of the results).
+    **Redirect to a Results Page:** You design a search form for a property directory, including fields like Keyword, Location, and Property Type. In **Search Results** settings, you select a dedicated "Search Results" page that contains a Listdom [List + Grid] shortcode. When a visitor fills the form and hits **Search**, they are taken to the results page, which now shows only the properties matching the chosen Location and Type. The user also sees a summary of their criteria (because **Display Criteria** is enabled, it might show "Location: London; Property Type: Apartment" at the top of the results).
   </Card>
   <Card>
-    **Sidebar Search Form in a Listing Page:** On a directory page showing all restaurant listings, you place a search form in the sidebar using the **Sidebar** style. The form has fields like Cuisine (Category), Location, and an **Open Now** toggle (a custom attribute). Because it’s in the sidebar, fields stack vertically for a compact view. Users can tick **Open Now** and choose a Cuisine, then hit Search – the page (which is also the results page) refreshes to show only restaurants open at the current time in the selected cuisine.
+    **Sidebar Search Form in a Listing Page:** On a directory page showing all restaurant listings, you place a search form in the sidebar using the **Sidebar** style. The form has fields like Cuisine (Category), Location, and an **Open Now** toggle (a custom attribute). Because it's in the sidebar, fields stack vertically for a compact view. Users can tick **Open Now** and choose a Cuisine, then hit Search - the page (which is also the results page) refreshes to show only restaurants open at the current time in the selected cuisine.
   </Card>
 </CardGrid>
 
-<LinkCard href="https://demo.webilia.com/listdom/" title="Listdom Demo – Search Form in Action">
+<LinkCard href="https://demo.webilia.com/listdom/" title="Listdom Demo - Search Form in Action">
   Explore the live Listdom demo site to see examples of search and filter forms, and experiment with filtering listings by different criteria.
 </LinkCard>
 

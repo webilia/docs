@@ -3,9 +3,6 @@ title: Booking Addon
 description: Accept and manage booking requests on listings (with date selection, availability management, and optional payments for reservations).
 sidebar:
   order: 7
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
@@ -22,12 +19,12 @@ To use payment features of the Booking Addon, **WooCommerce** must be installed 
 - **Reservation Mode**: Simplifies bookings by treating the entire listing as one item with a flat reservation fee.
 - **Guest Booking**: Allows bookings from visitors who are not logged in.
 - **Booking Requests Management**: Adds a **Bookings** submenu in WP Admin (`Listdom > Bookings`) to view all booking requests.
-- **Approval Workflow**: Bookings enter the system as “Pending” by default. Admins can Approve or Reject each booking.
+- **Approval Workflow**: Bookings enter the system as "Pending" by default. Admins can Approve or Reject each booking.
 - **Notifications**: Automated emails for new booking requests, approvals, rejections, and cancellations.
 - **Payment Integration**: If enabled, users pay for bookings via WooCommerce checkout. You can charge either the full price or a partial deposit.
 - **Person In Charge (PIC)**: Optionally assign a specific WordPress user (staff or agent) to each booking.
 - **Availability & Calendar**: The addon maintains an Availability Calendar to block out dates that have been booked, preventing double-bookings.
-- **User Dashboard Integration**: Listing owners can view and manage their listing’s bookings from their frontend dashboard.
+- **User Dashboard Integration**: Listing owners can view and manage their listing's bookings from their frontend dashboard.
 
 ## Settings
 Navigate to **Listdom > Settings > Add-ons > Booking** to configure global options.
@@ -44,7 +41,7 @@ Navigate to **Listdom > Settings > Add-ons > Booking** to configure global optio
 - **Partial Payment**: Allow partial payments (deposits) (default: On).
 - **Payable (Deposit Amount)**: Specify how much is paid upfront, either as a percentage or a fixed amount.
 - **Payable Per Bookable**: Override the deposit amount for each bookable item individually (default: Off).
-- **Auto Order Complete**: Automatically mark the WooCommerce order as “Completed” after successful payment (default: On).
+- **Auto Order Complete**: Automatically mark the WooCommerce order as "Completed" after successful payment (default: On).
 
 ## Using the Booking Addon
 <Steps>
@@ -67,16 +64,16 @@ Navigate to **Listdom > Settings > Add-ons > Booking** to configure global optio
 ## Examples
 <CardGrid>
   <Card title="Vacation Rental Booking">
-    A host lists an apartment with two bookable items: “Entire Apartment” and “Guest Room.” A traveler selects the Guest Room, chooses dates, and pays a 20% deposit online. The host approves the request, and the traveler receives a confirmation.
+    A host lists an apartment with two bookable items: "Entire Apartment" and "Guest Room." A traveler selects the Guest Room, chooses dates, and pays a 20% deposit online. The host approves the request, and the traveler receives a confirmation.
   </Card>
   <Card title="Appointment Scheduling">
-    A consultant uses Reservation Mode for a “Career Consulting Session” listing with a $50 fee. Clients pick an available date and time, pay the full amount at checkout, and the booking is automatically approved and confirmed via email.
+    A consultant uses Reservation Mode for a "Career Consulting Session" listing with a $50 fee. Clients pick an available date and time, pay the full amount at checkout, and the booking is automatically approved and confirmed via email.
   </Card>
   <Card title="Event Ticketing">
-    An event organizer lists a workshop with two ticket types: “General Admission” and “VIP Admission.” A user books 2 VIP tickets. The organizer, who set payment to "after approval," manually approves the request, which triggers a payment-due email. Once the user pays, the booking is finalized and VIP ticket availability is updated.
+    An event organizer lists a workshop with two ticket types: "General Admission" and "VIP Admission." A user books 2 VIP tickets. The organizer, who set payment to "after approval," manually approves the request, which triggers a payment-due email. Once the user pays, the booking is finalized and VIP ticket availability is updated.
   </Card>
 </CardGrid>
 
-<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin – Documentation" description="Refer to Listdom's documentation for how the core listing system works, which the Booking Addon builds upon." />
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin - Documentation" description="Refer to Listdom's documentation for how the core listing system works, which the Booking Addon builds upon." />
 
 ---

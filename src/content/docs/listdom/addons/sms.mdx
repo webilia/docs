@@ -3,9 +3,6 @@ title: SMS Addon
 description: Adds SMS notification capabilities and mobile number verification to Listdom, using Twilio as the SMS gateway.
 sidebar:
   order: 28
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
@@ -18,10 +15,10 @@ After installing the SMS addon, go to **Listdom > Settings > Addons > SMS** to s
 
 ### Gateway
 
-- **SMS Gateway:** *(Dropdown, default Twilio)* – Currently, Twilio is the supported gateway. This field is pre-set to **Twilio**.
-- **Account SID:** *(Text)* – Your Twilio Account SID. You obtain this from your Twilio console dashboard.
-- **Auth Token:** *(Text)* – Your Twilio Auth Token. Together with SID, this credential allows Listdom to connect to your Twilio account.
-- **Sender:** *(Text)* – The Twilio phone number (or sender ID) from which SMS will be sent. It must be in E.164 format (e.g., +16175551212). This is the number users will see as the sender of the SMS.
+- **SMS Gateway:** *(Dropdown, default Twilio)* - Currently, Twilio is the supported gateway. This field is pre-set to **Twilio**.
+- **Account SID:** *(Text)* - Your Twilio Account SID. You obtain this from your Twilio console dashboard.
+- **Auth Token:** *(Text)* - Your Twilio Auth Token. Together with SID, this credential allows Listdom to connect to your Twilio account.
+- **Sender:** *(Text)* - The Twilio phone number (or sender ID) from which SMS will be sent. It must be in E.164 format (e.g., +16175551212). This is the number users will see as the sender of the SMS.
 
 Make sure to input all three Twilio fields correctly. The addon will not attempt to send SMS unless a gateway is selected and credentials are provided.
 
@@ -33,60 +30,60 @@ Using the SMS addon requires a Twilio account with a valid phone number. SMS del
 
 This section sets up text for phone verification messages:
 
-- **Message:** *(Textarea, default "Your verification code is: #code#")* – The template of the SMS sent to users during mobile verification. Use **#code#** as a placeholder; the addon will replace it with the actual numeric verification code. You can customize the wording, but ensure to keep the `#code#` token in the text. For example: "Welcome to [Your Site], your code is #code#".
+- **Message:** *(Textarea, default "Your verification code is: #code#")* - The template of the SMS sent to users during mobile verification. Use **#code#** as a placeholder; the addon will replace it with the actual numeric verification code. You can customize the wording, but ensure to keep the `#code#` token in the text. For example: "Welcome to [Your Site], your code is #code#".
 
 This SMS is triggered when a user initiates phone verification (explained below). The default message is usually sufficient, but you can add your site name or a friendly note around the code.
 
 ## SMS Notifications in Listdom
 
-Once configured, the SMS addon ties into Listdom’s Notification system:
+Once configured, the SMS addon ties into Listdom's Notification system:
 
-- A new **SMS Notification** toggle appears in each Notification template in **Listdom > Notifications** (for events like new listing, booking confirmation, new review, etc.). In each notification, you’ll see an **SMS Content** field and an **SMS Status** checkbox.
-- If you enable SMS for a particular notification, the addon will send an SMS whenever that event occurs, using Twilio. For example, you might enable an SMS for “New Booking” so that listing owners get a text when they receive a booking.
+- A new **SMS Notification** toggle appears in each Notification template in **Listdom > Notifications** (for events like new listing, booking confirmation, new review, etc.). In each notification, you'll see an **SMS Content** field and an **SMS Status** checkbox.
+- If you enable SMS for a particular notification, the addon will send an SMS whenever that event occurs, using Twilio. For example, you might enable an SMS for "New Booking" so that listing owners get a text when they receive a booking.
 - The content of the SMS is taken from the **SMS Content** field of that notification, which can contain placeholders like #listing_title#, #date#, etc. The addon processes these placeholders similarly to email content.
 - When the event triggers, Listdom calls the SMS addon to send the message. The addon checks that the notification is marked active and SMS enabled, then formats the content and sends via Twilio.
 - Recipient determination: by default, the SMS goes to the phone number associated with the intended recipient:
   - For user-related notifications (like to listing author or user), the addon looks up their **Mobile** field (added by this addon as user meta `lsd_mobile` once verified).
-  - For admin notifications, you might specify a number or use site admin’s number.
+  - For admin notifications, you might specify a number or use site admin's number.
   
 If a notification is not marked for SMS, it will just send email as usual and no SMS will be sent for it.
 
 <Aside type="note">
-All SMS sending is done asynchronously via WordPress AJAX/cron events to avoid slowing the site. If an SMS fails (e.g., invalid number), it will be logged in the Listdom log (and Twilio’s logs).
+All SMS sending is done asynchronously via WordPress AJAX/cron events to avoid slowing the site. If an SMS fails (e.g., invalid number), it will be logged in the Listdom log (and Twilio's logs).
 </Aside>
 
 ## Mobile Number Verification (OTP)
 
-The addon enables you to verify users’ mobile numbers through an SMS one-time passcode:
+The addon enables you to verify users' mobile numbers through an SMS one-time passcode:
 
-- **Verification Shortcode:** The SMS addon provides a verification form that you can display by adding the attribute `sms-verification="1"` to any Listdom shortcode that requires a logged-in user action. For example, you could require phone verification before showing the Add Listing form: `[listdom-dashboard sms-verification="1"]`. In this case, if the user’s phone is not verified, they will see a verification form instead of the listing form.
+- **Verification Shortcode:** The SMS addon provides a verification form that you can display by adding the attribute `sms-verification="1"` to any Listdom shortcode that requires a logged-in user action. For example, you could require phone verification before showing the Add Listing form: `[listdom-dashboard sms-verification="1"]`. In this case, if the user's phone is not verified, they will see a verification form instead of the listing form.
 - **Verification Form:** The form (displayed when required) will prompt the logged-in user to enter a mobile number and send a code. It has two steps:
-  1. **Send Code:** User enters their phone number and clicks “Send Code”. The addon generates a 6-digit verification code and sends an SMS with the template you set (replacing #code# with the code). The code is stored hashed (md5) in the user meta and the number is temporarily stored as well.
+  1. **Send Code:** User enters their phone number and clicks "Send Code". The addon generates a 6-digit verification code and sends an SMS with the template you set (replacing #code# with the code). The code is stored hashed (md5) in the user meta and the number is temporarily stored as well.
   2. **Verify Code:** User then enters the code they received and submits. The addon checks the code against the stored hash. If it matches, verification is successful.
-- Upon successful verification, the user’s mobile number is saved permanently in their profile (`lsd_mobile`) and a flag `lsd_mobile_verified` is set. From then on, that user is considered phone-verified.
-- The addon adds a **Mobile** field in the user’s profile (and possibly registration form) and indicates whether it’s verified. Admins can see which users have verified numbers.
+- Upon successful verification, the user's mobile number is saved permanently in their profile (`lsd_mobile`) and a flag `lsd_mobile_verified` is set. From then on, that user is considered phone-verified.
+- The addon adds a **Mobile** field in the user's profile (and possibly registration form) and indicates whether it's verified. Admins can see which users have verified numbers.
 - The next time the user visits a shortcode with `sms-verification="1"`, since they are already verified, the content will show normally.
 
 <Aside type="tip">
-You can use mobile verification to add trust for certain actions – e.g., only users with verified phone numbers can publish a listing or send private messages. It’s a great deterrent for spam because it requires a valid phone.
+You can use mobile verification to add trust for certain actions - e.g., only users with verified phone numbers can publish a listing or send private messages. It's a great deterrent for spam because it requires a valid phone.
 </Aside>
 
 ## Using the SMS Addon
 
 <Steps>
-1. **Twilio Setup:** Create a Twilio account if you haven’t already. Obtain an Account SID, Auth Token, and purchase or configure a phone number capable of sending SMS.
+1. **Twilio Setup:** Create a Twilio account if you haven't already. Obtain an Account SID, Auth Token, and purchase or configure a phone number capable of sending SMS.
 2. **Configure SMS Settings:** In **Listdom > Settings > Addons > SMS**, input the Twilio SID, Token, and Sender number. Double-check for typos. Write a friendly verification message if you want to customize it (ensure `#code#` is included).
 3. **Enable Notifications for SMS:** Decide which events warrant an SMS. Go to **Listdom > Notifications** and edit a notification (for example, "New Listing Submitted" or "Booking Confirmation"). There will be an **SMS Content** box and an **SMS Status** toggle. 
    - Check **Enable SMS** (SMS Status) for that notification.
    - Craft a concise SMS Content message. Keep it under 160 characters if possible to avoid multipart SMS. You can use placeholders like #listing_title#, #name#, etc., which will be replaced.
    - For instance, for a booking confirmation to listing owner, SMS Content might be: "You have a new booking request for #listing_title# on #date#. Check your email or dashboard for details."
-4. **Save and Test SMS Notification:** Trigger the event to test if possible (e.g., make a new booking or submit a listing, depending on which notification you enabled). Ensure the recipient user in that event has a mobile number set and verified. Twilio should send out the SMS. Check the Twilio dashboard logs if you don’t receive it.
+4. **Save and Test SMS Notification:** Trigger the event to test if possible (e.g., make a new booking or submit a listing, depending on which notification you enabled). Ensure the recipient user in that event has a mobile number set and verified. Twilio should send out the SMS. Check the Twilio dashboard logs if you don't receive it.
 5. **Set Up Verification (optional but recommended):** To require phone verification, decide where in the user flow it should happen. Commonly, you might require verification when a user first tries to add a listing or when they register.
-   - If using Listdom’s registration or dashboard shortcode, add `sms-verification="1"` attribute. For example, on the page [listdom-dashboard], modify it to `[listdom-dashboard sms-verification="1"]`.
+   - If using Listdom's registration or dashboard shortcode, add `sms-verification="1"` attribute. For example, on the page [listdom-dashboard], modify it to `[listdom-dashboard sms-verification="1"]`.
    - Alternatively, you could use the attribute in other shortcodes if applicable (the addon intercepts the output generically).
 6. **Test Verification:** Log in as a non-verified user. Go to the page where verification is required. You should see the verification form overlay or page, asking for mobile number. Enter a number (preferably your test phone) and submit to send code. You should receive an SMS with the code text.
    - Enter the code on the site to complete verification. The form should accept it and then reload/unlock the original content (e.g., the Add Listing form now appears).
-   - In the WP Admin, verify that the user’s profile now has the phone number and is marked verified.
+   - In the WP Admin, verify that the user's profile now has the phone number and is marked verified.
 7. **User Profile Management:** Inform users they can update their phone number in their profile. If a user changes their number, they would likely need to verify the new number (the addon will treat an unverified new number accordingly).
 </Steps>
 
@@ -97,7 +94,7 @@ You can use mobile verification to add trust for certain actions – e.g., only 
     **New Listing Alert via SMS:** As an admin, you enabled an SMS notification for when a new listing is submitted. Now, whenever someone adds a listing, you (or the moderators) instantly get a text: "New listing submitted: John's Cafe in Restaurants." This prompt alert <Badge text="SMS" /> allows faster review and approval, even if you're away from email.
   </Card>
   <Card>
-    **User Phone Verification:** A user signs up to your directory and tries to post a listing. Because you've required SMS verification, they must verify their phone. They enter their number, receive a "Your verification code is 123456" text, input the code on the site, and voila – their phone is verified. Now a "Verified Phone" badge appears on their profile, and they gain the ability to post listings or send messages.
+    **User Phone Verification:** A user signs up to your directory and tries to post a listing. Because you've required SMS verification, they must verify their phone. They enter their number, receive a "Your verification code is 123456" text, input the code on the site, and voila - their phone is verified. Now a "Verified Phone" badge appears on their profile, and they gain the ability to post listings or send messages.
   </Card>
   <Card>
     **Booking Confirmation to Client:** Your directory includes a booking feature (another addon). By using the SMS addon, whenever a booking is confirmed, the client (booker) gets an SMS: "Booking confirmed for #listing_title# on #date#. Check your email for details." Even if they're not checking email, they see the text on their phone and feel assured their reservation is set.

@@ -3,9 +3,6 @@ title: Rank Addon
 description: Automatically calculates a 'rank score' for listings based on various factors, enabling sorting and filtering of listings by rank.
 sidebar:
   order: 26
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
@@ -18,25 +15,25 @@ After activating the Rank addon, go to **Listdom > Settings > Addons > Rank**. Y
 
 ### Image Points
 
-- **Featured Image Point:** *(Number, default 0)* – The number of rank points to award a listing for having a featured image. For example, if you set this to **5**, every listing with a featured image will get 5 rank points.
-- **Gallery Image Point:** *(Number, default 0)* – The number of rank points to award per image in the listing’s gallery. For instance, setting **Gallery Image Point** to **2** means a listing with 3 gallery images earns 6 points (3×2).
+- **Featured Image Point:** *(Number, default 0)* - The number of rank points to award a listing for having a featured image. For example, if you set this to **5**, every listing with a featured image will get 5 rank points.
+- **Gallery Image Point:** *(Number, default 0)* - The number of rank points to award per image in the listing's gallery. For instance, setting **Gallery Image Point** to **2** means a listing with 3 gallery images earns 6 points (3×2).
 
 These points encourage richer listings with images to rank higher. If you prefer images not to influence rank, leave these at 0.
 
 <Aside type="note">
-“Image Points” are added to a listing’s score during the daily rank calculation cron job. So after adjusting these, allow up to 24 hours (or run the calculation manually by re-saving a listing) to see updated ranks.
+"Image Points" are added to a listing's score during the daily rank calculation cron job. So after adjusting these, allow up to 24 hours (or run the calculation manually by re-saving a listing) to see updated ranks.
 </Aside>
 
 ### Reviews Integration (if Reviews Addon is installed)
 
 If you also use the *Reviews Addon*, the Rank addon settings will include a **Reviews** section to assign points based on review ratings:
 
-- For each possible star rating (5 stars down to 1 star), you can set a point value. For example, you might set **5-star review: 10 points**, **4-star: 5 points**, and so on. In this case, every 5-star review a listing receives would add 10 rank points to that listing’s total score.
+- For each possible star rating (5 stars down to 1 star), you can set a point value. For example, you might set **5-star review: 10 points**, **4-star: 5 points**, and so on. In this case, every 5-star review a listing receives would add 10 rank points to that listing's total score.
   
-These review-based points get added for each review during rank calculation. They incentivize listings with better reviews to rise in rank. If you leave a star rating’s point value empty or 0, reviews of that rating won’t affect rank.
+These review-based points get added for each review during rank calculation. They incentivize listings with better reviews to rise in rank. If you leave a star rating's point value empty or 0, reviews of that rating won't affect rank.
 
 <Aside type="tip">
-This integration means a listing with many high-rated reviews can outperform others. Use the points carefully to balance recency, quality, and other factors in your directory’s ranking algorithm.
+This integration means a listing with many high-rated reviews can outperform others. Use the points carefully to balance recency, quality, and other factors in your directory's ranking algorithm.
 </Aside>
 
 ### How Ranking Works
@@ -44,8 +41,8 @@ This integration means a listing with many high-rated reviews can outperform oth
 Once configured, the Rank addon calculates the **Rank Point** for each listing daily (via a cron job) or whenever a listing is saved/updated. The calculation includes:
 
 - **Base Listing Points:** A custom field `lsd_listing_rank` that you (admin) can set per listing if desired (default 0 if not used). This could be used to manually boost certain listings.
-- **Author Points:** Each listing’s author can have an assigned rank value (`lsd_rank` in the user profile). For example, veteran or “premium” authors might get a higher score. The addon adds the author’s points to all their listings.
-- **Category/Taxonomy Points:** For every taxonomy (category, location, etc.), if the listing is in a term that has a rank point (term meta `lsd_rank`), those points are added. The Rank addon adds fields in category (and other taxonomy) edit screens so you can give, say, the “Featured” category 20 points, or the “New Listings” label 5 points. All those applicable term points will sum up for the listing.
+- **Author Points:** Each listing's author can have an assigned rank value (`lsd_rank` in the user profile). For example, veteran or "premium" authors might get a higher score. The addon adds the author's points to all their listings.
+- **Category/Taxonomy Points:** For every taxonomy (category, location, etc.), if the listing is in a term that has a rank point (term meta `lsd_rank`), those points are added. The Rank addon adds fields in category (and other taxonomy) edit screens so you can give, say, the "Featured" category 20 points, or the "New Listings" label 5 points. All those applicable term points will sum up for the listing.
 - **Image Points:** If the listing has a featured image, add the configured Featured Image points. For each gallery image, add the Gallery Image points times number of images.
 - **Review Points:** (If enabled) Add points for each review as per your star settings.
 - **Custom Filters:** The addon provides a filter hook `lsdaddrnk_rank` for developers to modify the computed rank or add more criteria programmatically. 
@@ -56,13 +53,13 @@ Finally, the total is stored in a meta field `lsd_rank` on the listing. This is 
 
 Once ranks are being calculated, you can leverage them in Listdom:
 
-- **Sort by Rank:** The addon adds a new sorting option “Rank” in listing archive pages and shortcodes. If you enable this sorting in your search form or shortcode, users can sort listings by rank score (highest to lowest).
+- **Sort by Rank:** The addon adds a new sorting option "Rank" in listing archive pages and shortcodes. If you enable this sorting in your search form or shortcode, users can sort listings by rank score (highest to lowest).
 - **Filter by Rank Range:** The addon also adds a **Rank filter** in search forms. For example, if you include filter options, users can input a min and max rank to see listings within that score range. A practical use-case: filter out low-ranked entries by setting a minimum rank.
-- **Admin Listing Column:** In the WP Admin Listings table, a “Rank” column displays each listing’s current rank score. You can click the column header to sort listings by rank in the admin dashboard as well. This helps quickly identify top performers.
+- **Admin Listing Column:** In the WP Admin Listings table, a "Rank" column displays each listing's current rank score. You can click the column header to sort listings by rank in the admin dashboard as well. This helps quickly identify top performers.
 - **Manual Rank Adjustment:** You can manually adjust certain inputs to influence rank:
-  - Edit a listing: in the listing’s edit screen, you’ll find a field for **Listing Rank Point** (if provided by the addon’s interface or via custom fields). Add a value here to directly give that listing some points.
+  - Edit a listing: in the listing's edit screen, you'll find a field for **Listing Rank Point** (if provided by the addon's interface or via custom fields). Add a value here to directly give that listing some points.
   - Edit a user (author): in the user profile, there will be a **Rank Point** field. For example, give a particular agent +10 points so all their listings get a boost.
-  - Edit a category or other taxonomy term: you’ll see a **Rank Point** field. Set a value to boost all listings in that term (e.g., events in “Popular” category get +5).
+  - Edit a category or other taxonomy term: you'll see a **Rank Point** field. Set a value to boost all listings in that term (e.g., events in "Popular" category get +5).
   
   Save changes and either wait for the next daily calculation or trigger it by updating each listing, so the `lsd_rank` recalculates with the new values.
 
@@ -73,10 +70,10 @@ By combining these, you craft a ranking formula that suits your directory. E.g.,
 <Steps>
 1. **Activate & Configure:** Activate the Rank addon and go to **Listdom > Settings > Addons > Rank**. Enter your desired points for images and (if applicable) reviews. Save settings.
 2. **Assign Base Points:** Optionally, go through existing listings, authors, and categories to assign any base rank points. For example, edit some categories and add rank points to important ones. Or edit a top listing and give it a slight manual boost via Listing Rank Point.
-3. **Verify Rank Calculation:** The addon will calculate ranks behind the scenes. For immediate testing, edit a listing post in WP Admin and click “Update” – this triggers an on-save recalculation for that listing. Check the “Rank” column in the listing list or the listing’s meta to see the updated score.
-4. **Use Rank in Shortcode:** Edit a page where you have a [listdom-listings] shortcode or a search form. Enable the “Rank” sort option (in a search form builder, ensure *Sort Options* includes Rank, or add `orderby="lsd_rank"` in a shortcode as needed). Also, if desired, include the rank range filter fields.
+3. **Verify Rank Calculation:** The addon will calculate ranks behind the scenes. For immediate testing, edit a listing post in WP Admin and click "Update" - this triggers an on-save recalculation for that listing. Check the "Rank" column in the listing list or the listing's meta to see the updated score.
+4. **Use Rank in Shortcode:** Edit a page where you have a [listdom-listings] shortcode or a search form. Enable the "Rank" sort option (in a search form builder, ensure *Sort Options* includes Rank, or add `orderby="lsd_rank"` in a shortcode as needed). Also, if desired, include the rank range filter fields.
 5. **Front-end Testing:** On your site, try sorting by Rank. You should see higher rank score listings appear first. Use any rank filters to ensure they correctly narrow results.
-6. **Refine Points:** If the results are not as expected (for example, maybe images are weighing too heavily), adjust the points in settings and rerun calculations (you can wait for the daily cron or quickly re-save listings). Keep tweaking until the ordering aligns with your expectations of “best” listings on top.
+6. **Refine Points:** If the results are not as expected (for example, maybe images are weighing too heavily), adjust the points in settings and rerun calculations (you can wait for the daily cron or quickly re-save listings). Keep tweaking until the ordering aligns with your expectations of "best" listings on top.
 </Steps>
 
 ## Examples
@@ -89,7 +86,7 @@ By combining these, you craft a ranking formula that suits your directory. E.g.,
     **Incentivizing Good Reviews:** You assign review-based rank points (e.g., 5-star = 10 points). A local business listing with three 5-star reviews gets +30 points, boosting its visibility. Newcomers to your site immediately see this well-reviewed business at the top when sorting by <em>Rank</em> <Badge text="Top Rated" />.
   </Card>
   <Card>
-    **Curated Boost via Categories:** You’ve tagged certain listings as “Featured” using a label taxonomy. By giving the *Featured* label a rank value of 50, any listing with that label jumps in rank. Even if a featured listing is new and has few reviews, it appears among top results, because the category’s rank points elevate it. This way, you can sell “featured spots” and implement it via rank points.
+    **Curated Boost via Categories:** You've tagged certain listings as "Featured" using a label taxonomy. By giving the *Featured* label a rank value of 50, any listing with that label jumps in rank. Even if a featured listing is new and has few reviews, it appears among top results, because the category's rank points elevate it. This way, you can sell "featured spots" and implement it via rank points.
   </Card>
 </CardGrid>
 

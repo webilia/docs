@@ -19,7 +19,7 @@ This widget essentially replaces the default WordPress comments template within 
 1. Edit your **Single Post** template with Elementor (or the individual post page if not using a template).
 2. Locate the **Comments Form** widget in the widget panel (under *Theme Elements* or *Post* elements).
 3. Drag **Comments Form** into the desired place on your post template - typically at the bottom of the post, after the content (and perhaps after an Author Box if you use one).
-4. Once added, the widget will automatically fetch and display comments for the current post when viewed on the live site, and show a **“Leave a Reply”** form if comments are open.
+4. Once added, the widget will automatically fetch and display comments for the current post when viewed on the live site, and show a **"Leave a Reply"** form if comments are open.
 5. Adjust settings in the **Content** tab if needed (e.g., toggle features like avatars, field labels, placeholders, etc. as described below).
 6. Style the comments list and form under the **Style** tab to fit your design. You can style things like comment text, author name, dates, form inputs, submit button, etc.
 </Steps>
@@ -37,7 +37,7 @@ The Comments Form widget handles a lot out-of-the-box:
   - Display a submission form at the bottom (or inline under a comment when replying, depending on settings) with fields for name, email, website (optional), and the comment text, along with a submit button.
 
 <Aside type="tip" title='Logged-in Users'>
-If a user is logged in, WordPress normally will not require name/email and may hide those fields. In the Elementor editor preview, Vertex forces the form to show all fields so you can style them. On the live site, it will follow WordPress behavior (for logged-in users, it will just say “Logged in as [username]” and not show those fields).
+If a user is logged in, WordPress normally will not require name/email and may hide those fields. In the Elementor editor preview, Vertex forces the form to show all fields so you can style them. On the live site, it will follow WordPress behavior (for logged-in users, it will just say "Logged in as [username]" and not show those fields).
 </Aside>
 
 ## Content Options
@@ -45,7 +45,7 @@ If a user is logged in, WordPress normally will not require name/email and may h
 In the **Content** tab of the Comments Form widget, you'll find two sections: **Comments** and **Form**.
 
 **Comments Settings:**
-- **Show Avatar:** Toggle whether to display commenter avatars next to each comment. Default is “Yes,” which will show the avatar (profile image) of each commenter (if available, typically via Gravatar). If you turn this off, the comments list will just show names without images.
+- **Show Avatar:** Toggle whether to display commenter avatars next to each comment. Default is "Yes," which will show the avatar (profile image) of each commenter (if available, typically via Gravatar). If you turn this off, the comments list will just show names without images.
 - **Avatar Size:** If avatars are enabled, you can specify the size (in pixels) for the avatar images. Default is 60px, but you might adjust it smaller or larger depending on your design. This size applies to all comment avatars.
 - **Reply Location:** Choose how the reply form appears when a user clicks a comment's "Reply" link:
   - *Inline:* (Default setting) The reply form will appear directly underneath the comment you are replying to, making it clear which comment is being responded to.
@@ -55,9 +55,9 @@ In the **Content** tab of the Comments Form widget, you'll find two sections: **
   
 **Form Settings:**
 - **Title:** You can customize the heading text that appears above the comment form. By default, this is "Leave a Reply". You can change it to something like "Join the Discussion" or any phrase. This title is dynamic (it supports translation and can also be set to empty if you don't want a title).
-- **Show Labels:** Toggle whether to show field labels (Name, Email, Website, Comment) above the form fields. Default is “Yes” (labels visible). If you prefer a cleaner look, you can turn labels off — the form will then rely on placeholders or context to identify fields.
-- **Show Placeholders:** Toggle placeholders inside the form fields. Default “Yes” shows placeholder text within each input (e.g., "Name*", "Email*", "Website", "Message*"). This is helpful if you choose to hide labels, so the user still knows what to input. If both labels and placeholders are off, the fields will be blank with no prompt text (not recommended).
-- **Show Website Field:** Toggle the inclusion of the "Website" field. By default this is “Yes”, meaning the form will include an optional field for the commenter's website URL. If you turn this off, the Website field will be removed entirely (useful if you want to simplify the form and reduce spam links).
+- **Show Labels:** Toggle whether to show field labels (Name, Email, Website, Comment) above the form fields. Default is "Yes" (labels visible). If you prefer a cleaner look, you can turn labels off — the form will then rely on placeholders or context to identify fields.
+- **Show Placeholders:** Toggle placeholders inside the form fields. Default "Yes" shows placeholder text within each input (e.g., "Name*", "Email*", "Website", "Message*"). This is helpful if you choose to hide labels, so the user still knows what to input. If both labels and placeholders are off, the fields will be blank with no prompt text (not recommended).
+- **Show Website Field:** Toggle the inclusion of the "Website" field. By default this is "Yes", meaning the form will include an optional field for the commenter's website URL. If you turn this off, the Website field will be removed entirely (useful if you want to simplify the form and reduce spam links).
 - **Submit Button Text:** Customize the text on the submit button. The default is "Submit". You might change it to "Post Comment" or "Send". This text can also be translated via dynamic tags if needed.
 
 <Aside type="note">

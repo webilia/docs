@@ -4,9 +4,6 @@ sidebar_label: General, Header & Footer
 description: Configure global site identity and header and footer options in Listdomer.
 sidebar:
   order: 1
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
@@ -16,40 +13,40 @@ Configure the appearance and behavior of the Listdomer theme via its comprehensi
 
 ## General Settings
 
-- **Site Logo:** Upload your custom logo image. This logo appears in the header by default. If no logo is set here, the theme will fall back to the Site Title or the logo set in Customizer’s Site Identity.
-- **Site Logo (Dark Version):** If your header design uses a dark background, you can upload a variant of your logo in white or light color. The theme will automatically switch to this “Dark Logo” when needed (for specific header types that call for a contrasting logo).
+- **Site Logo:** Upload your custom logo image. This logo appears in the header by default. If no logo is set here, the theme will fall back to the Site Title or the logo set in Customizer's Site Identity.
+- **Site Logo (Dark Version):** If your header design uses a dark background, you can upload a variant of your logo in white or light color. The theme will automatically switch to this "Dark Logo" when needed (for specific header types that call for a contrasting logo).
 - **Favicon & Site Icon:** Upload a 512x512px site icon for browser tabs and mobile bookmarks.
-- **Theme Dependency:** Ensure Redux is active to see the theme options panel. If it’s not, activate the Redux Framework plugin – otherwise the Listdomer Settings menu may not appear.
+- **Theme Dependency:** Ensure Redux is active to see the theme options panel. If it's not, activate the Redux Framework plugin - otherwise the Listdomer Settings menu may not appear.
 
 ## Header Settings
 
 Configure the top section of your site.
 
 - **Header Type:** Choose from multiple pre-designed header layouts. Examples: Type 1 (default header), Type 2 (center logo menu beneath), etc. Some header types may be available only in Pro <Badge text="Pro" />. The selected header applies globally, but you can override it per page.
-- **Primary Menu Selection:** By default, the theme displays the menu assigned to the Primary location. You can override this by selecting a specific menu for the header here – useful if you have multiple menus and want a certain one in the header without changing menu assignments.
-- **Header Colors:** Pick a header background color (or set transparent), as well as text color for menu links. Separate color settings for hover state and “active” menu item are available to fine-tune the header style.
+- **Primary Menu Selection:** By default, the theme displays the menu assigned to the Primary location. You can override this by selecting a specific menu for the header here - useful if you have multiple menus and want a certain one in the header without changing menu assignments.
+- **Header Colors:** Pick a header background color (or set transparent), as well as text color for menu links. Separate color settings for hover state and "active" menu item are available to fine-tune the header style.
 - **Logo Background:** A toggle to enable/disable a background behind your logo text/image. By default, Listdomer may put the logo on a colored shape for contrast; you can disable this if your logo itself has proper contrast.
 - **Language Switcher:** Show a language switcher dropdown if you use WPML. Only works if WPML is installed and configured.
-- **“Add Listing” Button:** Toggle a prominent button in the header for users to add a new listing. You can customize the button label text (“Add Listing,” “Submit Listing,” etc.). This button typically links to the Listdom front-end submission page. Disable it if you don’t allow user submissions.
-- **Login/Register Links:** Enable or disable the display of “Login / Register” links in the header. If enabled, guests will see options to log in or sign up. These links open a popup or redirect to your chosen login/register pages. You can set custom redirect pages after login/registration, which is great for directing new users to a welcome or dashboard page.
-- **Social Login Shortcode:** Optionally, paste a shortcode from a social login plugin. This will embed social login buttons in the header’s login/register dropdown.
-- **Per-Page Header Overrides:** On any Page edit screen, you’ll find a Listdomer meta box that lets you set a specific Header Type for that page. Select the desired header or use “Inherit” to use the global default. You can disable the header on a particular page by choosing the “Disabled” option.
+- **"Add Listing" Button:** Toggle a prominent button in the header for users to add a new listing. You can customize the button label text ("Add Listing," "Submit Listing," etc.). This button typically links to the Listdom front-end submission page. Disable it if you don't allow user submissions.
+- **Login/Register Links:** Enable or disable the display of "Login / Register" links in the header. If enabled, guests will see options to log in or sign up. These links open a popup or redirect to your chosen login/register pages. You can set custom redirect pages after login/registration, which is great for directing new users to a welcome or dashboard page.
+- **Social Login Shortcode:** Optionally, paste a shortcode from a social login plugin. This will embed social login buttons in the header's login/register dropdown.
+- **Per-Page Header Overrides:** On any Page edit screen, you'll find a Listdomer meta box that lets you set a specific Header Type for that page. Select the desired header or use "Inherit" to use the global default. You can disable the header on a particular page by choosing the "Disabled" option.
 
 ## Footer Settings
 
-- **Footer Type:** Choose the layout style for your site’s footer. Types 1–5 are different column arrangements and designs, and Tiny is a minimal footer bar. Some footer types beyond the default may require Pro <Badge text="Pro" />. Selecting “Disabled” will remove the footer entirely on all pages.
+- **Footer Type:** Choose the layout style for your site's footer. Types 1-5 are different column arrangements and designs, and Tiny is a minimal footer bar. Some footer types beyond the default may require Pro <Badge text="Pro" />. Selecting "Disabled" will remove the footer entirely on all pages.
 - **Footer Colors:** Customize the footer background color, as well as text color. Ensure your text is legible against the background.
-- **Footer Widgets Notice:** The theme’s footer layouts include widget areas. You can manage footer widget content via Appearance > Widgets.
-- **Footer Menu:** Choose a menu for the bottom sub-footer area. If left blank, it will use the menu assigned to the “Sub-Footer” location by default.
-- **Footer Copyright Text:** Add custom text for the very bottom of the site. You might put “© 2025 Your Company – All rights reserved.” or any message. This text will appear in the site’s tiny footer bar.
+- **Footer Widgets Notice:** The theme's footer layouts include widget areas. You can manage footer widget content via Appearance > Widgets.
+- **Footer Menu:** Choose a menu for the bottom sub-footer area. If left blank, it will use the menu assigned to the "Sub-Footer" location by default.
+- **Footer Copyright Text:** Add custom text for the very bottom of the site. You might put "© 2025 Your Company - All rights reserved." or any message. This text will appear in the site's tiny footer bar.
 
 ## Examples
 
 <CardGrid>
-  <Card>**Changing the Header Style** – In *Header Settings*, select **Header Type 3** and save. Your site header instantly changes to the new layout. If Header Type 3 is a <Badge text="Pro" /> feature, make sure Listdomer Pro is active.</Card>
-  <Card>**Per-Page Header Override** – Edit a landing page and in the Listdomer meta box set Header to “Disabled.” Publish to hide navigation on that page, creating a clean landing layout.</Card>
-  <Card>**Switching Footer Layout** – In *Footer Settings*, choose **Footer Type 2** and add widgets to Footer 1–3. Save to display a three-column footer tailored to your content.</Card>
+  <Card>**Changing the Header Style** - In *Header Settings*, select **Header Type 3** and save. Your site header instantly changes to the new layout. If Header Type 3 is a <Badge text="Pro" /> feature, make sure Listdomer Pro is active.</Card>
+  <Card>**Per-Page Header Override** - Edit a landing page and in the Listdomer meta box set Header to "Disabled." Publish to hide navigation on that page, creating a clean landing layout.</Card>
+  <Card>**Switching Footer Layout** - In *Footer Settings*, choose **Footer Type 2** and add widgets to Footer 1-3. Save to display a three-column footer tailored to your content.</Card>
 </CardGrid>
 
-<LinkCard href="https://demo.webilia.com/listdomer/documentation/#theme-options">📘 Full Theme Options Reference – Learn more about each option in the Listdomer documentation, with screenshots and tips for optimal settings.</LinkCard>
+<LinkCard href="https://demo.webilia.com/listdomer/documentation/#theme-options">📘 Full Theme Options Reference - Learn more about each option in the Listdomer documentation, with screenshots and tips for optimal settings.</LinkCard>
 

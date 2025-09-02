@@ -2,14 +2,11 @@
 title: How to Create the Listdom Frontend Dashboard
 description: Learn how to set up the Listdom frontend dashboard to manage listings, bookings, and other user data.
 order: 1
-header_button:
-  label: View Listdom Demo
-  url: https://demo.webilia.com/
 ---
 
 import { Aside, Steps } from '@astrojs/starlight/components';
 
-Before you can start listing your business and growing it, you’ll need to set up a dashboard that’s both functional and user-friendly. This is where you’ll manage listings, bookings, and other important data. Listdom is a WordPress plugin that provides a straightforward dashboard for creating and managing listings. On this page, we’ll show you how to set up a Listdom dashboard so that you can get started on managing your listings.
+Before you can start listing your business and growing it, you'll need to set up a dashboard that's both functional and user-friendly. This is where you'll manage listings, bookings, and other important data. Listdom is a WordPress plugin that provides a straightforward dashboard for creating and managing listings. On this page, we'll show you how to set up a Listdom dashboard so that you can get started on managing your listings.
 
 Listdom includes an advanced frontend dashboard that lets the site users engage with the listings and manage them in the frontend. The frontend dashboard lets users add or edit their listings, and manage the bookings, subscriptions, inquiries, and applications. The dashboard is pre-made and you need to just put its shortcode in a WordPress page.
 
@@ -51,21 +48,21 @@ On the left hand, you can see dashboard menu items:
     </Aside>
 - Logout
 
-Let’s consider each section in detail:
+Let's consider each section in detail:
 
 ## Dashboard
 
 The dashboard shows the created listings and the options to manage them.
 
 <Steps>
-1. **Published Listing Name:** After a listing is created, it’s added to this list with a green check mark icon next to it. Click on the listing name to edit the listing.
+1. **Published Listing Name:** After a listing is created, it's added to this list with a green check mark icon next to it. Click on the listing name to edit the listing.
 2. **Pending Listing Name:** A pending (created by the user) listing appears with this icon. Click on the listing name to edit the listing. **Note:** Editing a trashed listing republishes that.
 3. **Trashed Listing Name:** A trashed (by the admin) listing appears with this icon. Click on the listing name to edit the listing. **Note:** Editing a trashed listing republishes that.
-4. **Delete Listing:** Press twice to delete the listing. **Note:** This option deletes the listing permanently and it doesn’t trash the listing.
+4. **Delete Listing:** Press twice to delete the listing. **Note:** This option deletes the listing permanently and it doesn't trash the listing.
 5. **Edit Listing:** Hit this button to edit the listing.
 6. **View Listing:** Opens the listing page.
 7. **Listing Subscription Package:** The selected package for this listing.
-8. **Published Listing Subscription Package:** It’s a dropdown of the subscribed packages. It’s to change the package of a listing. For example, a user bought a package with 1 listing capacity for $20 per month and created one listing. Then bought a package with 3 listings for $30 per month to save some money. The user doesn’t want to renew the first package. Using this option they can move the listing from the first package to the second package and then cancel the first package subscription.
+8. **Published Listing Subscription Package:** It's a dropdown of the subscribed packages. It's to change the package of a listing. For example, a user bought a package with 1 listing capacity for $20 per month and created one listing. Then bought a package with 3 listings for $30 per month to save some money. The user doesn't want to renew the first package. Using this option they can move the listing from the first package to the second package and then cancel the first package subscription.
     <Aside type="note">
     The Subscription package options are added by the Listdom Subscription Add-on.
     </Aside>
@@ -77,7 +74,7 @@ The dashboard shows the created listings and the options to manage them.
 
 ## Subscriptions
 
-The Subscription panel has two sections. The “Existing Subscriptions” and the “Subscribe” sections. The first section shows the user’s subscribed packages and also the default package that is set in the Subscription Add-on settings. The “Subscribe” section shows the available packages to subscribe to. You can read more about the Listdom Subscription Add-on.
+The Subscription panel has two sections. The "Existing Subscriptions" and the "Subscribe" sections. The first section shows the user's subscribed packages and also the default package that is set in the Subscription Add-on settings. The "Subscribe" section shows the available packages to subscribe to. You can read more about the Listdom Subscription Add-on.
 
 <Aside type="note">
 The Subscriptions menu is added by the Listdom Subscription Add-on.
@@ -85,20 +82,20 @@ The Subscriptions menu is added by the Listdom Subscription Add-on.
 
 ## Add Listing
 
-If you want to add a new listing to your site, you can do it from the front-end dashboard without having to go through the WordPress admin dashboard. If you have the Listdom Subscription Add-on installed, you’ll need to purchase a package before you can add a listing. If you are subscribed to several packages, you need to select one before adding a listing, and if you are subscribed to only one package, you will be automatically redirected to the Add Listing form.
+If you want to add a new listing to your site, you can do it from the front-end dashboard without having to go through the WordPress admin dashboard. If you have the Listdom Subscription Add-on installed, you'll need to purchase a package before you can add a listing. If you are subscribed to several packages, you need to select one before adding a listing, and if you are subscribed to only one package, you will be automatically redirected to the Add Listing form.
 
-The “Add Listing” includes several sections to create a listing. The settings of these options are available in the Listdom Settings General tab. Also, the function and explanation of most of the fields are the same when creating the listings through the WordPress admin panel and you can learn more about them. However, some options are especially available on the frontend dashboard:
+The "Add Listing" includes several sections to create a listing. The settings of these options are available in the Listdom Settings General tab. Also, the function and explanation of most of the fields are the same when creating the listings through the WordPress admin panel and you can learn more about them. However, some options are especially available on the frontend dashboard:
 
 **Recaptcha:** Click to learn more about activating the Recaptcha in the Listdom frontend dashboard.
 **Labelize Add-on:** A new section is under the labels list and the user can purchase the labels based on the Labelize Add-on settings.
 <Aside type="note">
 The Labelize option is added by the Listdom Labelize Add-on.
 </Aside>
-**"To Reviewers" Form:** While the “Guest Submission” is activated, A form will be added at the end of the “Add Listing” page. The listing submitter must fill out the form. The Form has 3 statuses and can be configured in the Frontend Submission settings.
+**"To Reviewers" Form:** While the "Guest Submission" is activated, A form will be added at the end of the "Add Listing" page. The listing submitter must fill out the form. The Form has 3 statuses and can be configured in the Frontend Submission settings.
 
 ## Booking
 
-The Booking section shows a list of the bookings associated with the user’s listings. Learn more about the Listdom Booking Add-on.
+The Booking section shows a list of the bookings associated with the user's listings. Learn more about the Listdom Booking Add-on.
 
 <Aside type="note">
 The Bookings menu is added by the Listdom Booking Add-on.
@@ -106,7 +103,7 @@ The Bookings menu is added by the Listdom Booking Add-on.
 
 ## Favorites
 
-The favorites displays the list of the user’s favorite listings. It’s added by the Listdom Favorite Add-on. Learn more about it.
+The favorites displays the list of the user's favorite listings. It's added by the Listdom Favorite Add-on. Learn more about it.
 
 <Aside type="note">
 The Favorites menu is added by the Listdom Favorite Add-on.
@@ -122,7 +119,7 @@ The Inquiries menu is added by the Listdom Connect Add-on.
 
 ## Applications
 
-The Application section shows a list of the applications associated with the user’s listings. Learn more about the Listdom Jobs Add-on.
+The Application section shows a list of the applications associated with the user's listings. Learn more about the Listdom Jobs Add-on.
 
 <Aside type="note">
 The Applications menu is added by the Listdom Jobs Add-on.

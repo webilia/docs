@@ -3,9 +3,6 @@ title: How to Customize The Listdom Template Files?
 description: Learn how to override and customize Listdom template files safely without losing changes after updates.
 sidebar:
   order: 29
-header_button:
-  label: View Listdom Demo
-  url: https://demo.webilia.com/
 ---
 
 import { Aside } from '@astrojs/starlight/components';
@@ -13,12 +10,12 @@ import { Aside } from '@astrojs/starlight/components';
 This article is written for developers or those who have enough technical knowledge. If you're not a technical person then you should hire a website designer to do the customization.
 
 ## What is a Listdom template file?
-All files placed in the /path/to/listdom/templates/ directory are template files. You can see these files in the Listdom add-ons too. If you want to modify these files you shouldn’t modify the core files because they will be overwritten again in the next update of the Listdom and its addons.
+All files placed in the /path/to/listdom/templates/ directory are template files. You can see these files in the Listdom add-ons too. If you want to modify these files you shouldn't modify the core files because they will be overwritten again in the next update of the Listdom and its addons.
 
 ## Override the files in your child theme
 To make the customization persistent, first, you should override the template file in your theme and then modify the overridden file. To do this, first, you should create a child theme and then override the files in your child theme.
 
-Let’s say you want to modify the layout of Style 2 of the Listdom listings’ [single listing](/listdom/settings/single-listing/) page. You should copy the /templates/single/style2.php file and put it in the /wp-content/themes/your-child-theme/listdom/single/style2.php path. This way listdom uses the overridden file and ignores the core file. Then you can simply modify the content of the overridden file and apply your changes.
+Let's say you want to modify the layout of Style 2 of the Listdom listings' [single listing](/listdom/settings/single-listing/) page. You should copy the /templates/single/style2.php file and put it in the /wp-content/themes/your-child-theme/listdom/single/style2.php path. This way listdom uses the overridden file and ignores the core file. Then you can simply modify the content of the overridden file and apply your changes.
 
 ## CSS Code
 <Aside type="caution">
@@ -26,4 +23,4 @@ Remember not to modify the current CSS files directly. Instead, if you need to m
 </Aside>
 
 ## Are you a theme developer?
-If you’re a theme developer and you want to include Listdom integration for your theme, then you can simply override Listdom template files in your theme using the same way mentioned above. Note: It’s suggested to avoid file override as much as possible and instead, apply your changes by CSS.
+If you're a theme developer and you want to include Listdom integration for your theme, then you can simply override Listdom template files in your theme using the same way mentioned above. Note: It's suggested to avoid file override as much as possible and instead, apply your changes by CSS.

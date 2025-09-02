@@ -3,9 +3,6 @@ title: Advanced Icon Addon
 description: Customize listing taxonomies with your own icons for categories, features, and custom attributes, enhancing visual identification across the site.
 sidebar:
   order: 3
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
@@ -22,7 +19,7 @@ Once activated, the Advanced Icon Addon introduces a new **Icon** field on the a
 - **Features:** Similarly, under *Listings → Features*, the add/edit term screen will include an **Icon** field to assign an image icon to that feature term.
 - **Attributes (Custom Fields):** If you are using custom attributes (available with Listdom Pro), the add/edit screens for those terms also include the Icon picker. 
 
-These icon fields allow you to either upload a new image or choose from the media library. After setting an icon and saving the term, Listdom will store the image ID as the term’s icon.
+These icon fields allow you to either upload a new image or choose from the media library. After setting an icon and saving the term, Listdom will store the image ID as the term's icon.
 
 <Aside type="tip">For best results, use simple, clear icons (around 64x64 pixels or similar) with transparent backgrounds (PNG/SVG). This ensures they look good in the interface next to text. Listdom will automatically resize icons as needed in the front-end, but starting with a consistent size will give a uniform look.</Aside>
 
@@ -30,9 +27,9 @@ These icon fields allow you to either upload a new image or choose from the medi
 
 With custom icons defined, Listdom will display them in place of default icons or placeholders in various parts of your directory:
 
-- **Listing Cards & Lists:** If your directory listing design includes icons next to categories or features, the addon ensures your uploaded icon is shown. For example, a hotel listing might show a bed icon (for “Hotel” category) next to the listing title in list view. With Advanced Icon Addon, if you set a custom icon for “Hotel” category, that icon will appear instead of the default symbol.
-- **Map Markers:** When using map views, Listdom typically uses category icons for map markers. Custom icons will be used here as well. If “Restaurant” category has a custom icon (say a fork and knife), map pins for restaurant listings can display that icon within the marker, making the map more informative.
-- **Filters and Widgets:** In any search forms or filter widgets that display taxonomy options (like a list of features with icons), your custom icons will appear alongside the terms. This makes filter sections more user-friendly—for instance, a feature “Pet Friendly” could show a paw icon if set.
+- **Listing Cards & Lists:** If your directory listing design includes icons next to categories or features, the addon ensures your uploaded icon is shown. For example, a hotel listing might show a bed icon (for "Hotel" category) next to the listing title in list view. With Advanced Icon Addon, if you set a custom icon for "Hotel" category, that icon will appear instead of the default symbol.
+- **Map Markers:** When using map views, Listdom typically uses category icons for map markers. Custom icons will be used here as well. If "Restaurant" category has a custom icon (say a fork and knife), map pins for restaurant listings can display that icon within the marker, making the map more informative.
+- **Filters and Widgets:** In any search forms or filter widgets that display taxonomy options (like a list of features with icons), your custom icons will appear alongside the terms. This makes filter sections more user-friendly—for instance, a feature "Pet Friendly" could show a paw icon if set.
 
 By default, if a term has no custom icon, Listdom will continue to show the standard icon or text for that term. The addon only overrides the icon where one is provided.
 
@@ -40,9 +37,9 @@ By default, if a term has no custom icon, Listdom will continue to show the stan
 
 <Steps>
 1. **Open Taxonomy Term for Editing:** Navigate to the taxonomy you want to customize (e.g., Listings → Categories). Click *Edit* under the specific term (for a new term, click *Add New*).
-2. **Upload or Select Icon:** In the term edit screen, find the **Icon** field (usually at the bottom of the form). Click the **“Choose Image”** or **“Upload”** button. Use the WordPress media dialog to upload a new icon image or select one from your media library.
-3. **Save Changes:** After selecting an image, click the **“Update”** (or **“Add”**) button to save the term. You should now see a thumbnail of the chosen icon when viewing the list of terms.
-4. **Verify on Front-end:** Visit a listing that uses that category/feature. You’ll notice the new custom icon appearing where relevant (for example, on the listing card or map marker). If it’s not immediately visible, ensure your theme or listing skin is set to display icons for that taxonomy.
+2. **Upload or Select Icon:** In the term edit screen, find the **Icon** field (usually at the bottom of the form). Click the **"Choose Image"** or **"Upload"** button. Use the WordPress media dialog to upload a new icon image or select one from your media library.
+3. **Save Changes:** After selecting an image, click the **"Update"** (or **"Add"**) button to save the term. You should now see a thumbnail of the chosen icon when viewing the list of terms.
+4. **Verify on Front-end:** Visit a listing that uses that category/feature. You'll notice the new custom icon appearing where relevant (for example, on the listing card or map marker). If it's not immediately visible, ensure your theme or listing skin is set to display icons for that taxonomy.
 </Steps>
 
 <Aside type="note">To remove or change an icon, simply edit the term again and either delete the current image (there may be a remove button) or upload a new one. If an icon is removed and not replaced, the term will revert to showing the default icon or no icon.</Aside>
@@ -51,10 +48,10 @@ By default, if a term has no custom icon, Listdom will continue to show the stan
 
 <CardGrid>
   <Card title="Industry-Specific Category Icons">
-    A business directory assigns unique icons to each category: a briefcase for **Consulting**, a stethoscope for **Healthcare**, a fork-and-knife for **Restaurants**, etc. With these set via the Advanced Icon Addon, the directory’s listing cards and maps show these icons, allowing users to identify listing types at a glance.
+    A business directory assigns unique icons to each category: a briefcase for **Consulting**, a stethoscope for **Healthcare**, a fork-and-knife for **Restaurants**, etc. With these set via the Advanced Icon Addon, the directory's listing cards and maps show these icons, allowing users to identify listing types at a glance.
   </Card>
   <Card title="Feature Icons for Amenities">
-    A real estate site uses the **Features** taxonomy for home amenities (Pool, Garage, Garden). The admin uploads a pool icon, car icon, and flower icon for each feature. Now, on each property listing, the amenities section displays these icons next to the text (a pool 🏊 image next to “Swimming Pool”), making the information more visually appealing.
+    A real estate site uses the **Features** taxonomy for home amenities (Pool, Garage, Garden). The admin uploads a pool icon, car icon, and flower icon for each feature. Now, on each property listing, the amenities section displays these icons next to the text (a pool 🏊 image next to "Swimming Pool"), making the information more visually appealing.
   </Card>
 </CardGrid>
 

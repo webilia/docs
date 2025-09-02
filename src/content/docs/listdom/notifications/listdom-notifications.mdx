@@ -18,7 +18,7 @@ The **Listdom** plugin provides a powerful notifications system to keep users an
 
 ## Create a Notification
 
-To create or edit notifications, you must be an admin user (with the manage_options capability). In WordPress admin, navigate to Listdom → Notifications (this menu is added by the plugin). Here you'll see a list of any existing notifications and can click “Add Notification” (or “Add New Notification”) to create a new one. When adding/editing a notification, you will configure:
+To create or edit notifications, you must be an admin user (with the manage_options capability). In WordPress admin, navigate to Listdom → Notifications (this menu is added by the plugin). Here you'll see a list of any existing notifications and can click "Add Notification" (or "Add New Notification") to create a new one. When adding/editing a notification, you will configure:
 
 <Steps>
 1. **Title** - This is used as the email subject line (placeholders can be used here too).
@@ -125,7 +125,7 @@ Example: If sending to the profile owner, you might write:
 From: #name# ( #email# )
 Message: #message#' />
 
-Here `#owner_name#` would be the profile owner's name. Note that `#owner_name#` and `#owner_email#` are placeholders defined for certain events like listings; in a profile context, the “owner” is the user. You can actually use `#owner_name#` in this context as well, since the system will treat the profile owner as the target user (Listdom reuses the same mechanism by treating the profile owner as the “listing owner” in this event internally). But to avoid confusion, you might just address the email generically or by using the user's display name if known.
+Here `#owner_name#` would be the profile owner's name. Note that `#owner_name#` and `#owner_email#` are placeholders defined for certain events like listings; in a profile context, the "owner" is the user. You can actually use `#owner_name#` in this context as well, since the system will treat the profile owner as the target user (Listdom reuses the same mechanism by treating the profile owner as the "listing owner" in this event internally). But to avoid confusion, you might just address the email generically or by using the user's display name if known.
 
 <Aside type='tip' title='Use Case'>
 Profile Contact notifications are useful on membership or directory sites where users have profile pages (e.g., agents, service providers). Ensure users know they'll get emails to their registered email when someone contacts them. As an admin, you might also set yourself as BCC to monitor communications or detect spam. Also, encourage users to keep their email updated (and phone number, if you plan to use SMS) so they don't miss these messages.
@@ -133,13 +133,13 @@ Profile Contact notifications are useful on membership or directory sites where 
 
 ## New Listing
 
-**Event:** *New Listing* - Triggered whenever a new listing is created/submitted on the site. This could be when a user submits a listing from the front-end dashboard or when an admin adds a listing in the back-end. Essentially, it fires on the first save of a listing post (specifically when a listing transitions out of an initial “new” state to a real status).
+**Event:** *New Listing* - Triggered whenever a new listing is created/submitted on the site. This could be when a user submits a listing from the front-end dashboard or when an admin adds a listing in the back-end. Essentially, it fires on the first save of a listing post (specifically when a listing transitions out of an initial "new" state to a real status).
 
 **Default Recipient:** By default, the original recipient for this event is the site administrator (the WordPress admin email). The assumption is that when a new listing comes in, the admin might want to be notified (for moderation or record-keeping). If "Original Recipient" is on, Listdom will send the New Listing notification to the admin email address configured in WordPress (found in Settings → General).
 
 - **Custom Recipients:** You can override this if, for example, you want a team or a specific moderator to receive new listing alerts (just enter their email in the To field).
 
-- It's generally not common to send this notification to the user who submitted the listing, since they obviously know they just submitted it. Instead, there is another event (“Listing Status Changed”) intended to notify users when their listing gets published or approved. So typically, New Listing notifications are for admins/staff.
+- It's generally not common to send this notification to the user who submitted the listing, since they obviously know they just submitted it. Instead, there is another event ("Listing Status Changed") intended to notify users when their listing gets published or approved. So typically, New Listing notifications are for admins/staff.
 
 **Placeholders for New Listing Event:** This event provides placeholders to include details about the listing that was created:
 
@@ -182,7 +182,7 @@ The plugin is designed such that multiple notifications for the same event can b
 
 - **Custom Recipients:** You can override the recipient to, say, notify an admin or a third party of status changes, but generally this one is meant for the listing owners. If you still want an admin notice on publication, you might already have seen the listing in the New Listing email; however, you could also CC yourself on this too.
 
-- If you don't want owners getting emails on certain status changes, you can disable the notification or filter when it sends (there's no UI for filtering by status type, but you could simply not use the placeholder if not relevant). For example, some admins only want to notify on approval, not on going back to draft. In that case, you'd still send it but phrase it like “Your listing is now published” and trust that you only publish once.
+- If you don't want owners getting emails on certain status changes, you can disable the notification or filter when it sends (there's no UI for filtering by status type, but you could simply not use the placeholder if not relevant). For example, some admins only want to notify on approval, not on going back to draft. In that case, you'd still send it but phrase it like "Your listing is now published" and trust that you only publish once.
 
 **Placeholders for Listing Status Changed:** This event provides details about the status transition and the listing:
 
@@ -208,19 +208,19 @@ Good news - your listing "#listing_title#" has been #listing_status# on #site_na
 
 If the listing was pending and now published, it might read: Subject: Your listing "Grand Hotel" is now Published! and in the body: Hi Alice, Good news - your listing "Grand Hotel" has been Published on MySite. You can view it here: (link). (Status changed from "Pending" to "Published" on Aug 30, 2025.) The placeholders will substitute accordingly (note `#previous_status#` would be "Pending", `#listing_status#` "Published").
 
-For an expiration scenario, if you used the same notification, it could say "Your listing ... has been Expired". You might want a different wording in that case (e.g., “has expired” vs “is now published”), but since Listdom uses one event for any status change, you might have to generalize the message or create separate notifications and enable/disable them as needed when statuses change. However, Listdom doesn't provide an out-of-the-box way to target specific status changes differently (that would require a customization or using filters).
+For an expiration scenario, if you used the same notification, it could say "Your listing ... has been Expired". You might want a different wording in that case (e.g., "has expired" vs "is now published"), but since Listdom uses one event for any status change, you might have to generalize the message or create separate notifications and enable/disable them as needed when statuses change. However, Listdom doesn't provide an out-of-the-box way to target specific status changes differently (that would require a customization or using filters).
 
 <Aside type='tip' title='Use Case'>
 Use Case Tips: This notification is crucial for keeping users informed about their listing's lifecycle. We recommend using it at least for approval notices so users know when their submitted listing is live. If your site auto-approves listings (no pending stage), you might not need an approval email (since the user submits and it's instantly published - they know that). But if listings expire or get unpublished, you could use this to notify them. Adjust your wording to make sense for most scenarios, or consider turning off the notification if it doesn't fit your workflow. For example, some admins only enable it for the publish step - which is automatic. (If needed, you could manually disable sending for certain transitions by custom code, but that's beyond this doc.)
 </Aside>
 
 <Aside title='Technical Note'>
-The system does ensure it doesn't send on the very initial creation event as “status changed” (to avoid double notifying along with New Listing). It checks if previous status was 'new' and if so, skips this event. So you won't accidentally send a status-change email at creation time - it will only trigger on subsequent changes after creation.
+The system does ensure it doesn't send on the very initial creation event as "status changed" (to avoid double notifying along with New Listing). It checks if previous status was 'new' and if so, skips this event. So you won't accidentally send a status-change email at creation time - it will only trigger on subsequent changes after creation.
 </Aside>
 
 ## Abuse Report
 
-**Event:** *Abuse Report* - Triggered when someone submits a “Report Abuse” (or “Report Listing”) form on a listing. Listdom allows users to report a listing if they find something inappropriate, and this event handles notifying the relevant party about such reports.
+**Event:** *Abuse Report* - Triggered when someone submits a "Report Abuse" (or "Report Listing") form on a listing. Listdom allows users to report a listing if they find something inappropriate, and this event handles notifying the relevant party about such reports.
 
 **Default Recipient:** By default, the original recipient is the site administrator (admin email). The rationale is that abuse reports should go to the site admin or moderators, not to the listing owner (since it might be a complaint about that listing). The code specifically routes original recipients for this event to the admin email.
 
@@ -267,7 +267,7 @@ Listdom's notification system can send **SMS (text message) alerts** in addition
 
 - **SMS Add-on Setup:** Once installed, go to Listdom → Settings → Addons → SMS. There you will need to configure your SMS Gateway. Currently, the plugin supports Twilio as the SMS gateway. You'll have to enter your Twilio Account SID, Auth Token, and a Sender Number (the phone number or sender ID from which messages will be sent). After saving these settings, the system is ready to send SMS.
 
-- **Per-Notification SMS Content:** In the Notifications section (Listdom → Notifications), when you edit or add a notification, you will see a new meta box or section for “SMS”. This includes a checkbox or toggle to enable SMS for that notification and a textarea to input the SMS message content. You can use the same placeholders in the SMS content as in the email (placeholders will be replaced just the same for SMS). For example, you might have an SMS that says: "New listing #listing_title# submitted by #owner_name#." for the admin, or "Your listing #listing_title# is now #listing_status#." for a user.
+- **Per-Notification SMS Content:** In the Notifications section (Listdom → Notifications), when you edit or add a notification, you will see a new meta box or section for "SMS". This includes a checkbox or toggle to enable SMS for that notification and a textarea to input the SMS message content. You can use the same placeholders in the SMS content as in the email (placeholders will be replaced just the same for SMS). For example, you might have an SMS that says: "New listing #listing_title# submitted by #owner_name#." for the admin, or "Your listing #listing_title# is now #listing_status#." for a user.
 
 - **Enabling/Disabling SMS for a Notification:** To activate SMS, ensure the SMS content field is not empty and that the SMS toggle is on. The plugin will save a meta value indicating SMS is enabled (lsd_sms_status = 1) along with your SMS text (lsd_sms_content). If the SMS content is blank, the SMS will be considered disabled (even if the toggle was on, the code will set status to 0). Conversely, if you have content and leave it enabled, an SMS will be sent out in addition to the email for that notification. (Emails and SMS are managed independently; you cannot currently send only SMS without an email - an email notification must exist and be published, but you could leave the email content very minimal if you only care about SMS.)
 
@@ -275,9 +275,9 @@ Listdom's notification system can send **SMS (text message) alerts** in addition
 
   - For events where the listing owner or profile owner is the original email recipient (Contact Owner, Profile Contact, Listing Status Changed), the SMS will be sent to that user's mobile number. The plugin looks for a phone number in the user's meta data (`lsd_mobile`) corresponding to that user. (Users may need to provide or verify their mobile number; the SMS add-on has a Mobile Verification feature where users can verify a phone number on their profile. Make sure users have a number saved if you expect to reach them by SMS.)
 
-  - For events where the admin is the recipient (New Listing, Abuse Report by default), the SMS will go to the admin's number. How does it get the admin's number? You as an admin should set your phone number in your user profile (the add-on likely adds a field in the user profile for “Mobile” which is stored in `lsd_mobile` meta). If the first argument passed to the `lsd_send_notification` hook is a user ID (like admin's user ID or owner's user ID), the SMS system will treat that as “send to this user's mobile”. If it's not a numeric user ID (e.g., you put a raw phone number in custom recipients), it will try to send to that number directly, but generally the plugin passes user IDs for original recipients.
+  - For events where the admin is the recipient (New Listing, Abuse Report by default), the SMS will go to the admin's number. How does it get the admin's number? You as an admin should set your phone number in your user profile (the add-on likely adds a field in the user profile for "Mobile" which is stored in `lsd_mobile` meta). If the first argument passed to the `lsd_send_notification` hook is a user ID (like admin's user ID or owner's user ID), the SMS system will treat that as "send to this user's mobile". If it's not a numeric user ID (e.g., you put a raw phone number in custom recipients), it will try to send to that number directly, but generally the plugin passes user IDs for original recipients.
 
-  - **Custom Recipients for SMS:** If you set a custom phone number as the recipient in the code (not via UI, since UI for notifications only takes emails), it could handle it, but the normal UI doesn't have a field for “SMS number”. So essentially, SMS will go to whichever user was going to get the email (if original) or none at all for custom (unless you hack it). So practically, use SMS for scenarios where the target has an associated user account with a mobile number.
+  - **Custom Recipients for SMS:** If you set a custom phone number as the recipient in the code (not via UI, since UI for notifications only takes emails), it could handle it, but the normal UI doesn't have a field for "SMS number". So essentially, SMS will go to whichever user was going to get the email (if original) or none at all for custom (unless you hack it). So practically, use SMS for scenarios where the target has an associated user account with a mobile number.
 
 - **SMS Content Format:** SMS messages are plain text. The placeholders will be replaced with text. Links will appear as full URLs (e.g., #listing_link# becomes the URL of the listing). There is no HTML in SMS, obviously. Keep SMS messages short and to the point, due to character limits (and possibly costs per SMS). For example, instead of a long message, you might say: "Hi #owner_name#, your listing '#listing_title#' is now published on #site_name#!" or "New inquiry from #name# on #site_name#: check email for details." (In some cases you might use SMS just to prompt someone to check their email if the message is too long to include fully.)
 
@@ -295,9 +295,9 @@ The SMS add-on gives an extra channel of communication which can be very effecti
 
 If you want to disable a particular notification, you have a couple of options:
 
-- **Unpublish it:** Edit the notification in WP Admin and change its status from “Published” to Draft (or Pending). Only published notifications are active. When a notification post is in draft status, it will not be triggered or sent at all. This is a good way to temporarily turn off a notification without losing your settings for it - you can re-publish it later to turn it back on.
+- **Unpublish it:** Edit the notification in WP Admin and change its status from "Published" to Draft (or Pending). Only published notifications are active. When a notification post is in draft status, it will not be triggered or sent at all. This is a good way to temporarily turn off a notification without losing your settings for it - you can re-publish it later to turn it back on.
 
-- **Trash or delete it:** If you no longer need the notification at all, you can move it to Trash. Trashed notifications are obviously not sent. (Trashing is effectively similar to unpublishing since it's no longer “publish” status.)
+- **Trash or delete it:** If you no longer need the notification at all, you can move it to Trash. Trashed notifications are obviously not sent. (Trashing is effectively similar to unpublishing since it's no longer "publish" status.)
 
 There isn't an on/off toggle per se in the UI aside from changing the status, so using Draft status is the intended method. The SMS portion of a notification can be disabled by simply clearing the SMS content or unchecking the SMS enable option for that notification (so it will only send email). If SMS is enabled but you want to turn it off globally, you could deactivate the SMS add-on plugin - but usually per notification control is enough.
 
@@ -316,10 +316,10 @@ The email subject is taken from the Notification title that you set. So to chang
 Yes, you can include basic HTML in the content (the editor provided is typically the standard WP editor). Listdom will send the email as HTML. You could include images by URL or other HTML styling. Keep in mind emails should be kept relatively simple for consistency across email clients. Also, any WordPress shortcodes you add in the content will be processed, so you can use shortcodes if needed (for example, to pull in dynamic content). Test any advanced content by sending a test email to yourself (you might temporarily change the recipient to your email and trigger the event).
 
 ##### My placeholders aren't getting replaced - what am I doing wrong?
-Ensure you've typed the placeholders exactly as documented, including the # on both sides. Placeholders are case-sensitive and must match one of the supported tokens for that event or general set. Also, make sure the context is correct: e.g., using #profile_link# will only be replaced when a profile contact event provides that data; it wouldn't do anything in a new listing email, for instance. If a placeholder is not applicable, it may remain as-is in the sent email, which looks odd. When in doubt, refer to the tables above for each event's placeholders. (General placeholders always apply; event-specific ones only work for that event's notifications.) Another tip: don't put placeholders in the “To/CC/BCC” email fields - those fields don't process placeholders, only the content and title do. Recipients must be actual email addresses.
+Ensure you've typed the placeholders exactly as documented, including the # on both sides. Placeholders are case-sensitive and must match one of the supported tokens for that event or general set. Also, make sure the context is correct: e.g., using #profile_link# will only be replaced when a profile contact event provides that data; it wouldn't do anything in a new listing email, for instance. If a placeholder is not applicable, it may remain as-is in the sent email, which looks odd. When in doubt, refer to the tables above for each event's placeholders. (General placeholders always apply; event-specific ones only work for that event's notifications.) Another tip: don't put placeholders in the "To/CC/BCC" email fields - those fields don't process placeholders, only the content and title do. Recipients must be actual email addresses.
 
 ##### How can users opt out of or stop certain notifications?
-Since notifications in Listdom are administratively configured, individual users cannot opt out of system notifications (aside from perhaps unsubscribing from all site emails, which isn't really handled here). If you have a scenario where users might not want an email (for example, perhaps they don't want a “listing published” email), you as the admin would have to disable that notification globally. Always consider whether a notification is truly useful to the end user and avoid sending extraneous emails. For user-specific preferences, it would require custom development.
+Since notifications in Listdom are administratively configured, individual users cannot opt out of system notifications (aside from perhaps unsubscribing from all site emails, which isn't really handled here). If you have a scenario where users might not want an email (for example, perhaps they don't want a "listing published" email), you as the admin would have to disable that notification globally. Always consider whether a notification is truly useful to the end user and avoid sending extraneous emails. For user-specific preferences, it would require custom development.
 
 ##### Are notifications sent immediately or can they be scheduled/delayed?
 By default, notifications are sent in real-time when the event occurs. The plugin hooks into the event and sends out emails (and SMS) right away during that process. There isn't a built-in scheduling or digest feature for notifications. If you need to batch or delay notifications, you'd likely need to custom-code that using WordPress scheduling or a third-party service.
@@ -337,7 +337,7 @@ If a notification isn't working, check a few things:
 4. Verify that your WordPress can send emails generally (e.g., password reset emails). If not, you may need an SMTP plugin.
 
 5. If using SMS, ensure your Twilio credentials are correct and the user has a valid phone number with country code. You can also enable debugging or check the Listdom logs (Listdom may log to wp_uploads/lsd-logs/ if something failed, or Twilio console for SMS).
-Also remember that if a notification's “Original Recipient” is set, it might be sending to someone you didn't anticipate; for testing, you might temporarily set a custom email to yourself to ensure it fires.
+Also remember that if a notification's "Original Recipient" is set, it might be sending to someone you didn't anticipate; for testing, you might temporarily set a custom email to yourself to ensure it fires.
 </Steps>
 
 By leveraging the notifications system, you can significantly improve the communication on your directory site - keeping listing owners informed, alerting admins to new content or issues, and generally automating what would otherwise be manual emails. Take advantage of the placeholders to personalize messages, and use the SMS add-on if real-time text alerts would benefit your platform. With careful setup, Listdom notifications will ensure that no important event goes unnoticed. Enjoy the robust flexibility of this system to tailor notifications to your workflow!

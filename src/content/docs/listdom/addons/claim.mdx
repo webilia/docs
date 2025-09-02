@@ -3,26 +3,23 @@ title: Claim Addon
 description: Allow businesses to claim listings. Users can submit claim requests to become the owner of a listing, with admin approval and optional payment for verification.
 sidebar:
   order: 10
-header_button:
-  label: View Demo
-  url: https://demo.webilia.com/listdom/
 ---
 import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-The Claim Addon <Badge text="Pro" /> enables a feature for directory sites: letting business owners claim their listings. A “Claim Listing” button appears on unclaimed listings. Users submit a claim, admins review it, and if approved, the listing is assigned to that user’s account. You can also charge a fee for claims.
+The Claim Addon <Badge text="Pro" /> enables a feature for directory sites: letting business owners claim their listings. A "Claim Listing" button appears on unclaimed listings. Users submit a claim, admins review it, and if approved, the listing is assigned to that user's account. You can also charge a fee for claims.
 
 <Aside type="caution">
 For paid claim verification, **WooCommerce** must be installed and active. Without it, you can still allow claims but cannot collect a payment.
 </Aside>
 
 ## Features Overview
-- **Claim Button on Listings**: Unclaimed listings display a “Claim This Listing” button. Claimed listings show a “Verified” label instead.
+- **Claim Button on Listings**: Unclaimed listings display a "Claim This Listing" button. Claimed listings show a "Verified" label instead.
 - **Claim Form**: A form where users can submit their name, contact info, a message, and optional file uploads (as proof).
 - **Admin Review Queue**: Submitted claims are stored in **Listdom > Claims** for admin review, with a status of Pending, Approved, or Rejected.
 - **Approval Workflow**: Admins can approve a claim, which automatically transfers ownership of the listing to the claimant.
 - **Notifications**: Automated emails are sent for claim submission, approval, rejection, and payment reminders.
 - **Paid Claims (WooCommerce Integration)**: Require claimants to pay a fee to claim a listing. You can set the payment to be required before or after admin approval.
-- **Verified Badge**: A visual “Verified” badge appears on listings that have been successfully claimed, building user trust.
+- **Verified Badge**: A visual "Verified" badge appears on listings that have been successfully claimed, building user trust.
 
 ## Settings
 Go to **Listdom > Settings > Add-ons > Claim** to configure the system.
@@ -47,13 +44,13 @@ Go to **Listdom > Settings > Add-ons > Claim** to configure the system.
 ## Examples
 <CardGrid>
   <Card title="Restaurant Claims Its Page">
-    The owner of "Pasta Palace" finds her business on the directory and clicks “Claim this listing.” She uploads her business license and pays the $20 claim fee. The admin verifies the documents and approves the claim. The listing is transferred to her account and now displays a “Verified” badge.
+    The owner of "Pasta Palace" finds her business on the directory and clicks "Claim this listing." She uploads her business license and pays the $20 claim fee. The admin verifies the documents and approves the claim. The listing is transferred to her account and now displays a "Verified" badge.
   </Card>
   <Card title="Multiple Claims, One Approved">
     Two users claim the same popular listing. The admin reviews both submissions and sees that one has provided a recent utility bill as proof. The admin approves the valid claim and rejects the other. The correct manager now controls the listing.
   </Card>
   <Card title="Free Claim, Quick Turnaround">
-    A community directory offers free claims. A boutique owner claims her shop. The admin quickly approves the request, and the listing is reassigned to the owner's account. The “Verified” label appears, enhancing the directory’s credibility.
+    A community directory offers free claims. A boutique owner claims her shop. The admin quickly approves the request, and the listing is reassigned to the owner's account. The "Verified" label appears, enhancing the directory's credibility.
   </Card>
 </CardGrid>
 
