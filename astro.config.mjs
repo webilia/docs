@@ -64,8 +64,8 @@ export default defineConfig({
               ],
               collapsed: true
             },
-            { label: 'How Tos', autogenerate: { directory: 'listdom/how-tos' }, collapsed: true },
-            { label: 'Troubleshooting', autogenerate: { directory: 'listdom/troubleshooting' }, collapsed: true },
+            { label: 'How Tos', link: '/listdom/how-tos/' },
+            { label: 'Troubleshooting', link: '/listdom/troubleshooting/' },
             { label: 'Listdom Addons', autogenerate: { directory: 'listdom/addons' }, collapsed: true },
           ],
         },

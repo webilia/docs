@@ -1,0 +1,39 @@
+---
+import { LinkCard } from '@astrojs/starlight/components';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+interface Props {
+  folder: string;
+}
+
+const { folder } = Astro.props as Props;
+const base = folder.replace(/^docs\//, '').replace(/\/$/, '');
+type DocEntry = CollectionEntry<'docs'> & { slug?: string };
+const pages = ((await getCollection('docs')) as DocEntry[])
+  .filter((p) => p.id.startsWith(base + '/'))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+<div class="single-column-grid">
+  {pages.map((page) => {
+    const slug = page.slug ?? page.id;
+    return <LinkCard href={`/${slug}/`} title={page.data.title} />;
+  })}
+</div>
+
+<style>
+  @layer starlight.components {
+    .single-column-grid {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: 1rem;
+    }
+
+    .single-column-grid > :global(*) {
+      margin-top: 0 !important;
+    }
+
+    .single-column-grid a {
+      line-height: 1.6;
+    }
+  }
+</style>

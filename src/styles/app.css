@@ -40,3 +40,7 @@ ul.top-level details ul li details .group-label span.large {
 .content-panel .hero + .sl-markdown-content + footer.sl-flex {
   display: none;
 }
+
+a.primary, a.header-button {
+  border-radius: 20px;
+}
