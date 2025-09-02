@@ -20,13 +20,13 @@ Listdom is a directory & listings plugin for WordPress. It provides a complete d
 
 ## What You Get in Core
 
-- [Listings](/listdom/managing-listings/add-edit-listing/) (CPT): The main post type you manage and expose on the site.
-- Built-in taxonomies: [Categories](/listdom/managing-listings/categories/), [Locations](/listdom/managing-listings/locations/), [Tags](/listdom/managing-listings/tags/), [Labels](/listdom/managing-listings/labels/), and [Features](/listdom/managing-listings/features/) for organizing listings.
-- [Maps](/listdom/shortcodes/simple-map/): Google Maps or OpenStreetMap (Leaflet) based rendering within shortcodes and widgets.
-- [Search &amp; Filter](/listdom/search-filtering/create-search-filter-form/): Visual search forms and a results view with multiple layouts.
-- [Shortcodes](/listdom/shortcodes/categories/) &amp; [Widgets](/listdom/theme-widgets/search/): Dozens of display options; can be placed on any page or in theme widget areas.
-- [Front-end Dashboard](/listdom/settings/frontend-dashboard/): Logged-in users can add/manage listings from the front end. Some extras are available in Pro (details below).
-- Theme compatibility: Works with most themes; [Listdomer theme](/listdom/listdomer-theme/installation-setup/) adds deep integration and design presets.
+- Listings (CPT): The main post type you manage and expose on the site.
+- Built-in taxonomies: Categories, Locations, Tags, Labels, and Features for organizing listings.
+- Maps: Google Maps or OpenStreetMap (Leaflet) based rendering within shortcodes and widgets.
+- Search & Filter: Visual search forms and a results view with multiple layouts.
+- Shortcodes & Widgets: Dozens of display options; can be placed on any page or in theme widget areas.
+- Front-end Dashboard: Logged-in users can add/manage listings from the front end. Some extras are available in Pro (details below).
+- Theme compatibility: Works with most themes; Listdomer theme adds deep integration and design presets.
 
 ## Data Model (post types & taxonomies)
 
@@ -52,7 +52,7 @@ Listdom is a directory & listings plugin for WordPress. It provides a complete d
 
 Listdom’s UI is composable. You can combine shortcodes on any page to produce listing grids, carousels, maps, search forms, and more. All shortcodes accept parameters for layout, filtering, and styling.
 
-- [Shortcodes](/listdom/shortcodes/categories/): Create in Listdom → Shortcodes. Each shortcode can be used on multiple pages.
+- [Shortcodes](/listdom/skins-shortcodes/shortcodes-common-settings/): Create in Listdom → Shortcodes. Each shortcode can be used on multiple pages.
 - Widgets: Theme-side widget areas support Listdom widgets (e.g., [Simple Map](/listdom/theme-widgets/simple-map/), [Search](/listdom/theme-widgets/search/), [Terms](/listdom/theme-widgets/terms/)).
 - Page builders: [Elementor](/listdom/addons/elementor/) / [Divi](/listdom/addons/divi/) add-ons provide native widgets that mirror shortcode functionality.
 
@@ -114,7 +114,7 @@ Extend Listdom with official add-ons. Examples include:
 1. Data definitions: Prepare [Categories](/listdom/managing-listings/categories/), [Locations](/listdom/managing-listings/locations/), [Features](/listdom/managing-listings/features/), [Labels](/listdom/managing-listings/labels/), [Tags](/listdom/managing-listings/tags/).
 2. Listing templates: Decide on single-listing layout and fields.
 3. Search experience: Build a [search form](/listdom/search-filtering/create-search-filter-form/) and choose a results layout.
-4. Browse pages: Create category/location landing pages with the relevant [shortcodes](/listdom/shortcodes/categories/).
+4. Browse pages: Create category/location landing pages with the relevant [shortcodes](/listdom/skins-shortcodes/shortcodes-common-settings/).
 5. Maps: Place a combined map + results page or a simple [map widget](/listdom/theme-widgets/simple-map/).
 6. Submission flow: Enable [front-end dashboard](/listdom/settings/frontend-dashboard/) and permissions; add billing if monetizing.
 7. Enhancements: Add [Reviews](/listdom/addons/reviews/), [Favorites](/listdom/addons/favorite/), [Compare](/listdom/addons/compare/), and [Labelize](/listdom/addons/labelize/) as needed.
@@ -129,12 +129,12 @@ You might also import the Listdom dummy data. In this situation, there are some 
 
 ### Steps Overview
 
-- [Installation and activation of Listdom](/listdom/installation-and-activation/how-to-install-the-listdom-plugin-and-addons/): Listdom is a WordPress plugin. So first you need to install it on your site.
-- [Add-ons installation](/listdom/installation-and-activation/how-to-install-the-listdom-plugin-and-addons/): Listdom add-ons can add extra features to the Listdom main plugin.
+- Installation and activation of Listdom: Listdom is a WordPress plugin. So first you need to install it on your site.
+- Add-ons installation: Listdom add-ons can add extra features to the Listdom main plugin.
 - [Settings](/listdom/settings/general/): Like any other new plugin on your site, after installation, you have to configure it.
 - [First listing creation](/listdom/managing-listings/add-edit-listing/): It’s time to create the first listing based on your website niche and purpose.
 - Configuration of the listing taxonomies: A listing page, also called a directory page, is the main part of the plugin. Each item on your directory site like jobs, hotels, ads, cars, homes, etc. is a listing. The listings can be gathered in different groups with the same taxonomy. [Categories](/listdom/managing-listings/categories/), [Labels](/listdom/managing-listings/labels/), and [Tags](/listdom/managing-listings/tags/) are some of them. Also, they can have some [custom fields](/listdom/managing-listings/custom-fields/) too.
-- Skin choosing and shortcode creation: You can show a list of the listings in different styles and skins on any of your site pages. To do that you have to create [shortcodes](/listdom/shortcodes/categories/). Each shortcode can be inserted in site pages with various methods.
+- Skin choosing and shortcode creation: You can show a list of the listings in different styles and skins on any of your site pages. To do that you have to create [shortcodes](/listdom/skins-shortcodes/shortcodes-common-settings/). Each shortcode can be inserted in site pages with various methods.
 - Setting up search and filter forms: The list of the directories (listings) can have a [search or filter form](/listdom/search-filtering/create-search-filter-form/) on top or any other position.
 - Setting up frontend dashboard: Listdom helps you to have a [dashboard](/listdom/settings/frontend-dashboard/) page that enables your site users to submit listings without entering the WordPress admin space.
 
@@ -144,15 +144,15 @@ You might also import the Listdom dummy data. In this situation, there are some 
 1. Install **Listdom** and activate your required add-ons.
 2. Create base taxonomies: [Categories](/listdom/managing-listings/categories/), [Locations](/listdom/managing-listings/locations/), [Features](/listdom/managing-listings/features/), [Labels](/listdom/managing-listings/labels/), [Tags](/listdom/managing-listings/tags/).
 3. Add a few [Listings](/listdom/managing-listings/add-edit-listing/) with addresses/coordinates and media.
-4. Build a [Shortcode](/listdom/shortcodes/categories/) for listings (grid/list) and insert it on a page named **All Listings**.
+4. Build a [Shortcode](/listdom/skins-shortcodes/shortcodes-common-settings/) for listings (grid/list) and insert it on a page named **All Listings**.
 5. Build a [Search Form](/listdom/search-filtering/create-search-filter-form/) (choose fields &amp; results layout) and publish a **Search** page.
-6. Add a [Map](/listdom/shortcodes/simple-map/) shortcode or widget to your homepage.
+6. Add a Map shortcode or widget to your homepage.
 7. Enable the [Front-end Dashboard](/listdom/settings/frontend-dashboard/) and add its link to the site menu. Turn on guest submission <Badge text="Pro" /> if needed.
 </Steps>
 
 ### Installation and Activation of Listdom
 
-The first step to start using Listdom is to install and activate the plugin. You can download the Listdom from the WordPress repository. For more detailed information, you can read the full guide on [how to install and activate Listdom](/listdom/installation-and-activation/how-to-install-the-listdom-plugin-and-addons/).
+The first step to start using Listdom is to install and activate the plugin. You can download the Listdom from the WordPress repository. For more detailed information, you can read the full guide on how to install and activate Listdom.
 
 ### Add-ons Installation
 
