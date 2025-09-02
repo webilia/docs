@@ -5,7 +5,7 @@ sidebar:
   order: 26
 ---
 
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
 The **Rank Addon** introduces a scoring system for listings, allowing you to rank listings quantitatively and use that rank for sorting or filtering results. This addon computes a **Rank Point** for each listing based on multiple factors (such as listing content, author, category, images, and even reviews). Site administrators can configure how points are awarded and apply this system to highlight top listings.
 
@@ -89,7 +89,3 @@ By combining these, you craft a ranking formula that suits your directory. E.g.,
     **Curated Boost via Categories:** You've tagged certain listings as "Featured" using a label taxonomy. By giving the *Featured* label a rank value of 50, any listing with that label jumps in rank. Even if a featured listing is new and has few reviews, it appears among top results, because the category's rank points elevate it. This way, you can sell "featured spots" and implement it via rank points.
   </Card>
 </CardGrid>
-
-<LinkCard href="https://listdom.net" title="Listdom Add-ons Documentation">
-  Read more about setting up advanced Listdom add-ons and how they work together on the official documentation site.
-</LinkCard>

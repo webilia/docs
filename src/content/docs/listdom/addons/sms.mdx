@@ -5,7 +5,7 @@ sidebar:
   order: 28
 ---
 
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
 The **Listdom SMS Addon** integrates text messaging into your directory. It allows the system to send SMS notifications (for example, when certain events happen like a new listing or booking) and enables **mobile number verification** for users via SMS. The addon uses **Twilio** as the SMS gateway to send out messages. With this addon, you can improve communication by reaching users on their phones and add an extra layer of trust through phone verification.
 
@@ -100,7 +100,3 @@ You can use mobile verification to add trust for certain actions - e.g., only us
     **Booking Confirmation to Client:** Your directory includes a booking feature (another addon). By using the SMS addon, whenever a booking is confirmed, the client (booker) gets an SMS: "Booking confirmed for #listing_title# on #date#. Check your email for details." Even if they're not checking email, they see the text on their phone and feel assured their reservation is set.
   </Card>
 </CardGrid>
-
-<LinkCard href="https://www.twilio.com/docs/sms" title="Twilio SMS Documentation">
-  Learn more about how Twilio SMS works and best practices for sending SMS notifications.
-</LinkCard>
