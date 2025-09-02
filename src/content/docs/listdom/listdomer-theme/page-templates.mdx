@@ -13,10 +13,10 @@ Learn how Listdomer structures pages and how to customize headers, footers, and 
 
 Listdomer comes with multiple pre-defined header and footer templates that you can switch between.
 
-Header Types 1-5: These are different structural layouts for the top of your site (logo + menu + extras). For example, Header Type 1 might have the logo left and menu right, Header Type 2 could center the logo above a centered menu, etc. You can preview these by switching the Header Type setting (see Header Settings guide). All header types include the primary menu and optional buttons (Add Listing, Login) in some configuration.
+Header Types 1-5: These are different structural layouts for the top of your site (logo + menu + extras). For example, Header Type 1 might have the logo left and menu right, Header Type 2 could center the logo above a centered menu, etc. You can preview these by switching the Header Type setting (see [Header Settings guide](/listdom/listdomer-theme/settings/general-header-footer/)). All header types include the primary menu and optional buttons (Add Listing, Login) in some configuration.
 
 <Aside type="note">
-Header Types beyond the default may require Pro <Badge text="Pro" />; in the free version you might have only Type 1 (and possibly Type 2) active.
+Header Types beyond the default may require Pro; in the free version you might have only Type 1 (and possibly Type 2) active.
 </Aside>
 
 Footer Types 1-5 + Tiny: Footer Type 1 is a classic four-column footer (using Footer 1-4 widget areas). Other types might arrange widgets differently (e.g., Type 2 could be three columns, Type 3 two columns and a logo, etc.) and Tiny footer is just a slim bar typically containing the copyright text and maybe a small menu. Choose a footer type that best displays the info you want. For instance, if you only need a simple footer with minimal info, you might use Tiny or a two-column type.
@@ -48,7 +48,7 @@ You don't need to manually select templates for blog - the theme automatically u
 
 One of Listdomer's key roles is integrating the Listdom directory plugin content into the theme seamlessly. It does so by providing template overrides for Listdom's custom post types and taxonomies. For example:
 
-- **Listing Archive (All Listings page):** If you visit the archive of Listdom listings (e.g., yourdomain.com/listings if Listdom's post type is listdom-listing), Listdomer ensures the layout matches the theme. It likely overrides the plugin's archive template via the lsd_template filter. So the archive of listings will use the theme's archive style (including the page header/banner with archive title and description for the directory, as configured). The Listdomer Settings > Listings Archive controls (in Page Heading and Blog settings) apply here. For instance, if you disabled "archive title" or changed description position for listing archives, it affects this page.
+- **Listing Archive (All Listings page):** If you visit the archive of Listdom listings (e.g., yourdomain.com/listings if Listdom's post type is listdom-listing), Listdomer ensures the layout matches the theme. It likely overrides the plugin's archive template via the lsd_template filter. So the archive of listings will use the theme's archive style (including the page header/banner with archive title and description for the directory, as configured). The Listdomer Settings > Listings Archive controls (in [Page Heading](/listdom/listdomer-theme/settings/appearance/) and [Blog settings](/listdom/listdomer-theme/settings/content-misc/)) apply here. For instance, if you disabled "archive title" or changed description position for listing archives, it affects this page.
 
 - **Listing Category/Location pages:** Similarly, when viewing a Listing Category or Location archive (the pages that list listings within a specific category or location), the theme uses its taxonomy.php or similar integrated template. You'll see the category name in the banner and, if enabled, the category description. The listings themselves are output by the plugin, but Listdomer's CSS and wrappers style them. The Include Context in Title option for archives (Category: prefix) also applies to these taxonomy pages, so you can choose whether to show "Category: Hotels" or just "Hotels" at the top.
 

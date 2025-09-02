@@ -13,18 +13,18 @@ Use One Click Demo Import to quickly set up a fully designed site with Listdomer
 
 <Steps>
 1. **Open the Demo Importer:** In your dashboard, go to Listdomer > Demo Import. You will see a selection of available demo designs (e.g. General Directory, Real Estate, Business Directory).
-2. **Choose a Demo:** Click on your desired demo. A preview image and name will help identify the style. For example: "General Directory" - a multi-purpose directory layout (default); "Real Estate Directory" - a property listing design with real estate features <Badge text="Pro" />; "Business Directory" - a listings layout focused on local businesses.
+2. **Choose a Demo:** Click on your desired demo. A preview image and name will help identify the style. For example: "General Directory" - a multi-purpose directory layout (default); "Real Estate Directory" - a property listing design with real estate features; "Business Directory" - a listings layout focused on local businesses.
 3. **Import:** Click the Import button and confirm. The importer will download and install:
    - Pages & Posts: Sample pages (Home, About, Contact, etc.) and dummy listings/posts.
    - Images & Media: Placeholder images for design consistency.
    - Theme Options: Preset Listdomer customizer/Redux settings matching the demo.
-   - Listdom Settings: Configuration for the Listdom plugin (e.g. search forms, listing categories).
+   - [Listdom Settings](/listdom/settings/general/): Configuration for the Listdom plugin (e.g. search forms, listing categories).
    - Widgets & Menus: Predefined widgets (placed in sidebars/footer) and menu assignments (Primary menu, footer menu).
    This process may take a few minutes. You'll see progress messages for each content type. Once finished, a success message appears.
 </Steps>
 
 <Aside type="note">
-The *Real Estate Directory* demo requires additional Listdom add-ons. During import, it will prompt to install **Listdom Real Estate Toolkit** and **WooCommerce**. These are premium integrations <Badge text="Pro" />. If you proceed, the importer will install them from Webilia's servers. Without these, the real estate-specific content (like property attributes) won't function fully.
+The *Real Estate Directory* demo requires additional Listdom add-ons. During import, it will prompt to install **Listdom Real Estate Toolkit** and **WooCommerce**. These are premium integrations. If you proceed, the importer will install them from Webilia's servers. Without these, the real estate-specific content (like property attributes) won't function fully.
 </Aside>
 
 ## Post-Import Steps
@@ -33,11 +33,13 @@ The *Real Estate Directory* demo requires additional Listdom add-ons. During imp
 1. **Check Home & Blog Pages:** The importer usually sets your homepage to a static "Home" page and assigns a "Blog" page for posts. Verify this under Settings > Reading. For example, the General Directory and Business Directory demos set the front page to "Home" and the blog page to "Blog" or "News."
 2. **Review Menu Assignments:** The primary navigation menu and footer menu are auto-assigned by the importer. Visit Appearance > Menus > Manage Locations to confirm the correct menus are in place (e.g., "Top Menu" assigned to Primary, "Footer" menu to Sub-Footer).
 3. **Permalinks:** Go to Settings > Permalinks and hit Save Changes (no need to modify). This flushes rewrite rules, ensuring imported custom post links (Listings, etc.) work properly.
-4. **API Keys & Integrations:** Demos may include map sections or contact forms. Insert your own Google Maps API key or MailChimp API (if applicable) in the respective settings (Listdom plugin settings for Maps, or Contact Form plugin settings) since demo keys are not included.
-5. **Replace Demo Content:** All imported content is for demonstration. Now you can edit pages with your real text and images. For instance, edit the "Home" page via Elementor or the Block Editor to customize the hero section and listings shortcodes to your needs. Replace the logo (via Listdomer Settings > General) and site information (contact details, social links in the footer widget) with your own.
+4. **API Keys & Integrations:** Demos may include map sections or contact forms. Insert your own Google Maps API key or MailChimp API (if applicable) in the respective settings ([Listdom plugin API settings](/listdom/settings/api/), or Contact Form plugin settings) since demo keys are not included.
+5. **Replace Demo Content:** All imported content is for demonstration. Now you can edit pages with your real text and images. For instance, edit the "Home" page via Elementor or the Block Editor to customize the hero section and listings shortcodes to your needs. Replace the logo (via [Listdomer Settings → General](/listdom/listdomer-theme/settings/general-header-footer/)) and site information (contact details, social links in the footer widget) with your own.
 </Steps>
 
 ## Troubleshooting Import Issues
+
+For more detailed help, see [Demo Import Issues](/listdom/listdomer-theme/troubleshooting/demo-import/).
 
 - **Import Fails or Freezes:** If the import stops partway or you get an error, check your server resources. Ensure your PHP memory limit and execution time are adequate (256M+ memory, 120s execution time recommended). Try re-running the import; the importer is smart about skipping already imported items.
 - **Missing Images:** In some cases, not all images import (due to external host limits). You can manually upload your own images to replace missing ones. The demo images are for sample purposes only.
@@ -52,7 +54,7 @@ Already have content? It's **not recommended** to import a demo on a live site w
 <CardGrid>
   <Card>**General Directory Demo** - Ideal for a broad range of directory websites. Importing this will set up a versatile homepage with a search bar and multiple listing sections (e.g. recent listings, categories), a blog section, and predefined category pages. Use this if you want a multi-category listing site out of the box.</Card>
 
-  <Card>Real Estate Demo <Badge text="Pro" /> - Tailored for property listings. After import, you get a homepage with advanced property search forms (Rent/Buy tabs), property listing templates, and integration with real estate features (requires the Real Estate Toolkit). Choose this if you intend to build a real estate portal. Note: Ensure WooCommerce and the toolkit are active for full functionality.</Card>
+  <Card>Real Estate Demo - Tailored for property listings. After import, you get a homepage with advanced property search forms (Rent/Buy tabs), property listing templates, and integration with real estate features (requires the Real Estate Toolkit). Choose this if you intend to build a real estate portal. Note: Ensure WooCommerce and the toolkit are active for full functionality.</Card>
 
   <Card>Post-Import Customization - Once a demo is imported, you can easily swap out content. For example, on the imported Contact page, simply edit the contact form shortcode to use your form plugin of choice (or update the email address in the form). The imported About Us page provides a pre-set layout which you can replace text for to quickly launch your site.</Card>
 </CardGrid>

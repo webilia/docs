@@ -5,15 +5,15 @@ sidebar:
   order: 15
 ---
 
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
 The **Archive Title** widget dynamically displays the title of the current archive page. This is useful in templates for blog archives, category/tag listings, author archives, date archives, or search results pages. By default, the Archive Title includes a context prefix (e.g. "Category:", "Tag:", "Author:") to clarify the type of archive being viewed, followed by the archive's name or term.
 
 <Aside type="note">
-The Archive Title widget is typically used **only within Archive Templates** in Elementor's Theme Builder. For single pages or posts, use the **Page Title Widget** for pages or the **Post Title** widget for posts instead.
+The Archive Title widget is typically used **only within Archive Templates** in Elementor's Theme Builder. For single pages or posts, use the [Page Title widget](/vertex/widgets/dynamic-posts-templates/page-title/) for pages or the [Post Title](/vertex/widgets/dynamic-posts-templates/post-title/) widget for posts instead.
 </Aside>
 
-<LinkCard title="Page Title Widget" href="../page-title/" />
+See the [Page Title widget](/vertex/widgets/dynamic-posts-templates/page-title/).
 
 ## Usage
 
@@ -30,7 +30,9 @@ The Archive Title widget is typically used **only within Archive Templates** in 
 ## Features and Options
 
 - **Dynamic Archive Detection:** The widget automatically detects the type of archive and displays the relevant title. For example, on a category archive it will show *Category: [Category Name]*, on a tag archive *Tag: [Tag Name]*, on an author page *Author: [Author's Name]*, on a date archive *Month: [Month Year]* or *Year: [Year]*, and on search results *Search Results for: [Query]*.
-- **Context Prefix:** By default, Archive Title prepends a context label like "Category:" or "Author:" to the title for clarity. If you prefer to display only the name without the prefix, you can disable the context. <Badge text="Tip" variant="tip" /> To do this, click the dynamic tags icon next to the title field in the widget (which shows that the content is dynamic), then toggle **Include Context** off. This will remove the prefix and show just the archive name.
+- **Context Prefix:** By default, Archive Title prepends a context label like "Category:" or "Author:" to the title for clarity. If you prefer to display only the name without the prefix, you can disable the context.
+
+<Aside type="tip">To do this, click the dynamic tags icon next to the title field in the widget (which shows that the content is dynamic), then toggle **Include Context** off. This will remove the prefix and show just the archive name.</Aside>
 - **HTML Tag:** The Archive Title text can be output as any heading level or HTML tag. By default it may use an `<h2>` tag. You can change the **HTML Tag** option (e.g., to H1 for the main archive heading) to ensure proper hierarchy and SEO for your page.
 - **Linking:** This widget is purely a text heading and does not inherently link anywhere. (It wouldn't make sense to link an archive title, since it is the current page title.) The **Link** option is not applicable for Archive Title, keeping it simple and static.
 

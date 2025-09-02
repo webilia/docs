@@ -5,12 +5,12 @@ sidebar:
   order: 14
 ---
 
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
-The **Page Title** widget dynamically displays the title of the current page or post. This widget is primarily used in templates for static pages (like About Us, Contact, etc.) or as a general solution to show the title of whatever content is being viewed. Unlike the Archive Title (for archive pages) or Post Title (for singular posts), the Page Title widget is a more general-purpose title element that can work in many contexts, including pages, posts, and even archives, adjusting its output accordingly.
+The **Page Title** widget dynamically displays the title of the current page or post. This widget is primarily used in templates for static pages (like About Us, Contact, etc.) or as a general solution to show the title of whatever content is being viewed. Unlike the [Archive Title](/vertex/widgets/dynamic-posts-templates/archive-title/) (for archive pages) or [Post Title](/vertex/widgets/dynamic-posts-templates/post-title/) (for singular posts), the Page Title widget is a more general-purpose title element that can work in many contexts, including pages, posts, and even archives, adjusting its output accordingly.
 
 <Aside type="note" title='When to use'>
-Use Page Title in page templates or when you need a catch-all title that works for various content types. For single blog posts, you would typically use the dedicated **Post Title** widget (which outputs the post title without any prefix). For archive pages, use **Archive Title**. Page Title is versatile but make sure you're using the widget best suited for your template for optimal control.
+Use Page Title in page templates or when you need a catch-all title that works for various content types. For single blog posts, you would typically use the dedicated [Post Title](/vertex/widgets/dynamic-posts-templates/post-title/) widget (which outputs the post title without any prefix). For archive pages, use [Archive Title](/vertex/widgets/dynamic-posts-templates/archive-title/). Page Title is versatile but make sure you're using the widget best suited for your template for optimal control.
 </Aside>
 
 ## Usage
@@ -28,10 +28,10 @@ Use Page Title in page templates or when you need a catch-all title that works f
 
 ## Features and Behavior
 
-- **Dynamic Title Rendering:** The widget will display the exact title of the current page or post. If placed on a normal WordPress page, it shows that page's title. If placed on a blog post, it will show the post title. If placed on an archive or special page, it will fall back to showing the archive title (though using Archive Title widget is recommended for those cases).
-- **Include Context:** Page Title has an option to include context similar to Archive Title. When *Include Context* is enabled (the default is "Yes"), the widget may prepend the post type or context to the title. For example, on a regular page it might show "Page: About Us", or on a post it could show "Post: How to Bake Bread". If you prefer to show just the title without any prefix, you can disable this:
-  
-  <Badge text="Tip" variant="tip"/> To remove the prefix, click on the dynamic tag icon next to the title field in the widget's settings and turn **Include Context** to "No". In most cases for pages, you will likely turn this off, since seeing "Page: About Us" is not usually desired on the frontend.
+- **Dynamic Title Rendering:** The widget will display the exact title of the current page or post. If placed on a normal WordPress page, it shows that page's title. If placed on a blog post, it will show the post title. If placed on an archive or special page, it will fall back to showing the archive title (though using the [Archive Title](/vertex/widgets/dynamic-posts-templates/archive-title/) widget is recommended for those cases).
+- **Include Context:** Page Title has an option to include context similar to [Archive Title](/vertex/widgets/dynamic-posts-templates/archive-title/). When *Include Context* is enabled (the default is "Yes"), the widget may prepend the post type or context to the title. For example, on a regular page it might show "Page: About Us", or on a post it could show "Post: How to Bake Bread". If you prefer to show just the title without any prefix, you can disable this:
+
+<Aside type="tip">To remove the prefix, click on the dynamic tag icon next to the title field in the widget's settings and turn **Include Context** to "No". In most cases for pages, you will likely turn this off, since seeing "Page: About Us" is not usually desired on the frontend.</Aside>
 - **Show Home Title:** A special setting for the blog index (home) page. If your site's homepage is set to display latest posts (the blog feed), WordPress calls this the "home". Often, that page doesn't have an obvious title. By default, the Page Title widget will **not** show anything on the blog home unless you enable **Show Home Title**. If you set *Show Home Title* to "Yes," and you are on the main blog page, it will display a title (which would be the word "Home" or the page title if a page is assigned). If you leave it off (default), the widget will output nothing on the blog listing page. This option is useful if you want a heading like "Blog" or "All Posts" at the top of your blog feed - in such a case, you can create a page titled "Blog" as your posts page, and enable Show Home Title to display it.
 - **Link & URL:** Unlike some other dynamic text widgets, Page Title by default does not turn the title into a link (since it's the title of the current page). The widget's logic has linking disabled (the assumption is you don't link to the page you're already on). So there's no need to set any link; it will render as plain text in a heading tag.
 
@@ -74,6 +74,6 @@ When designing, consider consistency: All your page titles (using this widget) s
 
 ## Tips
 
-- If you find that the Archive Title or Post Title widget better suits a particular template (due to their specialized options), use them in those cases. For example, in a blog post template, Post Title will simply output the title with no extra fuss, whereas Page Title could inadvertently include "Post:" if context wasn't disabled.
+- If you find that the [Archive Title](/vertex/widgets/dynamic-posts-templates/archive-title/) or [Post Title](/vertex/widgets/dynamic-posts-templates/post-title/) widget better suits a particular template (due to their specialized options), use them in those cases. For example, in a blog post template, Post Title will simply output the title with no extra fuss, whereas Page Title could inadvertently include "Post:" if context wasn't disabled.
 - The Page Title widget is very handy for page templates where you want the title managed automatically. If a client or editor changes a page title in WordPress, the Elementor template using Page Title will reflect that change immediately.
 - Remember to set the correct heading level. For main titles on pages, `<h1>` is generally recommended (and you should only have one h1 per page). If your header (logo or site title) already uses h1, consider using h2 for the page title. It all depends on your site structure and SEO considerations.

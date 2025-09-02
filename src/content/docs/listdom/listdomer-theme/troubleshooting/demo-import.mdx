@@ -7,11 +7,13 @@ sidebar:
 ---
 import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
-Troubleshooting tips for One Click Demo Import in Listdomer.
+Troubleshooting tips for One Click Demo Import in Listdomer. For setup steps, see the [Demo Import guide](/listdom/listdomer-theme/demo-import/).
 
 ## Demo Import Problems
 
-- **Demo Import Fails or Times Out:** This often relates to server limits. Check your PHP max_execution_time and memory_limit. If import stops, you can rerun it; the importer will skip already imported items, so you can safely run it twice <Badge text="Tip" />.
+- **Demo Import Fails or Times Out:** This often relates to server limits. Check your PHP max_execution_time and memory_limit.
+
+<Aside type="tip">If import stops, you can rerun it; the importer will skip already imported items, so you can safely run it twice.</Aside>
 - **Content Imported but Homepage is Blank:** After import, if your homepage shows "[shortcode]" text or missing sections, the Listdom plugin or another required plugin wasn't active during import. Activate them and re-import or manually insert the shortcodes on the page.
 - **Images Not Importing:** The demo images are hosted on Webilia's CDN. If they didn't import, your server might have blocked external URL fetches. Manually download those images from the demo site and add them to your Media Library, or replace with your own images.
 - **Menus or Widgets Not Showing:** If after import the menus or widgets are empty, assign them manually. Refer to the demo's screenshots to see what menus or widgets should be there. The demo import log notes each step - any failures can be addressed by manual configuration.
