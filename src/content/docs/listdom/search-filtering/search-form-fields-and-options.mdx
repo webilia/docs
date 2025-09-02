@@ -6,7 +6,7 @@ sidebar:
   order: 2
 ---
 
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
 Listdom offers a wide range of field types that you can add to your search forms. Each field corresponds to a specific filterable aspect of listings (such as title keywords, categories, custom attributes, etc.) and comes with configurable display options. Below is a comprehensive list of all available search form fields and their options. (We assume all Listdom add-ons are installed, so fields from add-ons like Pro, Booking, and ACF are included. Features requiring an add-on are noted with badges or asides.)
 
@@ -351,6 +351,4 @@ Note: If you don't need to distinguish adults vs children, you could omit one of
 <Card> **"Near Me" Restaurant Finder:** A directory of restaurants uses an **Address** field with **Radius Dropdown**. The form has an address input with placeholder "Enter your address..." and a radius dropdown with options 5 KM, 10 KM, 20 KM. A user enters their city and selects 5 KM. The search finds all restaurant listings within a 5 km radius of that location. The results page might also display the user's chosen radius (because we set the criteria summary to show "Radius: 5 KM" alongside other filters). </Card>
 <Card> **Custom Attributes in Action:** A car listings site added a custom attribute "Mileage" (numeric) and "Fuel Type" (select: Petrol, Diesel, Electric). In the search form, **Mileage** is included with a Range Slider set from 0 to 200,000 (km) in 5,000 increments, and **Fuel Type** is a series of checkboxes (Petrol, Diesel, Electric). A user can filter for Electric cars with mileage between 0 and 50,000. The form's range slider makes it easy to pick the mileage range, and the Fuel Type checkboxes allow multi-select (maybe the user checks both Electric and Hybrid if Hybrid was an option). Only listings matching those criteria appear. </Card>
 </CardGrid>
-
-<LinkCard href="https://demo.webilia.com/listdom/" title="Listdom Demo - Explore Field Types"> See a live demo of Listdom where you can experiment with different search fields. Try filtering by taxonomies, custom fields, radius, and more to get a feel for how each field type behaves. </LinkCard>
 

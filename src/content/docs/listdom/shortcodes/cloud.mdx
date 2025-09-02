@@ -5,7 +5,7 @@ sidebar:
   order: 5
 ---
 
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
 The **Cloud** shortcode `[listdom_cloud]` displays a "tag cloud" of terms from a specified Listdom taxonomy. By default it shows Listing **Tags** in a cloud format (an unordered list ideal for styling as a tag cloud), but it can be used for Categories, Locations, Features, or Labels as well.
 
@@ -42,7 +42,3 @@ By default, <code>listdom_cloud</code> is great for tags. But you can turn it in
     If you want a cloud of terms related to a specific set of listings, you can use the `ids` filter. For example, `[listdom_cloud taxonomy="listdom-feature" ids="34,56" hide_empty="1"]` could display only the Features that are used by listings with ID 34 or 56, hiding any empty features. This could be used on a single listing page to show a cloud of features shared by similar listings.
   </Card>
 </CardGrid>
-
-<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress.org">
-Find more details and examples in the official Listdom documentation and support forums.
-</LinkCard>

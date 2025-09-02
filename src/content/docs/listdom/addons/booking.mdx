@@ -4,7 +4,7 @@ description: Accept and manage booking requests on listings (with date selection
 sidebar:
   order: 7
 ---
-import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
 
 The Booking Addon <Badge text="Pro" /> transforms Listdom into a booking platform. It allows listing owners to define bookable items (such as rooms, appointments, or seats) and lets users submit booking requests for specific dates. The addon handles availability calendars, booking statuses, and can integrate with WooCommerce for online payments.
 
@@ -73,7 +73,3 @@ Navigate to **Listdom > Settings > Add-ons > Booking** to configure global optio
     An event organizer lists a workshop with two ticket types: "General Admission" and "VIP Admission." A user books 2 VIP tickets. The organizer, who set payment to "after approval," manually approves the request, which triggers a payment-due email. Once the user pays, the booking is finalized and VIP ticket availability is updated.
   </Card>
 </CardGrid>
-
-<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom Plugin - Documentation" description="Refer to Listdom's documentation for how the core listing system works, which the Booking Addon builds upon." />
-
----
