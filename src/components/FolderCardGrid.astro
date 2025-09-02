@@ -1,0 +1,19 @@
+---
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  folder: string;
+}
+
+const { folder } = Astro.props as Props;
+const base = folder.replace(/^docs\//, '').replace(/\/$/, '');
+const pages = (await getCollection('docs'))
+  .filter((p) => p.id.startsWith(base + '/'))
+  .sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+<CardGrid>
+  {pages.map((page) => (
+    <LinkCard href={`/${page.slug}/`} title={page.data.title} />
+  ))}
+</CardGrid>
