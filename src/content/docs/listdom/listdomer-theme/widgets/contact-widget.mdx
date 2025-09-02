@@ -5,7 +5,7 @@ description: Display contact details and social icons using the (Listdomer) Cont
 sidebar:
   order: 2
 ---
-import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
 
 Listdomer Core provides a custom widget called "(Listdomer) Contact" for use especially in footers.
 
@@ -13,7 +13,8 @@ Listdomer Core provides a custom widget called "(Listdomer) Contact" for use esp
 
 - **Logo and Site Name:** Automatically shows your Site Logo or Site Title at top for branding.
 - **Contact Info:** Fields for Email and Phone - if you fill these in the widget settings, they'll be displayed as "Phone: [your number]" and "Email: [your email]" with appropriate labels. Leave blank any field you don't want shown.
-- **Social Icons:** Enter URLs for various social networks (Facebook, X/Twitter, Instagram, LinkedIn, Pinterest, YouTube, WhatsApp, Telegram) in the widget settings. The widget will display an icon for each service that links to your provided URL <Badge text="Tip" />.
+- **Social Icons:** Enter URLs for various social networks (Facebook, X/Twitter, Instagram, LinkedIn, Pinterest, YouTube, WhatsApp, Telegram) in the widget settings.
+  <Aside type="tip">The widget will display an icon for each service that links to your provided URL.</Aside>
 
 Add this widget to a Footer widget area to create a "Contact us" column. In Appearance > Widgets, add (Listdomer) Contact to your desired sidebar, give it a Title, and fill in your contact info.
 

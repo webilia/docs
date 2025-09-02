@@ -5,7 +5,7 @@ description: Use Listdomer's sidebars and footer widget areas to place content.
 sidebar:
   order: 1
 ---
-import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
 
 Listdomer works seamlessly with WordPress widgets to display content in sidebars and footers.
 
@@ -13,7 +13,8 @@ Listdomer works seamlessly with WordPress widgets to display content in sidebars
 
 The theme registers several widget areas for flexible content placement:
 
-- **Main Sidebar:** Appears on blog pages (archives and single posts) when using a sidebar layout. This sidebar's default ID is "sidebar-1" and typically shows on the right (or left) side of blog content. You can add widgets like Search, Recent Posts, or any custom widget here via Appearance > Widgets. <Badge text="Tip" />
+- **Main Sidebar:** Appears on blog pages (archives and single posts) when using a sidebar layout. This sidebar's default ID is "sidebar-1" and typically shows on the right (or left) side of blog content.
+  <Aside type="tip">You can add widgets like Search, Recent Posts, or any custom widget here via Appearance &gt; Widgets.</Aside>
 - **Footer 1, 2, 3, 4:** Four widget columns in the footer. These are used by footer layouts that have multiple columns. Footer Type 1 might place these four side by side. Add widgets to each to populate your footer columns.
 - **Sub-Footer (Footer Menu):** Not a widget area, but a menu location for a thin bar below the footer widgets.
 

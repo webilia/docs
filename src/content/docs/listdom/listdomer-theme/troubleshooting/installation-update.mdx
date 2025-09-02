@@ -5,7 +5,7 @@ description: Resolve common problems during theme installation or updates.
 sidebar:
   order: 1
 ---
-import { Aside, Steps, Badge, Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside, Steps, Card, CardGrid } from '@astrojs/starlight/components';
 
 Having issues or unexpected behavior? This guide covers installation and update problems for the Listdomer theme and associated plugins.
 
@@ -13,7 +13,8 @@ Having issues or unexpected behavior? This guide covers installation and update 
 
 - **Theme Not Appearing / Styles Missing:** After activation, if the site still looks like the old theme or has no styling, clear any caching plugins or CDN cache. Ensure that "Listdomer" is the active theme under Appearance > Themes. If using a child theme, verify the child theme has Template: listdomer in its style.css header.
 - **Required Plugins not installed:** The theme requires Listdomer Core and Redux Framework. If you missed the prompt, go to Appearance > Install Plugins and install them. Without Listdomer Core, many features won't work. If Redux is not active, the "Listdomer Settings" menu will be absent - activate Redux to restore it.
-- **Stuck on Old Version:** If you updated the theme but don't see new features, your site might still be using a cached CSS/JS. Hard-refresh your browser and clear any server caches. For major updates, also update the Listdomer Core plugin if provided. The theme and its core plugin should be on matching versions <Badge text="Tip" />.
+- **Stuck on Old Version:** If you updated the theme but don't see new features, your site might still be using a cached CSS/JS. Hard-refresh your browser and clear any server caches. For major updates, also update the Listdomer Core plugin if provided.
+  <Aside type="tip">The theme and its core plugin should be on matching versions.</Aside>
 
 <Aside type="caution">Always back up your site before installing or updating themes and plugins.</Aside>
 
