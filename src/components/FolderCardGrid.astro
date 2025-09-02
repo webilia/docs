@@ -13,7 +13,8 @@ const pages = (await getCollection('docs'))
   .sort((a, b) => a.data.title.localeCompare(b.data.title));
 ---
 <CardGrid>
-  {pages.map((page) => (
-    <LinkCard href={`/${page.slug}/`} title={page.data.title} />
-  ))}
+  {pages.map((page) => {
+    const slug = page.slug ?? page.id;
+    return <LinkCard href={`/${slug}/`} title={page.data.title} />;
+  })}
 </CardGrid>
