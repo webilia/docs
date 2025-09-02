@@ -1,6 +1,244 @@
 ---
-title: Listdom
-description: Listdom is a WordPress plugin for building directory and listing websites.
+title: Listdom Overview
+sidebar_label: Listdom Overview
+description: "A high-level introduction to Listdom Documentation — the WordPress directory & listings plugin — covering core concepts, data model, UI features, front-end dashboard, maps, search, and the add-ons ecosystem."
+sidebar:
+  label: Listdom Overview
+  order: 1
+header_button:
+  label: Download Listdom
+  url: https://www.listdom.net/
 ---
 
-Listdom is a versatile WordPress directory and listing plugin that helps you create and manage modern listings with flexible layouts and search features.
+import { Aside, Steps, Badge, Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Listdom is a directory & listings plugin for WordPress. It provides a complete data model (Listings + taxonomies), map and search experiences, front-end submission tools, and a flexible shortcode-driven UI that integrates with block editor and popular page builders like Elementor. This overview explains how the pieces fit together so you can plan, build, and scale your directory.
+
+<Aside type="note">
+  This is a product overview. For step-by-step install & activation, see <LinkCard href="/listdom/installation-and-activation/how-to-install-the-listdom-plugin-and-addons/" title="Install the Listdom Plugin & Add-ons" />.
+</Aside>
+
+## What You Get in Core
+
+- Listings (CPT): The main post type you manage and expose on the site.
+- Built-in taxonomies: Categories, Locations, Tags, Labels, and Features for organizing listings.
+- Maps: Google Maps or OpenStreetMap (Leaflet) based rendering within shortcodes and widgets.
+- Search & Filter: Visual search forms and a results view with multiple layouts.
+- Shortcodes & Widgets: Dozens of display options; can be placed on any page or in theme widget areas.
+- Front-end Dashboard: Logged-in users can add/manage listings from the front end. Some extras are available in Pro <Badge text="Pro" /> (details below).
+- Theme compatibility: Works with most themes; Listdomer theme adds deep integration and design presets.
+
+## Data Model (post types & taxonomies)
+
+### Listings
+
+- Title / Content / Excerpt: Standard WordPress fields used as listing headline and body.
+- Media: Featured image and galleries supported by the single listing templates.
+- Coordinates / Address: Used by map providers and distance search (see Maps and Search).
+
+### Taxonomies
+
+- Categories: Hierarchical grouping (e.g., Food, Hotels, Services).
+- Locations: Hierarchical geography (Country → State → City).
+- Tags: Non-hierarchical keywords.
+- Labels: Small badges like “Featured”, “Open Now”, “Top Rated”.
+- Features: Boolean flags/equipment lists (e.g., “Wi-Fi”, “Parking”).
+
+<Aside type="tip">
+  When planning your taxonomy structure, prefer **Categories** for primary grouping, **Locations** for geography, **Features** for checklists, and **Labels** for editorial flags such as “Featured”.
+</Aside>
+
+## Building the UI (shortcodes, blocks, builders)
+
+Listdom’s UI is composable. You can combine shortcodes on any page to produce listing grids, carousels, maps, search forms, and more. All shortcodes accept parameters for layout, filtering, and styling.
+
+- Shortcodes: Create in Listdom → Shortcodes. Each shortcode can be used on multiple pages.
+- Widgets: Theme-side widget areas support Listdom widgets (e.g., Simple Map, Search, Terms).
+- Page builders: Elementor/Divi add-ons provide native widgets that mirror shortcode functionality.
+
+<Aside type="note">
+  Some advanced layouts, filters, and builder widgets are contributed by add-ons. Those features appear automatically when the add-on is active and will be noted throughout the docs.
+</Aside>
+
+## Maps
+
+- Providers: Google Maps or OpenStreetMap (Leaflet).
+- Markers & Info windows: Category/price/label markers; popup info windows on click.
+- Clustering & bounds: Auto-clustered markers with zoom/pan controls.
+- Geocoding: Address to coordinate resolution for search and display.
+
+<Aside type="tip">
+  Use OpenStreetMap (Leaflet) if you prefer a **no-API-key** setup. Switch to Google Maps for **styled maps** and **Directions**. Advanced marker types and styles are expanded by the **Advanced Map Add-on**.
+</Aside>
+
+## Search & Filter
+
+- Search form builder: Create forms with fields for keywords, category, location, price, custom fields, etc.
+- Results view: Grid, list, or map-based results, configurable per form.
+- Ordering & pagination: Sort by date, price, distance; paginate or infinite scroll depending on layout.
+- URL state: Search selections can be reflected in query params for sharable results.
+
+<Aside type="note">
+  Some specialized fields (e.g., **Radius Search**, or **AJAX Search**) may require their respective add-ons. See the “Search & Filter” docs for the full fields catalog.
+</Aside>
+
+## Front-end Dashboard
+
+A dedicated user area where logged-in users can add and manage their listings, profile, and (optionally) other commerce flows.
+
+- Core capabilities: Add/Edit/Delete listings, media, taxonomy assignment.
+- Guest submission <Badge text="Pro" />: Allow non-registered users to submit listings for review.
+- Independent Add Listing Form <Badge text="Pro" />: Embed the submission form outside the dashboard.
+- Dashboard menus <Badge text="Pro" />: Extra navigational items (e.g., billing, profile enhancements).
+
+<Aside type="caution">
+  Submission permissions, moderation, and default statuses are controlled in Listdom settings. Review your workflow before opening submissions to the public.
+</Aside>
+
+## Add-ons Ecosystem (high level)
+
+Extend Listdom with official add-ons. Examples include:
+
+- Monetization: Subscriptions, Ads, Top-Up, Labelize.
+- User features: Favorites, Compare, Reviews/Rating, Claim/Verify, Teams.
+- Search & UX: Advanced Map, APS (Portal Search), Advanced Icons.
+- Data & Integration: CSV/Excel Importer, Connect, KML, Bridge & membership integrations.
+- Verticals: Jobs, Franchise, Auctions, Booking, SMS, Rank.
+
+<Aside type="note">
+  Add-ons may add: new settings pages, shortcode parameters, search fields, dashboard menus, and admin columns/metaboxes. Each add-on’s documentation details **where** its options appear across the UI.
+</Aside>
+
+## Typical Architecture
+
+1. Data definitions: Prepare Categories, Locations, Features, Labels, Tags.
+2. Listing templates: Decide on single-listing layout and fields.
+3. Search experience: Build a search form and choose a results layout.
+4. Browse pages: Create category/location landing pages with the relevant shortcodes.
+5. Maps: Place a combined map + results page or a simple map widget.
+6. Submission flow: Enable front-end dashboard and permissions; add billing if monetizing.
+7. Enhancements: Add Reviews, Favorites, Compare, and Labelize as needed.
+
+## How to Start with Listdom?
+
+View Listdom Demo
+
+After downloading the Listdom from the WordPress repository, it’s time to start your amazing journey of creating a valuable directory website. Here we will review the main steps to create the first listings and then show them on the site. A complete step-by-step process of setting up the Listdom listing plugin and getting access to its many powerful features in the best way.
+
+You might also import the Listdom dummy data. In this situation, there are some existing listings and taxonomies on your site. This guide helps you to understand what’s there and where to start.
+
+### Steps Overview
+
+- Installation and activation of Listdom: Listdom is a WordPress plugin. So first you need to install it on your site.
+- Add-ons installation: Listdom add-ons can add extra features to the Listdom main plugin.
+- Settings: Like any other new plugin on your site, after installation, you have to configure it.
+- First listing creation: It’s time to create the first listing based on your website niche and purpose.
+- Configuration of the listing taxonomies: A listing page, also called a directory page, is the main part of the plugin. Each item on your directory site like jobs, hotels, ads, cars, homes, etc. is a listing. The listings can be gathered in different groups with the same taxonomy. Categories, Labels, and Tags are some of them. Also, they can have some custom fields (attributes) too.
+- Skin choosing and shortcode creation: You can show a list of the listings in different styles and skins on any of your site pages. To do that you have to create shortcodes. Each shortcode can be inserted in site pages with various methods.
+- Setting up search and filter forms: The list of the directories (listings) can have a search or filter form on top or any other position.
+- Setting up frontend dashboard: Listdom helps you to have a dashboard page that enables your site users to submit listings without entering the WordPress admin space.
+
+### Quick Start (end-to-end)
+
+<Steps>
+1. Install **Listdom** and activate your required add-ons.
+2. Create base taxonomies: **Categories**, **Locations**, **Features**, **Labels**, **Tags**.
+3. Add a few **Listings** with addresses/coordinates and media.
+4. Build a **Shortcode** for listings (grid/list) and insert it on a page named **All Listings**.
+5. Build a **Search Form** (choose fields & results layout) and publish a **Search** page.
+6. Add a **Map** shortcode or widget to your homepage.
+7. Enable the **Front-end Dashboard** and add its link to the site menu. Turn on guest submission <Badge text="Pro" /> if needed.
+</Steps>
+
+### Installation and Activation of Listdom
+
+The first step to start using Listdom is to install and activate the plugin. You can download the Listdom from the WordPress repository. For more detailed information, you can read the full guide on how to install and activate the Listdom.
+
+### Add-ons Installation
+
+Several add-ons add incredible features to the Listdom. You can see the list of the Listdom addons here. To see the full list of the documentation of each of them, you can see the Listdom addons documentation.
+
+### Overall Settings
+
+Before publishing your first listing, there are some settings that you must pay attention to. The settings consist of several topics including Google Recaptcha, maps settings, colors, fonts, etc. The settings are not required to use Listdom. But you need them to add extra functionalities to your site. For example, to use Google Maps or OpenStreetMap, you need to get an API from them. To increase the security of your site, the Google Recaptcha Site and Security keys are required. The details of each part can be achieved through Listdom settings documentation.
+
+### First Listings Creation
+
+Now it’s time to create your first listing. As it was said, a listing is the main item of your directory site. Everything starts from entering a name and continues with various options to modify its appearance and functions. If you’re looking for a starting point, read the Listdom listing creation guide. Also, you may want to bulk import your pre-made listings. In this case, you can use the Listdom Import / Export feature.
+
+### Configuration of the Listing Taxonomies
+
+The listings taxonomies play a main role on your directory site. You can create different categories, labels, tags, and locations, and assign them to desired listings. For example, you can create a location named New York. Then you can choose it on the desired listings setting to be their default location. The Listdom taxonomies guide can be helpful here. To create and manage the custom fields (attributes) click here.
+
+### Skin Choosing and Shortcode Creation
+
+After publishing the listings, it’s time to show a list of them on your site. You can show your listings in different skins and views including List view, Grid view, Half Map view, Table view, and many more. With some settings applied, Listdom has over 80 ready views that can be used with any WordPress theme.
+
+Listdom has a powerful shortcode builder that generates specific shortcodes with desired settings. Based on the page builder or editor you use like WordPress Classic Editor, Block Editor, Elementor, etc., you can insert the shortcodes with different methods in your site. Mostly it’s possible to paste the shortcode term directly in a text area or use a Shortcode widget/module. Get to know the Listdom Shortcode Builder more.
+
+### Setting Up Search and Filter Forms
+
+Listdom search and filter builder empowers you to create simple to advanced forms to assign to your shortcodes. To learn more, take a look at the specific documentation of Listdom search and filter builder.
+
+### Setting Up Dashboard
+
+Until now, you have completed your directory site. If you need your site users to be able to publish listings, it’s time to make the Listdom frontend dashboard. To learn more you can read Listdom frontend dashboard documentation. That’s it. Creating your directory site is as easy as this. Enjoy the Listdom.
+
+## Why Listdom?
+
+The Listdom is the most advanced WordPress plugin in the category of listing and directory. This plugin is focused on providing all the features that you need in the highest possible simplicity. Also, you can see its power with a simple comparison with available plugins in the market. The comparison result will be unbelievable.
+
+- Covers all the features that a high-scale listing and directory project needs with a great root map for future developments.
+- Consists of all the features that you need to support a wide range of industries in one package.
+- Follows the best practices in all concepts including coding, user experiences, optimization, customizability, etc.
+- Offers wonderfully predefined patterns that are available in your business as you have this plugin.
+- Define category fields as you wish and work according to your business.
+- Supports different payment gateways and amazing structures to add new ones dedicated to clients.
+- Advanced filtering system that is available in the front end side and it gives amazing flexibility to end-users.
+- Google Maps integrated.
+- Compatible with a wide range of other third-party plugins and templates.
+
+## Roles, Permissions, and Workflow
+
+- Admins/Editors: Full management of listings, taxonomies, settings, and shortcodes.
+- Authors/Contributors: Limited to their own listings, subject to moderation rules.
+- Guests <Badge text="Pro" />: Can submit via guest submission if enabled; items go to pending by default.
+
+<Aside type="tip">
+  Combine **moderation** with **email notifications** so editors are alerted on new submissions, claims, or reviews (where applicable).
+</Aside>
+
+## Performance & SEO
+
+- Pagination: Keep listing pages light and fast.
+- Schema/Markup: Single listing templates can surface structured data (varies by vertical and add-ons).
+
+## Compatibility & Theming
+
+- Works with most themes. The Listdomer theme provides opinionated styles, Elementor headers/footers, and extra presets for archive and single views.
+- Page builders: Elementor & Divi add-ons expose native widgets mirroring shortcodes.
+- Multilingual/RTL: Compatible with common translation and RTL setups.
+
+## Where to Go Next
+
+- Shortcodes index: Explore available shortcodes and parameters.
+- Search & Filter: Build powerful forms and tailored results.
+- Front-end Dashboard: Configure the user portal and menus.
+- Add-ons: Start with the ones that match your goals (e.g., Subscriptions, Reviews, Advanced Map).
+
+## Examples
+
+<CardGrid>
+  <Card title="Local Business Directory">
+    Use Categories (Restaurants, Shops, Services) and a City-based Location tree. Build a search form with Category, Location, and Open Now; add Reviews and Favorites for engagement. Place a Map + Results page for browsing.
+  </Card>
+  <Card title="Real Estate Portal">
+    Define property Categories and Features (Bedrooms, Parking), display Prices on map markers with Advanced Map, and add a multi-step submission. Monetize with Subscriptions and highlight paid listings with Labels.
+  </Card>
+  <Card title="Events Guide">
+    Create an Events category set, enable date fields and a calendar view (via the relevant add-on), and offer Compare to weigh multiple venues. Use APS for advanced tools like AJAX search.
+  </Card>
+</CardGrid>
+
+<LinkCard href="https://wordpress.org/plugins/listdom/" title="Listdom on WordPress repository" />
+
