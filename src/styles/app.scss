@@ -64,3 +64,11 @@ ul.top-level {
 a.primary, a.header-button {
   border-radius: 20px;
 }
+
+main a {
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
