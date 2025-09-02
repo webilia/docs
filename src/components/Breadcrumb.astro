@@ -5,8 +5,7 @@ import path from 'node:path';
 const route = Astro.locals.starlightRoute;
 const { entry } = route;
 // If breadcrumb explicitly disabled in frontmatter, do not render anything.
-// Extend entry data with optional `breadcrumb` property.
-const { breadcrumb } = entry.data as { breadcrumb?: boolean };
+const { breadcrumb } = entry.data;
 if (breadcrumb === false) return;
 
 const docsRoot = path.resolve(process.cwd(), 'src', 'content', 'docs');

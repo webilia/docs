@@ -13,6 +13,7 @@ export const collections = {
             url: z.string().url(),
           })
           .optional(),
+        breadcrumb: z.boolean().optional(),
       }),
     }),
   }),
