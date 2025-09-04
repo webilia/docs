@@ -1,6 +1,6 @@
 ---
-title: Elementor Template Not Showing in Listdom's Details Page Settings
-description: Fix the issue where Elementor templates do not appear in Listdom's Details Page settings.
+title: Elementor Template Not Showing in Listdom's Single Listing Settings
+description: Fix the issue where Elementor templates do not appear in Listdom's Single Listing settings.
 sidebar:
   hidden: true
 ---
@@ -9,11 +9,11 @@ import { Steps, Aside } from '@astrojs/starlight/components';
 
 ## Problem
 
-**I created an Elementor template for listings, but it's not appearing in the Details Page settings of Listdom. What's going wrong?**
+**I created an Elementor template for listings, but it's not appearing in the Single Listing settings of Listdom. What's going wrong?**
 
 ## Answer
 
-To ensure your Elementor template shows up in Listdom's Details Page settings, the templates should be created within **Listdom → Elementor Styles**.  
+To ensure your Elementor template shows up in Listdom's Single Listing settings, the templates should be created within **Listdom → Elementor Styles**.  
 If you've built the template using Elementor's default theme builder, it won't be recognized or available in the Listdom settings.
 
 <Aside type="note">
@@ -27,12 +27,12 @@ Listdom's custom integration with Elementor is required. Templates created in El
    - Go to your WordPress dashboard.  
    - Navigate to **Listdom → Elementor Styles**.  
    - Create your template here.  
-   - Once saved, these templates become selectable in the **Details Page settings** of Listdom.  
+   - Once saved, these templates become selectable in the **Single Listing settings** of Listdom.  
 
    **Why it Matters:** Templates made in Elementor's default Theme Builder aren't linked to Listdom's functionality, which is why you won't see them in Listdom settings. By using Listdom's Elementor integration, the templates will be available for listings, subscriptions, and more.  
 
 2. **Assign Templates to Different Levels**  
-   - **Details Page Setting:** Go to **Listdom → Settings → Single Listing**, and assign a default template for all listings.  
+   - **Single Listing Page Setting:** Go to **Listdom → Settings → Single Listing**, and assign a default template for all listings.  
    - **Category Level:** Head to the category settings and assign a specific Elementor style to listings within that category. Useful if you have a paid subscription category with a different design.  
    - **Individual Listings:** When adding or editing a listing, you can choose a unique Elementor style for that listing only. This allows complete flexibility for special cases.  
 </Steps>
