@@ -1,6 +1,6 @@
 ---
 title: How to Add Custom Fields to the Listings of Listdom?
-description: Learn how to add custom fields to listings using Listdom Attributes or the ACF Plugin with the Listdom ACF Addon.
+description: Learn how to add custom fields to listings using Listdom custom fields or the ACF Plugin with the Listdom ACF Addon.
 sidebar:
   hidden: true
 ---
@@ -8,7 +8,7 @@ sidebar:
 import { Aside, Steps } from '@astrojs/starlight/components';
 
 ## Introduction
-Adding custom fields to your listings in Listdom enables you to provide a richer, more tailored experience for your audience. Custom fields allow you to include unique details relevant to your niche, whether it's rental properties, restaurant menus, or service offerings. This guide walks you through two powerful methods for adding custom fields in Listdom: **Listdom Attributes** and **ACF Plugin paired with the Listdom ACF Addon**.
+Adding custom fields to your listings in Listdom enables you to provide a richer, more tailored experience for your audience. Custom fields allow you to include unique details relevant to your niche, whether it's rental properties, restaurant menus, or service offerings. This guide walks you through two powerful methods for adding custom fields in Listdom: **Listdom custom fields** and **ACF Plugin paired with the Listdom ACF Addon**.
 
 Explore the step-by-step processes for both methods, the advantages and considerations of each, and how these custom fields enhance your listings.
 
@@ -17,24 +17,24 @@ A custom field is an additional input you can add to a listing, going beyond def
 
 ## Available Ways to Add Custom Fields
 
-### 1. Listdom Attributes
+### 1. Listdom custom fields
 
-**What are Listdom Attributes?**  
-Listdom Attributes are built-in options that allow you to add extra data fields without needing third-party plugins. These fields are seamlessly integrated with Listdom's interface, ensuring fast performance and easy setup.
+**What are Listdom custom fields?**  
+Listdom custom fields are built-in options that allow you to add extra data fields without needing third-party plugins. These fields are seamlessly integrated with Listdom's interface, ensuring fast performance and easy setup.
 
-**Why Choose Listdom Attributes?**  
+**Why Choose Listdom custom fields?**  
 - No External Plugins Required: They're built into Listdom, reducing the need for external dependencies.  
-- Streamlined for Common Fields: Attributes are optimized for general usage, making them perfect for fields like "Text fields," or "Numeric fields."  
-- Efficient and Performance-Optimized: Attributes are native to Listdom, which means faster loading times and a smooth user experience.  
+- Streamlined for Common Fields: custom fields are optimized for general usage, making them perfect for fields like "Text fields," or "Numeric fields."  
+- Efficient and Performance-Optimized: custom fields are native to Listdom, which means faster loading times and a smooth user experience.  
 
-For more on setting up attributes, check out the **Listings attribute settings**.
+For more on setting up custom fields, check out the **Listings custom field settings**.
 
-**Setting Up Custom Fields with Attributes**
+**Setting Up Custom Fields with custom fields**
 
 <Steps>
-1. Access the Attributes Section: Navigate to your Listdom dashboard, go to **Listings → Attributes**.  
-2. Add New Attributes: Enter a name (e.g., "Operating Hours"), choose an input type (text, dropdown, etc.), and assign it to relevant categories.  
-3. Save and Apply: Save the attribute, and it will automatically appear in the listing submission form.  
+1. Access the custom fields Section: Navigate to your Listdom dashboard, go to **Listings → custom fields**.  
+2. Add New custom fields: Enter a name (e.g., "Operating Hours"), choose an input type (text, dropdown, etc.), and assign it to relevant categories.  
+3. Save and Apply: Save the custom field, and it will automatically appear in the listing submission form.  
 </Steps>
 
 ---
@@ -45,8 +45,8 @@ For more on setting up attributes, check out the **Listings attribute settings**
 The Advanced Custom Fields (ACF) Plugin allows you to create advanced, highly customizable fields for WordPress posts and pages, making it an excellent choice for users who need flexibility and extensive options for field types. The Listdom ACF Addon integrates ACF custom fields into your Listdom listings.
 
 **Why Use ACF for Custom Fields?**  
-- Wide Variety of Field Types: ACF offers a broader range of fields than Listdom Attributes, such as image fields, and relationship fields.  
-- Ideal for Advanced Customization Needs: For businesses needing fields like "Image Gallery," "Client Testimonials," or complex data like product compatibility, ACF is an ideal solution.  
+- Wide Variety of Field Types: ACF offers a broader range of fields than Listdom custom fields, such as relationship fields.  
+- Ideal for Advanced Customization Needs: For businesses needing fields like "Extra Image Gallery," or complex data like product compatibility, ACF is an ideal solution.  
 
 **Setting Up Custom Fields with ACF and Listdom ACF Addon**
 
@@ -58,22 +58,22 @@ The Advanced Custom Fields (ACF) Plugin allows you to create advanced, highly cu
 3. Connect ACF Fields with Listdom: Go to **Location Rules** of the field group and link your new ACF fields with Listdom listings.  
 </Steps>
 
-For installation instructions, see [How to Install the Listdom Plugin and Add-ons](/listdom/installation-and-activation/how-to-install-the-listdom-plugin-and-add-ons/) and the **Listdom ACF Addon Documentation**.
+For installation instructions, see [How to Install the Listdom Plugin and Add-ons](/listdom/installation-and-activation/how-to-install-listdom-plugin-and-addons/) and the **Listdom ACF Addon Documentation**.
 
 ---
 
-## Key Differences Between Listdom Attributes and ACF Plugin
+## Key Differences Between Listdom custom fields and ACF Plugin
 
-| Feature | Listdom Attributes | ACF Plugin + Listdom ACF Addon |
+| Feature | Listdom custom fields | ACF Plugin + Listdom ACF Addon |
 |---------|-------------------|--------------------------------|
 | Complexity | Simple and straightforward | Advanced; requires ACF knowledge |
-| Field Types | Basic (text, dropdown, numeric, etc.) | Extensive (gallery, relationship, etc.) |
+| Field Types | Basic (text, dropdown, numeric, image, etc.) | Extensive (gallery, relationship, etc.) |
 | Setup | Built-in, easy to configure | Involves plugin installation and setup |
 | Ideal For | General custom fields | Advanced, detailed, or multimedia fields |
 | Performance | High, no external dependency | Slightly impacted due to plugin dependency |
 
 <Aside type="tip">
-Use **Listdom Attributes** for basic customization needs and **ACF Plugin** for complex, custom-tailored fields.
+Use **Listdom custom fields** for basic customization needs and **ACF Plugin** for complex, custom-tailored fields.
 </Aside>
 
 ---
@@ -84,10 +84,10 @@ Use **Listdom Attributes** for basic customization needs and **ACF Plugin** for 
 Custom fields enhance listing pages by providing users with additional, relevant information.  
 
 2. **Elementor and Divi Widgets**  
-If you're using Elementor or Divi page builders, Listdom allows you to display custom fields within widgets. See the **Elementor Addon Documentation** and **Divi Addon Documentation**.  
+If you're using Elementor or Divi page builders, Listdom allows you to display custom fields within widgets. See the [Elementor Addon Documentation](/listdom/addons/elementor/) and [Divi Addon Documentation](/listdom/addons/divi/).  
 
 3. **Search and Filter Forms**  
-Custom fields can be integrated into Listdom's search and filter forms, enabling filtering by amenities, ratings, or custom tags. Refer to [How to Create a Search and Filter Form](/listdom/search-filtering/) for guidance.  
+Custom fields can be integrated into Listdom's search and filter forms, enabling filtering by amenities, ratings, or custom tags. Refer to [How to Create a Search and Filter Form](/listdom/search-filtering/create-search-filter-form/) for guidance.  
 
 ---
 
@@ -100,4 +100,4 @@ Custom fields can be integrated into Listdom's search and filter forms, enabling
 ---
 
 ## Final Thoughts on Adding Custom Fields to Listdom Listings
-Adding custom fields enhances the functionality and user experience of your Listdom listings, whether you opt for the simplicity of Listdom Attributes or the advanced flexibility of the ACF Plugin. By selecting the right approach based on your site's needs, you can offer a richer, more user-focused listing experience.
+Adding custom fields enhances the functionality and user experience of your Listdom listings, whether you opt for the simplicity of Listdom custom fields or the advanced flexibility of the ACF Plugin. By selecting the right approach based on your site's needs, you can offer a richer, more user-focused listing experience.
